@@ -17,16 +17,27 @@ Future Lectures will Cover Special Topics as Requested by the Course Community
 ### Course Outline 
 
 1. What is the Bitcoin? 
-  + What is Money? 
-  + What is the Bitcoin? 
-  + Why are Bitcoins Special? 
-  + Who Controls the Bitcoin? 
-  + Why are Bitcoins Worth Anything?
-  + Some Great Introductions 
+    1.1 What is Money? 
+    1.2 What is the Bitcoin? 
+    1.3 Why are Bitcoins Special? 
+    1.4 Who Controls the Bitcoin? 
+    1.5 Why are Bitcoins Worth Anything?
+    1.6 Some Great Introductions 
 2. How to Acquire and Spend Bitcoins 
 3. The Bitcoin Economy 
 4. Bitcoin Mining 
 5. Bitcoin Speculation 
 6. The Future of the Bitcoin 
 
+#### 1.1 - What is Money? 
 
++ The Neurosurgeon and the Baker Dilemma 
++ Money is usually defined in terms of three functions: 
+    + Means of Exchange 
+    + Store Value 
+    + Unit of Account 
++ We tend to also to care about the following properties: 
+    + Divisibility 
+    + Durability 
+    + Fungibility 
+    + Verifiability
