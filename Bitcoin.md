@@ -14,22 +14,22 @@ Anyone interested in the bitcoin
 No special background is required or expected
 Future Lectures will Cover Special Topics as Requested by the Course Community
 
-### Course Outline 
+# Course Outline 
 
 1. What is the Bitcoin? 
-    1.1 What is Money? 
-    1.2 What is the Bitcoin? 
-    1.3 Why are Bitcoins Special? 
-    1.4 Who Controls the Bitcoin? 
-    1.5 Why are Bitcoins Worth Anything?
-    1.6 Some Great Introductions 
+    + 1.1 - What is Money? 
+    + 1.2 - What is the Bitcoin? 
+    + 1.3 - Why are Bitcoins Special? 
+    + 1.4 - Who Controls the Bitcoin? 
+    + 1.5 - Why are Bitcoins Worth Anything?
+    + 1.6 - Some Great Introductions 
 2. How to Acquire and Spend Bitcoins 
 3. The Bitcoin Economy 
 4. Bitcoin Mining 
 5. Bitcoin Speculation 
 6. The Future of the Bitcoin 
 
-#### 1.1 - What is Money? 
+### 1.1 - What is Money? 
 
 + The Neurosurgeon and the Baker Dilemma 
 + Money is usually defined in terms of three functions: 
@@ -41,3 +41,12 @@ Future Lectures will Cover Special Topics as Requested by the Course Community
     + Durability 
     + Fungibility 
     + Verifiability
+
+### 1.2 - What is the Bitcoin?
+
+Bitcoin is an experimental digital currency that enables instant payments to anyone, anywhere in the world. Bitcoin uses peer-to-peer technology to operate with no central authority: managing transactions and issuing money are carried out collectively by the network.
+
+### 1.3 - Why are Bitcoins Special? 
+### 1.4 - Who Controls the Bitcoin? 
+### 1.5 - Why are Bitcoins Worth Anything?
+### 1.6 - Some Great Introductions 
