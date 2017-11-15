@@ -41,6 +41,12 @@ Future Lectures will Cover Special Topics as Requested by the Course Community
     + Durability 
     + Fungibility 
     + Verifiability
+    
+#### Why is Money Worth Anything?
+
++ A group of people must agree to exchange goods and services for the money 
++ Some authority must validate and maintain the currency (usually a government) 
++ Currencies generally are backed by something such as attachment to a respected entity (US government) or some finite resource like gold 
 
 ### 1.2 - What is the Bitcoin?
 
