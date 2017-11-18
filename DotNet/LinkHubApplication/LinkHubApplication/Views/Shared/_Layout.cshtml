@@ -1,0 +1,44 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+    <title>@ViewBag.Title - ASP.NET WEB APPLICATION </title>
+    <link href="@Url.Content("~/Content/Site.css")" rel="stylesheet" type="text/css" />
+    <link href="@Url.Content("~/Content/bootstrap.min.css")" rel="stylesheet" type="text/css" />
+    <script src="~/Scripts/modernizr-2.5.3.js"></script>
+</head>
+
+<body>
+    <div class="navbar navbar-inverse">
+        <div>
+            <div>
+                <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar collapse">
+
+                </button>
+                @Html.ActionLink("LinkHub", "Index", "Home", new { Area = "Common" }, new { @class = "navbar-brand" })    
+            </div>
+            <div>
+               <ul class ="nav navbar-nav" >
+                   <li>@Html.ActionLink("Home", "Index" , new { Controller = "Home", Area = "Common"}) </li>
+                   <li>@Html.ActionLink("Category", "Index" , new { Controller = "Category", Area = "Admin"}) </li>
+                   <li>@Html.ActionLink("ListCategory", "Index" , new { Controller = "ListCategory", Area = "Admin"}) </li>
+                   <li>@Html.ActionLink("Register", "Index" , new { Controller = "Register", Area = "Security"}) </li>
+                   <li>@Html.ActionLink("SubmitURL", "Index" , new { Controller = "URL", Area = "User"}) </li>
+                   <li>@Html.ActionLink("ApproveURLs", "Index" , new { Controller = "ApproveURLs", Area = "Admin"}) </li>
+                   <li>@Html.ActionLink("BrowseURLs", "Index" , new { Controller = "BrowseURL", Area = "Common"}) </li>
+                   <li>@Html.ActionLink("ListUser", "Index" , new { Controller = "ListUser", Area = "Admin"}) </li>
+                   <li>@Html.ActionLink("Login", "Index" , new { Controller = "Login", Area = "Security"}) </li>
+               </ul>
+            </div>
+        </div>
+    </div>
+    <div class="container body-content">
+    @RenderBody()
+        <hr />
+        <footer>
+            <p>&copy; @DateTime.Now.Year - ASP.NET APPLICATION</p>
+        </footer>
+        </div>
+    <script src="~/Scripts/jquery-1.9.0.min.js"></script>
+    <script src="~/Scripts/bootstrap.min.js"></script>
+</body>
+</html>

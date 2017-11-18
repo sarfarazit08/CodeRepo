@@ -1,0 +1,97 @@
+﻿@model IEnumerable<BOL.tbl_Url>
+@{
+    ViewBag.Title = "Index";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+<script>
+    function ConfirmApprove() {
+        return confirm("Are you sure you want to Approve?");
+    }
+    function ConfirmReject() {
+        return confirm("Are you sure you want to Reject?");
+    }
+</script>
+<h2>Manage URLs</h2>
+@if(TempData["Msg"]!= null)
+{
+    <h4>@TempData["Msg"].ToString()</h4>
+}
+<h5>
+    @if(ViewBag.Status == "P")
+{
+        <b>@Html.ActionLink("Pending URLs", "Index", new { Status = "P" })</b> 
+}
+else
+{
+        @Html.ActionLink("Pending URLs", "Index", new { Status = "P" })
+}
+
+    @if(ViewBag.Status == "A")
+{
+        <b>@Html.ActionLink("Approved URLs", "Index", new { Status = "A" })</b> 
+}
+else
+{
+        @Html.ActionLink("Approved URLs", "Index", new { Status = "A" })
+}
+
+    @if(ViewBag.Status == "R")
+{
+        <b>@Html.ActionLink("Rejected URLs", "Index", new { Status = "R" })</b> 
+}
+else
+{
+        @Html.ActionLink("Rejected URLs", "Index", new { Status = "R" })
+}
+</h5>
+<table class="table">
+    <tr>
+        <th>Approve/Reject</th>
+        <th>Url Id
+        </th>
+        <th>Url Title
+        </th>
+        <th>Url
+        </th>
+        <th>Url Desc
+        </th>
+        <th>Category Id
+        </th>
+        <th>User Id
+        </th>
+        <th>Is Approved
+        </th>
+        
+    </tr>
+
+    @foreach (var item in Model) {
+        <tr>
+            <td>
+                @Html.ActionLink("Approve", "Approve", new {  id=item.UrlId  }, new { onclick = "return ConfirmApprove()"}) |
+            @Html.ActionLink("Reject", "Reject", new {  id=item.UrlId  }, new { onclick = "return ConfirmReject()"}) 
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.UrlId)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.UrlTitle)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Url)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.UrlDesc)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.CategoryId)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.UserId)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.IsApproved)
+            </td>
+        </tr>
+}
+
+</table>
