@@ -1,0 +1,29 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio 2012
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ESRIMinimalMapApplication1", "ESRIMinimalMapApplication1\ESRIMinimalMapApplication1.csproj", "{96B6AD32-2CEE-4309-9B22-1714643D6F71}"
+	ProjectSection(ProjectDependencies) = postProject
+		{07EB6418-F293-4C3A-A710-CF4A6F2398FD} = {07EB6418-F293-4C3A-A710-CF4A6F2398FD}
+	EndProjectSection
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ESRIMinimalMapApplication1.Web", "ESRIMinimalMapApplication1.Web\ESRIMinimalMapApplication1.Web.csproj", "{07EB6418-F293-4C3A-A710-CF4A6F2398FD}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{96B6AD32-2CEE-4309-9B22-1714643D6F71}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{96B6AD32-2CEE-4309-9B22-1714643D6F71}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{96B6AD32-2CEE-4309-9B22-1714643D6F71}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{96B6AD32-2CEE-4309-9B22-1714643D6F71}.Release|Any CPU.Build.0 = Release|Any CPU
+		{07EB6418-F293-4C3A-A710-CF4A6F2398FD}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{07EB6418-F293-4C3A-A710-CF4A6F2398FD}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{07EB6418-F293-4C3A-A710-CF4A6F2398FD}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{07EB6418-F293-4C3A-A710-CF4A6F2398FD}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+EndGlobal

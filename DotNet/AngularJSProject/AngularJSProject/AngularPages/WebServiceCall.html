@@ -1,0 +1,46 @@
+﻿<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" >
+<head>
+    <title></title>
+    <script src="../angular.js"></script>
+    <script src="WebServiceCall.js"></script>
+</head>
+<body ng-app ="myModule">
+    <div ng-controller="myController">
+        <table>
+            <thead>
+                <tr>
+                    <th>
+                        EmpID
+                    </th>
+                    <th>
+                        Name
+                    </th>
+                    <th>
+                        Age
+                    </th>
+                    <th>
+                        City
+                    </th>                    
+                </tr>
+            </thead>
+            <tbody>
+                <tr ng-repeat="employee in employees">
+                    <td>
+                        {{employee.EmpID}}
+                    </td>
+                    <td>
+                        {{employee.Name}}
+                    </td>
+                    <td>
+                        {{employee.Age}}
+                    </td>
+                    <td>
+                        {{employee.City}}
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+</body>
+</html>
