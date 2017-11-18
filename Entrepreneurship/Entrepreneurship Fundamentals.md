@@ -764,7 +764,7 @@ Non-binding document that identifies:
 
 ### Preparing Mentally
 
-<img src='s-curve.png' alt='s-curve' />
+<img src='./resources/s-curve.png' alt='s-curve' />
 
 ### Staying True to Your Vision
 
