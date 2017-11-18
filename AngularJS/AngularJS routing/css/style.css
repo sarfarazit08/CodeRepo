@@ -1,0 +1,28 @@
+.header {
+    width: 1000px;
+    height: 20px;
+    text-align: center;
+    background-color: #BDBDBD;
+}
+
+.footer {
+    background-color: #BDBDBD;
+    text-align: center;
+}
+
+.nav {
+    background-color: red;
+    width: 1000px;
+}
+
+.mainContent {
+    height: 500px;
+    background-color: #E6E6E6;
+    width: 650px;
+}
+
+a{
+    display:block;
+    padding:5px;
+	text-align: center;	
+}

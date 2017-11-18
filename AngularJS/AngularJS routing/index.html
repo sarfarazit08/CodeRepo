@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" ng-app="app">
+
+<head>
+    <title>{{message}}</title>
+    <script src="js/angular.min.js"></script>
+    <script src="js/angular-route.min.js"></script>
+    <link href="css/style.css" rel="stylesheet" />
+    <script src="js/app.js"></script>
+</head>
+
+<body>
+    <table style="font-family: Arial">
+        <tr>
+            <td colspan="3" class="header">
+                <h1>
+                    AngularJS - Routing and Template Demo
+                </h1>
+            </td>
+        </tr>
+        <tr class="nav">
+            <td>
+                <a href="#/home">Home</a>
+            </td>
+            <td>
+                <a href="#/courses">Courses</a>
+            </td>
+            <td>
+                <a href="#/students">Students</a>
+            </td>
+        </tr>
+        <tr>
+            <td colspan="3" class="mainContent">
+                <ng-view></ng-view>
+            </td>
+        </tr>
+        <tr>
+            <td colspan="3" class="footer">
+                <b><a href="http://sarfarazit.wordpress.com"> 2017 &copy; sarfarazit.wordpress.com</a></b>
+            </td>
+        </tr>
+    </table>
+</body>
+
+</html>

@@ -1,0 +1,11 @@
+<ul ng-repeat="engineer in engineers">
+	<li>{{ engineer.name | uppercase }} 
+		<ul>			
+			<li>{{ engineer.gender | gender  }}</li>
+			<li>{{ engineer.dateOfBirth | date:"dd-MMM-yyyy" }}</li>			
+			<li>{{ engineer.city }}</li>
+			<li>{{ engineer.salary | number:2 }}</li>
+			<li>{{ engineer.salary | currency:"Rs. " : 2}}</li>
+		</ul>
+	</li>
+</ul>

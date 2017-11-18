@@ -1,0 +1,22 @@
+<table>
+	<thead>
+		<tr>
+			<th>Name</th>
+			<th>Gender</th>
+			<th>Date Of Birth</th>			
+			<th>City</th>
+			<th>Salary (Number)</th>
+			<th>Salary (Currency)</th>
+		</tr>
+	</thead>
+	<tbody>
+		<tr ng-repeat="engineer in engineers">
+			<td>{{ engineer.name | uppercase }}</td>
+			<td>{{ engineer.gender | gender  }}</td>
+			<td>{{ engineer.dateOfBirth | date:"dd-MMM-yyyy" }}</td>			
+			<td>{{ engineer.city }}</td>
+			<td>{{ engineer.salary | number:2 }}</td>
+			<td>{{ engineer.salary | currency:"Rs. " : 2}}</td>
+		</tr>
+	</tbody>
+</table>

@@ -1,0 +1,121 @@
+body {
+  background: url(https://s3-us-west-2.amazonaws.com/s.cdpn.io/123941/bg-sky.png);
+  background-repeat: repeat !important;
+  background-attachment: fixed;
+}
+
+ul.rel-results {
+  list-style-type: circle;
+}
+
+.nojs {
+  padding: 2px;
+  padding-left: 6px;
+  margin-bottom: 5px;
+  background: #ff0000;
+  color: #ffffff;
+  font-size: 15px;
+  border: 1px solid #ff0000;
+  border-radius: 5px;
+}
+
+.outerdiv {
+  margin-top: 60px;
+}
+
+.span-style {
+  font-size: 17px;
+}
+
+.search-bar {
+  width: 100%;
+  max-width: 500px;
+  margin-bottom: 25px;
+}
+
+.bar-style {
+  background: #337AB7;
+  color: rgb(250, 250, 250);
+}
+
+.related-results {
+  -moz-animation-delay: 1.5s;
+  -webkit-animation-delay: 1.5s;
+}
+
+.movie-poster {
+  float: left;
+  width: 150px;
+  margin-right: 10px;
+  -moz-animation-delay: 1s;
+  -webkit-animation-delay: 1s;
+}
+
+.span-outer {
+  font-size: 20px;
+}
+
+.outer-p {
+  margin-top: 10px;
+}
+
+.inner-p {
+  margin: 2px;
+}
+
+.outer-p-2 {
+  margin-top: 5px;
+}
+
+.outer-p-3 {
+  margin-top: 15px;
+}
+
+.divider {
+  margin: 0 8px 0 8px;
+}
+
+.divider:before {
+  content: "|";
+}
+
+@media (max-width: 850px) {
+  .related-results {
+    display: none;
+  }
+}
+
+table {
+    border-collapse: collapse;
+    font-family:Arial;	
+}
+
+td {
+    border: 1px solid black;
+    padding: 5px;
+}
+
+th {
+    border: 1px solid black;
+    padding: 5px;
+    text-align: left;
+	cursor : pointer;	
+}
+
+.arrow-up {
+	width : 0;
+	height : 0;
+	border-left : 5px solid transparent;
+	border-right : 5px solid transparent;
+	border-bottom : 10px solid black;
+	display : inline-block;
+}
+
+.arrow-down {
+	width : 0;
+	height : 0;
+	border-left : 5px solid transparent;
+	border-right : 5px solid transparent;
+	border-top : 10px solid black;
+	display : inline-block;
+}
