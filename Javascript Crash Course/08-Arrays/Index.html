@@ -1,0 +1,55 @@
+<html>
+	<head>
+		<script type="text/javascript">
+			var infoArray = new Array();
+
+			infoArray[0] = "Marie"
+			infoArray[1] = "24"
+			infoArray[2] = "Pune"
+			infoArray[3] = "Female"
+			infoArray[4] = "36000"		
+
+			i=0
+			while ( i < 5)
+			{
+				document.write(infoArray[i] + '<br />')
+				i++
+			}
+			
+			document.write('<br />')
+			for(i =0 ; i < 5 ; i += 2)
+			{
+				document.write(infoArray[i] + '<br />')			
+			}
+			
+			var nameArray = new Array();
+
+			nameArray[0] = "Sam"
+			nameArray[1] = "Amy"
+			nameArray[2] = "Debra"
+			nameArray[3] = "Morgan"
+			nameArray[4] = "Pine"
+			
+			document.write('<br /><b>Array elements before sorting..</b><br />')
+			i=0
+			while ( i < 5)
+			{
+				document.write(nameArray[i] + '<br />')
+				i++
+			}
+			
+			//after sorting
+			nameArray.sort()
+			document.write('<br /><b>Array elements after sorting..</b><br />')
+			i=0
+			while ( i < 5)
+			{
+				document.write(nameArray[i] + '<br />')
+				i++
+			}
+		</script>
+	</head>
+	<body>
+		
+	</body>
+</html>
