@@ -1,0 +1,59 @@
+﻿@model IEnumerable<BOL.tbl_User>
+@{
+    ViewBag.Title = "Index";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h2>Index</h2>
+
+<p>
+    @Html.ActionLink("Create New", "Create")
+</p>
+<table class="table">
+    <tr>
+
+        <th>
+            @Html.ActionLink("User Email", "Index", new { SortOrder = (ViewBag.SortOrder == null ? "ASC" : (ViewBag.SortOrder == "ASC" ? "DESC" : "ASC")), SortBy = "UserEmail", Page = (ViewBag.Page == null ? "1" : ViewBag.Page) })
+        </th>
+
+        <th>
+            @Html.ActionLink("Role", "Index", new { SortOrder = (ViewBag.SortOrder == null ? "ASC" : (ViewBag.SortOrder == "ASC" ? "DESC" : "ASC")), SortBy = "Role", Page = (ViewBag.Page == null ? "1" : ViewBag.Page) })
+        </th>
+        <th>Actions</th>
+    </tr>
+
+    @foreach (var item in Model)
+    {
+        <tr>
+
+            <td>
+                <a href= "mailto:@item.UserEmail">@item.UserEmail</a>
+                @*@Html.DisplayFor(modelItem => item.UserEmail)*@
+            </td>
+
+            <td>
+                @Html.DisplayFor(modelItem => item.Role)
+            </td>
+            <td>
+                @Html.ActionLink("Edit", "Edit", new { /* id=item.PrimaryKey */ }) |
+            @Html.ActionLink("Details", "Details", new { /* id=item.PrimaryKey */ }) |
+            @Html.ActionLink("Delete", "Delete", new { /* id=item.PrimaryKey */ })
+            </td>
+        </tr>
+    }
+
+</table>
+
+
+@{double totalPage = ViewBag.TotalPages;}
+@for (int i = 1; i <= totalPage; i++)
+{
+    if (i == ViewBag.Page)
+    {
+    <b>@Html.ActionLink(i.ToString(), "Index", new { SortOrder = (ViewBag.SortOrder == null ? "ASC" : ViewBag.SortOrder), SortBy = (ViewBag.SortBy == null ? "UserEmail" : ViewBag.SortBy), Page = i })</b>
+    }
+    else
+    {
+    @Html.ActionLink(i.ToString(), "Index", new { SortOrder = (ViewBag.SortOrder == null ? "ASC" : ViewBag.SortOrder), SortBy = (ViewBag.SortBy == null ? "UserEmail" : ViewBag.SortBy), Page = i })
+    }
+}
