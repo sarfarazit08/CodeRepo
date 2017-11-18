@@ -1,0 +1,10 @@
+@media (min-width: 980px) {
+  body {
+    padding-top: 60px;
+    padding-bottom: 40px;
+  }
+}
+
+[class^="icon-"],[class*=" icon-"] {
+    background-image: url("/Content/images/glyphicons-halflings.png");
+}

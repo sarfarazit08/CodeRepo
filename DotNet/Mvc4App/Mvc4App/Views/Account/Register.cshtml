@@ -1,0 +1,48 @@
+﻿@model Mvc4App.Models.RegisterModel
+@{
+    ViewBag.Title = "Register";
+}
+
+<hgroup class="title">
+    <h1>@ViewBag.Title.</h1>
+    <h2>Create a new account.</h2>
+</hgroup>
+
+@using (Html.BeginForm()) {
+    @Html.AntiForgeryToken()
+    
+    <p>Registration Form</p>
+    <table>
+        <tr>
+            <td>
+                @Html.LabelFor(m => m.UserName)</td>
+            <td>
+                @Html.TextBoxFor(m => m.UserName)</td>
+        </tr>
+        <tr>
+            <td>
+                @Html.LabelFor(m => m.Password)</td>
+            <td>
+                @Html.PasswordFor(m => m.Password)</td>
+        </tr>
+        <tr>
+            <td>
+                @Html.LabelFor(m => m.ConfirmPassword)</td>
+            <td>
+                @Html.PasswordFor(m => m.ConfirmPassword)</td>
+        </tr>
+        <tr>
+            <td>
+                <input type="submit" value="Register" />
+            </td>
+        </tr>
+    </table>
+    <div>
+        @Html.ValidationSummary()
+    </div>
+
+}
+
+@section Scripts {
+    @Scripts.Render("~/bundles/jqueryval")
+}

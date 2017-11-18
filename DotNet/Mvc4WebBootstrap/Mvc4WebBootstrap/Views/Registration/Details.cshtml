@@ -1,0 +1,106 @@
+﻿@model Mvc4WebBootstrap.Models.Registration
+
+@{
+    ViewBag.Title = "Details";
+}
+
+<h2>Details</h2>
+
+
+<table class="table  table-condensed">
+
+
+    <tr>
+        <td>
+            @Html.DisplayNameFor(model => model.InfyEmployeeID)
+        </td>
+
+        <td>
+            @Html.DisplayFor(model => model.InfyEmployeeID)
+        </td>
+    </tr>
+
+    <tr>
+        <td>
+            @Html.DisplayNameFor(model => model.EmployeeName)
+        </td>
+
+        <td>
+            @Html.DisplayFor(model => model.EmployeeName)
+        </td>
+    </tr>
+
+    <tr>
+        <td>
+            @Html.DisplayNameFor(model => model.VisitorName)
+        </td>
+
+        <td>
+            @Html.DisplayFor(model => model.VisitorName)
+        </td>
+    </tr>
+
+    <tr>
+        <td>
+            @Html.DisplayNameFor(model => model.VisitDate)
+        </td>
+
+        <td>
+            @Html.DisplayFor(model => model.VisitDate)
+        </td>
+    </tr>
+
+    <tr>
+        <td>
+            @Html.DisplayNameFor(model => model.PurposeOfVisit)
+        </td>
+
+        <td>
+            @Html.DisplayFor(model => model.PurposeOfVisit)
+        </td>
+    </tr>
+
+    <tr>
+        <td>
+            @Html.DisplayNameFor(model => model.RelationWithEmployee)
+        </td>
+
+        <td>
+            @Html.DisplayFor(model => model.RelationWithEmployee)
+        </td>
+    </tr>
+
+    <tr>
+        <td>
+            @Html.DisplayNameFor(model => model.EmployeePhoneNumber)
+        </td>
+
+        <td>
+            @Html.DisplayFor(model => model.EmployeePhoneNumber)
+        </td>
+    </tr>
+
+    <tr>
+        <td>
+            @Html.DisplayNameFor(model => model.EmailAddress)
+        </td>
+
+        <td>
+            @Html.DisplayFor(model => model.EmailAddress)
+        </td>
+    </tr>
+
+    <tr>
+        <td>
+            @Html.DisplayNameFor(model => model.RegisteredDate)
+        </td>
+
+        <td>
+            @Html.DisplayFor(model => model.RegisteredDate)
+        </td>
+    </tr>
+</table>
+<p>
+    @Html.ActionLink("Edit", "Edit", new { id = Model.ID }) |
+    @Html.ActionLink("Back to List", "Index")
+</p>

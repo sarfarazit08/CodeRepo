@@ -1,0 +1,24 @@
+﻿@{
+    ViewBag.Title = "Animals List";
+}
+
+<h2>@ViewBag.Title</h2>
+
+
+<h4>ViewData</h4>
+
+<ol>
+    @foreach (string animal in (List<string>)ViewData["AnimalSet2"])
+    { 
+        <li>@animal</li>
+    }
+</ol>
+
+<h4>ViewBag</h4>
+<ol>
+    @foreach (string animal in ViewBag.AnimalSet1)
+    { 
+        <li>@animal</li>
+    }
+</ol>
+

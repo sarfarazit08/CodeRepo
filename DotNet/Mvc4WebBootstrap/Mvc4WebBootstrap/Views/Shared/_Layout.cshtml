@@ -1,0 +1,81 @@
+﻿@using System.Web.Optimization
+@using Mvc4WebBootstrap.Helpers
+<!DOCTYPE html>
+
+<html lang="en">
+<head>
+    <meta charset="utf-8" />
+    <title>@ViewBag.Title</title>
+
+    @Styles.Render("~/css")
+    @Styles.Render("~/Content/bootstrap.min.css")
+    @Styles.Render("~/Content/bootstrap-responsive.min.css")
+    @Styles.Render("~/Content/bootstrap-theme.css")
+</head>
+<body>
+    <div class="navbar navbar-green navbar-fixed-top">
+        <div class="navbar-inner">
+            <div class="container">
+
+                <a class="navbar-brand active" href="@Url.Action("Index", "Home")">
+                    <img src="~/Content/images/logo.png" alt="Logo" /></a>
+                @*<a class="navbar-brand" href="@Url.Action("Index", "Home")">Home</a>*@
+                <a class="navbar-brand" href="@Url.Action("Index", "Registration")">Visitors</a>
+                <a class="navbar-brand" href="@Url.Action("Create", "Registration")">Registration</a>
+                <a class="navbar-brand" href="@Url.Action("About", "Home")">About</a>
+                <a class="navbar-brand" href="@Url.Action("Index", "Demo")">Demo</a>
+                <p class="pull-right">Welcome, <mark> Mahira </mark> </p>
+                @*<button type="button" class="btn btn-warning  pull-right">Sign up</button>
+                &nbsp;
+                <button type="button" class="btn btn-warning  pull-right">Sign in</button>*@
+
+            </div>
+        </div>
+    </div>
+
+    <div class="container">
+        <noscript>
+            <div class="alert">
+                <button type="button" class="close" data-dismiss="alert">&times;</button>
+                <strong>Warning!</strong> Please enable JavaScript in your browser!
+            </div>
+        </noscript>
+
+        <div class="row">
+            @if (IsSectionDefined("sidebar"))
+            {
+                <div class="span2">
+                    @RenderSection("sidebar", required: false)
+                </div>
+            }
+
+            <div id="content" @(IsSectionDefined("sidebar") ? Html.Raw("class=span10") : Html.Raw("class=span12"))>
+                @if (IsSectionDefined("featured"))
+                {
+                    <div>
+                        <div class="hero-unit">
+                            @RenderSection("featured", required: false)
+                        </div>
+                    </div>
+                }
+                <div>
+                    @RenderBody()
+                </div>
+            </div>
+        </div>
+
+        <hr />
+
+        <div class="span12">
+            <footer class="" id="footer">
+                <a href="http://www.sarfarazit.wordpress.com">2016  
+                        <span class="glyphicon glyphicon-copyright-mark small"></span>www.sarfarazit.wordpress.com</a>
+
+            </footer>
+        </div>
+    </div>
+
+    @Scripts.Render("~/js")
+    @RenderSection("scripts", required: false)
+</body>
+</html>

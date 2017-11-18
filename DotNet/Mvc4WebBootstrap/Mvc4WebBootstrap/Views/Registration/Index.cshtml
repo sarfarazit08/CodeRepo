@@ -1,0 +1,99 @@
+﻿@using PagedList;
+@using PagedList.Mvc;
+
+@model IPagedList<Mvc4WebBootstrap.Models.Registration>
+
+@{
+    ViewBag.Title = "Index";
+}
+
+<h2>Index</h2>
+
+<p>
+    @Html.ActionLink("Create New", "Create")
+</p>
+<table class="table  table-condensed">
+    <tr class="warning">
+        <th>
+            @Html.DisplayNameFor(model => model.First().InfyEmployeeID)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.First().EmployeeName)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.First().VisitorName)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.First().VisitDate)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.First().PurposeOfVisit)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.First().RelationWithEmployee)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.First().EmployeePhoneNumber)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.First().EmailAddress)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.First().RegisteredDate)
+        </th>
+        <th>Actions</th>
+    </tr>
+
+    @foreach (var item in Model)
+    {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.InfyEmployeeID)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.EmployeeName)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.VisitorName)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.VisitDate)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.PurposeOfVisit)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.RelationWithEmployee)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.EmployeePhoneNumber)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.EmailAddress)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.RegisteredDate)
+            </td>
+            <td>
+                @Html.ActionLink("Edit", "Edit", new { id = item.ID }) |
+            @Html.ActionLink("Details", "Details", new { id = item.ID }) |
+            @Html.ActionLink("Delete", "Delete", new { id = item.ID })
+            </td>
+        </tr>
+    }
+
+</table>
+<br />
+<div>
+
+    @Html.PagedListPager(
+        Model, 
+        page => Url.Action("Index", new { page }),
+        new PagedListRenderOptions { 
+            Display = PagedListDisplayMode.IfNeeded, 
+            DisplayPageCountAndCurrentLocation = true }
+            )
+</div>
+
+
+

@@ -1,0 +1,132 @@
+﻿@model Mvc4WebBootstrap.Models.Registration
+
+@{
+    ViewBag.Title = "Edit";
+}
+
+<h2>Edit</h2>
+
+
+@using (Html.BeginForm())
+{
+    @Html.AntiForgeryToken()
+    @Html.ValidationSummary(true)
+
+    <table class="table  table-condensed">
+
+
+        @Html.HiddenFor(model => model.ID)
+
+        <tr>
+            <td>
+                @Html.LabelFor(model => model.InfyEmployeeID)
+            </td>
+
+            <td>
+                @Html.EditorFor(model => model.InfyEmployeeID)
+                @Html.ValidationMessageFor(model => model.InfyEmployeeID)
+            </td>
+        </tr>
+
+        <tr>
+            <td>
+                @Html.LabelFor(model => model.EmployeeName)
+            </td>
+
+            <td>
+                @Html.EditorFor(model => model.EmployeeName)
+                @Html.ValidationMessageFor(model => model.EmployeeName)
+            </td>
+        </tr>
+
+        <tr>
+            <td>
+                @Html.LabelFor(model => model.VisitorName)
+            </td>
+
+            <td>
+                @Html.EditorFor(model => model.VisitorName)
+                @Html.ValidationMessageFor(model => model.VisitorName)
+            </td>
+        </tr>
+
+        <tr>
+            <td>
+                @Html.LabelFor(model => model.VisitDate)
+            </td>
+
+            <td>
+                @Html.EditorFor(model => model.VisitDate)
+                @Html.ValidationMessageFor(model => model.VisitDate)
+            </td>
+        </tr>
+
+        <tr>
+            <td>
+                @Html.LabelFor(model => model.PurposeOfVisit)
+            </td>
+
+            <td>
+                @Html.EditorFor(model => model.PurposeOfVisit)
+                @Html.ValidationMessageFor(model => model.PurposeOfVisit)
+            </td>
+        </tr>
+
+        <tr>
+            <td>
+                @Html.LabelFor(model => model.RelationWithEmployee)
+            </td>
+
+            <td>
+                @Html.EditorFor(model => model.RelationWithEmployee)
+                @Html.ValidationMessageFor(model => model.RelationWithEmployee)
+            </td>
+        </tr>
+
+        <tr>
+            <td>
+                @Html.LabelFor(model => model.EmployeePhoneNumber)
+            </td>
+
+            <td>
+                @Html.EditorFor(model => model.EmployeePhoneNumber)
+                @Html.ValidationMessageFor(model => model.EmployeePhoneNumber)
+            </td>
+        </tr>
+
+        <tr>
+            <td>
+                @Html.LabelFor(model => model.EmailAddress)
+            </td>
+
+            <td>
+                @Html.EditorFor(model => model.EmailAddress)
+                @Html.ValidationMessageFor(model => model.EmailAddress)
+            </td>
+        </tr>
+
+        <tr>
+            <td>
+                @Html.LabelFor(model => model.RegisteredDate)
+            </td>
+
+            <td>
+                @Html.EditorFor(model => model.RegisteredDate)
+                @Html.ValidationMessageFor(model => model.RegisteredDate)
+            </td>
+        </tr>
+
+
+    </table>
+    <p>
+        <input class="btn btn-warning" type="submit" value="Save" />
+    </p>
+}
+
+<div>
+    @Html.ActionLink("Back to List", "Index")
+</div>
+
+@*@section Scripts {
+    @Scripts.Render("~/bundles/jqueryval")
+}*@
