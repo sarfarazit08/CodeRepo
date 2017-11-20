@@ -127,7 +127,7 @@ The Bitcoin system is a collection of clients analogous to torrent clients downl
     + Coinbase
 + [Choose your wallet](http://bitcoin.org/en/choose-your-wallet)
 
-### 2.2 - Filling You Bitcoin Wallet
+### 2.2 - Filling Your Bitcoin Wallet
 
 + How do you fill a regular  wallet?
 + You have to acquire Bitcoins like you acquire regular money
@@ -156,9 +156,9 @@ The Bitcoin system is a collection of clients analogous to torrent clients downl
 
 ### 2.5 - Usefull Links
 
-+ To Download a Bitcoin Wallet](http://bitcoin.org/en/choose-your-wallet)
-+ A Great Cloud Based Wallet](https://blockchain.info/wallet/)
-+ BitMit, a Great Online Marketplace to Use Bitcoins](https://www.bitmit.net/en/hotauctions)
-+ Bitcoin Store, the place for Bitcoin electronics](https://www.bitcoinstore.com/)
-+ A Directory of Places that Accept Bitcoins](https://www.spendbitcoins.com/places/)
++ [To Download a Bitcoin Wallet](http://bitcoin.org/en/choose-your-wallet)
++ [A Great Cloud Based Wallet](https://blockchain.info/wallet/)
++ [BitMit, a Great Online Marketplace to Use Bitcoins](https://www.bitmit.net/en/hotauctions)
++ [Bitcoin Store, the place for Bitcoin electronics](https://www.bitcoinstore.com/)
++ [A Directory of Places that Accept Bitcoins](https://www.spendbitcoins.com/places/)
 
