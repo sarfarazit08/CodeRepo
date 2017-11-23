@@ -306,71 +306,58 @@ The Bitcoin system is a collection of clients analogous to torrent clients downl
 
 + Bitcoin lacks a central issuing authority to both create new money and serve as a verifier of transactions 
 
-### 4.2 - How Does Mining Create New Money and Also Verify Transactions?
+#### How Does Mining Create New Money and Also Verify Transactions?
 
 + This issue was resolved by Satoshi Nakamoto in his foundational paper [1] 
 + He proposed that one would take a queue of transactions over a finite time period (approx. 10 minutes) and then create a math problem that takes roughly 10 minutes to solve. The first computer to resolve the problem receives an award of Bitcoins
 + This process is called mining and the set of transactions to verify alongside the proof of work problem are called a Block
 
-### 4.3 - A Block
+### 4.2 - A Block
 
 + This is what is contained within a block [2]: 
 
-<img ssrc="" alt="table" /> 
+<img src="" alt="table" /> 
 
 + With this information, the goal of the miners in the network is to generate a hash under a certain value which is determined by a number called the difficulty
 + It is like a lottery system that is winner takes all. The difficulty is like the set of numbers you have to hit to get an award of Bitcoins and the amount of tickets you can buy per second is your hash rate (generally measured in Megahashes per second)
 + The first person to produce a hash that satisfies the difficulty rate (get the right numbers) wins all the coins associated with the block. Blocks used to be 50 coins and are now 25 coins. Every 4 years the block award is cut in half. 
 
-The Blockchain
-The first block was created by Satoshi and is called the genesis block [3]
+### 4.3 - The Blockchain
 
-Every other block is connected to this block and the entire set of all blocks since the genesis block is called the Blockchain [4]
++ The first block was created by Satoshi and is called the genesis block [3]
++ Every other block is connected to this block and the entire set of all blocks since the genesis block is called the Blockchain [4]
++ Think of the Blockchain as the ledger that keeps track of every single transaction ever made with Bitcoins
++ The Blockchain’s size and complexity prevent anyone from attempting to counterfeit transactions of Bitcoins. An attacker would need to have 51% of the computing power of the Bitcoin network to be able to modify the Blockchain [5] [6] 
 
-Think of the Blockchain as the ledger that keeps track of every single transaction ever made with Bitcoins
+### 4.4 - Mining Hardware
 
-The Blockchain’s size and complexity prevent anyone from attempting to counterfeit transactions of Bitcoins. An attacker would need to have 51% of the computing power of the Bitcoin network to be able to modify the Blockchain [5] [6] 
-Mining Hardware
-When the Bitcoin was first created, we could mine with regular Intel and AMD computer processors
++ When the Bitcoin was first created, we could mine with regular Intel and AMD computer processors
++ Now Bitcoin mining is done with graphics cards. The most popular are AMD Radeon cards [7]
++ As of 2013, we have started to witness specialized hardware called FGPAs and ASICs that have massive performance over even GPUs 
++ Mining is only profitable when one can recoup both the initial hardware cost and the power spent making Bitcoins [8]
 
-Now Bitcoin mining is done with graphics cards. The most popular are AMD Radeon cards [7]
+### 4.5 - Mining Pools
 
-As of 2013, we have started to witness specialized hardware called FGPAs and ASICs that have massive performance over even GPUs 
++ The block awards are not divided and there is no concept of most work done. Like a real lottery, close doesn’t count for the jackpot and it is winner takes all
++ Thus, mining pools were developed to combine the work of thousands of computers in exchange for a division of the profits if the pool receives a block of coins
++ Pool operators usually take a cut for running the pool and distribute the awards equally in accordance with the clients who did the most work
++ Here is a list of common Pools [9]
++ **[WARNING]** The pool operator is in no way obliged to give anyone their fair share of Bitcoins. Only trust operators who have been in business for some time and the community trusts
 
-Mining is only profitable when one can recoup both the initial hardware cost and the power spent making Bitcoins [8]
-Mining Pools
-The block awards are not divided and there is no concept of most work done. Like a real lottery, close doesn’t count for the jackpot and it is winner takes all
+### 4.6 - How to Setup a Mining Client
 
-Thus, mining pools were developed to combine the work of thousands of computers in exchange for a division of the profits if the pool receives a block of coins
++ I would recommend the GuiMiner software for new miners [10]
++ Only mine if you have an AMD graphics card and check the hardware list to get an idea of what your mining rate will be
++ GuiMiner does not need to be installed, but it does need to be connected to a Pool. As of 2013, I personally use Slush’s Pool [11]
 
-Pool operators usually take a cut for running the pool and distribute the awards equally in accordance with the clients who did the most work
+### 4.7 - The Future of Mining
 
-Here is a list of common Pools [9]
++ Over time, mining will become the domain of large entities with highly specialized equipment and well developed skills
++ Mining is only profitable if the Bitcoin continues to increase in value. Miners are very receptive to the price of the Bitcoin
++ It is a good crowd-signal that millions of dollars have been invested in new hardware to mine Bitcoins
++ Regardless of the block award, as long as transactions are done in Bitcoins, miners will receive Bitcoins from verification fees
 
-[WARNING] The pool operator is in no way obliged to give anyone their fair share of Bitcoins. Only trust operators who have been in business for some time and the community trusts
-How to Setup a Mining Client
-I would recommend the GuiMiner software for new miners [10]
-
-Only mine if you have an AMD graphics card and check the hardware list to get an idea of what your mining rate will be
-
-GuiMiner does not need to be installed, but it does need to be connected to a Pool. As of 2013, I personally use Slush’s Pool [11]
-The Future of Mining
-Over time, mining will become the domain of large entities with highly specialized equipment and well developed skills
-
-Mining is only profitable if the Bitcoin continues to increase in value. Miners are very receptive to the price of the Bitcoin
-
-It is a good crowd-signal that millions of dollars have been invested in new hardware to mine Bitcoins
-
-Regardless of the block award, as long as transactions are done in Bitcoins, miners will receive Bitcoins from verification fees
-
-### 4.1.1 - 
-### 4.1.2 - 
-### 4.1.3 - 
-### 4.1.4 - 
-### 4.1.5 - 
-### 4.1.6 - 
-### 4.1.7 - 
-### 4.1.8 - Useful links 
+### 4.8 - Useful links 
 
 + [The Original Bitcoin Paper](http://bitcoin.org/bitcoin.pdf)
 + [Technical Description of a Block](https://en.bitcoin.it/wiki/Block)
