@@ -1,1 +1,0 @@
-# Relational Database Fundamentals.md
