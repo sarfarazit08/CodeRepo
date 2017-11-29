@@ -423,9 +423,128 @@ The Bitcoin system is a collection of clients analogous to torrent clients downl
 
 ### Outline
 
-+ 6.1 - 
-+ 6.2 - 
-+ 6.3 - 
-+ 6.4 - 
-+ 6.5 - 
-+ 6.6 - 
++ 6.1 - The Long Term Utility of the Bitcoin
++ 6.2 - Utility’s Impact on the Price per Bitcoin
++ 6.3 - What can Kill the Bitcoin
++ 6.4 - Author's Predication
+
+### 6.1 - The Long Term Utility of the Bitcoin
+
++ [Level 1] The Bitcoin at a bare minimum represents a protest against central banks and a refuge for anonymous transactions 
++ [Level 2] The Bitcoin can also serve as a means of exchanging one currency into another. Ripple is a product that seeks to exploit the idea of the Bitcoin for just this purpose
++ [Level 3] The Bitcoin could achieve status as the defacto currency of the Internet. In essence, becoming like an international currency of exchange
+
+### 6.2 - Utility’s Impact on the Price per Bitcoin
+
++ The current market capitalization of the Bitcoin is roughly 1 billion US dollars. This value seems to be somewhat sticky and robust for the time being. As more entities enter the market the Bitcoin should stay at this price or grow higher
+    + [Level 1’s Floor >= 1 Billion ($100 per coin) ]
++ If the Bitcoin supplants traditional currency exchange, then it has billions worth of utility normally consumed by exchanges.
+    + [Level 2’s Floor >= 5-10 billion ($500-$1,000 per coin) ]
++ If the Bitcoin becomes the unit of exchange for most online commerce, then the Bitcoin will obtain hundreds of billions of dollars worth of value.
+    + [Level 3’s Floor >=150-300 billion ($15,000-$30,000 per coin) ]  
+    
+### 6.3 - What can Kill the Bitcoin
+
++ International Agreements within the next four to five years (Possible)
++ Breakthroughs in mathematics resulting in a security flaw in ECDSA (Very Very Small Chance)
++ A prolonged 51% attack destroying the validity of the blockchain (Small Chance)
++ Innovation. We could create another cryptocurrency that’s better than the Bitcoin (Possible)
+
+### 6.4 - Author's Predication
+
++ The Bitcoin is here to stay
++ Chinese consumers will use the Bitcoin to resist their oppressive government’s monitoring of commerce 
++ The Bitcoin will force dramatic changes in currency exchanges
++ The Bitcoin will eventually impact central bank policy to more conservative behavior
++ Even if another currency is develop to replace the Bitcoin, the Bitcoin will be difficult to kill unless those with Bitcoin holdings are able to exchange them for the new money
++ The long term value of the Bitcoin over the next ten years will be in the tens of billions. ($10,000/Bitcoin on 29th Nov, 2017).
+
+---
+# Bonus Lectures
+---
+
+### Outline
+
+1. BitCoin Wallet : Bicoin-Qt
+1. Cold Storage
+    + Encrypt your BitCoin Wallet using AES Encryption
+1. Bitcoin IRC
+    + [Bitcoin IRC Channel Guidelines](https://en.bitcoin.it/wiki/Bitcoin_IRC_Channel_Guidelines)
+    + The purpose for this channel is general discussion of everything related to bitcoin. We try to discuss and help people with everything regarding the protocol, clients, custom implementations and the philosophy behind bitcoin.
+1. Paper Wallets: PyWallet, [Bitcoin Paper Wallet](BitcoinPaperWallet.com)
+1. Transaction Fees 
+    + Transaction Fees are optional but based on priority queue block processing of the block chain. 
+    + Priority of transaction verifications (blocks verification in blockchain) is decided by the amount of the transaction.
+    + Verification process of the transaction can be done by powerful computer networks(Miners) and based on those processing speed and other services they charge transaction fees.
+
+# Vanity Addresses
+
+### What is a vanity address? 
+
++ Bitcoin address with custom prefix 
+    + Example: 1 Boat as a the start of the address 
+    + Always starts with a "1" 
++ Can be used to differentiate purposeful addresses from regular addresses 
+    + Often used in Bitcoin-related services 
+
+### Why use a vanity address? 
+
++ Using a vanity address is not required 
++ Can be beneficial 
+    + Easier to recognize different addresses 
+    + Organization 
++ Useful for services 
+    + Improves UI 
+    + Creates brand recognition 
+        + Many people would recognize a SatoshiDice address (1Dice)
+  
+### Example Use Cases 
+
++ Donation addresses 
+    + Cause name as prefix 
++ Bitcoin addresses as key part of business model 
+    + Service name as prefix 
+
+### Vanity Address Generation 
+
++ Using software such as VanityGen 
+    + Input "pattern" to search for 
+    + Software will generate random public/private key pairs until key with pattern is found 
++ Millions of pairs a second until pattern found 
+    + Better GPU will generate faster 
++ Also known as "Brute Forcing" 
+    + Same technique often applied towards cracking passwords 
++ There are some characters that cannot be used 
+    + Any Bitcoin address 
+    + Any character that is not part of Base58 
++ Longer prefixes take a longer time to generate 
++ Case sensitive will take longer than case insensitive 
+
+### Vanity Address Services 
+
++ Some sites that combine computing power to create addresses 
++  Some services that create addresses for you 
+    + Do not use unless using split-key generation incorporated 
+    + Money stored on address could be stolen 
++ Charge a fee for generating an address 
+    + Fee goes up as prefix size goes up 
+
+### Key Information 
++  Vanity addresses are Bitcoin addresses that start with a custom prefix 
+    + Example: 1 Boat 
++ Not practical to make an address over a 6-7 characters 
+    + Generation time goes up exponentially 
++ Anyone can make vanity address with any prefix 
+    + Can be useful for service addresses 
++ Benefits 
+    + Helps organize addresses 
+    + Brand recognition for businesses 
++ Downsides 
+    + Others can create addresses with your business name 
+    + Longer prefixes take a long time to generate 
+
+1. Vanity Addresses: Application
+1. GLIPH: Encrypted Instant Messaging and Bitcoin Payments
+
+
+
