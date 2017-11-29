@@ -14,20 +14,16 @@ Anyone interested in the bitcoin
 No special background is required or expected
 Future Lectures will Cover Special Topics as Requested by the Course Community
 
-# Outline 
+# 1 - What is the Bitcoin?
 
-1. What is the Bitcoin? 
-    + 1.1 - What is Money? 
-    + 1.2 - What is the Bitcoin? 
-    + 1.3 - Why are Bitcoins Special? 
-    + 1.4 - Who Controls the Bitcoin? 
-    + 1.5 - Why are Bitcoins Worth Anything?
-    + 1.6 - Some Great Introductions 
-2. How to Acquire and Spend Bitcoins 
-3. The Bitcoin Economy 
-4. Bitcoin Mining 
-5. Bitcoin Speculation 
-6. The Future of the Bitcoin 
+### Outline 
+
++ 1.1 - What is Money? 
++ 1.2 - What is the Bitcoin? 
++ 1.3 - Why are Bitcoins Special? 
++ 1.4 - Who Controls the Bitcoin? 
++ 1.5 - Why are Bitcoins Worth Anything?
++ 1.6 - Some Great Introductions
 
 ### 1.1 - What is Money? 
 
@@ -369,3 +365,67 @@ The Bitcoin system is a collection of clients analogous to torrent clients downl
 + [GUIMiner’s Official Website](http://guiminer.org/)
 + [Slush’s Mining Pool](http://mining.bitcoin.cz/)
 
+# 5 - Bitcoin Speculation 
+
+### Outline
+
++ 5.1 - The Price of the Bitcoin
++ 5.2 - Some Statistics to Watch
++ 5.3 - Causes of Volatility
++ 5.4 - Financial Products
++ 5.5 - Some Risks to Consider 
++ 5.6 - Useful links
+
+
+### 5.1 - The Price of the Bitcoin
+
++ Check Mtgox [1]
++ Check Blockchain’s Price Summary [2]
+
+### 5.2 - Some Statistics to Watch
+
++ Bitcoin Watch [3]
++ Blockchain’s Charts [4]
++ BitcoinCharts.com [5]
+
+### 5.3 - Causes of Volatility 
+
++ Markets are general discussed in terms of the amount of market actors and the amount of total wealth invested. 
++ Markets that are small in terms of actors and wealth are usually called thin markets. Markets like Oil and Gold are by contrast very thick. It is difficult to significantly influence or move thick markets in any one trading day [6]
++ Because the Bitcoin is currently a thin market, large accounts holding lots of Bitcoins can cause rapid price swings based upon their investment decisions
++ Bitcoins are still relatively illiquid. It can take some time to divest a position in Bitcoins  
++ We also lack financial products such as options to manage risk and build more sophisticated trading strategies 
+
+### 5.4 - Financial Products
+
++ These products are usually called derivatives as their price is based upon an underlying asset. For example, an oil option is based upon an oil contract on a futures exchange
++ Derivatives allow traders to manage risk and establish price floors
++ Options for example can let you fix a price to either buy or sell an asset for a period of time. [7]
++ Generally speaking, the presence of well built and regulated derivatives significantly reduces the daily volatility of the underlying asset 
+
+### 5.5 - Some Risks to Consider 
+
++ As will all investments, only invest money you can afford to lose. Do not gamble your future on any one investment
++ The Bitcoin has yet to be regulated by any sovereign entity. Regulations will come and we do not yet understand how they will impact the price of the Bitcoin
++ Once wall street decides to involve itself in the Bitcoin, you will be competing against seasoned professionals with decades of experience in the currency markets and billions of dollars to spend. 
++ Due to the thinness of the market, if an early adopted decides to leave the market, then he could collapse the price by triggering a panic sell
+ 
+### 5.6 - Useful links
+
++ [Mtgox: The Largest Exchange and Best Pricer of the Bitcoin](https://mtgox.com/)
++ [Bitcoin Watch: Quick Summary Statistics](http://bitcoinwatch.com/)
++ [Blockchain’s Charts](https://blockchain.info/charts)
++ [Bitcoin Charts](http://bitcoincharts.com/charts/mtgoxUSD#rg60ztgSzm1g10zm2g25zv)
++ [Finviz: The Best Website on the Web for Visualizing Financial Data](http://finviz.com/)
++ [Investopedia’s Options Tutorial](http://www.investopedia.com/university/options/)
+
+# 6 - The Future of the Bitcoin 
+
+### Outline
+
++ 6.1 - 
++ 6.2 - 
++ 6.3 - 
++ 6.4 - 
++ 6.5 - 
++ 6.6 - 
