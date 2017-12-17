@@ -1,4 +1,4 @@
-class main{
+class time_calculator{
 
     public static void main(String args[]) {       
         time timeObj = new time();
