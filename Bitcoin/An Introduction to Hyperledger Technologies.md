@@ -1,30 +1,5 @@
 # Blockchain for Business : An Introduction to Hyperledger Technologies
 
-Discover the power of business blockchains and distributed ledger technologies with an overview of Hyperledger and introductions to its key frameworks. Blockchains have quickly gained popularity in several industries. This introductory course is carefully curated for both nontechnical and technical audiences. It examines blockchains for the enterprise and a number of pertinent use cases. Hyperledger is a group of open source blockchain-based projects organized by The Linux Foundation. Industries are researching how blockchains may increase efficiency and solve business problems associated with data privacy, security, information sharing, and inclusion. What are blockchain & distributed ledger technologies and how might they impact global business?
-
-The course covers key features of blockchain technologies and the differentiators between various types of Hyperledger blockchain frameworks. We shall start with ‘What is blockchain?’ and open the discussion on where blockchain technology is suitable for your business requirements. We then take a deep dive into the enterprise-ready Hyperledger blockchain frameworks by guiding students through a demonstrated scenario.
-
-Students with a technical background should be able to perform clean installations of Hyperledger Sawtooth and Hyperledger Fabric, as well as, develop simple applications on top of these frameworks. They will gain an understanding of various types of blockchains and which one is most suitable for any particular project.
-
-Students with a business background should gain an understanding of how blockchains work and how they can create value for their business through cost savings and efficiencies in terms of speed and simplicity. They will view how information is generated, stored, and shared in various blockchains, as well as, gain tools to evaluate whether or not a blockchain solution would be suitable for their particular business case.
-
-### Course Learning Objectives :
-
-+ Describe Business Blockchain and Distributed Ledger Technologies.
-+ Gain familiarity with current Hyperledger projects and cross-industry use cases.
-+ Perform clean installations of the Hyperledger Sawtooth and Hyperledger Fabric frameworks.
-+ Explore a sample use case/application in the context of the Hyperledger Sawtooth and Hyperledger Fabric frameworks.
-+ Build simple applications on top of Hyperledger Sawtooth and Hyperledger Fabric.
-+ Become involved in and contribute to the open source Hyperledger projects.
-
-# [Hyperledger](https://www.hyperledger.org/) 
-
-Hyperledger is the umbrella open source project that The Linux Foundation has created and hosted since 2015. It aims at advancing and promoting cross-industry blockchain technologies to ensure accountability, transparency, and trust among business partners. As a result, Hyperledger makes business network and transactions more efficient.
-
-These benefits are valued by leaders across many industries, including technology, finance, healthcare, supply chain, and automotive, among several others.
-
-Hyperledger offers different blockchain platforms. This course will present three of them: Iroha, Sawtooth, and Fabric.
-
 # [The Linux Foundation](https://www.linuxfoundation.org/)
 
 The Linux Foundation partners with the world's leading developers and companies to solve the hardest technology problems and accelerate open technology development and commercial adoption. The Linux Foundation makes it its mission to provide experience and expertise to any initiative working to solve complex problems through open source collaboration, providing the tools to scale open source projects: security best practices, governance, operations and ecosystem development, training and certification, licensing, and promotion.
@@ -43,20 +18,41 @@ The Linux Foundation's work today extends far beyond Linux, fostering innovation
 *   Blockchain: [Hyperledger](https://www.hyperledger.org/)
 *   And many more.
 
-# Course Outline
+# [Hyperledger](https://www.hyperledger.org/) 
 
-### Welcome & Introduction
+Hyperledger is the umbrella open source project that The Linux Foundation has created and hosted since 2015. It aims at advancing and promoting cross-industry blockchain technologies to ensure accountability, transparency, and trust among business partners. As a result, Hyperledger makes business network and transactions more efficient.
 
-1.  Welcome & Introduction
+These benefits are valued by leaders across many industries, including technology, finance, healthcare, supply chain, and automotive, among several others.
 
-### Chapter 1. Discovering Blockchain Technologies
+Hyperledger offers different blockchain platforms. This course will present three of them: **Iroha, Sawtooth, and Fabric**.
+
+### Introduction
+
+Discover the power of business blockchains and distributed ledger technologies with an overview of Hyperledger and introductions to its key frameworks. Blockchains have quickly gained popularity in several industries. This introductory course is carefully curated for both nontechnical and technical audiences. It examines blockchains for the enterprise and a number of pertinent use cases. Hyperledger is a group of open source blockchain-based projects organized by The Linux Foundation. Industries are researching how blockchains may increase efficiency and solve business problems associated with data privacy, security, information sharing, and inclusion. What are blockchain & distributed ledger technologies and how might they impact global business?
+
+The course covers key features of blockchain technologies and the differentiators between various types of Hyperledger blockchain frameworks. We shall start with ‘What is blockchain?’ and open the discussion on where blockchain technology is suitable for your business requirements. We then take a deep dive into the enterprise-ready Hyperledger blockchain frameworks by guiding students through a demonstrated scenario.
+
+Students with a technical background should be able to perform clean installations of Hyperledger Sawtooth and Hyperledger Fabric, as well as, develop simple applications on top of these frameworks. They will gain an understanding of various types of blockchains and which one is most suitable for any particular project.
+
+Students with a business background should gain an understanding of how blockchains work and how they can create value for their business through cost savings and efficiencies in terms of speed and simplicity. They will view how information is generated, stored, and shared in various blockchains, as well as, gain tools to evaluate whether or not a blockchain solution would be suitable for their particular business case.
+
+### Learning Objectives :
+
++ Describe Business Blockchain and Distributed Ledger Technologies.
++ Gain familiarity with current Hyperledger projects and cross-industry use cases.
++ Perform clean installations of the Hyperledger Sawtooth and Hyperledger Fabric frameworks.
++ Explore a sample use case/application in the context of the Hyperledger Sawtooth and Hyperledger Fabric frameworks.
++ Build simple applications on top of Hyperledger Sawtooth and Hyperledger Fabric.
++ Become involved in and contribute to the open source Hyperledger projects.
+
+# Chapter 1. Discovering Blockchain Technologies
     
-1. Introduction & Learning Objectives
+## Introduction
 
-  + Discuss blockchain and distributed ledger technologies (DLT).
-  + Explore permissioned and permissionless blockchains and their key characteristics.
-  + Discuss various components of distributed ledger technologies, including consensus algorithms and smart contracts.
-  + Provide a high-level explanation of what Hyperledger is.
++ Discuss blockchain and distributed ledger technologies (DLT).
++ Explore permissioned and permissionless blockchains and their key characteristics.
++ Discuss various components of distributed ledger technologies, including consensus algorithms and smart contracts.
++ Provide a high-level explanation of what Hyperledger is.
 
 Looking back to the last half century of computer technologies and architectures, one may observe a trend of fluctuation between the centralization and subsequent decentralization of computing power, storage, infrastructure, protocols, and code.
 
@@ -72,7 +68,7 @@ Currently, we are witnessing the transition from centralized computing, storage,
 
 Distributed ledger technology is one of the key innovations making this shift possible.
 
-2. Distributed Ledger Technology (DLT)
+## Distributed Ledger Technology (DLT)
 
 A distributed ledger is a type of data structure which resides across multiple computer devices, generally spread across locations or regions.
 
@@ -130,13 +126,13 @@ In a relational database, data can be easily modified or deleted. Typically, the
 
 ### Types of Blockchains
  
-<img src="https://prod-edxapp.edx-cdn.org/assets/courseware/v1/4c3c4fb5206767b4fe0a5b9aaa201ed3/asset-v1:LinuxFoundationX+LFS171x+3T2017+type@asset+block/Types_of_Blockchains.png" alt="Types_of_Blockchains" />
-
 A blockchain can be both permissionless (like Bitcoin or Ethereum) or permissioned (like the different Hyperledger blockchain frameworks). A permissionless blockchain is also known as a public blockchain, because anyone can join the network. A permissioned blockchain, or private blockchain, requires pre-verification of the participating parties within the network, and these parties are usually known to each other.
 
 The choice between permissionless versus permissioned blockchains should be driven by the particular application at hand (or use case). Most enterprise use cases involve extensive vetting before parties agree to do business with each other. An example where a number of businesses exchange information is the supply chain management. The supply chain management is an ideal use case for permissioned blockchains. You would not want non-vetted companies participating in the network. Each participant that is involved in the supply chain would require permissions to execute transactions on the blockchain. These transactions would allow other companies to understand where in the supply chain a particular item is. 
 
 On the contrary, when a network can 'commoditize' trust, facilitating parties to transact without necessarily having to verify each other's identity, like the Bitcoin blockchain, a permissionless blockchain is more suitable. Many of these instances involve the sale or distribution to the public. Cryptocurrencies and [Initial Coin Offerings](https://www.sec.gov/oiea/investor-alerts-and-bulletins/ib_coinofferings) (which are not backed by national governments) usually involve implementations of permissionless blockchains.
+
+<img src="https://prod-edxapp.edx-cdn.org/assets/courseware/v1/4c3c4fb5206767b4fe0a5b9aaa201ed3/asset-v1:LinuxFoundationX+LFS171x+3T2017+type@asset+block/Types_of_Blockchains.png" alt="Types_of_Blockchains" />
 
 ### Peer-to-Peer Network Architecture
 
@@ -146,65 +142,151 @@ Peer-to-peer (P2P) networks were first made popular by Napster (and later BitTor
 
 Permissionless P2P systems do not require a set amount of peers to be online and are generally slower. Permissioned P2P networks have to guarantee uptime and require a high level of quality of service on the communication links.
 
++ Proof of Work
++ Proof of Stake
++ Proof of Elapsed Time
+
 <img src="https://prod-edxapp.edx-cdn.org/assets/courseware/v1/99e70ee58cba3930923df89a997e65be/asset-v1:LinuxFoundationX+LFS171x+3T2017+type@asset+block/Network_Architectures.png" alt="Network_Architectures" />
 
-3. Bitcoin and Ethereum Blockchains
-4. Exploring Permissionless Blockchains
-5. Consensus Algorithms
-6. Hyperledger
-7. Other Open Source Permissioned Distributed Ledgers
-8. Challenges in the Adoption/Deployment of Distributed Ledger Technologies
+### Immutability of Data
+ 
+The immutability of the data which sits on the blockchain is perhaps the most powerful and convincing reason to deploy blockchain-based solutions for a variety of socio-economic processes which are currently recorded on centralized servers. This immutability, or 'unchanging over time' feature makes the blockchain useful for accounting, financial transactions, identity management, and asset ownership, management and transfer, just to name a few examples. Once a transaction is written onto the blockchain, no one can change it, or, at least, it would be extremely difficult to change it.
 
-### Chapter 2. Introduction to Hyperledger
+> According to [Antony Lewis](https://www.linkedin.com/pulse/gentle-introduction-immutability-blockchains-antony-lewis/), the Director of Research at R3, - "When people say that blockchains are immutable, they don't mean that the data can't be changed, they mean it is extremely hard to change without collusion, and if you try, it's extremely easy to detect the attempt."
 
-1. Introduction & Learning Objectives
-2. Hyperledger
-2. Hyperledger Frameworks
-2. Hyperledger Modules
-2. Q/A with Brian Behlendorf, Executive Director of Hyperledger
+Let's dig into this statement a bit further. It is extremely hard to change the transactions in a blockchain, because each block is linked to the previous block by including the previous block's hash. This hash includes the Merkle root hash of all the transactions in the previous block. If a single transaction were to change, not only would the Merkle root hash change, but so too would the hash contained in the changed block. In addition, each subsequent block would need to be updated to reflect this change. In the case of proof of work, the amount of energy required to recalculate the nonce for this block and each subsequent block would be prohibitive. On the other hand, if someone did modify a transaction in a block without going through the necessary steps to update the subsequent blocks, it would be easy to recalculate the hashes used in the blocks and determine that something is amiss.
 
-### Chapter 3. The Promise of Business Blockchain Technologies
+Let's look at an example of how this works. In the following diagram, we see the original blocks and the transactions for Block 11. Specifically, we see that the Merkle root for the transactions in Block 11 is Hash #ABCD, which is the combined hash for the four transactions in this block. Now, let's say that someone comes in and attempts to change Transaction A to Transaction A'. This, in turn, modifies the hashes that are stored in the Merkle tree, and the Merkle root changes to Hash #A'BCD. In addition, the Previous Block hash stored in Block 12 also needs to be modified to reflect the overall change in the hash for Block 11.
+
+<img src="https://prod-edxapp.edx-cdn.org/assets/courseware/v1/7b24ffd61a0fcdc9c147463892a273da/asset-v1:LinuxFoundationX+LFS171x+3T2017+type@asset+block/BLOCKCHAIN_IMMUTABILITY.png" alt="BLOCKCHAIN IMMUTABILITY" />
+
+### Blockchain Applications
+
+Since blockchain is a new form of digital infrastructure, applications built on top of a blockchain provide a gateway to accessing information that sits on that blockchain. In other words, clients/users interact with the blockchain through applications. Starting from the simple wallets that hold bitcoins, sophisticated applications which encompass applications addressing digital identity (e.g. UPort, KYC-Chain, Netki, etc.), and complex financial transactions are being built on the blockchain.
+
+A more exhaustive list of companies using blockchain technology for identity management and authentication can be found [here](https://letstalkpayments.com/22-companies-leveraging-blockchain-for-identity-management-and-authentication/).
+
+For more details about blockchain applications, you can refer to Daniel Palmer's article at [coindesk.com](coindesk.com).
+
+### Smart Contracts
+
+Smart contracts are simply computer programs that execute predefined actions when certain conditions within the system are met. Smart contracts provide the **language of transactions** that allow the ledger state to be modified. They can facilitate the exchange and transfer of anything of value (e.g. shares, money, content, property).
+
+<img src="https://prod-edxapp.edx-cdn.org/assets/courseware/v1/ec30b3736f17bdbbc1a7bc6e08380094/asset-v1:LinuxFoundationX+LFS171x+3T2017+type@asset+block/Blockchain_and_Smar_Contracts_-_Flow_Diagram.png" alt="BLOCKCHAIN IMMUTABILITY" />
+
+## Bitcoin and Ethereum Blockchains
+
+### Bitcoin - A Popular Blockchain Deployment
+
+With the invention of the peer-to-peer (P2P) cash system known as Bitcoin in 2008, we have an example of a global decentralized payment network with a distributed and publicly-owned infrastructure, operating as a 'permissionless' system. There is a persuasive case that Bitcoin is the first 'killer application' of decentralized computing. One can send and receive bitcoins anywhere in the world in a completely P2P manner, without having to intermediate through a trusted third party, such as a bank.
+
+According to the [Coin Market Capitalizations website](https://coinmarketcap.com/currencies/bitcoin/), as of October 2017, bitcoin's market capitalization (market cap) was nearly $100 billion. 
+
+### Bitcoin and Cryptoeconomics
+ 
+Bitcoin has also ushered in tremendous academic and research interest in the area of Cryptoeconomics and Cryptoeconomic security.
+
+> According to [Vitalik Buterin](https://www.youtube.com/watch?v=pKqdjaH1dRo), - "Cryptoeconomics is about building systems that have certain desired properties using cryptography to prove properties about messages that happened in the past while using economic incentives defined inside the system to encourage desired properties to hold into the future."
+
+In other words, the field of Cryptoeconomics explores the intersection of cryptography and economic incentives. While cryptography is used for ensuring network security at various levels and functions, the built-in economic incentives provided to the participating nodes in the network ensures that, at any given point, the majority of players in the network operate in a desirable way.
+
+Rather than imposing barriers to entry, permissionless blockchains are public and open for anyone to join. Since such networks can reasonably expect all kind of agents - including malicious actors - the key lies in incentivizing good behavior in a critical majority of the network, such that:
+
++ The malicious actors cannot take over the network through an escalated attack.
++ The malicious actors cannot collude to undertake an organized majority attack on the network.
++ The payoffs of securing the network are consistently higher than the cost of attacking the network.
++ The cost of attacking the network is prohibitively high.
+
+Check [Cryptoeceonomics](https://medium.com/@cryptoeconomics/the-blockchain-economy-a-beginners-guide-to-institutional-cryptoeconomics-64bf2f2beec4).
+
+### Ethereum - An Alternative to Bitcoin
+ 
+> According to Ethereum's official documentation, - "Ethereum is an open blockchain platform that lets anyone build and use decentralized applications that run on blockchain technology".
+
+The Ethereum blockchain platform facilitates scripting functionality, or 'smart contracts', which are run through the nodes in the network. As a result, unlike the Bitcoin blockchain, it does not just track transactions, it also programs them. Technically, Ethereum is a Turing-complete virtual machine with its native cryptocurrency called 'ether'. The platform was proposed in 2013 in a white paper by the then 19-year old Vitalik Buterin.
+
+As of December 2017, Ethereum had a [market cap](https://coinmarketcap.com/coins/) of over $69 billion, making ether the second most valuable cryptocurrency after Bitcoin. 
+
+As the second best known public blockchain after the Bitcoin blockchain, Ethereum has ushered in an era of unprecedented activity around blockchain and distributed ledger technology.
+
+### Dapps
+
+As [Stephan Tual](https://www.youtube.com/watch?v=Clw-qf1sUZg) explains, Ethereum applications do not have a middleman; instead, users interact in a P2P fashion with other users through a variety of interfaces - social, financial, gaming, etc. Since the applications are developed on the decentralized consensus-based network itself, third-party censorship is virtually impossible. Malicious actors cannot secretly tamper with the application by changing the code and compromise all application users (or nodes that are actively interacting with it). These _Decentralized Applications_ have come to be known as **Dapps**.
+
+Since they are cryptographically secured, Dapps are referred to as 'secure applications'. Some of the [high profile Dapps](http://www.ethdocs.org/en/latest/introduction/web3.html) built on the Ethereum platform include:
+
++ **[Augur](https://augur.net/)**, which is a Decentralized Prediction Market.
++ **[Digix](https://digix.global/)**, which tokenizes gold on Ethereum.
++ **[Maker](https://makerdao.com/)**, which is a Decentralized Autonomous Organization (DAO).
+
+The Ethereum network is a distributed global public network, which means it is not run on central servers in a certain geographical location. Instead, the computing power that runs the network is contributed by nodes that are spread across the globe. In other words, Dapps have 'zero downtime' - they never go down and, in general, cannot be switched off.
+
+### Ethereum Smart Contracts
+
+A hypothetical example of an Ethereum-based smart contract may involve the following transaction: in an equity raise, transfer amount X from the investor to the company upon receiving the given shares from the company. The monetary amount X, which was pre-validated by the company for the transaction (much like in a credit card purchase), is held in escrow by the smart contract, until the shares have been received by the investor. Any kind of arbitrary sophisticated business logic can be committed to the blockchain. The Ethereum blockchain only encodes these 'rules of the games'. The actual payoffs occur by interacting with the blockchain.
+
+The illustration below describes this process. The smart contract encodes the agreement between the company raising funds and its investors (Panel 1). The smart contract sits on the Ethereum public blockchain, and is run on the Ethereum Virtual Machine (EVM). Once hitting a triggering event, like an expiration date or a strike price that has been pre-coded, the smart contract automatically executes as per the business logic (Panel 2). As an added benefit, regulators are able to scrutinize the market activity on an ongoing basis, without compromising the identity of specific players in a permissionless public blockchain, as Ethereum (Panel 3).
+
+<img src="https://prod-edxapp.edx-cdn.org/assets/courseware/v1/bf28e4b1d1e9e3f27ad0744fd52aed9c/asset-v1:LinuxFoundationX+LFS171x+3T2017+type@asset+block/Ethereum_Smart_Contracts.png" alt="Ethereum_Smart_Contracts" />
+
+**Note**: With the advent of the Ethereum blockchain platform and the scripting functionality or smart contracts that it enables, there are ongoing attempts to do the same for the Bitcoin blockchain, which does not allow for this, due to security reasons. [RSK](http://www.rsk.co/) is one such smart contract platform that seeks to achieve this _"with a 2-way peg to Bitcoin"_. The added functionality can go a long way in making the Bitcoin blockchain useful for use cases other than cash transfers.
+
+## Exploring Permissionless Blockchains
+## Consensus Algorithms
+## Hyperledger
+## Other Open Source Permissioned Distributed Ledgers
+## Challenges in the Adoption/Deployment of Distributed Ledger Technologies
+
+# Chapter 2. Introduction to Hyperledger
+
+## Introduction & Learning Objectives
+## Hyperledger
+## Hyperledger Frameworks
+## Hyperledger Modules
+## Q/A with Brian Behlendorf, Executive Director of Hyperledger
+
+# Chapter 3. The Promise of Business Blockchain Technologies
     
-1. Introduction & Learning Objectives
-2. Existing Blockchain Use Cases
-2. When to Use or Not to Use Blockchain Technologies
+## Introduction & Learning Objectives
+## Existing Blockchain Use Cases
+## When to Use or Not to Use Blockchain Technologies
 
-### Chapter 4. Technical Requirements
+# Chapter 4. Technical Requirements
 
-1. Introduction & Learning Objectives
-2. Installation Instructions for Linux
-2. Installation Instructions for MacOS
-2. Installation Instructions for Windows
+## Introduction & Learning Objectives
+## Installation Instructions for Linux
+## Installation Instructions for MacOS
+## Installation Instructions for Windows
 
-### Chapter 5. Introduction to Hyperledger Iroha
+# Chapter 5. Introduction to Hyperledger Iroha
 
-1. Introduction & Learning Objectives
-2. Key Components
-2. Joining the Hyperledger Iroha Community
+## Introduction & Learning Objectives
+## Key Components
+## Joining the Hyperledger Iroha Community
 
-### Chapter 6. Introduction to Hyperledger Sawtooth
+# Chapter 6. Introduction to Hyperledger Sawtooth
     
-1. Introduction & Learning Objectives
-1. Addressing Illegal, Unregulated, and Unreported Tuna Fishing (Demonstrated Scenario)
-1. Key Components and Transaction Flow
-1. Installing Hyperledger Sawtooth
-1. Writing an Application
-1. Joining the Hyperledger Sawtooth Community
+## Introduction & Learning Objectives
+## Addressing Illegal, Unregulated, and Unreported Tuna Fishing (Demonstrated Scenario)
+## Key Components and Transaction Flow
+## Installing Hyperledger Sawtooth
+## Writing an Application
+## Joining the Hyperledger Sawtooth Community
         
-### Chapter 7. Introduction to Hyperledger Fabric
+# Chapter 7. Introduction to Hyperledger Fabric
     
- 1. Introduction & Learning Objectives
- 1. Addressing Illegal, Unregulated, and Unreported Tuna Fishing (Demonstrated Scenario)
- 1. Key Components and Transaction Flow
- 1. Installing Hyperledger Fabric
- 1. Understanding Chaincode
- 1. Chaincode Walkthrough (Demonstrated Scenario)
- 1. Writing an Application
- 1. Joining the Hyperledger Fabric Community
+## Introduction & Learning Objectives
+## Addressing Illegal, Unregulated, and Unreported Tuna Fishing (Demonstrated Scenario)
+## Key Components and Transaction Flow
+## Installing Hyperledger Fabric
+## Understanding Chaincode
+## Chaincode Walkthrough (Demonstrated Scenario)
+## Writing an Application
+## Joining the Hyperledger Fabric Community
 
-### Chapter 8. What's Next?
+# Chapter 8. What's Next?
 
-
+## What's Next?
 
 # Recommended Resources
 
