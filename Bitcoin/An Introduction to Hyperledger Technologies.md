@@ -760,9 +760,180 @@ The following diagram provides generalized, high-level decision points about whe
 # Chapter 4. Technical Requirements
 
 ## Introduction & Learning Objectives
-## Installation Instructions for Linux
-## Installation Instructions for MacOS
-## Installation Instructions for Windows
+
+### Introduction
+
+In this section, we will discuss different prerequisites that need to be fulfilled to ensure that our system is prepared for the technical requirements of this course.
+
+Before you proceed to chapters on Hyperledger Iroha, Hyperledger Sawtooth, and Hyperledger Fabric, you have to have the following features installed on your computer: **cURL**, **Node.js**, **npm** package manager, **Go** Language, **Docker**, and **Docker Compose,** and, if you are a Windows user,** VirtualBox**.
+
++ Install cURL.
++ Install Node.js and npm package manager.
++ Install Go Language.
++ Install Docker and Docker Compose.
++ Install Virtual Box (if you are a Windows user).
+
+## Installations on Linux
+
+### Installing cURL
++ Open a terminal window: **CTRL+ALT+T**.
++ Type the following command and enter your password: **$ sudo apt install curl**
++ To check, run the following command in your terminal/command line: **$ curl -V** (**Note**: The "V" is capitalized.)
+
+### Installing Docker
+
++ Docker provides great instructions on how to install it [here](https://docs.docker.com/engine/installation/linux/docker-ce/ubuntu/).
++ The following directions will assume **64-bit Ubuntu 16.04 VPS**, since it is the simplest way to get Docker.
++ For Ubuntu, you have the choice between the Community Edition (CE) or the Enterprise Edition (EE). We recommend CE, since it is ideal for developers and small teams looking to experiment with Docker.
+
+### Manage Docker as a Non-Root User
+
++ If you don't want to use **sudo** when you use the **docker** command, create a Unix group called **docker** and add users to it. When the **docker**daemon starts, it makes the ownership of the Unix socket read/writable by the **docker** group.
+
++ **Warning**: The **docker**group grants privileges equivalent to the **root**user. For details on how this impacts security in your system, see [Docker Daemon Attack Surface](https://docs.docker.com/engine/security/security/#docker-daemon-attack-surface).
+
+To create the **docker** group and add your user:
+
+1. Create the docker group: **$ sudo groupadd docker**
+2. Add your user to the **docker** group: **$ sudo usermod -aG docker $USER**
+3. Log out and log back in, so that your group membership is re-evaluated.
+4. On a desktop Linux environment such as X Windows, log out of your session completely and then log back in.
+5. Verify that you can run Docker commands without **sudo** : **$ docker run hello-world**
+6. This command downloads a test image and runs it in a container. When the container runs, it prints an informational message and exits.
+
+### Docker Compose
+
++ To install Docker Compose, run the following commands in your terminal/command line: **$ sudo apt update** and **$ sudo apt install docker-compose**
++ Check to make sure that you have Docker version 17.03.1-ce or greater, and Docker Compose version 1.9.0 or greater: **$ docker --version && docker-compose --version**
+
+### Installing Node.js and npm
+
++ To install **Node.js** and **npm**, run the following commands in your terminal/command line:
+
+    + $ sudo bash -c "cat >/etc/apt/sources.list.d/nodesource.list" <<EOL
+    deb https://deb.nodesource.com/node_6.x xenial main
+    deb-src https://deb.nodesource.com/node_6.x xenial main
+    EOL
+    + **$ curl -s https://deb.nodesource.com/gpgkey/nodesource.gpg.key | sudo apt-key add -**
+    + **$ sudo apt update**
+    + **$ sudo apt install nodejs**
+    + **$ sudo apt install npm**
+
++ Verify the installation, as well as  the versions of both **Node.js** and npm,and make sure the **Node.js** version you are installing is greater than v6.9 (do not use v7), and the **npm** version is greater than 3.x: **$ node --version && npm --version**
+
+### Installing Go Language
+
++ Visit [https://golang.org/dl/](https://golang.org/dl/) and make note of the latest stable release (**v1.8 or later**). To install Go language, run the following commands in your terminal/command line: 
+    + **$ sudo apt update**
+    + **$ sudo curl -O https://storage.googleapis.com/golang/go1.9.2.linux-amd64.tar.gz**
+    + **$ sudo tar -xvf go1.9.2.linux-amd64.tar.gz**
+    + **$ sudo mv go /usr/local**
+    + **$ echo 'export PATH=$PATH:/usr/local/go/bin' >> ~/.profile**
+    + **$ source ~/.profile**
++ Check that the Go version is v1.8 or later: **$ go version**
+
+## Installations on Windows
+
+### System Requirements
+
+Please note you must not have Docker for Windows installed, or HyperV enabled for VirtualBox to run. See [here](http://www.poweronplatforms.com/enable-disable-hyper-v-windows-10-8/) on how to disable HyperV.
+
+Below are the expected requirements for Ubuntu 16.04, which we will be downloading on our virtual machine:
+
+*   2 GHz dual core processor or better
+*   2 GB system memory
+*   25 GB of free hard drive space
+*   Either a DVD drive or a USB port for the installer media.
+
+### Installing VirtualBox and Creating a Virtual Machine
+
+Download and install the latest VirtualBox platform packages from [here](https://www.virtualbox.org/wiki/Downloads). Once installed, you will be greeted by a screen similar to the one presented below.
+
+![Creating Virtual Machine](https://prod-edxapp.edx-cdn.org/assets/courseware/v1/0660d3d8de73569ac202e1e17b8cef2f/asset-v1:LinuxFoundationX+LFS171x+3T2017+type@asset+block/Windows-img1.png)
+
+Click "New" to create a new virtual machine. At this point, you will need to choose a Linux distribution to install. Many Linux distributions will work for this tutorial, but we recommend using **Ubuntu 16.04**, which is a very popular one.
+
+Take note of the version selected. If you are sticking with our recommendation of Ubuntu, you should select **Ubuntu (64-bit)** (if 64-bit is not available, 32-bit is fine).
+
+For the rest of the setup, use the following options:
+
+*   2 GHz dual core processor or better
+*   2 GB system memory
+*   25 GB of free hard drive space
+*   Either a DVD drive or a USB port for the media installer.
+
+### Downloading and Installing Linux
+
+Before starting the virtual machine, you will need to install your Linux distribution. If using Ubuntu, please download the latest 16.04 desktop version [here](https://www.ubuntu.com/download/desktop). Once the image file download is complete, click "Start" to boot your virtual machine.
+
+![Downloading and Installing Linux 1](https://prod-edxapp.edx-cdn.org/assets/courseware/v1/6efbbe61a10fbd4be21013558beb66e3/asset-v1:LinuxFoundationX+LFS171x+3T2017+type@asset+block/windows-img2.png)
+
+Browse for and open the image file you just downloaded, and click "Start". Follow the install prompts to install Linux.
+
+![Downloading and Installing Linux 2](https://prod-edxapp.edx-cdn.org/assets/courseware/v1/847b28d4458a1bfe248e35f0d4f92a1b/asset-v1:LinuxFoundationX+LFS171x+3T2017+type@asset+block/windows-img3.png)
+
+Grab a coffee! It may take a few minutes to install. Restart when prompted.
+
+To open a terminal, you can press **CTRL+ALT+T**, or find it by clicking the Ubuntu Home button and searching for 'terminal'. You can now browse the web, download/install any Ubuntu software and, most importantly, continue the tutorial! Good luck! For more help on VirtualBox, check out their excellent manual [here](https://www.virtualbox.org/manual/).
+
+![Downloading and Installing Linux 3](//prod-edxapp.edx-cdn.org/assets/courseware/v1/7dbe25db1d6baac310dbc83cdb1ad939/asset-v1:LinuxFoundationX+LFS171x+3T2017+type@asset+block/windows-img4.png)
+
+### Installing cURL
++ Open a terminal window: **CTRL+ALT+T**.
++ Type the following command and enter your password: **$ sudo apt install curl**
++ To check, run the following command in your terminal/command line: **$ curl -V** (**Note**: The "V" is capitalized.)
+
+### Installing Docker
+
++ Docker provides great instructions on how to install it [here](https://docs.docker.com/engine/installation/linux/docker-ce/ubuntu/).
++ The following directions will assume **64-bit Ubuntu 16.04 VPS**, since it is the simplest way to get Docker.
++ For Ubuntu, you have the choice between the Community Edition (CE) or the Enterprise Edition (EE). We recommend CE, since it is ideal for developers and small teams looking to experiment with Docker.
+
+### Manage Docker as a Non-Root User
+
++ If you don't want to use **sudo** when you use the **docker** command, create a Unix group called **docker** and add users to it. When the **docker**daemon starts, it makes the ownership of the Unix socket read/writable by the **docker** group.
+
++ **Warning**: The **docker**group grants privileges equivalent to the **root**user. For details on how this impacts security in your system, see [Docker Daemon Attack Surface](https://docs.docker.com/engine/security/security/#docker-daemon-attack-surface).
+
+To create the **docker** group and add your user:
+
+1. Create the docker group: **$ sudo groupadd docker**
+2. Add your user to the **docker** group: **$ sudo usermod -aG docker $USER**
+3. Log out and log back in, so that your group membership is re-evaluated.
+4. On a desktop Linux environment such as X Windows, log out of your session completely and then log back in.
+5. Verify that you can run Docker commands without **sudo** : **$ docker run hello-world**
+6. This command downloads a test image and runs it in a container. When the container runs, it prints an informational message and exits.
+
+### Docker Compose
+
++ To install Docker Compose, run the following commands in your terminal/command line: **$ sudo apt update** and **$ sudo apt install docker-compose**
++ Check to make sure that you have Docker version 17.03.1-ce or greater, and Docker Compose version 1.9.0 or greater: **$ docker --version && docker-compose --version**
+
+### Installing Node.js and npm
+
++ To install **Node.js** and **npm**, run the following commands in your terminal/command line:
+
+    + $ sudo bash -c "cat >/etc/apt/sources.list.d/nodesource.list" <<EOL
+    deb https://deb.nodesource.com/node_6.x xenial main
+    deb-src https://deb.nodesource.com/node_6.x xenial main
+    EOL
+    + **$ curl -s https://deb.nodesource.com/gpgkey/nodesource.gpg.key | sudo apt-key add -**
+    + **$ sudo apt update**
+    + **$ sudo apt install nodejs**
+    + **$ sudo apt install npm**
+
++ Verify the installation, as well as  the versions of both **Node.js** and npm,and make sure the **Node.js** version you are installing is greater than v6.9 (do not use v7), and the **npm** version is greater than 3.x: **$ node --version && npm --version**
+
+### Installing Go Language
+
++ Visit [https://golang.org/dl/](https://golang.org/dl/) and make note of the latest stable release (**v1.8 or later**). To install Go language, run the following commands in your terminal/command line: 
+    + **$ sudo apt update**
+    + **$ sudo curl -O https://storage.googleapis.com/golang/go1.9.2.linux-amd64.tar.gz**
+    + **$ sudo tar -xvf go1.9.2.linux-amd64.tar.gz**
+    + **$ sudo mv go /usr/local**
+    + **$ echo 'export PATH=$PATH:/usr/local/go/bin' >> ~/.profile**
+    + **$ source ~/.profile**
++ Check that the Go version is v1.8 or later: **$ go version**
 
 # Chapter 5. Introduction to Hyperledger Iroha
 
