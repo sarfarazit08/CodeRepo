@@ -876,7 +876,7 @@ Grab a coffee! It may take a few minutes to install. Restart when prompted.
 
 To open a terminal, you can press **CTRL+ALT+T**, or find it by clicking the Ubuntu Home button and searching for 'terminal'. You can now browse the web, download/install any Ubuntu software and, most importantly, continue the tutorial! Good luck! For more help on VirtualBox, check out their excellent manual [here](https://www.virtualbox.org/manual/).
 
-![Downloading and Installing Linux 3](//prod-edxapp.edx-cdn.org/assets/courseware/v1/7dbe25db1d6baac310dbc83cdb1ad939/asset-v1:LinuxFoundationX+LFS171x+3T2017+type@asset+block/windows-img4.png)
+![Downloading and Installing Linux 3](https://prod-edxapp.edx-cdn.org/assets/courseware/v1/7dbe25db1d6baac310dbc83cdb1ad939/asset-v1:LinuxFoundationX+LFS171x+3T2017+type@asset+block/windows-img4.png)
 
 ### Installing cURL
 + Open a terminal window: **CTRL+ALT+T**.
@@ -938,14 +938,258 @@ To create the **docker** group and add your user:
 # Chapter 5. Introduction to Hyperledger Iroha
 
 ## Introduction & Learning Objectives
+
+### Learning Objectives
+
+*   Understand the basics of Hyperledger Iroha v0.95.
+*   Discuss crucial components of the Hyperledger Iroha architecture, including the consensus algorithm YAC (Yet Another Consensus), peers, clients and the ledger block storage _Ametsuchi._
+*   Join the Hyperledger Iroha framework discussion and development.
+
 ## Key Components
-## Joining the Hyperledger Iroha Community
+
+### Hyperledger Iroha
+
+Hyperledger Iroha is a blockchain framework, and one of the Hyperledger projects hosted by The Linux Foundation. Hyperledger Iroha was initially contributed by Soramitsu, Hitachi, NTT Data, and Colu. Hyperledger Iroha is designed to be simple and easy to incorporate into infrastructure projects requiring distributed ledger technology. Hyperledger Iroha features a simple construction, modern, domain-driven C++ design, emphasis on mobile application development, and the YAC consensus algorithm.
+
+![Hyperledger Iroha logo](https://prod-edxapp.edx-cdn.org/assets/courseware/v1/94f08731c2a2a792a7a20c298839aa38/asset-v1:LinuxFoundationX+LFS171x+3T2017+type@asset+block/Iroha_3_sm.png)
+
+### Architecture Overview
+
+Before diving into the key components of Hyperledger Iroha, it is important to get an overarching look at this framework. The diagram below shows a layered architectural view of the different components that make up Hyperledger Iroha. The four layers are: API, Peer Interaction, Chain Business Logic, and Storage.
+
+![Iroha architecture](https://prod-edxapp.edx-cdn.org/assets/courseware/v1/cb033d180ecb4eb288f2f0a489195e6c/asset-v1:LinuxFoundationX+LFS171x+3T2017+type@asset+block/Iroha-architecture.png)
+
+The components are:
+
+*   **Model** classes are system entities.
+*   **Torii** (gate) provides the input and output interfaces for clients. It is a single [gRPC](https://grpc.io/) server that is used by clients to interact with peers through the network. The client's RPC call is non-blocking, making Torii an asynchronous server. Both commands (transactions) and queries (read access) are performed through this interface.
+*   **Network** encompasses interaction with the network of peers.
+*   **Consensus** is in charge of peers agreeing on chain content in the network. The consensus mechanism used by Iroha is YAC (Yet Another Consensus), which is a practical byzantine fault-tolerant algorithm based on voting for block hash.
+*   **Simulator** generates a temporary snapshot of storage to validate transactions by executing them against this snapshot and forming a verified proposal, which consists only of valid transactions.
+*   **Validator** classes check business rules and validity (correct format) of transactions or queries. There are two distinct types of validation that occur in Hyperledger Iroha:  
+    + **Stateless validation** is a quicker form of validation, that performs schema and signature checks of the transaction.   
+    + **Stateful validation** is a slower form of validation, that checks the permissions and the current world state view, which is the latest and most actual state of the chain, to see if desired business rules and policies are possible. For example, does an account have enough funds to transfer?
+*   **Synchronizer** helps to synchronize new peers in the system or temporarily disconnected peers.
+*   **Ametsuchi** is the ledger block storage which consists of a block index (currently Redis), block store (currently flat files), and a world state view component (currently PostgreSQL).
+
+### Participants within the Network
+
+There are three main participants within a Hyperledger Iroha network:
+
+*   **Clients** are able to:  
+    a. Query data that they have access/permission to  
+    b. Perform a state-changing action, 'transaction', which consists of atomic operations, called 'commands'. For example, in a single transaction, a user can transfer funds to three people (three separate commands). But, if he/she does not have enough funds to cover for all, the whole transaction will be rejected.
+*   **Peers** maintain the current state and their own copy of the shared ledger. A peer is a single entity in the network, and has an address, identity, and trust. Hyperledger Iroha is designed so that a single peer may be a single computer or scaled for a cluster, meaning different computers are used for ledger storage, indices, validation, and peer-to-peer logic.
+*   **Ordering service** orders transactions into a known order. There are a few options for the algorithm used by the ordering service. Kafka is considered a good candidate. It is important to mention that if Kafka, or any other distributed solution is used, that it be clustered; otherwise, this will result in a single point of failure.
+
+### Transaction Flow Basics 
+
+**Step 1:** A client creates and sends a transaction to the **Torii** gate, which routes the transaction to a peer that is responsible for performing stateless validation.
+
+![Step 1 of Iroha transaction flow](https://prod-edxapp.edx-cdn.org/assets/courseware/v1/31cba94d9a190c0a12ab6bac4c891e14/asset-v1:LinuxFoundationX+LFS171x+3T2017+type@asset+block/Step_1_of_Iroha_Transaction_Flow.png)
+
+**Step 2**: After the peer performs stateless validation, the transaction is first sent to the ordering gate, which is responsible for choosing the right strategy of connection to the **ordering service**.
+
+![Step 2 of Iroha Transaction Flow](https://prod-edxapp.edx-cdn.org/assets/courseware/v1/21102f3a868cc94b8157d7871ca30192/asset-v1:LinuxFoundationX+LFS171x+3T2017+type@asset+block/Step_2_of_Iroha_Transaction_Flow.png)
+
+**Step 3:** The ordering service puts transactions into order and forwards them to peers in the consensus network in the form of **proposals**. A proposal is an unsigned block shared by the ordering service, that contains a batch of ordered transactions. Proposals are only forwarded when the ordering service has accumulated enough transactions, or a certain amount of time has elapsed since the last proposal. This prevents the ordering service from sending empty proposals.
+
+![Step 3 of Iroha Transaction flow](https://prod-edxapp.edx-cdn.org/assets/courseware/v1/dd7b06c38b34545769fb70f4e5a1a61a/asset-v1:LinuxFoundationX+LFS171x+3T2017+type@asset+block/Step_3_of_Iroha_Transaction_Flow.png)
+
+**Step 4**: Each peer verifies the proposal’s contents (_stateful validation_) in the _Simulator_ and creates a block which consists only of verified transactions. This block is then sent to the _consensus gate_ which performs YAC consensus logic.
+
+![Step 4 of Iroha transaction flow](https://prod-edxapp.edx-cdn.org/assets/courseware/v1/91303543f6393c61426a9b216083bed8/asset-v1:LinuxFoundationX+LFS171x+3T2017+type@asset+block/Step_4_of_Iroha_transaction_flow.png)
+
+**Step 5**: An ordered list of peers is determined, and a leader is elected based on the YAC consensus logic. Each peer casts a vote by signing and sending their proposed block to the leader.
+
+![Step 5 of Iroha transaction flow](https://prod-edxapp.edx-cdn.org/assets/courseware/v1/00da4d62048b9bdf0b331629946b3573/asset-v1:LinuxFoundationX+LFS171x+3T2017+type@asset+block/Step_5_of_Iroha_transaction_flow.png)
+
+**Step 6**: If the leader receives enough signed proposed blocks (i.e. more than two thirds of the peers), then it starts to send a **commit message**, indicating that this block should be applied to the chain of each peer participating in the consensus. Once the commit message has been sent, the proposed block becomes the next block in the chain of every peer via the _synchronizer_.
+
+![Step 6 of the Iroha transaction flow](https://prod-edxapp.edx-cdn.org/assets/courseware/v1/118a771edf63220195e924a7154eaedd/asset-v1:LinuxFoundationX+LFS171x+3T2017+type@asset+block/Step_6_of_Iroha_Transaction_flow.png)
+
+### YAC (Yet Another Consensus) - Consensus Functions
+
+Hyperledger Iroha currently implements a consensus algorithm called **YAC** (Yet Another Consensus), which is based on voting for block hash. Consensus involves taking blocks after they have been validated, collaborating with other blocks to decide on commit, and propagating commits between peers. The YAC consensus performs two functions: ordering and consensus.
+
+Ordering is responsible for ordering all transactions, packaging them into proposals, and sending them to peers in the network. The ordering service is an endpoint for setting an order of transactions and their broadcast (in a form of proposal). Ordering is not responsible for performing stateful validation of transactions.
+
+**Note:** Currently, the ordering service is a single point of failure that does the ordering, and, therefore, Hyperledger Iroha is neither crash fault-tolerant, nor byzantine fault-tolerant.
+
++ Consensus is responsible for agreement on blocks based on the same proposal.
++ Validation is an important part of the transaction flow, however it is separate from the consensus process.
+
+### YAC - Steps to Successful Consensus
+
+**Step 1**: The ordering service shares a proposal to all peers. A **proposal** is an unsigned block created and shared to peers in the network by the ordering service. It contains a batch of ordered transactions.
+
+**Step 2**: Peers calculate the hash of a verified proposal and sign it. The resulting **<Hash, Signature>** tupleis called a **vote**.
+
+**Step 3**: Based on the hashes created in the previous step, each peer computes an ordering list or order of peers. To do this, the ordering function will need to have knowledge of all the peers voting in the network, and is based on the hash of the proposed block. The first peer in the list is called the **leader**. The leader is responsible for collecting votes from other peers and sending the commit message.
+
+**Step 4**: Each peer votes. The leader collects all the votes and determines the supermajority of votes for a certain hash. The leader sends a commit message that contains the votes of the committing block. This response is called a **commit**.
+
+**Step 5**: After receiving the commit, the peers verify the commit and apply the block to the ledger. At this point, consensus is complete.
+
+### YAC - Failure to Reach Consensus
+
+We have just covered the steps needed to reach successful consensus, but there are also points in which failure may occur. Next, we will cover a couple of the failure cases: broken leader and bad transactions from the ordering service.
+
+In the case of a broken leader, the leader may act unfairly in the collection of votes, or it takes the leader too long to respond with a commit. In such situations, other peers set a time for receiving a commit message from the leader. If the timer expires, the next peer in the order list becomes the new leader.
+
+In the case of bad transactions from the ordering service, the ordering service may forward transactions that do not pass stateless validation. To rectify this, peers should remove those transactions from the proposal, and further compute the hash from the rest of the transactions in the proposal.
+
+### Mobile Libraries
+
+One of the most defining characteristics of Hyperledger Iroha is its focus on providing mobile libraries.
+
+A major goal with Hyperledger Iroha is creating a distributed ledger system that can be easily utilized by applications. In order to accomplish this, Hyperledger Iroha offers open source software libraries for **iOS**, **Android**, and **Javascript**. These libraries allow for simple compatibility with not only Hyperledger Iroha, but also, potentially, with other networks through flexible API functions.
+
+If you would like to take a look, these libraries are all open source, and available on Github:
+
+*   Android: [https://github.com/hyperledger/iroha-android](https://github.com/hyperledger/iroha-android)
+*   iOS: [https://github.com/hyperledger/iroha-ios](https://github.com/hyperledger/iroha-ios).
+
+### Relationship to Hyperledger Fabric and Hyperledger Sawtooth
+
+One of the main goals at Hyperledger in the future is to have less disjointed projects, and more libraries that can be used together as components. With that vision in mind, Hyperledger Iroha wants to eventually provide the following C++ components that can be used by other Hyperledger projects:
+
+*   YAC consensus library
+*   Ed25519 digital signature library
+*   SHA-3 hashing library
+*   Iroha transaction serialization library
+*   P2P communication library
+*   iOS library
+*   Android library
+*   JavaScript library
+*   Blockchain explorer/data visualization suite.
+
+### Joining the Hyperledger Iroha Community on GitHub
+
+Hyperledger Iroha is an open source project where ideas and code can be publicly discussed, created, and reviewed. There are many ways to join the Hyperledger Iroha community, and we will share with you some of the ways to get involved, either from a technical standpoint, or from an ideas/issues creation perspective.
+
+You can get involved with the Hyperledger Iroha community on GitHub. All code available on GitHub is forkable and viewable:
+
+*   [https://github.com/hyperledger/iroha](https://github.com/hyperledger/iroha)
+*   [https://github.com/hyperledger/iroha-ios](https://github.com/hyperledger/iroha-ios)
+*   [https://github.com/hyperledger/iroha-android](https://github.com/hyperledger/iroha-android)
+*   [https://github.com/hyperledger/iroha-javascript](https://github.com/hyperledger/iroha-javascript)
+*   [https://github.com/hyperledger/iroha-python](https://github.com/hyperledger/iroha-python)
+*   [https://github.com/hyperledger/iroha-scala](https://github.com/hyperledger/iroha-scala)
+*   [https://github.com/hyperledger/iroha-dotnet](https://github.com/hyperledger/iroha-dotnet)
+*   [https://github.com/hyperledger/iroha-api](https://github.com/hyperledger/iroha-api).
+
+### Joining the Hyperledger Iroha Community via Rocket.Chat and Mailing Lists
+
+You can join the live conversations on Rocket.Chat (which is an alternative to Slack), using your Linux Foundation ID:
+
+*   [https://chat.hyperledger.org/channel/iroha](https://chat.hyperledger.org/channel/iroha)
+*   [https://chat.hyperledger.org/channel/iroha-smartcontracts](https://chat.hyperledger.org/channel/iroha-smartcontracts).
+
+Another option is to join the mailing list(s) for technical discussions and announcements: [https://lists.hyperledger.org/mailman/listinfo/hyperledger-iroha](https://lists.hyperledger.org/mailman/listinfo/hyperledger-iroha).
+
+### Iroha API Documentation
+
+The Hyperledger Iroha team has been actively working on creating API documents. If you are interested in taking a look and testing for yourself, you can visit [https://hyperledger.github.io/iroha-api/#overview](https://hyperledger.github.io/iroha-api/#overview).
 
 # Chapter 6. Introduction to Hyperledger Sawtooth
     
 ## Introduction & Learning Objectives
+
+### Learning Objectives
+
+*   Understand the basics of Hyperledger Sawtooth v0.8.
+*   Walk through a demonstrated scenario highlighting aspects of Hyperledger Sawtooth.
+*   Discuss crucial components of Hyperledger Sawtooth, including the consensus algorithm_Proof of Elapsed Time,_ transaction families_,_ batches, and validators_._
+*   Set up a running Hyperledger Sawtooth network and test an application.
+*   Get involved in the framework discussion and development.
+
 ## Addressing Illegal, Unregulated, and Unreported Tuna Fishing (Demonstrated Scenario)
+
+> According to the [World Economic Forum](https://www.weforum.org/agenda/2017/05/can-technology-help-tackle-illegal-fishing/), _"Illegal, unreported, and unregulated (IUU) fishing represents a theft of around 26 million tonnes, or close to $24 billion value of seafood a year."_
+
+### Defining Our Actors
+
++ **Sarah** is the fisherman who sustainably and legally catches tuna.
++ **Tuna processing plant** processes and bags the tuna after they have been caught.
++ **Regulators** verify that the tuna has been legally and sustainably caught.
++ **Miriam** is a restaurant owner who will serve as the recipient in this situation.
+
+![Actors](https://prod-edxapp.edx-cdn.org/assets/courseware/v1/3deee7052b123b20c15de7aaf7c3d3fc/asset-v1:LinuxFoundationX+LFS171x+3T2017+type@asset+block/2_-__Sawtooth__Demonstrated_Scenario__1_.jpg)
+
+We will be describing how tuna fishing can be improved starting from the source, fisherman Sarah, and the process by which her tuna ends up at Miriam's restaurant.
+
+### Featured Hyperledger Sawtooth Elements
+
++ **Transaction validators** validate transactions.
++ **Transaction families** are smart contracts in Hyperledger Sawtooth. They define the operations that can be applied to transactions. Transaction families consist of both transaction processors (the server-side logic) and clients (for use from Web or mobile applications).
++ **Transaction processor** is the server-side business logic of transaction families that acts upon network assets.
++ **Transaction batches** are clusters of transactions that are either all committed to state or are all not committed to state.
++ **The network layer** is responsible for communicating between validators in a Hyperledger Sawtooth network, including performing initial connectivity, peer discovery, and message handling.
++ **Global state** contains the current state of the ledger and a chain of transaction invocations. The state for all transaction families is represented on each validator. The process of block validation on each validator ensures that the same transactions result in the same state transitions, and that the resulting data is the same for all participants in the network. The state is split into namespaces, which allow flexibility for transaction family authors to define, share, and reuse global state data between transaction processors.
+
+### Why Sawtooth?
+
+Miriam is a restaurant owner looking to source high quality tuna, that have been caught responsibly. Whenever Miriam buys tuna, she cannot be sure whether she can trust that the tuna she is purchasing is legally and sustainably caught, given the prominence of illegal and unreported tuna fishing. Luckily, Hyperledger Sawtooth can help!
+
+Hyperledger Sawtooth is ideal for this scenario because of its ability to track an asset's (in this case tuna) provenance and journey. The ability to batch transactions together allows for all tuna within a catch to be entered as a whole. The distributed state agreement, novel consensus algorithm, and decoupled business logic from the consensus layer allow Miriam to be confident that she is buying tuna that has been legally caught.
+
+### The Supply Chain
+
+Hyperledger Sawtooth is extremely scalable and able to withstand high throughput of data, which makes it a great option for production supply chain scenarios.
+
+We will start with Sarah, our licensed tuna fisher, who sells her tuna to multiple restaurants. Sarah operates as a private business, in which her company frequently makes international deals. Through an application, Sarah is able to gain entry to a Hyperledger Sawtooth blockchain network comprised of other fishermen, as well as processing plants, regulators, and restaurant owners. Sarah, as  well as the processing plants, have the ability to add and update information to this ledger as tuna passes through the supply chain, while regulators and restaurants have read access to ledger records.
+
+### The Tuna Asset
+
+With each catch, Sarah records some information about each individual tuna, including: a unique ID number, the location and time of the catch, its weight, and who caught the fish. For the sake of simplicity, we will stick with these data attributes. However, in an actual application, many more details would be recorded, from toxicology, to other physical characteristics, such as the temperature of the tuna.
+
+These details are saved in the global state as a _**key/value pair**_ based on the specifications of a _**transaction** **family**_, while the _**transaction processor**_ allows Sarah's application to effectively create a transaction on the ledger. Please see the example below:
+
+**$ var tuna = { id: ‘0002’, holder: ‘Sarah’, location: { latitude: '15.623036831528264', longitude: '-158.466796875'}, when: '20170635123546', weight: ‘58lbs’ }**
+
+### Recording a Catch
+
+After Sarah catches her tuna and records data for each tuna, she is able to treat a haul of tuna as a single _**batch**_ of transactions. As a reminder, _**transaction batches**_ are clusters of transactions that are committed to state together. Using batches, Sarah is able to record many tuna together, while still being able to specify data for each tuna. If one of the tuna transactions is invalid, the entire shipment is invalidated, that is, no tuna within the batch of tuna is validated.
+
+### Reaching Consensus
+
+After a batch of many transactions is submitted to the network, the network’s consensus algorithm is run to choose a node to publish the transaction block. By default, the _**Proof of Elapsed Time**_ consensus algorithm is used, and the _**transaction validator**_ with the shortest wait time publishes the transaction block. The transaction block is then broadcast to the publishing nodes.
+
+Each node within the network receives the transaction block, and validators verify whether the transaction is valid or not. If the transaction is validated, the global state is updated.
+
+Hyperledger Sawtooth is unique because of its distributed state agreement, whereby every node in the system has the same understanding of information, and, as the supply chain matures, the data stored remains consistent across the network.
+
+With the global state adjusted, the processing plant, the regulator, and Miriam are able to see the details of the catch and who the current holder is, thus, keeping the supply chain transparent and verifiable.
+
+### Other Actors in the Supply Chain
+
+Before Sarah's tuna can reach Miriam's restaurant, they need to go through a tuna processing plant. Also, regulators will need to verify and view details from the ledger. Therefore, both parties will gain entry to this Sawtooth blockchain. The regulators will need to query the ledger to confirm that Sarah is legally catching her fish. At the same time, tuna processing plants will need to record their processing and shipping of the tuna on the ledger.
+
+### Summary of Transaction Flow
+
+Now, let's review the summary of the transaction flow:
+
+![Summary of Transaction Flow](https://prod-edxapp.edx-cdn.org/assets/courseware/v1/e0c503b430152897e29dec1c95ba99e2/asset-v1:LinuxFoundationX+LFS171x+3T2017+type@asset+block/Sawtooth_section_3_summary_of_transaction_flow.png)
+
+1.  Sarah catches a tuna and uses the application's user interface to record all the details about the catch to the ledger. An entire haul of tuna can be treated as a transaction batch, with each individual tuna registered as a transaction within the batch.
+2.  After the details of the catch are saved to the ledger and the tuna is passed along the supply chain, the processing plant may use their own application to query the ledger for details about specific catches, such as weight. The processing plant will add details reflecting the processing date and time, as well as other relevant information.
+3.  As the tuna is passed along the supply chain, the regulator may use their respective application to query the ledger for details about specific catches, such as the owner and location of the catch, to verify legitimacy.
+4.  Lastly, when the haul of tuna arrives at Miriam's restaurant, Miriam is able to use her application to query the ledger, to check and make sure Sarah was truthful in her account of where each fish was sourced. This, in turn, guarantees Miriam's restaurant is serving their customers the sustainably caught fish they advertise.
+
 ## Key Components and Transaction Flow
+
+### Requirements Supported by Hyperledger Sawtooth
+
+Hyperledger Sawtooth is a blockchain framework with potential in IoT, manufacturing, finance, and enterprise. Hyperledger Sawtooth supports diverse requirements, including both permissioned and permissionless deployments, and a pluggable consensus algorithm. This framework also provides a revolutionary consensus algorithm, Proof of Elapsed Time (PoET), that allows for versatility and scalability suited for a variety of solutions.
+
+Hyperledger Sawtooth supports many different infrastructural requirements, such as:
+
+*   Permissioned and permissionless infrastructure
+*   Modular blockchain architecture
+*   Scalability, which is good for larger blockchain networks due to higher throughput
+*   Many languages for transaction logic.
+
 ## Installing Hyperledger Sawtooth
 ## Writing an Application
 ## Joining the Hyperledger Sawtooth Community
