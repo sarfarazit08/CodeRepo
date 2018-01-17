@@ -1190,8 +1190,318 @@ Hyperledger Sawtooth supports many different infrastructural requirements, such 
 *   Scalability, which is good for larger blockchain networks due to higher throughput
 *   Many languages for transaction logic.
 
+### Transaction Batching
+
+Hyperledger Sawtooth **transaction batches** are clusters of transactions that are either all committed to state together, or none of the transactions are committed at all. As a result, transaction batches are often described as an atomic unit of change, since a group of transactions are treated as one, and are committed to the state as one. Every single transaction in Hyperledger Sawtooth is submitted within a batch. Batches can contain as little as a single transaction.
+
+When a transaction is created by a client, the batch is submitted to the validator (which we will cover more in depth in the next section). Transactions are organized into a batch in the order they are intended to be committed. The validator then, in turn, applies each transaction within the batch, leading to a change in the global state. The batch is committed to the state. If one transaction within the batch is invalid, then none of the transactions within that batch are committed.
+
+In summary, transaction batching allows a group of transactions to be applied in a specific order, and if any are invalid, then none of the transactions are applied. This is a powerful tool that can be utilized by many enterprise solutions, as it provides greater efficiency and control for end users.
+
+### Validators
+
+In any blockchain network, modifying the global state requires creating and applying a transaction. In Hyperledger Sawtooth, **validators** apply blocks that cause a change in the state. More specifically, validators validate transaction blocks, and ensure that transactions result in state changes that are consistent across all participants in the network.
+
+To start, a user creates a transaction batch and submits it to a validator via a client and REST API. The validator then checks the transaction batch and applies it if it is considered valid, resulting in a change to the state. In terms of our demonstrated scenario, Sarah, the fisherman, creates a transaction batch to record information about a group of tuna catches. The validator would then apply the transactions, and the state would be updated if all appropriate attributes are present: a unique ID number, location and time of the catch, weight, and who caught the fish. If any of these elements are missing, the transactions within the batch would not be applied, and the state would not be updated.
+
+![Sawtooth validators](https://prod-edxapp.edx-cdn.org/assets/courseware/v1/c7b3d5552070184b7b56fc25d316f585/asset-v1:LinuxFoundationX+LFS171x+3T2017+type@asset+block/Sawtooth_validators.png)
+
+### Journal
+
+In Hyperledger Sawtooth, the **journal** maintains and extends the blockchain for the validator. It is responsible for validating candidate blocks, evaluating valid blocks to determine if they are the correct chain head, and generating new blocks to extend the chain. Transaction batches arrive at the journal, where they are evaluated, validated, and added to the blockchain. Additionally, the journal resolves forks, which occur due to disagreements over who commits a block. Once blocks are completed, they are delivered to the _ChainController_ for validation and fork resolution.  To see how the elements of the journal interact with one another, take a look at the diagram on the next page.
+
+Another key feature of the journal is its flexibility in allowing pluggable consensus algorithms.
+
+### Consensus Interface
+
+Consensus in Hyperledger Sawtooth is modular, meaning that the consensus algorithm can be easily modified. Hyperledger Sawtooth provides an abstract interface that supports both PBFT and Nakamoto-style algorithms. To implement a new consensus algorithm in Hyperledger Sawtooth, you must implement the distinct interface for: block publisher, block verifier, and fork resolution.
+
+*   **Block publisher**: Creates new candidate blocks to extend the chain.
+*   **Block verifier**: Verifies that candidate blocks are published in accordance with consensus rules.
+*   **Fork resolver**: Chooses which fork to use as the chain head for consensus algorithms that result in a fork.
+
+![Consensus interface](https://prod-edxapp.edx-cdn.org/assets/courseware/v1/a6cfe922dbd88b452ce58d493273f9e4/asset-v1:LinuxFoundationX+LFS171x+3T2017+type@asset+block/Consensus_interface.png)
+
+### Transaction Families
+
+As with any blockchain framework, transaction updates need to be approved and shared between many untrusted parties. As such, many blockchain frameworks have a mechanism for supporting distributed ledgers, as well as a method for changing the state of the shared ledger.
+
+In Hyperledger Sawtooth, the data model that captures the state and the transaction language that changes the state are implemented using **transaction families**.
+
+A transaction family consists of a group of operations or _transaction types_ that are allowed on the shared ledgers. This allows for flexibility in the level of versatility and risk that exists on a network. Transaction families are often called 'safer' smart contracts, because they specify a predefined set of acceptable smart contract templates, as opposed to programming smart contracts from scratch.
+
+Hyperledger Sawtooth’s transaction families can be written in many languages, including Javascript, Java, C++, Python, and Go, which allows flexibility for businesses to bring their own transaction families. Hyperledger Sawtooth allows the developers to specify the address/namespace of data, which provides flexibility in defining, sharing, and reusing data between different transaction families.
+
+![Transaction families](https://prod-edxapp.edx-cdn.org/assets/courseware/v1/8f6a37e9af4a9e8117c7d1b779e0b405/asset-v1:LinuxFoundationX+LFS171x+3T2017+type@asset+block/Transaction_families.png)
+
+### Transaction Processors
+
+A **transaction processor** provides the server-side business logic that operates on assets within a network. Hyperledger Sawtooth supports pluggable transaction processors, that are customizable based on the specific application. Businesses are able to develop transaction processors that do exactly what their applications need. Additionally, transaction processors can be written in a variety of languages (Java, Python, C, C++, JavaScript, and Go), allowing for ease of use and simplicity when handling assets.
+
+Each node within the Hyperledger Sawtooth network runs a transaction processor. This transaction processor processes incoming transactions submitted by authorized clients. In Hyperledger Sawtooth, the Sawtooth SDK allows programmers to focus on developing application logic, as opposed to building communication mechanisms between transaction processors.
+
+Later in this chapter, in the _Writing an Application_ section, you will be able to explore how exactly transaction processors interact with a client and other Hyperledger Sawtooth elements.
+
+### Sawtooth Node
+
+Hyperledger Sawtooth organizations run a node that interacts with the Hyperledger Sawtooth network. Each node runs at least three things:
+
+*   The main **validator** process
+*   The **REST service** listening for requests (could be transaction posts or state queries)
+*   One or more **transaction processors**
+
+Each organization that enters the Hyperledger Sawtooth network runs at least one node, and receives transactions submitted by fellow nodes.
+
+![Sawtooth node](https://prod-edxapp.edx-cdn.org/assets/courseware/v1/274566f591da0f1ee0ea5035f5415a7e/asset-v1:LinuxFoundationX+LFS171x+3T2017+type@asset+block/Sawtooth_node.png)
+
+### Introducing Proof of Elapsed Time (PoET)
+
+The consensus algorithm commonly used in a Hyperledger Sawtooth network is the **Proof of Elapsed Time**, or **PoET**. PoET impartially determines who will commit a transaction to state using a lottery function that elects a leader from many different distributed nodes.
+
+Hyperledger Sawtooth’s PoET algorithm differs from the Proof of Work algorithm implemented by the Bitcoin blockchain in that Proof of Work relies on vast amounts of power, while Proof of Elapsed Time is able to ensure trust and randomness in electing a leader, without the high power consumption. PoET allows for increased scalability and participation, as every node in the network has an equal opportunity to create the next block on the chain.
+
+### How Proof of Elapsed Time Works
+
+To start, each validator within the network requests a wait time from an enclave, or a trusted function. This is where the 'Elapsed Time' comes into play. The validator with the shortest wait time for a specific block is appointed the leader, and creates the block to be committed to the ledger. As a result, a truly random leader is elected, and the amount of power or type of hardware you have will not give you an advantage. Using simple functions, the network can verify that the winning validator did indeed 'win', by proving that it had the shortest time to wait before assuming the leadership position.
+
+Proof of Elapsed Time is revolutionary in its ability to achieve distributed consensus using a lottery function. This not only allows for easy verification and fairness within the network, but also for incredible scalability. Without the heavy costs of participating in consensus, anyone can participate in the network. One of Hyperledger Sawtooth's main advantages is that it allows the size of the network to scale. That is, Hyperledger Sawtooth is nearly limitless in the network size it can support.
+
+### Forks
+
+While PoET provides many benefits and aids tremendously with scalability, there is a downside to the PoET consensus algorithm. And that is the issue of **forks**. The PoET algorithm may lead to forking, in which two 'winners' propose a block. Each fork has to be resolved by validators, and this results in a delay in reaching consistency across the network.
+
+> As stated in the Sawtooth documentation: _"Completed Blocks are delivered to the Chain controller for validation and fork resolution." [https://intelledger.github.io/architecture/journal.html](https://intelledger.github.io/architecture/journal.html)_
+
 ## Installing Hyperledger Sawtooth
+
+### Technical Prerequisites
+
+In order to successfully install Hyperledger Sawtooth, you should be familiar with Go and Node.js programming languages, and have the following features installed on your computer: cURL, Node.js, npm package manager, Go language, Docker, and Docker Compose.
+
+For further details on these prerequisites, visit Chapter 4, _Technical Requirements_.
+
+### Installing Hyperledger Sawtooth
+
+Hyperledger Sawtooth is a suite that permits the creation and utilization of a distributed ledger. Installing Hyperledger Sawtooth will involve adding signing keys for the software creator to our environment, including the repository that contains the code to our system, and performing a typical update/install.
+
+Hyperledger Sawtooth validators can be run either from pre-built Docker containers, or natively, using Ubuntu 16.04. In this tutorial, we will demonstrate how to set up Hyperledger Sawtooth using Docker.
+
+Our simple Sawtooth environment will include a single validator using the dev-mode consensus, a REST API connected to the validator, transaction processors, and a client container.
+
+Download the following Docker Compose file as **sawtooth-default.yaml** at [https://raw.githubusercontent.com/hyperledger/education/master/LFS171x/sawtooth-material/sawtooth-default.yaml](https://raw.githubusercontent.com/hyperledger/education/master/LFS171x/sawtooth-material/sawtooth-default.yaml).
+
+### Starting Hyperledger Sawtooth
+
++ We will start by opening a terminal window. You should change your working directory to the same directory where the **sawtooth-default.yaml** Docker Compose file is saved. Make sure you do **not** have anything else running on port 8080 or port 4004.
++ Run the following command: **$ docker-compose -f sawtooth-default.yaml up**
++ This command will download the Docker images that comprise the Hyperledger Sawtooth demo environment. The download will take several minutes. The terminal will start to display containers registering and creating initial blocks.
++ Make sure to have Docker running on your device before running the commands in this section. Otherwise, you will get a similar error to the one below: **ERROR: Couldn't connect to Docker daemon. You might need to start Docker for Mac.**
+
+### Logging into the Client Container
+
++ The client container is used to run Sawtooth CLI commands, which is the usual way to interact with validators or validator networks at this time. Open a new terminal window and navigate to the same directory mentioned in this section.
++ Log into the client container by running the following command: **$ docker exec -it sawtooth-client-default bash**
++ In your terminal, you will see something similar to the following: **root@75b380886502:/#**
++ Your environment is now set up and you are ready to start experimenting with the network. But first, let’s confirm that our validator is up and running, and reachable from the client container. To do this, run the following command: **$ curl http://rest-api:8080/blocks**
++ After running this command, you should see a **json** object response with “data”, array of batches, header, etc.
++ And, to check the connectivity from the host computer, run the following command in a new terminal window (it does not need to be the same directory as mentioned previously in this section): **$ curl http://localhost:8080/blocks**
++ After running this command, you should see a **json** object response with “data”, array of batches, header, etc.
+
+### Stopping Hyperledger Sawtooth
+
+First, press **Ctrl+C** from the window where you originally ran **docker-compose**.
+Then, in the terminal, you will see containers stopping. After that, run the following command: **$ docker-compose -f sawtooth-default.yaml down**
+
 ## Writing an Application
+
+### Applications
+
+In a blockchain application, the blockchain will store the state of the system, in addition to the immutable record of transactions that created that state. A client application will be used to send transactions to the blockchain. The smart contracts will encode some (if not all) of the business logic.
+
+### Designing an Application Using the Javascript SDK
+
+We will be looking at a sample blockchain application that interfaces with Hyperledger Sawtooth. This application was written by Zac Delventhal, a maintainer on Hyperledger Sawtooth, and was originally presented at Midwest JS 2017. This example is meant to introduce you to writing an application that interfaces with Hyperledger Sawtooth, as opposed to creating a complete production implementation.
+
+Hyperledger Sawtooth offers an SDK to abstract away many of the complicated aspects of blockchain technology. SDKs are available in multiple languages, including Java, Python, and Javascript. In this example, we will be working with the Javascript SDK. We will be examining a web client and transaction processor putting our demonstrated scenario into action.
+
+### Review of Hyperledger Sawtooth Components
+
+**Transaction validators** validate transactions.
+
+**Transaction families** consist of _"a group of operations or transaction types"_ ([Dan Middleton](https://www.hyperledger.org/blog/2017/06/22/whats-a-transaction-family)) that are allowed on the shared ledger. Transaction families consist of both transaction processors (the server-side logic) and clients (for use from Web or mobile applications).
+
+The **transaction processor** provides the server-side business logic that operates on assets within a network.
+
+**Transaction batches** are clusters of transactions that are either all committed to state, or are all not committed to state.
+
+The **network layer** is responsible for communicating between validators in a Hyperledger Sawtooth network, including performing initial connectivity, peer discovery, and message handling.
+
+The** global state** contains the current state of the ledger and a chain of transaction invocations. The state for all transaction families is represented on each validator. The state is split into namespaces, which allow flexibility for transaction family authors to define, share, and reuse global state data between transaction processors.
+
+### Sawtooth Tuna Application
+
+Let’s get our feet wet with an example of a simple Hyperledger Sawtooth blockchain application, written in JavaScript, that relates to the tuna fish supply scenario we discussed in our demonstrated scenario. The _Sawtooth Tuna Chain_ allows a user to create named assets (tuna fish), and transfer them between different holders designated by a public key.
+
+In our example, we will look at:
+
+*   A transaction processor
+*   A simple browser-based client.
+
+The transaction processor interfaces with a Sawtooth validator, and handles the validation of transactions.
+
+The client is a simple browser-based user interface, and will allow a user to manage public/private key pairs, and submit transactions using the Sawtooth REST API.
+
+Just in case you have not done so, clone the educational repository for this course with the _Sawtooth Tuna Chain_ application code we have provided. Navigate in your terminal window to your projects folder or desktop.
+
++ **$ git clone https://github.com/hyperledger/education.git**
++ **$ cd education**
++ **$ cd LFS171x**
++ **$ cd sawtooth-material**
+
+### File Structure of Application
+
+Here you can see the file structure of the Sawtooth application:
+
+![The file structure of the Sawtooth application](https://prod-edxapp.edx-cdn.org/assets/courseware/v1/d99202fc5d73b815887148f17dc52af4/asset-v1:LinuxFoundationX+LFS171x+3T2017+type@asset+block/File_Structure_of_Sawtooth_Application.png)
+
+### Installation
+
+Make sure you have Docker running on your machine before you run the next command. If you do not have Docker installed, you should review Chapter 4, _Technical Requirements_.
+
+**Note**: Make sure you are in the **sawtooth-material** folder
+
+We will use the provided **docker-compose** file to spin up some default Sawtooth components, including a validator and a REST API. Run the following command to start Sawtooth up: **$ docker-compose -f sawtooth-default.yaml up**
+
+**Note**: If you are getting an error, you may need to run the following instead: **$ docker-compose -force sawtooth-default.yaml up**
+
+Let’s run the following commands to install dependencies for the transaction processor:
+
++ **$ cd sawtooth-tuna**  
++ **$ cd processor**  
++ **$ npm install**
+
+Then, we will navigate to the client folder, and run these commands to install dependencies for and build the client:
+
++ **$ cd ..**  
++ **$ cd client**  
++ **$ npm install**  
++ **$ npm run build**
++ **$ cd .. **  
+
+**Note**: Make sure you are in the **sawtooth-tuna** folder.
+
+### Transaction Processor
+
+To review, there are two main components of a **transaction processor**: _a processor class_ and a _handler class_. The Javascript SDK offers a general-purpose processor class. The handler class is customized to the application, and holds the business logic for transactions. Usually, there is one transaction processor per use case.
+
+Make sure you are in the **sawtooth-tuna** folder. In a new terminal window, start up the transaction processor by running the following:
+
++ **$ cd processor**  
++ **$ npm start**
+
+### Browser Client
+
+Start the client simply by opening **../client/index.html** in any browser window of your choice. One way of doing so is simply to open up the **education** folder and navigate to **sawtooth-tuna**. Click on the **client** folder and drag the **index.html** folder into a browser window.
+
+### Creating a User
+
+We are now ready to test out our application through the user interface. We have four options:
+
+*   **Create a user** within the supply chain
+*   **Create a record** of a tuna catch
+*   **Transfer** a tuna
+*   **Accept or reject** a transfer.
+
+The application logic is contained mainly within the **handlers.js** file within the **processor** folder.
+Users are just public/private key pairs stored in **localStorage**.
+
+`**makePrivateKey: () => {**
+**let privateKey**
+**do privateKey = randomBytes(32)**
+**while (!secp256k1.privateKeyVerify(privateKey))**
+**return privateKey.toString('hex')**
+**}**`
+
+This function creates a random 256-bit private key represented as a 64-char hex string on the client side. This should not be shared with anyone else.
+
+`**getPublicKey: privateKey => {**
+**const privateBuffer = _decodeHex(privateKey)**
+**const publicKey = secp256k1.publicKeyCreate(privateBuffer)**
+**return publicKey.toString('hex')**
+**}**`
+
+This function returns the public key derived from the 256-bit private key created above. This is the key that is safe to share. It takes in the 256-bit private key and returns the public key as a hex string.
+
+These two keys are stored together in the browser’s **localStorage**. If you do _Inspect Element_ and navigate to the _Application_ tab, under **localStorage**, you can view the key pairs.
+
+**Note**: This method is not the way this would be done in a production application. **
+
+Within the user interface, you can create these keys from the _Select Holder_ dropdown. You can use this same dropdown to switch between multiple users in **localStorage**.
+
+![Select Holder dropdown](https://prod-edxapp.edx-cdn.org/assets/courseware/v1/2080216b15e52eed8182a02036719b1c/asset-v1:LinuxFoundationX+LFS171x+3T2017+type@asset+block/Tuna_Holder_drop_down.png)
+
+![Create new keypair](https://prod-edxapp.edx-cdn.org/assets/courseware/v1/5f06b8ccc63eaa2aceae22bae6dd2bc7/asset-v1:LinuxFoundationX+LFS171x+3T2017+type@asset+block/Tuna_Create_New_Key_Pair.png)
+
+### Creating a Record of Tuna
+
+`**const createAsset = (asset, owner, state) => {**
+**const address = getAssetAddress(asset)**
+**return state.get(\[address\])**
+**.then(entries => {**
+**const entry = entries\[address\]**
+**if (entry && entry.length > 0) {**
+**throw new InvalidTransaction('Asset name in use')**
+**}**
+**return state.set({**
+**\[address\]: encode({name: asset, owner})**
+**})**
+**})**
+**}**
+
+**const getAddress = (key, length = 64) => {**
+**return createHash('sha512').update(key).digest('hex').slice(0, length)**
+**}**
+**const getAssetAddress = name => PREFIX + '00' + getAddress(name, 62)**`
+
+The **createAsset** function adds a new asset to the state by taking in an asset name, owner as the public key, and state. Once an asset address for a specific tuna is created with the **sha512** hash, the state is set to **state.set({ \[address\]: encode({name: asset, owner: owner}) })**.
+
+Within the user interface, select the owner of the tuna in the _Select Holder_ dropdown, then provide a unique name for the tuna in the _Create Tuna Record_ text box. Lastly, click the _Create_ button.
+
+![Create tuna record](https://prod-edxapp.edx-cdn.org/assets/courseware/v1/ecf5dc6278ce756c419daa608a5a12c8/asset-v1:LinuxFoundationX+LFS171x+3T2017+type@asset+block/Tuna_Create.png)
+
+After doing this, you will see the tuna show up in the _Tuna List_, along with its associated owner.
+
+![Tuna List showing the tuna and its associated owner](https://prod-edxapp.edx-cdn.org/assets/courseware/v1/542e69f298f8ece8eb21325c675e0fe0/asset-v1:LinuxFoundationX+LFS171x+3T2017+type@asset+block/Tuna_List.png)
+
+### Transferring a Tuna
+
+**const transferAsset = (asset, owner, signer, state) => {**
+**const address = getTransferAddress(asset)**
+**const assetAddress = getAssetAddress(asset)**
+**return state.get(\[assetAddress\])**
+**.then(entries => {**
+**const entry = entries\[assetAddress\]**
+**if (!entry || entry.length === 0) {**
+**throw new InvalidTransaction\]('Asset does not exist')**
+**}**
+**if (signer !== decode(entry).owner) {**
+**throw new InvalidTransaction('Only an Asset\\'s owner may transfer it')**
+**}**
+**return state.set({**
+**\[address\]: encode({name: asset, owner: owner})**
+**})**
+
+**})**
+
+**}**
+
+The **transferAsset** function proposes a transfer of ownership for a particular asset to the state by taking in the asset name, owner to transfer to, signer (current owner) and state. If all the checks pass, the state is updated with the proposed transfer **\[address\]: encode({asset, owner})**.
+
+Any tuna assigned to a particular user can be transferred to another owner (public key) using the dropdowns under _Transfer Tuna_. Note that the transfer must be accepted by that user before it is finalized.
+
+![Tuna transfer steps](//prod-edxapp.edx-cdn.org/assets/courseware/v1/b94d1ad03f10fbe7924dcd9341641bf7/asset-v1:LinuxFoundationX+LFS171x+3T2017+type@asset+block/Tuna_Transfer.png)
+
+### 
 ## Joining the Hyperledger Sawtooth Community
         
 # Chapter 7. Introduction to Hyperledger Fabric
