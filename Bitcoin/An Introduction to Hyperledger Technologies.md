@@ -1386,7 +1386,7 @@ Then, we will navigate to the client folder, and run these commands to install d
 + **$ cd client**  
 + **$ npm install**  
 + **$ npm run build**
-+ **$ cd .. **  
++ **$ cd ..**  
 
 **Note**: Make sure you are in the **sawtooth-tuna** folder.
 
@@ -1415,20 +1415,20 @@ We are now ready to test out our application through the user interface. We have
 The application logic is contained mainly within the **handlers.js** file within the **processor** folder.
 Users are just public/private key pairs stored in **localStorage**.
 
-`**makePrivateKey: () => {**
-**let privateKey**
-**do privateKey = randomBytes(32)**
-**while (!secp256k1.privateKeyVerify(privateKey))**
-**return privateKey.toString('hex')**
-**}**`
+`makePrivateKey: () => {
+let privateKey
+do privateKey = randomBytes(32)
+while (!secp256k1.privateKeyVerify(privateKey))
+return privateKey.toString('hex')
+}`
 
 This function creates a random 256-bit private key represented as a 64-char hex string on the client side. This should not be shared with anyone else.
 
-`**getPublicKey: privateKey => {**
-**const privateBuffer = _decodeHex(privateKey)**
-**const publicKey = secp256k1.publicKeyCreate(privateBuffer)**
-**return publicKey.toString('hex')**
-**}**`
+`getPublicKey: privateKey => {
+const privateBuffer = _decodeHex(privateKey)
+const publicKey = secp256k1.publicKeyCreate(privateBuffer)
+return publicKey.toString('hex')
+}`
 
 This function returns the public key derived from the 256-bit private key created above. This is the key that is safe to share. It takes in the 256-bit private key and returns the public key as a hex string.
 
@@ -1444,24 +1444,23 @@ Within the user interface, you can create these keys from the _Select Holder_ dr
 
 ### Creating a Record of Tuna
 
-`**const createAsset = (asset, owner, state) => {**
-**const address = getAssetAddress(asset)**
-**return state.get(\[address\])**
-**.then(entries => {**
-**const entry = entries\[address\]**
-**if (entry && entry.length > 0) {**
-**throw new InvalidTransaction('Asset name in use')**
-**}**
-**return state.set({**
-**\[address\]: encode({name: asset, owner})**
-**})**
-**})**
-**}**
-
-**const getAddress = (key, length = 64) => {**
-**return createHash('sha512').update(key).digest('hex').slice(0, length)**
-**}**
-**const getAssetAddress = name => PREFIX + '00' + getAddress(name, 62)**`
+`const createAsset = (asset, owner, state) => {
+            const address = getAssetAddress(asset)
+            return state.get(\[address\])
+            .then(entries => {
+            const entry = entries\[address\]
+            if (entry && entry.length > 0) {
+                throw new InvalidTransaction('Asset name in use')
+            }
+            return state.set({
+            \[address\]: encode({name: asset, owner})
+        })
+    })
+}
+const getAddress = (key, length = 64) => {
+    return createHash('sha512').update(key).digest('hex').slice(0, length)
+}
+const getAssetAddress = name => PREFIX + '00' + getAddress(name, 62)`
 
 The **createAsset** function adds a new asset to the state by taking in an asset name, owner as the public key, and state. Once an asset address for a specific tuna is created with the **sha512** hash, the state is set to **state.set({ \[address\]: encode({name: asset, owner: owner}) })**.
 
@@ -1475,33 +1474,106 @@ After doing this, you will see the tuna show up in the _Tuna List_, along with i
 
 ### Transferring a Tuna
 
-**const transferAsset = (asset, owner, signer, state) => {**
-**const address = getTransferAddress(asset)**
-**const assetAddress = getAssetAddress(asset)**
-**return state.get(\[assetAddress\])**
-**.then(entries => {**
-**const entry = entries\[assetAddress\]**
-**if (!entry || entry.length === 0) {**
-**throw new InvalidTransaction\]('Asset does not exist')**
-**}**
-**if (signer !== decode(entry).owner) {**
-**throw new InvalidTransaction('Only an Asset\\'s owner may transfer it')**
-**}**
-**return state.set({**
-**\[address\]: encode({name: asset, owner: owner})**
-**})**
-
-**})**
-
-**}**
+`
+const transferAsset = (asset, owner, signer, state) => {
+	const address = getTransferAddress(asset)
+	const assetAddress = getAssetAddress(asset)
+	return state.get(\[assetAddress\])
+	.then(entries => {
+		const entry = entries\[assetAddress\]
+		if (!entry || entry.length === 0) {
+		throw new InvalidTransaction\]('Asset does not exist')
+		}
+		if (signer !== decode(entry).owner) {
+		throw new InvalidTransaction('Only an Asset\\'s owner may transfer it')
+		}
+		return state.set({
+		\[address\]: encode({name: asset, owner: owner})
+		})
+	})
+}
+`
 
 The **transferAsset** function proposes a transfer of ownership for a particular asset to the state by taking in the asset name, owner to transfer to, signer (current owner) and state. If all the checks pass, the state is updated with the proposed transfer **\[address\]: encode({asset, owner})**.
 
 Any tuna assigned to a particular user can be transferred to another owner (public key) using the dropdowns under _Transfer Tuna_. Note that the transfer must be accepted by that user before it is finalized.
 
-![Tuna transfer steps](//prod-edxapp.edx-cdn.org/assets/courseware/v1/b94d1ad03f10fbe7924dcd9341641bf7/asset-v1:LinuxFoundationX+LFS171x+3T2017+type@asset+block/Tuna_Transfer.png)
+![Tuna transfer steps](https://prod-edxapp.edx-cdn.org/assets/courseware/v1/b94d1ad03f10fbe7924dcd9341641bf7/asset-v1:LinuxFoundationX+LFS171x+3T2017+type@asset+block/Tuna_Transfer.png)
 
-### 
+### Accepting or Rejecting Transfers (Part I)
+
+`
+const acceptTransfer = (asset, signer, state) => {
+    const address = getTransferAddress(asset)
+    return state.get(\[address\])
+    .then(entries => {
+        const entry = entries\[address\]
+        if (!entry || entry.length === 0) {
+        throw new InvalidTransaction('Asset is not being transfered')
+        }
+        if (signer !== decode(entry).owner) {
+        throw new InvalidTransaction(
+        'Transfers can only be accepted by the new owner'
+        )
+        }
+        return state.set({
+        \[address\]: Buffer(0),
+        \[getAssetAddress(asset)\]: encode({name: asset, owner: signer})
+        })
+    })
+}
+`
+
+The **acceptTransfer** function allows a user to accept a transfer of an asset and change the asset ownership.
+
+`
+const rejectTransfer = (asset, signer, state) => {
+    const address = getTransferAddress(asset)
+    return state.get(\[address\])
+    .then(entries => {
+        const entry = entries\[address\]
+        if (!entry || entry.length === 0) {
+        throw new InvalidTransaction('Asset is not being transfered')
+        }
+        if (signer !== decode(entry).owner) {
+        throw new InvalidTransaction(
+        'Transfers can only be rejected by the potential new owner')
+        }
+        return state.set({
+        \[address\]: Buffer(0)
+        })
+    })
+}
+`
+
+The **rejectTransfer** function allows a user to reject a transfer of an asset, and the asset owner will remain with the original user.
+
+Within the user interface, any pending transfers for the selected user will appear under _Accept Tuna_. These can be accepted (with an immediate change in ownership), or rejected with the corresponding buttons.
+
+### Accepting or Rejecting Transfers (Part III)
+
+When we click _Transfer_, the proposal is sent to the Hyperledger Sawtooth network. If we switch the _Select Holder_ field to the owner identified by the key starting with **03**, we will see that we can now _Accept_ or _Reject_ this ownership change.
+
+**NOTE**: If someone other than the owner tries to transfer ownership, you will see an error returned to the client from the Hyperledger Sawtooth network.
+
+![Accepting or rejecting the tuna transfer](https://prod-edxapp.edx-cdn.org/assets/courseware/v1/f1a4c52de931fb169b1685917c5d832b/asset-v1:LinuxFoundationX+LFS171x+3T2017+type@asset+block/Tuna_Accept-Reject.png)
+
+### Shutting Down Docker
+
+**Note**: When we are done with this tutorial, run the following command to shut down Docker: **$ docker-compose -f sawtooth-default.yaml down**
+
+### Application Flow
+
+![A diagram of the Sawtooth Application Flow](https://prod-edxapp.edx-cdn.org/assets/courseware/v1/148eb99c4e9410d799444b72fb7c6785/asset-v1:LinuxFoundationX+LFS171x+3T2017+type@asset+block/sawtooth-application-txflowdiagram.png)
+
+Hyperledger Sawtooth allows entities to securely update and read the distributed ledger without involving a central authority. Developers create application and transaction processor business logic (smart contract).
+
+Through the client application, users (fisherman, regulator, restaurant) are able to modify the state by creating and applying transactions.
+
+Through a REST API, the client application creates a batch containing a single transaction, and submits it to the validator.
+
+The validator applies the transaction using the transaction processor, which makes a change to the state (e.g., creating a record of a tuna catch).
+
 ## Joining the Hyperledger Sawtooth Community
         
 # Chapter 7. Introduction to Hyperledger Fabric
