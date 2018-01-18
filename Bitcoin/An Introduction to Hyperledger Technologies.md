@@ -1575,6 +1575,42 @@ Through a REST API, the client application creates a batch containing a single t
 The validator applies the transaction using the transaction processor, which makes a change to the state (e.g., creating a record of a tuna catch).
 
 ## Joining the Hyperledger Sawtooth Community
+
+### Becoming Involved with the Hyperledger Sawtooth Project
+
+Hyperledger Sawtooth is an open source project, where ideas and code can be publicly discussed, created, and reviewed. There are many ways to join the Hyperledger Sawtooth community, and in the next few pages we are highlighting some of the ways to get involved, either from a technical standpoint, or from an ideas/issues creation perspective.
+
+### Community Meetings and Mailing Lists
+
+You can join the online meetings on Sawtooth Sprint planning and Tech Forums. Check the Hyperledger Community Meetings Calendar for the timing of these meetings: [https://calendar.google.com/calendar/embed?src=linuxfoundation.org_nf9u64g9k9rvd9f8vp4vur23b0%40group.calendar.google.com&ctz=America/SanFrancisco](https://calendar.google.com/calendar/embed?src=linuxfoundation.org_nf9u64g9k9rvd9f8vp4vur23b0%40group.calendar.google.com&ctz=America/SanFrancisco).
+
+Some of the recordings of previous virtual tech forums on Hyperledger Sawtooth can be found here: [https://drive.google.com/drive/folders/0B_NJV6eJXAA1VnFUakRzaG1raXc](https://drive.google.com/drive/folders/0B_NJV6eJXAA1VnFUakRzaG1raXc).
+
+You can also join the mailing list(s) for technical discussions and announcements: [https://lists.hyperledger.org/mailman/listinfo/hyperledger-stl](https://lists.hyperledger.org/mailman/listinfo/hyperledger-stl).
+
+### GitHub and Rocket.Chat
+
+You can also get involved with the Hyperledger Sawtooth community on GitHub and Rocket.Chat.
+
+All code available on GitHub is forkable and viewable:
+
+*   [https://github.com/hyperledger/sawtooth-core](https://github.com/hyperledger/sawtooth-core)
+*   [https://github.com/hyperledger/sawtooth-supply-chain](https://github.com/hyperledger/sawtooth-supply-chain).
+
+You can also join the live conversations on Rocket.Chat (which is an alternative to Slack), using your Linux Foundation ID:
+
+*   [https://chat.hyperledger.org/channel/sawtooth](https://chat.hyperledger.org/channel/sawtooth)
+*   [https://chat.hyperledger.org/channel/sawtooth-consensus](https://chat.hyperledger.org/channel/sawtooth-consensus)
+*   [https://chat.hyperledger.org/channel/sawtooth-burrow](https://chat.hyperledger.org/channel/sawtooth-burrow).
+
+### Learning Objectives (Review)
+
+You should now be able to:
+*   Understand the basics of Hyperledger Sawtooth v0.8.
+*   Walk through a demonstrated scenario highlighting aspects of Hyperledger Sawtooth.
+*   Discuss crucial components of Hyperledger Sawtooth, including the consensus algorithm_Proof of Elapsed Time,_ transaction families_,_ batches, and validators_._
+*   Set up a running Hyperledger Sawtooth network and test an application.
+*   Get involved in the framework discussion and development.
         
 # Chapter 7. Introduction to Hyperledger Fabric
     
