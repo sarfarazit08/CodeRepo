@@ -2293,25 +2293,240 @@ We hope you now have a better idea of how chaincode is constructed and written,
 
 ## Writing an Application
 
-### 
-### 
-### 
-### 
-### 
-### 
-### 
-### 
-### 
-### 
-### 
-### 
-### 
+### What Is a Blockchain Application?
+
+In a blockchain application, the blockchain will store the state of the system, in addition to the immutable record of transactions that created that state. A client application will be used to send transactions to the blockchain. The smart contracts will encode some (if not all) of the business logic.
+
+### How Applications Interact with the Network
+
+Applications use APIs to run smart contracts. In Hyperledger Fabric, these smart contracts are called chaincode. These contracts are hosted on the network, and identified by name and version. APIs are accessible with a software development kit, or SDK. Currently, Hyperledger Fabric has three options for developers: Node.js SDK, Java SDK, and CLI.
+
+### Fabric Node.js SDK
+
+In this exercise, we will be using the Node.js SDK ([https://fabric-sdk-node.github.io/](https://fabric-sdk-node.github.io/)) to interact with the network, and, therefore, the ledger. The Hyperledger Fabric Client SDK makes it easy to use APIs to interact with a Hyperledger Fabric blockchain. This section will help you write your first application, starting with a test Hyperledger Fabric network, then learning the parameters of the sample smart contract, and lastly, developing the application to query and update ledger records.
+
+For additional information, visit the Hyperledger Fabric Node SDK  documentation: [https://fabric-sdk-node.github.io/tutorial-app-dev-env-setup.html](https://fabric-sdk-node.github.io/tutorial-app-dev-env-setup.html).
+
+### Hyperledger Fabric Tuna Application 
+
+The tuna application is going to demonstrate the creation and transfer of tuna fish shipments between actors leveraging Hyperledger Fabric in the supply chain.
+
+The application will be written in Node.js. The chaincode that we will be using is the demonstrated scenario chaincode that we walked through in the previous section. Interacting with the chaincode is done by using the gRPC protocol to a peer on the network. The details of the gRPC protocol are taken care of by the Hyperledger Fabric Client Node.js SDK.
+
+### Getting Started 
+
+In case you haven’t downloaded the **education** repository for this course, follow the below directions in your terminal window:
+
+* $ git clone https://github.com/hyperledger/education.git
+* $ cd education/LFS171x/fabric-material/tuna-app
+
+Make sure you have Docker running on your machine before you run the next command. If you do not have Docker installed, return to Chapter 4, _Technical Requirements_.
+
+Also, make sure that you have completed the _Installing Hyperledger Fabric_ section in this chapter before moving on to this application section, as you will likely experience errors. 
+
+First, remove any pre-existing containers, as it may conflict with commands in this tutorial: **$ docker rm -f $(docker ps -aq)**
+
+Then, let’s start the Hyperledger Fabric network with the following command: **$ ./startFabric.sh**
+
+**Troubleshooting:** If, after running the above you are getting an error similar to the following:
+
+**ERROR: failed to register layer: rename  
+****/var/lib/docker/image/overlay2/layerdb/tmp/write-set-091347846 /var/lib/docker/image/overlay2/layerdb/sha256/9d3227c1793b7494e598caafd0a5013900e17dcdf1d7bdd31d39c82be04fcf28: file exists**
+
+Try running the following command: **$ rm -rf ~/Library/Containers/com.docker.docker/Data/***
+
+Install the required libraries from the **package.json** file, register the **Admin** and **User** components of our network, and start the client application with the following commands:
+
++ $ npm install
++ $ node registerAdmin.js
++ $ node registerUser.js
++ $ node server.js
+
+Load the client simply by opening **localhost:8000** in any browser window of your choice, and you should see the user interface for our simple application at this URL (as in the screenshot below).
+
+![The Fabric application user interface](https://prod-edxapp.edx-cdn.org/assets/courseware/v1/50068889079cd063e30d8bbd6d5fe554/asset-v1:LinuxFoundationX+LFS171x+3T2017+type@asset+block/fabric-application1.png)
+
+**Troubleshooting:** If you are getting an error similar to the one below while attempting to perform any of the functions on the application:
+
+**Error: \[client-utils.js\]: sendPeersProposal - Promise is rejected: Error: Connect Failed**
+
+**error from query =  { Error: Connect Failed**
+
+**  at /Desktop/prj/education/LFS171x/fabric-material/tuna-app/node\_modules/grpc/src/node/src/client.js:554:15 code: 14, metadata: Metadata { \_internal_repr: {} } }**
+
+try running the following commands:
+
++ $ cd ~
++ $ rm -rf .hfc-key-store/
+
+Then, run the commands above starting with: **$ node registerAdmin.js**
+
+### File Structure of Application
+
+Here you can see the file structure of the Fabric application:
+
+![The file structure of the Fabric application](https://prod-edxapp.edx-cdn.org/assets/courseware/v1/a4867e651f3bb639e579fb3424bd9a62/asset-v1:LinuxFoundationX+LFS171x+3T2017+type@asset+block/fabric-filestructure.png)
+
+### Query All Tuna Recorded
+
+1. // queryAllTuna - requires no arguments
+2. const request = {
+3.     chaincodeId:’tuna-app’,
+4.     txId: tx_id,
+5.     fcn: 'queryAllTuna',
+6.     args: \[''\]
+7.     };
+8. return channel.queryByChaincode(request);
+
+(Reference: The code comes from **..src/queryAllTuna.js**)
+
+Now, let’s query our database, where there should be some sample entries already, since our chaincode smart contract initiated the ledger with 10 previous catches. This function takes no arguments, as we see on line 6. Instead, it takes an empty array.
+
+The query response you should see in the user interface is 10 pre-populated entries with the attributes for each catch.
+
+![Fabric application - query all tuna recorded](https://prod-edxapp.edx-cdn.org/assets/courseware/v1/ae31eb58789457980ae55a97aaee0aa8/asset-v1:LinuxFoundationX+LFS171x+3T2017+type@asset+block/fabric-queryAll.png)
+
+### Query a Specific Tuna Recorded
+
+1.  // queryTuna - requires 1 argument
+2.  const request = {
+3.      chaincodeId:’tuna-app’,
+4.      txId: tx_id,
+5.      fcn: 'queryTuna',
+6.      args: \['1'\]
+7.      };
+8.  return channel.queryByChaincode(request);
+
+(Reference: The code comes from **..src/queryTuna.js**)
+
+Now, let’s query for a specific tuna catch. This function takes 1 argument, as you can see on line 6 above, an example would be **\['1'\]**. In this example, we are using the key to query for catches.
+
+You should see the following query response detailing the attributes recorded for one particular catch.
+
+![Fabric application query a specific tuna](https://prod-edxapp.edx-cdn.org/assets/courseware/v1/4dbe39c61232ff1bfa939703cf396503/asset-v1:LinuxFoundationX+LFS171x+3T2017+type@asset+block/fabric-query.png)
+
+### Change Tuna Holder
+------------------
+
+Bookmark this page
+
+1.  // changeTunaHolder - requires 2 argument
+2.  var request = {
+3.      chaincodeId:’tuna-app’,
+4.  fcn: 'changeTunaHolder',*
+5.  args: \['1', 'Alex'\],
+6.            chainId: 'mychannel',
+7.            txId: tx_id
+8.  };
+9.  return channel.sendTransactionProposal(request);
+
+(Reference: The code comes from **..src/changeHolder.js**)
+
+Now, let’s change the name of the person in possession of a given tuna. This function takes 2 arguments: the key for the particular catch, and the new holder, as we can see on line 5 in the example above. Ex: **args: \['1', 'Alex'\]**.
+
+You may be able to see a similar success response in your terminal window:
+
+**The transaction has been committed on peer localhost:7053  
+**** event promise all complete and testing complete**
+
+**Successfully sent transaction to the orderer.  
+****Successfully sent Proposal and received ProposalResponse: Status - 200, message - "OK", metadata - "", endorsement signature: 0D 9**
+
+This indicates we have sent a proposal from our application via the SDK, and the peer has been endorsed, committed, and the ledger has been updated.
+
+![Fabric application change tuna holder](https://prod-edxapp.edx-cdn.org/assets/courseware/v1/e36aee4cc0c801b18e855eb1fc234c4b/asset-v1:LinuxFoundationX+LFS171x+3T2017+type@asset+block/fabric-changeTunaHolder.png)
+
+You should see that the holder has indeed been changed by querying for key **\['1'\]** again. Now, the **holder** attribute has been changed from **Miriam** to **Alex**, for example.
+
+![Fabric application change record](https://prod-edxapp.edx-cdn.org/assets/courseware/v1/c43d7a8103c74fc3c8a0e123889d02ab/asset-v1:LinuxFoundationX+LFS171x+3T2017+type@asset+block/fabric-changedRecord.png)
+
+### Finishing Up
+
+Remove all Docker containers and images that we created in this tutorial with the following command in the **tuna-app** folder:
+
++ **$ docker rm -f $(docker ps -aq)**
++ **$ docker rmi -f $(docker images -a -q)**
+
+### Application Flow Basics
+
+![Fabric application flow basics](https://prod-edxapp.edx-cdn.org/assets/courseware/v1/a63eaf4dd007c3e65ee63955eccaf5b6/asset-v1:LinuxFoundationX+LFS171x+3T2017+type@asset+block/fabric-application-flowbasics.png)
+
+1.  A developer creates an application and smart contract.
+2.  The application will invoke calls within the smart contract via the Hyperledger Fabric Client SDK.
+3.  These calls are processed by the business logic within the chaincode smart contract.
+4.  A **put** or **delete** command will go through the consensus process and will be added to the blockchain within the ledger.
+5.  A **get** command can only read from the world state, but it is not recorded on the blockchain.
+6.  The application can access blockchain information via APIs.
+
+### Application Flow Example
+
+![Fabric application flow example](https://prod-edxapp.edx-cdn.org/assets/courseware/v1/f01702e7429e967987a62daf274a164b/asset-v1:LinuxFoundationX+LFS171x+3T2017+type@asset+block/fabric-application-flow.png)
+
+1.  Various users (fisherman, regulators, or restaurateurs etc.) will interact with the Node.js application.
+2.  The client JS will send messages to the backend when the user interacts with the application.
+3.  Reading or writing the ledger is known as a proposal (for example, querying a specific Tuna catch - **queryTuna**-  or recording a tuna catch - **recordTuna**). This proposal is built by our application via the SDK, and then sent to the endorsing peers.
+4.  The endorsing peers will use the application-specific chaincode smart contract to simulate the transaction. If there are no issues, the transaction will be endorsed, and sent back to our application.
+5.  Our application will then send the endorsed proposal to the ordering service via the SDK. The orderer will package many proposals from the whole network into a block. Then, it will broadcast the new block to the committing peers in the network.
+6.  Finally, each committing peer will validate the block and write it to its ledger (shown in teal above). The transaction has now been committed, and any reads will reflect this change.
 
 ## Joining the Hyperledger Fabric Community
+
+### Becoming Involved with the Hyperledger Fabric Project
+
+Hyperledger Fabric is an open source project, where ideas and code can be publicly discussed, created, and reviewed. There are many ways to join the Hyperledger Fabric community. Next, we will highlight some of the ways to get involved, either from a technical standpoint, or from an ideas/issues creation perspective.
+
+### Community Meetings and Mailing Lists
+
+You can join the the weekly meeting on Fabric Documentation, or other Hyperledger Fabric-related meetings. The [Hyperledger Community Meetings Calendar](https://calendar.google.com/calendar/embed?src=linuxfoundation.org_nf9u64g9k9rvd9f8vp4vur23b0%40group.calendar.google.com&ctz=America/SanFrancisco) is a great resource to learn the timing for these meetings.
+
+You can join the Hyperledger Fabric mailing lists for technical discussions and announcements:  [https://lists.hyperledger.org/mailman/listinfo/hyperledger-fabric](https://lists.hyperledger.org/mailman/listinfo/hyperledger-fabric).
+
+### JIRA and Gerrit
+
+If you have a bug to report, you can submit an issue using JIRA (you must have a Linux Foundation ID to access JIRA): [https://jira.hyperledger.org/secure/Dashboard.jspa?selectPageId=10104](https://jira.hyperledger.org/secure/Dashboard.jspa?selectPageId=10104). You can also find and review a list of existing issues, and can pick one that interests you and start working on it: [https://jira.hyperledger.org/browse/FAB-5491?filter=10580](https://jira.hyperledger.org/browse/FAB-5491?filter=10580). You can learn how to use the JIRA documentation at [https://wiki.hyperledger.org/community/jira-navigation](https://wiki.hyperledger.org/community/jira-navigation).
+
+Gerrit is used for submitting PRs and managing code reviews and checkins. All code is forkable and viewable: [https://gerrit.hyperledger.org/r/#/admin/projects/](https://gerrit.hyperledger.org/r/#/admin/projects/). You can get a primer on working with Gerrit at [https://hyperledger-fabric.readthedocs.io/en/latest/Gerrit/gerrit.html](https://hyperledger-fabric.readthedocs.io/en/latest/Gerrit/gerrit.html).
+
+### Rocket.Chat
+
+You can join the live conversations on Rocket.Chat (which is an alternative to Slack), using your Linux Foundation ID: [https://chat.hyperledger.org/home](https://chat.hyperledger.org/home). There are over 24 channels specific to the Hyperledger Fabric project. The [#fabric](https://chat.hyperledger.org/channel/fabric) channel is used to discuss the Hyperlerdger Fabric project. You can find a guide for these channels here: [https://wiki.hyperledger.org/community/chat_channels](https://wiki.hyperledger.org/community/chat_channels).
 
 # Chapter 8. What's Next?
 
 ## What's Next?
+
+### Hyperledger Community
+
+The development of the Hyperledger projects is led by a diverse group of technical, open source contributors. We are always looking for help to build an open source ecosystem of business blockchain technologies. If you are interested in contributing to and learning from the community, we welcome you to [join the Hyperledger effort](https://www.hyperledger.org/community).
+
+### Joining the Hyperledger Community
+
+You too can join the Hyperledger Community:
+
+*   **For developers**  
+    Read the Hyperledger code on [GitHub](https://github.com/hyperledger/hyperledger). Join the Hyperledger discussion at [Rocket.Chat](https://chat.hyperledger.org/home). Search for open bugs, or report a new one in the [Hyperledger’s bug database](https://jira.hyperledger.org/secure/Dashboard.jspa).
+*   **For business leaders**  
+    For key updates from Hyperledger, join the [mailing list](https://lists.hyperledger.org/mailman/listinfo). Explore all Hyperledger [business solutions](https://www.hyperledger.org/projects).
+*   **For educators and community leaders**  
+    You can start or join a [Hyperledger meetup](https://www.meetup.com/pro/hyperledger/). Development updates from Wiki can be found [here](https://wiki.hyperledger.org/).
+
+![Hyperledger Global Meetups](https://prod-edxapp.edx-cdn.org/assets/courseware/v1/9f346d9125ac62f4462d898aa9e172ac/asset-v1:LinuxFoundationX+LFS171x+3T2017+type@asset+block/Hyperledger_Global_Meetups.png)
+
+### Hyperledger Working Groups
+
+The Hyperledger Community’s working groups are open to the public. Developers and tech leaders can engage with any of the Hyperledger’s open community channels at this [page](https://github.com/hyperledger/hyperledger/wiki/PublicMeetingCalendar).
+
+Below, you can see an overview of Hyperledger’s working groups.
+
+![Hyperledger Working Groups](https://prod-edxapp.edx-cdn.org/assets/courseware/v1/cca8220e1d574e52f989fd518d54d5fb/asset-v1:LinuxFoundationX+LFS171x+3T2017+type@asset+block/Hyperledger_Working_Groups.png)
+
+### Conclusions
+
+This concludes the _Blockchain for Business: An Introduction to Hyperledger Technologies_ course! We have introduced you to the current Hyperledger frameworks and modules, we have highlighted some of the business blockchain applications, we have guided you through a more in-depth tour on three of the most mature frameworks (Hyperledger Iroha, Hyperledger Sawtooth, and Hyperledger Fabric), and we also provided deep-dive tutorials for Hyperledger Sawtooth and Hyperleger Fabric.
+
+We hope this course inspires you and helps you continue your journey into the business blockchain technology world. Whether you are an engineer, entrepreneur, developer, educator, or business person, we look forward to seeing what you build, as well as hearing from you in the course forum. 
+
+Good luck to all of you in your future endeavors! 
 
 # Recommended Resources
 
