@@ -56,7 +56,20 @@ Now, it's your job to present this data in a compelling manner.
 * A computer with Microsoft Excel installed on it. We prefer Excel 2016, but you can still complete the lab using Excel 2013 or Excel 2010.
 * File [Lab1Start v5.xlsx](https://github.com/MicrosoftLearning/Introduction-to-Data-Analysis-using-Excel/raw/master/Module1/Lab1Start%20v5.xlsx).
 
-### 
+### Further Reading
+
+For more information regarding Excel tables, please review the following resources:
+
+*   Overview of Excel tables: [https://support.office.com/en-us/article/Overview-of-Excel-tables-7ab0bb7d-3a9e-4b56-a3c9-6c94334e492c](https://support.office.com/en-us/article/Overview-of-Excel-tables-7ab0bb7d-3a9e-4b56-a3c9-6c94334e492c)
+*   Using structured references with Excel tables: [https://support.office.com/en-us/article/Using-structured-references-with-Excel-tables-f5ed2452-2337-4f71-bed3-c8ae6d2b276e](https://support.office.com/en-us/article/Using-structured-references-with-Excel-tables-f5ed2452-2337-4f71-bed3-c8ae6d2b276e)
+
+For those of you who are interested, the Excel tables' Totals row uses the SUBTOTAL() function. For more detailed information on this function review this link: [https://support.office.com/en-us/article/SUBTOTAL-function-7b027003-f060-4ade-9040-e478765b9939](https://support.office.com/en-us/article/SUBTOTAL-function-7b027003-f060-4ade-9040-e478765b9939)
+
+For more information about the IF() function, please review the following resource:
+
+*   The IF function: [https://support.office.com/en-US/article/IF-function-69AED7C9-4E8A-4755-A9BC-AA8BBFF73BE2](https://support.office.com/en-US/article/IF-function-69AED7C9-4E8A-4755-A9BC-AA8BBFF73BE2) 
+*   Advanced IF functions: [https://support.office.com/en-us/article/Advanced-IF-functions-17341cef-510d-4d60-a657-913f878fdacf](https://support.office.com/en-us/article/Advanced-IF-functions-17341cef-510d-4d60-a657-913f878fdacf)
+
 ### 
 ### 
 ### 
