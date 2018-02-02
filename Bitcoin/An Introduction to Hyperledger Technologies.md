@@ -4,7 +4,7 @@
 
 The Linux Foundation partners with the world's leading developers and companies to solve the hardest technology problems and accelerate open technology development and commercial adoption. The Linux Foundation makes it its mission to provide experience and expertise to any initiative working to solve complex problems through open source collaboration, providing the tools to scale open source projects: security best practices, governance, operations and ecosystem development, training and certification, licensing, and promotion.
 
-Linuxis the world's largest and most pervasive open source software project in history. The Linux Foundation is home to Linux creator Linus Torvalds and lead maintainer Greg Kroah-Hartman, and provides a neutral home where Linux kernel development can be protected and accelerated for years to come. The success of Linux has catalyzed growth in the open source community, demonstrating the commercial efficacy of open source and inspiring countless new projects across all industries and levels of the technology stack.
+Linux is the world's largest and most pervasive open source software project in history. The Linux Foundation is home to Linux creator Linus Torvalds and lead maintainer Greg Kroah-Hartman, and provides a neutral home where Linux kernel development can be protected and accelerated for years to come. The success of Linux has catalyzed growth in the open source community, demonstrating the commercial efficacy of open source and inspiring countless new projects across all industries and levels of the technology stack.
 
 The Linux Foundation's work today extends far beyond Linux, fostering innovation at every layer of the software stack. The Linux Foundation is the umbrella organization for many critical open source projects that power corporations today, spanning all industry sectors:
 
@@ -24,11 +24,22 @@ Hyperledger is the umbrella open source project that The Linux Foundation has cr
 
 These benefits are valued by leaders across many industries, including technology, finance, healthcare, supply chain, and automotive, among several others.
 
-Hyperledger offers different blockchain platforms. This course will present three of them: **Iroha, Sawtooth, and Fabric**.
+Hyperledger offers different blockchain platforms. This course will present three of them: 
++ Iroha
++ Sawtooth and
++ Fabric.
 
 ### Introduction
 
-Discover the power of business blockchains and distributed ledger technologies with an overview of Hyperledger and introductions to its key frameworks. Blockchains have quickly gained popularity in several industries. This introductory course is carefully curated for both nontechnical and technical audiences. It examines blockchains for the enterprise and a number of pertinent use cases. Hyperledger is a group of open source blockchain-based projects organized by The Linux Foundation. Industries are researching how blockchains may increase efficiency and solve business problems associated with data privacy, security, information sharing, and inclusion. What are blockchain & distributed ledger technologies and how might they impact global business?
+Discover the power of business blockchains and distributed ledger technologies with an overview of Hyperledger and introductions to its key frameworks. Blockchains have quickly gained popularity in several industries. This introductory course is carefully curated for both nontechnical and technical audiences. It examines blockchains for the enterprise and a number of pertinent use cases. Hyperledger is a group of open source blockchain-based projects organized by The Linux Foundation. 
+
+Industries are researching how blockchains may increase efficiency and solve business problems associated with
++ data privacy
++ security
++ information sharing and
++ inclusion. 
+
+What are blockchain & distributed ledger technologies and how might they impact global business?
 
 The course covers key features of blockchain technologies and the differentiators between various types of Hyperledger blockchain frameworks. We shall start with ‘What is blockchain?’ and open the discussion on where blockchain technology is suitable for your business requirements. We then take a deep dive into the enterprise-ready Hyperledger blockchain frameworks by guiding students through a demonstrated scenario.
 
@@ -82,7 +93,7 @@ In summary, distributed ledger technology generally consists of three basic comp
 
 ### Blockchains
 
-According to hyperledger.org,
+According to [hyperledger.org](http://hyperledger.org/),
 
 > "A blockchain is a peer-to-peer distributed ledger forged by consensus, combined with a system for "smart contracts" and other assistive technologies."
 
@@ -100,7 +111,17 @@ A block commonly consists of four pieces of metadata:
 + The timestamp
 + The Merkle tree root for the transactions included in this block.
 
-### [Merkle Tree](http://chimera.labs.oreilly.com/books/1234000001802/ch07.html#_structure_of_a_block)
+##### Block Structure
+
+|Field|Description|Size|
+|-|-|-|
+|Magic no|value always 0xD9B4BEF9|4 bytes|
+|Blocksize|number of bytes following up to end of block|4 bytes|
+|Blockheader|[consists of 6 items](/wiki/Block_hashing_algorithm "Block hashing algorithm")|80 bytes|
+|Transaction counter|positive integer [VI = VarInt](/wiki/Protocol_specification#Variable_length_integer "Protocol specification")|1 - 9 bytes|
+|[transactions](/wiki/Transactions "Transactions")|the (non empty) list of transactions|<Transaction counter>-many transactions|
+
+### [Merkle Tree](https://en.wikipedia.org/wiki/Merkle_tree)
 
 The Merkle tree, also known as a binary hash tree, is a data structure that is used to store hashes of the individual data in large datasets in a way to make the verification of the dataset efficient. It is an anti-tamper mechanism to ensure that the large dataset has not been changed. The word 'tree' is used to refer to a branching data structure in computer science, as seen in the image below. According to Andreas M. Antonopoulos, in the Bitcoin protocol,
 
