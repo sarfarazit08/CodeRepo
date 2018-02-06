@@ -18,9 +18,19 @@
   
 #### Essential Charachteristics
 
-+ _On-demand self-service_  "A consumer can unilaterally provision computing capabilities... ..as needed automatically **without requiring human interaction** with each service provider." 
++ _On-demand self-service_: "A consumer can unilaterally provision computing capabilities... ..as needed automatically **without requiring human interaction** with each service provider." 
+
++ _Broad network access_: "Capabilities are available over the **network** and accessed through standard mechanisms... " - WebUI, CLI, API, SDK, VPN, Dedicated Lines etc.
+
++ __: 
+
++ __: 
+
++ __: 
 
 ### Cloud Deployment Models 
+
+
 ### Cloud Service Models 
 
 ## Azure Fundamentals 
