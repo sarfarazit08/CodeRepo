@@ -2,11 +2,24 @@
 
 ## Introduction 
 
-### Course Structure - What I'll teach you and how 
-### Introduce Yourself ! 
+### Course Structure 
+
+#### What the course covers
+
++ Getting setup with an Azure Account
++ What is 'cloud' - hint, its not just a buzzword
++ The different types of cloud - public, private, hybrid and community.
++ Cloud Service Models - Infrastructure as a service (IaaS), Platform as a service (PaaS) and Software as a service (SaaS)
++ The history of Azure ... how it started, version 1 and version 2
++ The Azure global infrastructure platform
++ Architectural foundations - regions, region pairs & Geos
++ Account fundamentals - Subscriptions, directories, resource groups and security
++ Azure Virtual Networking - Key concepts
++ Overview of all Azure Product areas - understand when and where they would be used
++ Azure & AWS Product comparison - understand what products compete and compliment
+
 ### Accessing Course Files 
   + Course Files (GitHub) 
-### Is this course up to date ? 
 
 ## Cloud Fundamentals 
 
