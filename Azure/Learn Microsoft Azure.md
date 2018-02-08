@@ -39,7 +39,7 @@
 
   "There is a sense of **location independence** in that the customer generally has no control or knowledge over the exact location of the provided resources..."
 
-e.g., AWS, Azure, Google Cloud, Office365 etc.
+e.g., AWS, Azure, Google Cloud, Office365, Dropbox, Netflix etc.
 
 + ___Rapid elasticity___: "Capabilities can be elastically provisioned and released... ... to **scale rapidly** outward and inward commensurate with demand."
 
@@ -61,21 +61,37 @@ e.g., AWS, Azure, Google Cloud, Office365 etc.
 + Be **skeptical** of claims of Hybrid Cloud.
 + Be **very skeptical** of claims Private Cloud.
 
-### Cloud Service Models
+### Cloud Service Models : Cloud Service Spectrum
 
 + Cloud Servies - Products with in the Cloud
+  + All cloud product fit somewhere
+  + Other Service Models occupy a range somewhere
 + Service Models (\*aas)
   + IaaS : Infrastructure as a service
+    + FaaS : Function as a service
+    + DaaS : Database as a service
   + PaaS : Plateform as a service
   + SaaS : Software as a service
   + BaaS : Blockchain as a service
++ What the end-user gets
++ What the end-user manages
++ What the end-user sees
+
+![cloudstack](https://acomdpsstorage.blob.core.windows.net/dpsmedia-prod/azure.microsoft.com/en-us/documentation/articles/azure-security-best-practices-software-updates-iaas/20151102073235/sec-cloudstack.png)
+
+As you move from IaaS to PaaS to SaaS you loose flexibility but you gain in terms of ease of management which means less cost and less risk.
 
 ## Azure Fundamentals 
 
 ### Creating an Azure Account
-  + Microsoft Account 
-  + Azure 
-  + Azure Portal 
+  + Microsoft Account is what you need first to register for Azure account.
+    + Create a new one or use an existing one.
+    + You can even use an exiting gmail or other email for creating a MS Account.
+  + [Azure Subscription](https://azure.microsoft.com/en-in/)
+    + Fill Credit/Debit card details and register for free 30 days trial subscription.
+    + You'll get one free trial per person throughout your lifetime of Azure.
+  + [Azure Portal](https://portal.azure.com/)
+    + 
 ### Azure vs Azure Stack 
 ### Azure v1 vs Azure v2 
 ### Azure Virtual Networks - vNets
