@@ -31,26 +31,44 @@
   
 #### Essential Charachteristics
 
-+ _On-demand self-service_: "A consumer can unilaterally provision computing capabilities... ..as needed automatically **without requiring human interaction** with each service provider." 
++ ___On-demand self-service___: "A consumer can unilaterally provision computing capabilities... ..as needed automatically **without requiring human interaction** with each service provider." 
 
-+ _Broad network access_: "Capabilities are available over the **network** and accessed through standard mechanisms... " - WebUI, CLI, API, SDK, VPN, Dedicated Lines etc.
++ ___Broad network access___: "Capabilities are available over the **network** and accessed through standard mechanisms... " - WebUI, CLI, API, SDK, VPN, Dedicated Lines etc.
 
-+ _Resource pooling_: "...resources are pooled to serve multiple consumers using a **multi-tenant model**..."
++ ___Resource pooling___: "...resources are pooled to serve multiple consumers using a **multi-tenant model**..."
 
-"There is a sense of **location independence** in that the customer generally has no control or knowledge over the exact location of the provided resources..."
+  "There is a sense of **location independence** in that the customer generally has no control or knowledge over the exact location of the provided resources..."
 
 e.g., AWS, Azure, Google Cloud, Office365 etc.
 
-+ _Rapid elasticity_: "Capabilities can be elastically provisioned and released... ... to **scale rapidly** outward and inward commensurate with demand."
++ ___Rapid elasticity___: "Capabilities can be elastically provisioned and released... ... to **scale rapidly** outward and inward commensurate with demand."
 
-"To the consumer, the capabilities available for provisioning often **appear to be unlimited**..."
+  "To the consumer, the capabilities available for provisioning often **appear to be unlimited**..."
 
-+ _Measured service_: "Resource usage can be **Monitored, controlled, and reported,** providing transparency for both the provider and consumer of the utilized service."
++ ___Measured service___: "Resource usage can be **Monitored, controlled, and reported,** providing transparency for both the provider and consumer of the utilized service."
 
+### Cloud Deployment Models
 
-### Cloud Deployment Models 
+| Cloud Flavors | Description |
+|-|-|
+|Public|Exist on the premis of the vendor for public use. E.g., |
+|Private|Exist on the premis of the vendor exclusively for business/private use.|
+|Hybrid|Having flavors of both public and private cloud.|
+|Community|It's similar to Hybrid cloud in many ways. When a group of organisations club together and make a dedicated cloud plateform specifically for their use - a shared set of requirement(s). E.g., AWS Govt. cloud, Azure Govt. cloud|
 
-### Cloud Service Models 
++ Public Cloud is **Easy** - lots of examples.
++ Community Cloud is a thing - it exists.
++ Be **skeptical** of claims of Hybrid Cloud.
++ Be **very skeptical** of claims Private Cloud.
+
+### Cloud Service Models
+
++ Cloud Servies - Products with in the Cloud
++ Service Models (\*aas)
+  + IaaS : Infrastructure as a service
+  + PaaS : Plateform as a service
+  + SaaS : Software as a service
+  + BaaS : Blockchain as a service
 
 ## Azure Fundamentals 
 
