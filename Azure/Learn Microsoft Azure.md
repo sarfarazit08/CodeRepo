@@ -35,14 +35,20 @@
 
 + _Broad network access_: "Capabilities are available over the **network** and accessed through standard mechanisms... " - WebUI, CLI, API, SDK, VPN, Dedicated Lines etc.
 
-+ __: 
++ _Resource pooling_: "...resources are pooled to serve multiple consumers using a **multi-tenant model**..."
 
-+ __: 
+"There is a sense of **location independence** in that the customer generally has no control or knowledge over the exact location of the provided resources..."
 
-+ __: 
+e.g., AWS, Azure, Google Cloud, Office365 etc.
+
++ _Rapid elasticity_: "Capabilities can be elastically provisioned and released... ... to **scale rapidly** outward and inward commensurate with demand."
+
+"To the consumer, the capabilities available for provisioning often **appear to be unlimited**..."
+
++ _Measured service_: "Resource usage can be **Monitored, controlled, and reported,** providing transparency for both the provider and consumer of the utilized service."
+
 
 ### Cloud Deployment Models 
-
 
 ### Cloud Service Models 
 
