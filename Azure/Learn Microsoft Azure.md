@@ -169,7 +169,32 @@ As you move from IaaS to PaaS to SaaS you loose flexibility but you gain in term
 
 ### Account Structure - Accounts & Subscriptions 
 
+| AWS | AZURE |
+|-|-|
+|Spearate Account for each services| Simple Azure Account|
+|Account contains billing details| Account doesn't contains billing details, Subscription does! |
+|Multi-User, multi-subscription | Single-user <-> Multi-subscription, Multi-user <-> Multi-subscription|
+|it can have multiple sub-accounts as well as subscriptions. |It's just a container and might have zero or multiple subscriptions.|
+|Not the same. |Each subscription could use same Azure Active Directory or different one.|
 
+![Azure Account Structure](https://kloudsolutions.files.wordpress.com/2013/07/070713_1147_goodpractic2.png?w=770)
+
+> Special Enterprise Subscription : Pay the amount upfront and get a discount on Resource Usage.
+
+### MS Azure Account(a container) 
+  + Can have multiple **subscription**
+    + Different subscription have different billing arrangement
+    + For each account there could be one or more subscriptions
+    + For each subscriptions there could be one or more **Resource Group**
+    + Multiple subscriptions can be associated with single or multiple accounts
+    + Each single subscription is associated with an **Azure AD**
+    + Multiple subscriptions can be associated with single or multiple Azure AD
+    + Azure Active Directory (Azure AD) 
+      + It gives permissions to subscription.
+      + Azure AD is a global multi-tenant identity system.
+    + Each resource group can hold one or more resources.
+    + Each resource can be associated with single resource group only.
+    
 
 ### Global Infrastructure - Geos, Regions, Region Pairs & Availability Zones 
 ### Role Based Access Control (RBAC) 
