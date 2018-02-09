@@ -245,6 +245,10 @@ RBAC Consists :
 
 1. Roles
   + It's a file/policy document. It does nothing on it's own.
+  + It needs to be assigned and it's assigned to :
+    + a user/users
+    + User Group(s)
+    + Application(s) 
   + A list of **actions** of what can happen, and what's denied - **NotActions**
     + `Microsoft.Compute/*` (Any resources in any compute area of Azure)
     + `Microsoft.Network/*/read` (Any read operation in any network area of Azure)
@@ -262,6 +266,11 @@ RBAC Consists :
     |  <li>Owner : Full admin access, can provide access to others </li> <li>Contributor : less access than owner, can't provide access to others </li> <li>Reader : Only can read and access resouces </li> |  <li> Backup Operator </li><li> Website Cotributor  </li> |
     
 2. Scopes
+  + Under certain scope a role is assigned. Those scopes could be :
+    + Subscription
+    + Resource Group
+    + Resource
+  + 
 3. Assignments
   
 
