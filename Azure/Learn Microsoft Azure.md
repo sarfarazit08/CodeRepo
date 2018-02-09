@@ -1,10 +1,8 @@
-# Learn Microsoft Azure
+# Learn Microsoft Azure 
 
 ## Introduction 
 
-### Course Structure 
-
-#### What the course covers
+### What the course covers?
 
 + Getting setup with an Azure Account
 + What is 'cloud' - hint, its not just a buzzword
@@ -19,7 +17,8 @@
 + Azure & AWS Product comparison - understand what products compete and compliment
 
 ### Accessing Course Files 
-  + Course Files (GitHub) 
+
++ [Course Files](https://github.com/LevelUpCloud/LevelUpCloud-Introduction-to-Azure)
 
 ## Cloud Fundamentals 
 
@@ -91,10 +90,81 @@ As you move from IaaS to PaaS to SaaS you loose flexibility but you gain in term
     + Fill Credit/Debit card details and register for free 30 days trial subscription.
     + You'll get one free trial per person throughout your lifetime of Azure.
   + [Azure Portal](https://portal.azure.com/)
-    + 
+
 ### Azure vs Azure Stack 
-### Azure v1 vs Azure v2 
-### Azure Virtual Networks - vNets
+
++ **Azure** is a public cloud plateform. You can create cloud resources with in Azure Cloud Plateform.
++ **Azure Stack** is a private cloud plateform. It essentially is a set of hardware devices. It comes with
+  + Compute
+  + Storage
+  + Networking
+  
+  It's the private version of Azure Cloud. It also consists :
+    + Azure Backup
+    + Azure Site Recovery Manager
+
+### Azure v1 (Classic/ASM : Azure Service Management) vs Azure v2 (ARM : Azure Resource Manager)
+
++ Azure started in mid 2000's - named **Project Red Dog**
+
+|Azure v1 (Classic : Azure Service Management) | Azure v2 (ARM : Azure Resource Management)|
+|-|-|
+|Announced in - 2008, Commercially available in - 2010 | Announced in - 2014 as preview, named "Prject Ibiza" |
+|Azure v1 - ASM (Azure Service Management)| Azure v2 - ARM (Azure Resource Manager)|
+|Classic Azure Portal was named - RDFE (Red Dog Front End)| New Portal/API's/Tooling|
+
++ Classic Azure Portal :
+
+![Classic Azure Portal](https://gilgrossblog.files.wordpress.com/2017/12/manageportal.png)
+
++ New Azure Portal: 
+
+![New Azure Portal](https://azurecomcdn.azureedge.net/mediahandler/acomblog/media/Default/blog/41eae6ac-94a3-48b9-9099-4d4df6249e75.jpg)
+
+
++ Azure v2 provided these facilities:
+  + Building Blocks
+  + Individual Resources
+  + Resource Groups
+  ![Resource Groups](https://media.licdn.com/mpr/mpr/shrinknp_800_800/AAEAAQAAAAAAAAlFAAAAJDk2NDc0NGNiLWY1MjAtNDk5Mi05ZDdkLWMxYjAzMjlmNTFlNA.png)
+  + ARM Templates (JSON) : In Azure, you can take the infrastructure you've already have and make a template for it.
+  + Tags : Allow you to group resources using one or more tags. It helps you to find/see the resources across the resource groups.
+  + Role Based Access Control (RBAC) : Allows you to define a role, assign hat role to a group or a user. That group or user gets the security dicatated by that Role. Role can be applied to :
+    + Subscription
+    + Resource Group
+  + The new portal can access legacy services and legacy configurations.
+
+### Azure Virtual Networks (vNets) and Resource Groups (Azure Building Blocks)
+
++ Isolated Network
++ Address Space for the Network
++ Can be 'subnetted' into smaller sub-networks
++ Each of those can have an IP range
++ Can be connected together
+
+**Azure Virtual Networks (vNets)**
+
++ VNet is a way of building a network on Azure Cloud
++ A way of creating an Isolated portion of Azure for specific purpose
++ Address Space for the Network
++ Can be 'subnetted' into smaller sub-networks
++ Each of those can have an IP range
++ Can be connected together
++ Putting Resources (Azure Virtual Machines) on those subnets.
+
+![Azure Virtual Network](https://acomdpsstorage.blob.core.windows.net/dpsmedia-prod/azure.microsoft.com/en-us/documentation/articles/virtual-networks-overview/20150915062503/figure02.png)
+
+#### Steps involved in creating an Azure VNet
+
+![Vnet and Subnets](https://docs.microsoft.com/en-us/azure/includes/media/virtual-networks-create-vnet-scenario-include/vnet-scenario.png)
+
++ Create a **Resource Group** or use an existing one. Could be created separately or on the go. Name it "VNetDemoRG".
++ Create a **Virtual Network** with name "TestVNet" and address space `192.168.0.0/16`
++ Select "Use existing" and select "VNetDemoRG" resouce group from dropdown.
++ Provide a subnet name "FrontEnd" and address range `192.168.1.0/24` and click "Create".
++ Add another subnet with the name "BackEnd" and address range `192.168.2.0/24`
++ Delete "VNetDemoRG" resource group. It deletes all the associated resources with in the group. Currently it has "TestVNet" as resource.
+
 ### Account Structure - Accounts & Subscriptions 
 ### Global Infrastructure - Geos, Regions, Region Pairs & Availability Zones 
 ### Role Based Access Control (RBAC) 
