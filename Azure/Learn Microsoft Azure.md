@@ -192,11 +192,47 @@ As you move from IaaS to PaaS to SaaS you loose flexibility but you gain in term
     + Azure Active Directory (Azure AD) 
       + It gives permissions to subscription.
       + Azure AD is a global multi-tenant identity system.
-    + Each resource group can hold one or more resources.
+    + Each resource group can hold one or more **Resources**.
     + Each resource can be associated with single resource group only.
-    
 
 ### Global Infrastructure - Geos, Regions, Region Pairs & Availability Zones 
+
+MS Azure, Bing, Office 365, Skype, Yammer, OneDrive, Xbox, Outlook.com etc. are aassociated with Global Services. Team associated with these services are :
+
++ MCIO : Microsoft Cloud Infrastructure and Operations
++ GFS : Global Foundation Services
+
+#### 3 Concepts about the Global Infrastructure Plateform
+
+1. Geo
+  + Geographic area on the planet where the laws and regulations around data and the overall political structure are similar. 
+    + Americas
+    + Europe
+    + Asia Pacific
+    + Africa
+  + Data can't leave Geo unless it is specifically allowed. It provides Data Sovereignty guarantee. It can be replicated to another region though.
+  
+2. Region
+  + Represents Separate Azure Facilities, Isolated piece of Azure Resource
+  + Resources that provisioned in one won't be impacted in case outage in another.
+  + Regions could have single or more data centres or multi-floor data centers with complex arrangements of multiple geographically spread data centres in a CBD area with fast connectivity.
+  + If regions fail then all the services in that region fail.
+    + Fault Domains
+    + Update Domains
+  + Always tend to architect your sytems in such a way that it can cope with failure of a region. So build your infrastructure in separate regions just to achieve the high level of failover capability.
+    
+3. Region Pairs
+  + Twin region or Region Pairs are built on the idea that they're close enough to be in the same Geography so they share the same political or data sovereign jurisdictions but they're far enough apart that a major fault in one region won't affect the second region. E.g., Australia East and Autralia Southeast 
+  + This is really critical because a lot of products have built in replication failover between different elements of a region pair.
+  
+#### Summary
+
++ Geo -> 1+ Region(s)
++ Geo -> 1+ Region Pair(s)
++ Region Pair -> 2 Regions
++ Region -> 1+ Data Centre(s)
++ Data Center -> Multiple Fault and Update Domains
+
 ### Role Based Access Control (RBAC) 
 
 ## Essential Services 
