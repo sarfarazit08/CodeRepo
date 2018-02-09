@@ -235,6 +235,37 @@ MS Azure, Bing, Office 365, Skype, Yammer, OneDrive, Xbox, Outlook.com etc. are 
 
 ### Role Based Access Control (RBAC) 
 
++ It's a security model that Azure Resource Manager uses throughout all the product.
++ It's a system of access control introduced with the ARM.
++ Design to be scalable permission system.
++ It can meet the demand of larger Azure Implementations - Scalable and Granular Permission System
++ A user is given the least permission that they can work with, so it limits the damage that can be done if a single person's security information was compromised.
+
+RBAC Consists :
+
+1. Roles
+  + It's a file/policy document. It does nothing on it's own.
+  + A list of **actions** of what can happen, and what's denied - **NotActions**
+    + `Microsoft.Compute/*` (Any resources in any compute area of Azure)
+    + `Microsoft.Network/*/read` (Any read operation in any network area of Azure)
+    
+    + Roles Separation :
+    
+    |Built-in Roles|Custom Roles|
+    |-|-|
+    |common standard built-in set of roles|You create the policies yourself, custom policies|
+    
+    + Built-in Roles Separation :
+    
+    |Standard Admin role|Specific role|
+    |-|-|
+    |  <li>Owner : Full admin access, can provide access to others </li> <li>Contributor : less access than owner, can't provide access to others </li> <li>Reader : Only can read and access resouces </li> |  <li> Backup Operator </li><li> Website Cotributor  </li> |
+    
+2. Scopes
+3. Assignments
+  
+
+
 ## Essential Services 
 
 ### Essential Services Introduction 
