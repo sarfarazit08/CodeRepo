@@ -136,6 +136,8 @@ As you move from IaaS to PaaS to SaaS you loose flexibility but you gain in term
 
 ### Azure Virtual Networks (vNets) and Resource Groups (Azure Building Blocks)
 
+**Virtual Networks**
+
 + Isolated Network
 + Address Space for the Network
 + Can be 'subnetted' into smaller sub-networks
@@ -154,7 +156,7 @@ As you move from IaaS to PaaS to SaaS you loose flexibility but you gain in term
 
 ![Azure Virtual Network](https://acomdpsstorage.blob.core.windows.net/dpsmedia-prod/azure.microsoft.com/en-us/documentation/articles/virtual-networks-overview/20150915062503/figure02.png)
 
-#### Steps involved in creating an Azure VNet
+### Demo: Creating Azure VNet and Subnets
 
 ![Vnet and Subnets](https://docs.microsoft.com/en-us/azure/includes/media/virtual-networks-create-vnet-scenario-include/vnet-scenario.png)
 
@@ -166,6 +168,9 @@ As you move from IaaS to PaaS to SaaS you loose flexibility but you gain in term
 + Delete "VNetDemoRG" resource group. It deletes all the associated resources with in the group. Currently it has "TestVNet" as resource.
 
 ### Account Structure - Accounts & Subscriptions 
+
+
+
 ### Global Infrastructure - Geos, Regions, Region Pairs & Availability Zones 
 ### Role Based Access Control (RBAC) 
 
