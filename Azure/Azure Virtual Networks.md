@@ -53,7 +53,7 @@ In this fifth module, you will learn how to establish connectivity between two o
 
 ### Azure Networking Components Overview
 
-<img>
+<img src="#" alt="Azure Networking Components" />
 
 Illustration showing all of the components of Azure. Highlights the Networking components, which are listed as Virtual Networks, Azure DNS, Application Gateway, Traffic Manager, ExpressRoute, and Load Balancer.
 
