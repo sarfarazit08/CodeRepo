@@ -307,6 +307,141 @@ If you are planning to use your own DNS system, you must ensure that all compute
 *   The server must have DNS recursion enabled.
 *   The server must be accessible on TCP/UDP port 53 from all clients.
 
+### Managing Virtual Networks with the Azure Portal
+
+There are several options for managing virtual networks in Azure:
+
+1.  Use the resource manager model in the Azure portal.
+2.  PowerShell script.
+3.  Use the classic portal.
+4.  Use a configuration file (service manager model for the classic portal).
+
+> Earlier runs of the course compared the Azure Resource Manager (ARM) deployment model with the Azure Service Management (ASM) model. As the older ASM model has now been phased out in favor of ARM for some time, many of the course videos have been updated to reflect this change. However, a few of the existing video demonstrations may still have some references to the older method, particularly where the emphasis was on a comparison between the two deployment models.
+
+For more information, you can see:  
+Azure Portal: [https://aka.ms/edx-azure203x-az9](https://aka.ms/edx-azure203x-az9)  
+Windows PowerShell: [https://aka.ms/edx-azure203x-ps](https://aka.ms/edx-azure203x-ps)
+
+### Create a Virtual Network in the Azure Portal
+
+To create a virtual network in the Azure Portal , perform the following procedure:
+
+1.  Sign in into the Azure Portal.
+2.  In the navigation menu on the left, click **New**, select **Networking**, and then click **Virtual network**.
+3.  In the **Virtual network** blade, verify that **Resource Manager** deployment model is selected, and then click **Create**.
+4.  In the **Create virtual network** blade, in the **Name** text box, type a descriptive name for the virtual network.
+5.  In the **Address space** box, select the IP address range by using **Classless Interdomain Routing (CIDR)** notation.
+6.  In the **Subnet name** text box, type a descriptive name for the subnet.
+7.  In the **Subnet address range** box, choose the IP address range for the subnet by using **CIDR** notation.
+8.  In the **Subscription** drop-down list box, select the right Azure subscription in which you want to create a virtual network.
+9.  In the **Resource group** box, either create a new resource group or select an existing one.
+10.  In the **Location** drop-down list box, select a location near your users, and then click the **Create** button.
+
+After the virtual network provisioning is complete, you can configure it further by creating additional subnets or setting up a DNS server address.
+
+### Create a Virtual Networks using the Command Line - Azure CLI 2.0
+
+This refers to the Azure Command Line Interface (CLI). CLI is Azure's new command-line experience for managing Azure resources. It can be used on macOS, Linux, and Windows. Azure CLI 2.0 is optimized for managing and administering Azure resources from the command line, and for building automation scripts that work against the Azure Resource Manager.
+
+This video from Azure Fridays goes over the installation and a simple example. - [https://azure.microsoft.com/en-us/resources/videos/azure-cli-20/](https://azure.microsoft.com/en-us/resources/videos/azure-cli-20/).
+
+Check the command list here : [https://docs.microsoft.com/en-us/cli/azure/?view=azure-cli-latest](https://docs.microsoft.com/en-us/cli/azure/?view=azure-cli-latest)
+
+**Using Azure CLI:**
++ az login
++ az network vnet create --resource-group "networking" --name "vnetRG" --address-prefixes "10.0.0.0/8" --subnet-name "subnet1" --subnet-prefix "10.1.0.0/16"
+
+**Using PowerShell:**
+
+|Task|Command|
+|-|-|
+|Create subnet configurations|$subnet1 = New-AzureRmVirtualNetworkSubnetConfig -Name "mySubnet1" -AddressPrefix XX.X.X.X/XX </br>$subnet2 = New-AzureRmVirtualNetworkSubnetConfig -Name "mySubnet2" -AddressPrefix XX.X.X.X/XX </br>A typical network might have a subnet for an internet facing load balancer and a separate subnet for an internal load balancer.|
+|Create a virtual network|$vnet = New-AzureRmVirtualNetwork -Name "myVNet" -ResourceGroupName $myResourceGroup -Location $location -AddressPrefix XX.X.X.X/XX -Subnet $subnet1, $subnet2|
+
+## Deploying Virtual Machines (Azure Portal)
+
+### ARM Deployment
+
+1.  Navigate to the Azure portal and sign in.
+2.  Select **New**.
+3.  Select **Virtual Machines**.
+4.  Select **Windows Server 2012 R2 Datacenter** platform.
+
+![Screenshot of Marketplace in the Azure Portal.](https://prod-edxapp.edx-cdn.org/assets/courseware/v1/73b08ac475df726b98359c91eb0b2f1c/asset-v1:Microsoft+AZURE203x+1T2018+type@asset+block/M2L2T1_plQP4bi.png)
+
+5.  Select the **Resource Manager** deployment model, then **Create**.
+6.  Use the following configuration, substituting your password and Subscription.
+
+![Screenshot of the Basics blade for creating a new virtual machine in the Azure Portal.](https://prod-edxapp.edx-cdn.org/assets/courseware/v1/a628664a6002e49ca599eb3e792898df/asset-v1:Microsoft+AZURE203x+1T2018+type@asset+block/M2L2T1_KXSZBrB.png)
+
+7.  Select **OK**.
+8.  Select the **DS1_V2 Standard** Size.
+
+![Screenshot of the Choose a size blade for creating a new virtual machine in the Azure Portal.](https://prod-edxapp.edx-cdn.org/assets/courseware/v1/1a9689f1562f4601a9d2259189204713/asset-v1:Microsoft+AZURE203x+1T2018+type@asset+block/M2L2T1_lnf4WSj.png)
+
+9\. Then select \*\*OK\*\*.
+
+10\. You can change the storage and network options on the Settings blade. For now, accept the default settings. Then press \*\*OK\*\*.
+
+11\. The displayed summary should look like this:
+
+![Screenshot of the Validation results report for creating a new virtual machine in the Azure Portal.](https://prod-edxapp.edx-cdn.org/assets/courseware/v1/cc06baa6741839be89c74a62b7a78c1f/asset-v1:Microsoft+AZURE203x+1T2018+type@asset+block/M2L2T1_CX3K1g3.png)
+
+11.  Select **OK**.
+12.  The following tile should display, denoting the creation of your new VM into a VNet using the Azure Portal:
+
+![Screenshot of the tile showing depoyment status when creating a new virtual machine in the Azure Portal.](https://prod-edxapp.edx-cdn.org/assets/courseware/v1/47686560cddd334dec70b57cf258da51/asset-v1:Microsoft+AZURE203x+1T2018+type@asset+block/point.png)
+
+## Deploying Virtual Machines (PowerShell)
+
+### Deploying With PowerShell
+
+When you use Azure Resource Manager cmdlets to create Azure Virtual Machines, you can take advantage of the RBAC and group-management features that Azure Resource Manager provides. To create an IaaS v2 virtual machine by using Azure PowerShell, perform the following steps:
+
+1.  Open the Azure PowerShell command prompt.
+2.  Sign in to Azure by typing the following cmdlet, and then pressing Enter:
+
+    `Login-AzureRmAccount`
+    
+
+3.  Retrieve the Azure subscription name that you want to use by viewing the list of subscriptions after typing the following command, and then pressing Enter:
+
+    `Get-AzureRmSubscription | sort SubscriptionName | Select SubscriptionName`
+    
+
+4.  Set your subscription by typing the following cmdlet, and then pressing Enter:
+
+   `Select-AzureRmSubscription -SubscriptionName "<subscription name>"`
+    
+
+`<subscription name>` is the name of the subscription that you chose from the list that was returned in step 3.
+
+5.  Use the following code block to create the virtual machine, storage account, and associated network objects. In the code, you must replace `<chosen storage account name>` and `<chosen Azure location name>` with the appropriate values from your environment.
+
+    + $stName = "chosen storage account name"
+    + $locName = "chosen Azure location name"
+    + $rgName = "TestRG"
+    + New-AzureRmResourceGroup -Name $rgName -Location $locName
+    + $storageAcc = New-AzureRmStorageAccount -ResourceGroupName $rgName -Name $stName 
+    + -Type "Standard_GRS" -Location $locName
+    + $singleSubnet = New-AzureRmVirtualNetworkSubnetConfig -Name singleSubnet 
+    + -AddressPrefix 10.0.0.0/24
+    + $vnet = New-AzureRmVirtualNetwork -Name TestNet -ResourceGroupName $rgName -Location $locName -AddressPrefix 10.0.0.0/16 -Subnet $singleSubnet
+    + $pip = New-AzureRmPublicIpAddress -Name TestPIP -ResourceGroupName $rgName -Location $locName -AllocationMethod Dynamic
+    + $nic = New-AzureRmNetworkInterface -Name TestNIC -ResourceGroupName $rgName -Location $locName -SubnetId $vnet.Subnets[0].Id -PublicIpAddressId $pip.Id
+    + $cred = Get-Credential -Message "Type the name and password of the local administrator account."
+    + $vm = New-AzureRmVMConfig -VMName WindowsVM -VMSize "Standard_A1"
+    + $vm = Set-AzureRmVMOperatingSystem -VM $vm -Windows -ComputerName MyWindowsVM 
+    + -Credential $cred -ProvisionVMAgent -EnableAutoUpdate
+    + $vm = Set-AzureRmVMSourceImage -VM $vm -PublisherName MicrosoftWindowsServer -Offer WindowsServer -Skus 2012-R2-Datacenter -Version "latest"
+    + $vm = Add-AzureRmVMNetworkInterface -VM $vm -Id $nic.Id
+    + $osDiskUri = $storageAcc.PrimaryEndpoints.Blob.ToString() + "vhds/WindowsVMosDisk.vhd"
+    + $vm = Set-AzureRmVMOSDisk -VM $vm -Name "windowsvmosdisk" -VhdUri $osDiskUri -CreateOption fromImage
+    + New-AzureRmVM -ResourceGroupName $rgName -Location $locName -VM $vm
+    
+
+
+
 ### Course Resources
 
 There is a lot of information on Microsoft Azure. Here are just a few resources that are available.
@@ -318,5 +453,4 @@ There is a lot of information on Microsoft Azure. Here are just a few resources 
 *   Check out the Microsoft Windows Server [TechNet Library](https://technet.microsoft.com/en-us/library/bb625087.aspx) for Technical Information, Downloads, and Resources.
 *   Subscribe to [Channel 9](https://channel9.msdn.com/Search?term=azure#ch9Search) for videos, forums, and events.
 *   The [Microsoft Press Store](https://www.microsoftpressstore.com/search/index.aspx?query=windows+server+2012&x=0&y=0) offers a large variety of Azure ebooks and books.
-
-
++ Azure PowerShell: [https://aka.ms/edx-azure203x-azps](https://aka.ms/edx-azure203x-azps)
