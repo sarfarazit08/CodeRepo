@@ -1,4 +1,4 @@
-# Microsoft Azure Design and Implement a Storage Strategy
+# MS Azure Design & Implement a Storage Strategy
 
 <img src="./resources/vlcsnap-2018-02-07-23h52m58s862.jpg" /></br>
 <img src="./resources/vlcsnap-2018-02-07-23h54m02s534.jpg" /></br>
