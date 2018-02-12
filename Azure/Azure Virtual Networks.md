@@ -251,7 +251,61 @@ Because clients use DNS to resolve a name to an IP address, many VMs and service
 
 If you expect an IP address change to cause problems for a server, you can use a static internal IP address for that VM. For example, a DNS server should have a static IP address because clients may not be able to locate it if its address changes.
 
+### Planning IP Address Space
 
+You can control the dynamic IPs (DIPs) assigned to VMs and cloud services within an Azure VNet by specifying an IP addressing scheme. Planning an IP addressing scheme within Azure VNets is much like planning an IP addressing scheme on-premises. The same ranges are often used and the same rules applied. However there are conditions that are unique to Azure VNets.
+
+#### Private Address Spaces
+
+The RFC 1918 standard defines three private address spaces that are never used for addressing on the Internet. Administrators use these ranges behind Network Address Translation (NAT) devices to ensure unique addresses used within intranets never prevent communication with Internet servers. These three address spaces are the only ones that are supported within an Azure VNet. The address spaces are:      
+
+*   10.0.0.0/8. This address space includes all addresses from 10.0.0.1 to 10.255.255.255.     
+*   172.16.0.0/12. This address space includes all addresses from 172.16.0.1 to 172.31.255.255.      
+*   192.168.0.0/16. This address space includes all addresses from 192.168.0.1 to 192.168.255.255.
+
+When you specify an address space for a VNet, you usually specify a much smaller range within one of the private address spaces. For example, if you specified the address space 10.1.1.0/24, that means that all addresses from 10.1.1.1 to 10.1.1.255 should be routed into your VNet.
+
+In a cloud-only virtual network, you can specify any address range from the RFC 1918 private spaces. However, if you connect to a VNet with a VPN or ExpressRoute, you must ensure that the address space is unique and does not overlap any of the ranges that are already in use on-premises or in other VNets.
+
+> **Correction!** You can use public IP address ranges, and any IP address range defined in RFC 1918. See the following [update](https://azure.microsoft.com/en-us/updates/non-rfc-1918-space-is-now-allowed-in-a-virtual-network/).
+
+> Always plan to use an address space that is not already in use in your organization, either on-premises or in other VNets. Even if you plan for a VNet to be cloud-only, you may want to make a VPN connection to it later. If there is any overlap in address spaces at that point, you will have to reconfigure or recreate the VNet.
+
+### DNS
+
+Names of resources that are created in Azure can be resolved by using Azure-provided name resolution or by using a customer provided DNS server. For example, a VM can use the Azure-provided DNS to resolve the name of any other VM in the same virtual network. However, in a hybrid scenario where your on-premises network is connected to an Azure virtual network through a VPN or ExpressRoute circuit, an on-premises computer cannot resolve the name of a VM in an Azure virtual network until you configure the DNS servers with a record for the VM. Furthermore, resources created in the same virtual network and deployed with Azure Resource Manager (ARM) share the same DNS suffix; therefore, in most cases name resolution by using FQDN is not required. For virtual networks that are deployed by using the Azure classic deployment model, the DNS suffix is shared among VMs that belong to the same cloud service. Therefore, name resolution between VMs that belong to different cloud services in the same virtual network require the use of FQDN.
+
+### Planning for Name Resolution in Azure Virtual Networks
+
+![A table showing name resolution scenarios, location, and name resolution provision.](https://prod-edxapp.edx-cdn.org/assets/courseware/v1/30a0c4dee1de92591c94bd631328fdf5/asset-v1:Microsoft+AZURE203x+1T2018+type@asset+block/M1L2T5_c9djaJD.png)
+
++ Between VMs, Same cloud service, Use Azure provided name resolution. 
++ Between role instances or VMS, Same VNet but different cloud services, Use your own DNS Implementation. 
++ Between VMs or role instances and on premises computers, Azure VNets and on-premises, Use your own DNS server/DNS implementation. 
++ Between on-premises computers and public endpoints, on-premises to azure, Use Microsoft Azure external name resolution.
+
+Name resolution is the process by which a computer name is resolved to an IP address. A computer can use the IP address to connect to the named computer by using the IP address, which the user may find difficult to remember.
+
+Azure provides a name resolution service that enables VMs and cloud services within Azure to communicate by name. However, some configurations exceed the reach of the Azure name resolution service. You must plan name resolution carefully to ensure that all computers and VMs can connect.
+
+### Name Resolution Scenarios
+
+Consider the following situations:
+
+*   VMs in the same cloud service. VMs can resolve the names of all other VMs in the same cloud service automatically by using the internal Azure name resolution.
+*   VMs in the same VNet. If the VMs are in different cloud services but within a single VNet, those VMs can resolve IP addresses for each other by using the internal Azure name resolution service and their Fully Qualified Domain Names (FQDNs). This is supported only for the first 100 cloud services in the VNet. Alternatively, use your own DNS system to support this scenario.
+*   Between VMs in a VNet and on-premises computers. To support this scenario you must use your own DNS system.
+*   Between VMs in different VNets. To support this scenario you must use your own DNS system.
+*   Between on-premises computers and public endpoints. If you publish an endpoint from a VM in an Azure VNet, the Azure-provided external name resolution service will resolve the public VIP. This also applies for any internet-connected computers that are not on your premises.
+
+> If two VMs are deployed in different IaaS cloud services but not in a VNet, they cannot communicate at all, even by using DIPs. Therefore name resolution is not applicable.
+
+If you are planning to use your own DNS system, you must ensure that all computers can reach a DNS server for registering and resolving IP addresses. You can either deploy DNS on a VM in the Azure VNet or have VM register their addresses with an on-premises DNS server. Your DNS server must meet the following requirements:
+
+*   The server must support Dynamic DNS (DDNS) registration.
+*   The server must have record scavenging switched off. Because DHCP leases in an Azure VNet are infinite, record scavenging can remove records that have not been renewed but are still correct.
+*   The server must have DNS recursion enabled.
+*   The server must be accessible on TCP/UDP port 53 from all clients.
 
 ### Course Resources
 
