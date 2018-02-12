@@ -18,7 +18,6 @@
 13. Scrum Vs Traditional Project Management 
     
 
-
 ### Additional Resource and Links
 
 Welcome to the course on A Complete guide to Scrum Body of Knowledge or SBOK Guide by Scrumstudy. 
