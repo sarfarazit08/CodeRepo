@@ -439,7 +439,181 @@ When you use Azure Resource Manager cmdlets to create Azure Virtual Machines, yo
     + $vm = Set-AzureRmVMOSDisk -VM $vm -Name "windowsvmosdisk" -VhdUri $osDiskUri -CreateOption fromImage
     + New-AzureRmVM -ResourceGroupName $rgName -Location $locName -VM $vm
     
+## IP Addresses
 
+You can assign IP addresses to Azure resources to communicate with other Azure resources, your on-premises network, and the Internet. There are two types of IP addresses you can use in Azure:
+
+*   **Public IP addresses**: Used for communication with the Internet, including Azure public-facing services
+*   **Private IP addresses**: Used for communication within an Azure virtual network (VNet), and your on-premises network when you use a VPN gateway or ExpressRoute circuit to extend your network to Azure.
+
+### Public IP Addresses
+
+Public IP addresses allow Azure resources to communicate with Internet and Azure public-facing services such as Azure Redis Cache, Azure Event Hubs, SQL databases, and Azure storage.
+
+In Azure Resource Manager, a public IP address is a resource that has its own properties. You can associate a public IP address resource with any of the following resources: Virtual machines (VM), Internet-facing load balancers, and VPN gateways. •Application gateways
+
+### Public IP At-a-glance
+
+The table below shows the specific property through which a public IP address can be associated to a top-level resource, and the possible allocation methods (dynamic or static) that can be used.
+
+<table>
+<thead>
+<tr>
+<th>Top-level resource</th>
+<th>IP Address association</th>
+<th>Dynamic</th>
+<th>Static</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Virtual machine</td>
+<td>Network interface</td>
+<td>Yes</td>
+<td>Yes</td>
+</tr>
+<tr>
+<td>Load balancer</td>
+<td>Front end configuration</td>
+<td>Yes</td>
+<td>Yes</td>
+</tr>
+<tr>
+<td>VPN gateway</td>
+<td>Gateway IP configuration</td>
+<td>Yes</td>
+<td>No</td>
+</tr>
+<tr>
+<td>Application gateway</td>
+<td>Front end configuration</td>
+<td>Yes</td>
+<td>No</td>
+</tr>
+</tbody>
+</table>
+
+### Private IP Addressing
+
+Private IP addresses allow Azure resources to communicate with other resources in a virtual network or an on-premises network through a VPN gateway or ExpressRoute circuit, without using an Internet-reachable IP address.
+
+In the Azure Resource Manager deployment model, a private IP address is associated to the following types of Azure resources: •VMs •Internal load balancers (ILBs) •Application gateways
+
+### Private IP At-a-Glance
+
+The table below shows the specific property through which a private IP address can be associated to a top-level resource, and the possible allocation methods (dynamic or static) that can be used.
+
+<table>
+<thead>
+<tr>
+<th>Top-level resource</th>
+<th>IP address</th>
+<th>Dynamic</th>
+<th>Static</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Virtual machine</td>
+<td>Network interface</td>
+<td>Yes</td>
+<td>Yes</td>
+</tr>
+<tr>
+<td>Load balancer</td>
+<td>Front end configuration</td>
+<td>Yes</td>
+<td>Yes</td>
+</tr>
+<tr>
+<td>Application gateway</td>
+<td>Front end configuration</td>
+<td>Yes</td>
+<td>Yes</td>
+</tr>
+</tbody>
+</table>
+
+### Limits
+
+The limits imposed on IP addressing are indicated in the full set of [limits for networking](https://azure.microsoft.com/en-us/documentation/articles/azure-subscription-service-limits/#networking-limits) in Azure. These limits are per region and per subscription. You can contact support to increase the default limits up to the maximum limits based on your business needs.
+
+## Public IP Allocation Method
+
+### Allocation method
+
+There are two methods in which an IP address is allocated to a _public_ IP resource - _dynamic_ or _static_. The default allocation method is _dynamic_, where an IP address is **not** allocated at the time of its creation. Instead, the public IP address is allocated when you start (or create) the associated resource (like a VM or load balancer). The IP address is released when you stop (or delete) the resource. This causes the IP address to change when you stop and start a resource.
+
+To ensure the IP address for the associated resource remains the same, you can set the allocation method explicitly to static. In this case an IP address is assigned immediately. It is released only when you delete the resource or change its allocation method to _dynamic_.
+
+> Even when you set the allocation method to static, you cannot specify the actual IP address assigned to the public IP resource. Instead, it gets allocated from a pool of available IP addresses in the Azure location the resource is created in.
+
+Static public IP addresses are commonly used in the following scenarios:
+
++ End-users need to update firewall rules to communicate with your Azure resources. 
++ DNS name resolution, where a change in IP address would require updating A records. 
++ Your Azure resources communicate with other apps or services that use an IP address-based security model. 
++ You use SSL certificates linked to an IP address.
+
+> The list of IP ranges from which public IP addresses (dynamic/static) are allocated to Azure resources is published at [Azure Datacenter IP ranges](https://www.microsoft.com/download/details.aspx?id=41653).
+
+### Private IP Address Allocation
+
+A private IP address is allocated from the address range of the subnet to which the resource is attached. The address range of the subnet itself is a part of the VNet's address range.
+
+There are two methods in which a private IP address is allocated: dynamic or static. The default allocation method is dynamic, where the IP address is automatically allocated from the resource's subnet (using DHCP). This IP address can change when you stop and start the resource.
+
+You can set the allocation method to static to ensure the IP address remains the same. In this case, you also need to provide a valid IP address that is part of the resource's subnet.
+
+Static private IP addresses are commonly used for:
+
++ VMs that act as domain controllers or DNS servers.
++ Resources that require firewall rules using IP addresses.
++ Resources accessed by other apps/resources through an IP address.
+
+## DNS Hostname Resolution
+
+### Public IP DNS Hostname Resolution
+
+### DNS hostname resolution
+
+You can specify a DNS domain name label for a public IP resource, which creates a mapping for _domainnamelabel.location_.cloudapp.azure.com to the public IP address in the Azure-managed DNS servers. For instance, if you create a public IP resource with **contoso** as a _domainnamelabel_ in the **West US** Azure _location_, the fully-qualified domain name (FQDN) **contoso.westus.cloudapp.azure.com** will resolve to the public IP address of the resource. You can use this FQDN to create a custom domain CNAME record pointing to the public IP address in Azure.
+
+> Each domain name label created must be unique within its Azure location.
+
+### Internal DNS Hostname Resolution For VMs
+
+All Azure VMs are configured with [Azure-managed DNS servers](https://azure.microsoft.com/en-us/documentation/articles/virtual-networks-name-resolution-for-vms-and-role-instances/#azure-provided-name-resolution) by default, unless you explicitly configure custom DNS servers. These DNS servers provide internal name resolution for VMs that reside within the same VNet.
+
+When you create a VM, a mapping for the hostname to its private IP address is added to the Azure-managed DNS servers. In case of a multi-network interface VM, the hostname is mapped to the private IP address of the primary network interface.
+
+VMs configured with Azure-managed DNS servers will be able to resolve the hostnames of all VMs within their VNet to their private IP addresses.
+
+## Assigning IP Addresses
+
+### Assigning a Public IP to a Vm
+
+You can associate a public IP address with a Windows or Linux VM by assigning it to its network interface. In the case of a multi-network interface VM, you can assign it to the primary network interface only. You can assign either a dynamic or a static public IP address to a VM.
+
+### Assigning a Private IP to a Vm
+
+A private IP address is assigned to the network interface of a Windows or Linux VM. In case of a multi-network interface VM, each interface gets a private IP address assigned. You can specify the allocation method as either dynamic or static for a network interface.
+
+### Internet-facing load balancers
+
+You can associate a public IP address with an [Azure Load Balancer](https://azure.microsoft.com/en-us/documentation/articles/load-balancer-overview/), by assigning it to the load balancer **frontend** configuration. This public IP address serves as a load-balanced virtual IP address (VIP). You can assign either a dynamic or a static public IP address to a load balancer front-end. You can also assign multiple public IP addresses to a load balancer front-end, which enables[multi-VIP](https://azure.microsoft.com/en-us/documentation/articles/load-balancer-multivip/)scenarios like a multi-tenant environment with SSL-based websites.
+
+### VPN gateways
+
+[Azure VPN Gateway](https://azure.microsoft.com/en-us/documentation/articles/vpn-gateway-about-vpngateways/) is used to connect an Azure virtual network (VNet) to other Azure VNets or to an on-premises network. You need to assign a public IP address to its **IP configuration** to enable it to communicate with the remote network. Currently, you can only assign a _dynamic_ public IP address to a VPN gateway.
+
+### Application gateways
+
+You can associate a public IP address with an Azure [Application Gateway](https://azure.microsoft.com/en-us/documentation/articles/application-gateway-introduction/), by assigning it to the gateway's **frontend** configuration. This public IP address serves as a load-balanced VIP. Currently, you can only assign a _dynamic_ public IP address to an application gateway frontend configuration.
+
+### Internal Load Balancers (ILB) & Application Gateways
+
+You can assign a private IP address to the **front end** configuration of an [Azure Internal Load Balancer](https://azure.microsoft.com/en-us/documentation/articles/load-balancer-internal-overview/)(ILB) or an [Azure Application Gateway](https://azure.microsoft.com/en-us/documentation/articles/application-gateway-introduction/) Azure Application Gateway. This private IP address serves as an internal endpoint, accessible only to the resources within its virtual network (VNet) and the remote networks connected to the VNet. You can assign either a dynamic or static private IP address to the front end configuration. For more information , you can see [Azure Load Balancer](https://aka.ms/edx-azure203x-az03).
 
 
 ### Course Resources
@@ -454,3 +628,16 @@ There is a lot of information on Microsoft Azure. Here are just a few resources 
 *   Subscribe to [Channel 9](https://channel9.msdn.com/Search?term=azure#ch9Search) for videos, forums, and events.
 *   The [Microsoft Press Store](https://www.microsoftpressstore.com/search/index.aspx?query=windows+server+2012&x=0&y=0) offers a large variety of Azure ebooks and books.
 + Azure PowerShell: [https://aka.ms/edx-azure203x-azps](https://aka.ms/edx-azure203x-azps)
+
+For more information , you can see:
+
++ Azure Redis Cache: [https://aka.ms/edx-azure203x-az11](https://aka.ms/edx-azure203x-az11)  
++ Azure Event Hubs: [https://aka.ms/edx-azure203x-az12](https://aka.ms/edx-azure203x-az12)  
++ SQL Database:[https://aka.ms/edx-azure203x-sql](https://aka.ms/edx-azure203x-sql)  
++ Azure Storage:[https://aka.ms/edx-azure203x-az13](https://aka.ms/edx-azure203x-az13)  
++ Azure Resource Manager:[https://aka.ms/edx-azure203x-az6](https://aka.ms/edx-azure203x-az6)  
++ Virtual Machines (VM):[https://aka.ms/edx-azure203x-az14](https://aka.ms/edx-azure203x-az14)  
++ Internet-facing Load Balancers:[https://aka.ms/edx-azure203x-az03](https://aka.ms/edx-azure203x-az03)  
++ VPN Gateways:[https://aka.ms/edx-azure203x-az7](https://aka.ms/edx-azure203x-az7)  
++ Application Gateways:[https://aka.ms/edx-azure203x-az3](https://aka.ms/edx-azure203x-az3)  
++ ExpressRoute:[https://aka.ms/edx-azure203x-az8](https://aka.ms/edx-azure203x-az8)
