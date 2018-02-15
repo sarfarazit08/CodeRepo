@@ -615,6 +615,148 @@ You can associate a public IP address with an Azure [Application Gateway](https:
 
 You can assign a private IP address to the **front end** configuration of an [Azure Internal Load Balancer](https://azure.microsoft.com/en-us/documentation/articles/load-balancer-internal-overview/)(ILB) or an [Azure Application Gateway](https://azure.microsoft.com/en-us/documentation/articles/application-gateway-introduction/) Azure Application Gateway. This private IP address serves as an internal endpoint, accessible only to the resources within its virtual network (VNet) and the remote networks connected to the VNet. You can assign either a dynamic or static private IP address to the front end configuration. For more information , you can see [Azure Load Balancer](https://aka.ms/edx-azure203x-az03).
 
+### Adding a Public IP Address range
+
+Virtual networks (VNets) can contain both public and private (RFC 1918 address blocks) IP address spaces. When you add a public IP address range, it will be treated as part of the private VNet IP address space that is only reachable within the VNet, interconnected VNets, and from your on-premises location.
+
+The picture below shows a VNet that includes public and private IP address spaces.
+
+![An illustration of an Azure virtual network with subnets with both public and private IP address spaces.](https://prod-edxapp.edx-cdn.org/assets/courseware/v1/0d9e806c5ab03d59b8bb6bb3ade56b68/asset-v1:Microsoft+AZURE203x+1T2018+type@asset+block/M3L1T5_87AnFYP.png)
+
+You add a public IP address range the same way you would add a private IP address range; by either using a netcfg file, or by adding the configuration in the Azure portal. You can add a public IP address range when you create your VNet, or you can go back and add it afterward. The example below shows both public and private IP address spaces configured in the same VNet.
+
+![Screenshot of the Azure portal showing adress space configuration for a public IP space.](https://prod-edxapp.edx-cdn.org/assets/courseware/v1/7f757deb7bfc31faf19d4015694c53be/asset-v1:Microsoft+AZURE203x+1T2018+type@asset+block/M3L1T5_GSEojqH.png)
+
+### Limitations:
+
+There are a few IP address ranges that are not allowed:
+
+*   224.0.0.0/4 (Multicast)
+*   255.255.255.255/32 (Broadcast)
+*   127.0.0.0/8 (loopback)
+*   169.254.0.0/16 (link-local)
+*   168.63.129.16/32 (Internal DNS)
+
+## Deploy a Virtual Machine with a Static Public IP Address
+
+You can create virtual machines (VMs) in Azure and expose them to the public Internet by using a public IP address. By default, Public IPs are dynamic and the address associated to them may change when the VM is deleted. To guarantee that the VM always uses the same public IP address, you need to create a static Public IP.
+
+Before you can implement static Public IPs in VMs, it is necessary to understand when you can use static Public IPs, and how they are used. Read the [IP addressing overview](https://azure.microsoft.com/en-us/documentation/articles/virtual-network-ip-addresses-overview-arm/) to learn more about IP addressing in Azure.
+
+### Scenario
+
+This document will walk through a deployment that uses a static public IP address allocated to a virtual machine (VM). In this scenario, you have a single VM with its own static public IP address. The VM is part of a subnet named **FrontEnd** and also has a static private IP address (**192.168.1.101**) in that subnet.
+
+You may need a static IP address for web servers that require SSL connections in which the SSL certificate is linked to an IP address.
+
+![Illustration showing a simple setup with a VNet, where a VM, Web1, needs a static public IP in order to be exposed to the public Internet.](https://prod-edxapp.edx-cdn.org/assets/courseware/v1/9b0a6fe32e55855f59f5f63c02a47a75/asset-v1:Microsoft+AZURE203x+1T2018+type@asset+block/M3L1T6_4prIfHx.png)
+
+You can follow the steps below to deploy the environment shown in the figure above.
+
+### Create a VM with a static public IP
+
+To create a VM with a static public IP address in the Azure portal, follow the steps below.
+
+1.  From a browser, navigate to the Azure portal and, if necessary, sign in with your Azure account.    
+2.  On the top left hand corner of the portal, click **New>>Virtual Machine>Windows Server 2012 R2 Datacenter**.
+    
+    ![Screenshot of the Azure portal showing selection of a virtual machine](https://prod-edxapp.edx-cdn.org/assets/courseware/v1/846ccae6ee47e8ba1a6575a9e247e96d/asset-v1:Microsoft+AZURE203x+1T2018+type@asset+block/M3L1T6_soBCDw5.png)
+3.  In the **Select a deployment model** list, select **Resource Manager** and click **Create**.    
+4.  In the **Basics** blade, enter the VM information as shown below, and then click **OK**.
+    
+    ![Screenshot of the Azure portal showing configuration of the basics blade, where PublicIPTest is highlighted.](https://prod-edxapp.edx-cdn.org/assets/courseware/v1/71fc9a9ed088eb67ceaad14be68df467/asset-v1:Microsoft+AZURE203x+1T2018+type@asset+block/M3L1T6_4R6brkh.png)
+5.  In the **Choose a size** blade, click **DS1_V2 Standard** as shown below, and then click **Select**.
+    
+    ![screenshot of the DS1_V2 Standard size in the Azure portal](https://prod-edxapp.edx-cdn.org/assets/courseware/v1/1a9689f1562f4601a9d2259189204713/asset-v1:Microsoft+AZURE203x+1T2018+type@asset+block/M3L1T6_EcKQkjB.png)
+6.  In the **Settings** blade, click **Public IP address**, then in the **Create public IP address** blade, under **Assignment**, click **Static** as shown below. And then click **OK**.
+    
+    ![Screenshot of the settings blade in the Azure portal showing selection of the Static assignment](https://prod-edxapp.edx-cdn.org/assets/courseware/v1/e7c7e304d8de754dc8659474249ce7ee/asset-v1:Microsoft+AZURE203x+1T2018+type@asset+block/M3L1T6_8PJphpW.png)
+7.  In the **Settings** blade, click **OK**.    
+8.  Review the **Summary** blade and then click **OK**.    
+9.  Notice the new tile in your dashboard.
+    
+    ![screenshot of a deployment tile](https://prod-edxapp.edx-cdn.org/assets/courseware/v1/47686560cddd334dec70b57cf258da51/asset-v1:Microsoft+AZURE203x+1T2018+type@asset+block/point.png)
+10.  Once the VM is created, the **Settings** blade will be displayed as shown below:
+
+![screenshot of the azure portal showing the settings blade for the VM](https://prod-edxapp.edx-cdn.org/assets/courseware/v1/cf76ba90ed3963739980492537c84c55/asset-v1:Microsoft+AZURE203x+1T2018+type@asset+block/M3L1T6_TLhSf3D.png)
+
+## Deploy a VM with a Static Private IP Address
+
+Your IaaS virtual machines (VMs) and PaaS role instances in a virtual network automatically receive a private IP address from a range that you specify, based on the subnet they are connected to. That address is retained by the VMs and role instances until they are decommissioned. You decommission a VM or role instance by stopping it from PowerShell, the Azure CLI, or the Azure portal. In those cases, once the VM or role instance starts again, it will receive an available IP address from the Azure infrastructure, which might not be the same it previously had. If you shut down the VM or role instance from the guest operating system, it retains the IP address it had.
+
+In certain cases, you want a VM or role instance to have a static IP address; for example, if your VM is going to run DNS or will be a domain controller. You can do so by setting a static private IP address.
+
+### Scenario
+
+To better illustrate how to configure a static IP address for a VM, this document will use the scenario below.
+
+![Illustration showing configuration of a static IP address for a VM](http://prod-edxapp.edx-cdn.org/assets/courseware/v1/3eb7c03304007b698484355fc78cc99e/asset-v1:Microsoft+AZURE203x+1T2018+type@asset+block/M3L1T7_IUo2Sf2.png)
+
+In this scenario you will create a VM named **DNS01** in the **FrontEnd** subnet, and set it to use a static IP address of **192.168.1.101**.
+
+The sample steps below expect a simple environment already created. If you want to run the steps as they are displayed in this document, first build the test environment described in [create a vnet](https://azure.microsoft.com/en-us/documentation/articles/virtual-networks-create-vnet-arm-pportal/).
+
+### How to create a VM for testing static private IP addresses
+
+You cannot set a static private IP address during the creation of a VM in the Resource Manager deployment mode by using the Azure portal. You must create the VM first, then set its private IP to be static.
+
+To create a VM named DNS01 in the FrontEnd subnet of a VNet named TestVNet, follow the steps below.
+
+1.  From a browser, navigate to [http://portal.azure.com](http://portal.azure.com) and, if necessary, sign in with your Azure account.
+    
+2.  Click **NEW** \> **Virtual Machine** \> **Windows Server 2012 R2 Datacenter**. Notice that the **Select a deployment model** list already shows **Resource Manager**, and then click **Create**, as seen in the figure below.
+    
+    ![Screenshot of the Azure portal showing VM selection.](http://prod-edxapp.edx-cdn.org/assets/courseware/v1/846ccae6ee47e8ba1a6575a9e247e96d/asset-v1:Microsoft+AZURE203x+1T2018+type@asset+block/M3L1T7_2WkNnM2.png) ![Screenshot of the Azure portal showing the Windows Server 2012 R2 Datacenter.](http://prod-edxapp.edx-cdn.org/assets/courseware/v1/d4e5404392de253f49b85f394d1878a9/asset-v1:Microsoft+AZURE203x+1T2018+type@asset+block/M3L1T7_7mcp7UL.png)
+3.  In the **Basics** blade, enter the name of the VM to be created (DNS01 in our scenario), the local administrator account, and password, as seen in the figure below.
+    
+4.  Make sure the **Location** selected is _Central US_, then click **Use existing** under **Resource group**, then click **Resource group** again, then click _PublicIPTest_ and then click **OK**.
+    
+    ![Screenshot of the Basics blade of the Azure Portal.](http://prod-edxapp.edx-cdn.org/assets/courseware/v1/57c0fea2fdc33a8492b4950da32b5337/asset-v1:Microsoft+AZURE203x+1T2018+type@asset+block/M3L1T7_jyaGpwl.png)
+5.  In the **Choose a size** blade, select **DS1_V2 Standard**, and then click **Select**.
+    
+    ![Screenshot of the Azure portal showing size selection.](http://prod-edxapp.edx-cdn.org/assets/courseware/v1/bfabf16f8b9d9940c329ffb1f32fa83e/asset-v1:Microsoft+AZURE203x+1T2018+type@asset+block/M3L1T7_Nkdxs8T.png)
+6.  In the **Settings** blade, make sure the following properties are set are set with the values below, and then click **OK**.
+    
+
+*   **Storage account**: _publiciptestdisks_    
+*   **Network**: _PublicIPTestVNet_    
+*   **Subnet**: _FrontEnd_
+    
+    ![Screenshot of the Settings blade in the Azure portal with values for the Storage account, Network, and Subnet settings.](http://prod-edxapp.edx-cdn.org/assets/courseware/v1/e8d7c6008f2be54caa246622624060ac/asset-v1:Microsoft+AZURE203x+1T2018+type@asset+block/M3L1T7_aHT7J5T.png)
+
+7.  In the **Summary** blade, click **OK**. Notice the tile below displayed in your dashboard.
+    
+    ![Screenshot of the Azure portal showing a deployment tile.](http://prod-edxapp.edx-cdn.org/assets/courseware/v1/47686560cddd334dec70b57cf258da51/asset-v1:Microsoft+AZURE203x+1T2018+type@asset+block/point.png)
+
+### How to retrieve static private IP address information for a VM
+
+To view the static private IP address information for the VM created with the steps above, execute the steps below.
+
+1.  From the Azure portal, click **Virtual machines > DNS01 >Network interfaces** and then click on the only network interface listed.
+    
+    ![Screenshot of the Azure portal showing the Essentials blade.](http://prod-edxapp.edx-cdn.org/assets/courseware/v1/c24914844b6c360d41b5684d7a4ffd8d/asset-v1:Microsoft+AZURE203x+1T2018+type@asset+block/M3L1T7_1IwF7iO.png) ![Screenshot of the Azure portal showing the network interfaces.](http://prod-edxapp.edx-cdn.org/assets/courseware/v1/6add133c2f7f85b7b8f892b930354465/asset-v1:Microsoft+AZURE203x+1T2018+type@asset+block/M3L1T7_LmvblvB.png)
+2.  In the **Network interface** blade, click **IP configurations** and click _ipconfig1_. Notice the **Assignment** and **IP address** values.
+    
+    ![Screenshot of the Azure portal showing the Network interface blade.](http://prod-edxapp.edx-cdn.org/assets/courseware/v1/25a2977633b1a23426599b42261427ff/asset-v1:Microsoft+AZURE203x+1T2018+type@asset+block/M3L1T7_NMsA7jc.png)
+
+### How to add a static private IP address to an existing VM
+
+To add a static private IP address to the VM created using the steps above, follow the steps below:
+
+1.  From the **IP addresses** blade shown above, click **Static** under **Assignment**.    
+2.  Type _192.168.1.101_ for **IP address**, and then click **Save**.
+    
+    ![Screenshot of the Azure portal showing ipconfig1 settings.](//prod-edxapp.edx-cdn.org/assets/courseware/v1/e5644f05441b0be324eaf0c70213734a/asset-v1:Microsoft+AZURE203x+1T2018+type@asset+block/M3L1T7_GExRGJb.png)
+    
+> If after clicking Save you notice that the assignment is still set to Dynamic, it means that the IP address you typed is already in use. Try a different IP address.
+    
+### How to remove a static private IP address from a VM
+
+To remove the static private IP address from the VM created above, follow the step below:
+
++ From the **IP addresses** blade shown above, click **Dynamic** under **Assignment**, and then click **Save**.
+
+
 
 ### Course Resources
 
