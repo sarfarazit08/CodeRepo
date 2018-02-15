@@ -746,7 +746,7 @@ To add a static private IP address to the VM created using the steps above, foll
 1.  From the **IP addresses** blade shown above, click **Static** under **Assignment**.    
 2.  Type _192.168.1.101_ for **IP address**, and then click **Save**.
     
-    ![Screenshot of the Azure portal showing ipconfig1 settings.](//prod-edxapp.edx-cdn.org/assets/courseware/v1/e5644f05441b0be324eaf0c70213734a/asset-v1:Microsoft+AZURE203x+1T2018+type@asset+block/M3L1T7_GExRGJb.png)
+    ![Screenshot of the Azure portal showing ipconfig1 settings.](https://prod-edxapp.edx-cdn.org/assets/courseware/v1/e5644f05441b0be324eaf0c70213734a/asset-v1:Microsoft+AZURE203x+1T2018+type@asset+block/M3L1T7_GExRGJb.png)
     
 > If after clicking Save you notice that the assignment is still set to Dynamic, it means that the IP address you typed is already in use. Try a different IP address.
     
