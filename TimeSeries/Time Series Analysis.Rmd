@@ -1,0 +1,41 @@
+---
+title: "Time Series Analysis - Wikipedia Data"
+output: html_notebook
+---
+
+```{r}
+install.packages("pageviews")
+```
+
+Working with the time series data from wikipedia.
+
+```{r}
+library(pageviews)
+# Modify the article
+AlPacino_pageviews <- article_pageviews(article = "Al Pacino", start = "2015010100" , end = "2017123100")
+```
+
+Quick plot the data that we got above. For the plot we'll use ggplot2 package of R.
+
+```{r}
+library(ggplot2)
+
+qplot(date, views, data = AlPacino_pageviews)
+```
+
+```{r}
+summary(AlPacino_pageviews)
+```
+
+
+```{r}
+data <- AlPacino_pageviews[7:8]
+
+View(data)
+```
+
+Save the page views data into a csv(comma separated values file).
+
+```{r}
+write.csv(data, file = "pageviews.csv")
+```
