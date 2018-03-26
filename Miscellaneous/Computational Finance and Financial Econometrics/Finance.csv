@@ -1,0 +1,81 @@
+Week,Topic,Reading,Additional Material
+1,1. Course Introduction,"1. Ruppert, chapter 2 (Returns).",1. finance.yahoo.com Check out finance/quote section
+,2. Computing Asset Returns,"2. EZ, chapter 1 (return calculations).",2. returnCalculations.xls
+,3. Getting financial data from Yahoo!,"3. EZ, chapter 2 (Review of Random Variables).",3. returnCalculations.r (R code for book chapter examples)
+,4. Excel calculations,"4. EZ, class slides on course introduction.",4. returnCalculations.Rmd (R markdown file for web-page examples)
+,5. Introduction to R,"5. EZ, class slides on return calculations.",5. returnCalculations.html (R examples in web page using R markdown - best viewed in Chrome)
+,6. Univariate random variables and distributions,"6. EZ, class slides on probability review: Part I.",6. Rintro.pdf (introduction to R covered) 
+,,"7. ZLM, chapters 1-3, 5.",7. probReview.xls
+,,"8. R Cookbook, chapters 1 - 5, 10 (sections 1 - 15)",8. probReview.r (R code for book chapter examples)
+,,"9. An Introduction to R, sections 1-3, 6 and 7.",
+,,"10. R for Beginners, sections 1-3.",
+,,"11. *EG, chapters 1-3",
+2 & 3,1. Characteristics of distributions,"1. Ruppert, chapter 5 (Modeling Univariate Distributions),
+ chapter 7(Multivariate Statistical Models),
+chapter 9 (Time Series Models: Basics), 
+Appendix (sections 1-10, 12-15, 20)",1. probReview.xls
+,2. The normal distribution,"2. EZ, chapter 2 (Review of random variables), 
+chapter 3 (matrix algebra review) and chapter 4 (time series concepts)",2. probReview.r (R code for book chapter examples)
+,3. Linear function of random variables,"3. EZ, class slides on probability review: Part I.",3. probabilityReview.Rmd (R markdown file used to create webpage examples)
+,"4. Quantiles of a distribution, Value-at-Risk","4. EZ, class slides on probability review: Part II.",4. probabilityReview.html (R examples in webpage created with R markdown)
+,5. Bivariate distributions,"5. EZ, class slides on time series concepts.",5. timeSeriesConcepts.r (R code for book chapter examples)
+,"6. Covariance, correlation, autocorrelation","6. EZ, class slides on matrix algebra.",6. timeSeriesConcepts.Rmd (R markdown file used to create webpage examples)
+,7. Linear combinations of random variables,"7. ZLM, chapters 3-7.",7. timeSeriesConcepts.html (R examples in webpage created with R markdown - best viewed in Chrome)
+,8. Time Series concepts,"8. R Cookbook, chapter 8 and chapter 14 (sections 1 - 16).",8. matrixReview.r (R code for book chapter examples)
+,9. Matrix algebra,"9. An Introduction to R, section 8.",9. matrixReview.Rmd (R markdown file used to create webpage examples)
+,,"10. R for Beginners, section 4.",10. matrixReview.html (R examples in webpage created with R markdown - best viewed in Chrome)
+,,,11. Working with time series data in R
+4 & 5,"1. Descriptive statistics: histograms, sample means, variances, covariances and autocorrelations","1. Ruppert, chapter 4 (Exploratory Data Analysis), 
+chapter 5 sections 9 and 10 (maximum likelihood estimation), 
+chapter 6 (Resampling),Appendix (sections 11, 16 - 18)",1. descriptiveStatistics.r (R code for book chapter examples)
+,2. The constant expected return model.,"2. EZ, chapter 5 (descriptive statistics for financial data), 
+chapter 6 (constant expected return model) , 
+chapter 7 (estimation of the CER model), 
+chapter 8 (bootstrapping), 
+chapter 9 (hypothesis testing in the CER model)",2. descriptiveStatisticDaily.r
+,3. Monte Carlo simulation,"3. EZ, class slides on descriptive statistics.",3. descriptiveStatistics.Rmd (R markdown file used to create webpage examples)
+,4. Standard errors of estimates,"4. EZ, class slides on CER model.",4. descriptiveStatistics.html (R examples in webpage created with R markdown)
+,5. Confidence intervals,"5. EZ, class slides on bootstrapping",5. cerModel.r (R code for book chapter examples)
+,6. Bootstrapping standard errors and confidence intervals,"6. EZ, class slides on hypothesis testing in the CER model.",6. cerModel.Rmd (R markdown file used to create webpage examples)
+,7. Hypothesis testing ,"7. EZ, class slides on maximum likelihood estimation. Note: will not cover this material this term.",7. cerModel.html (R examples in webpage created with R markdown - best viewed in Chrome)
+,8. Midterm exam:,"8. Bootstrap Methods and Permutation Tests, by Tim Hesterberg. Read sections 1 - 5.",8. cerModelEstimation.r (R code for book chapter examples)
+,9. Midterm solutions,"9. R Cookbook, chapter 9 (General Statistics) chapter 10 (Graphics), 
+chapter 13 (Beyond Basic Numerics and Statistics, section 8 on Bootstrapping).",9. cerModelEstimation.Rmd (R markdown file used to create webpage examples)
+,10. Grade distribution econ 424,"10. An Introduction to R, section 12.",10. cerModelEstimation.html (R examples in webpage created with R markdown - best viewed in Chrome)
+,,,11. bootstrap.Rmd (R markdown file used to create webpage examples)
+,,,12. bootstrap.html (R examples in webpage created with R markdown - best viewed in Chrome)
+,,,13. bootStrap.r (R code examples)
+,,,14. rollingCerModel.Rmd (R markdown file used to create webpage examples)
+,,,15. rollingCerModel.html (R examples in webpage created with R markdown - best viewed in Chrome)
+,,,16. hypothesisTestingCER.r
+,,,17. hypothesisTestingCerModel.Rmd (R markdown file used to create webpage examples)
+,,,18. hypothesisTestingCerModel.html (R examples in webpage created with R markdown - best viewed in Chrome)
+,,,19. maximumLikelihood.r
+,,,20. maxLike R package vignette.
+6 & 7,1. Introduction to portfolio theory,"1. Ruppert, chapter 11 (Portfolio Theory).",1. introPortfolioTheory.xls
+,2. Optimization,"2. EZ, chapter 10 (introduction to portfolio theory), and chapter 11 (portfolio theory with matrix algebra)",2. 3firmExample.xls
+,3. Markowitz algorithm,3. Notes on using Excel's solver.,3. introductionToPortfolioTheory.r
+,4. Markowitz algorithm using the solver and matrix algebra,"4. EZ, class slides on Introduction to Portfolio Theory.",4. introductionToPortfolioTheory.Rmd (R markdown file used to create webpage examples)
+,5. Markowitz algorithm with no short sales constraints,"5. EZ, class slides on portfolio theory with matrix algebra.",5. introductionToPortfolioTheory.html (R examples in webpage created with R markdown - best viewed in Chrome)
+,,"6. R Cookbook, chapter 13 (Beyond Basin Numerics and Statistics, sections 1 - 2)",6. portfolioTheoryMatrix.r
+,,"7. *EG, chapters 5 and 6",7. portfolioTheoryMatrix.Rmd ( R markdown file used to create webpage examples)
+,,,8. portfolioTheoryMatrix.html ( R examples in webpage created with R markdown - best viewed in Chrome)
+8 & 9,1. Portfolio risk budgeting,"1. Ruppert, chapter 12 (Regression: Basics), 
+chapter 13 (Regression: Troubleshooting), chapter 16 (CAPM)",1. portfolioTheoryNoShortSales.r
+,2. Statistical Analysis of Efficient Portfolios,"2. EZ, chapter 12 (portfolio risk budgeting), 
+chapter 13 (statistical analysis of portfolios), 
+and chapter 14 (single index model)",2. portfolioTheoryNoShorts.html (R examples in webpage created with R markdown - best viewed in Chrome)
+,3. Beta as a measure of portfolio risk,"3. EZ, class slides on portfolio theory with no short sales.",3. portfolioTheoryNoShorts.Rmd (R markdown file used to create webpage examples)
+,,4. EZ class slides on statistical properties of efficient portfolios.,4. statisticalAnalysisPortfolios.Rmd (R markdown file used to create webpage examples)
+,,"5. EZ, class slides on portfolio risk budgeting",5. statisticalAnalysisPortfolios.html (R examples in webpage created with R markdown - best viewed in Chrome)
+,,"6. R Cookbook, chapter 11 (Linear Regression and ANOVA)",6. riskBudgeting.Rmd (R markdown file used to create webpage examples)
+,,"7. *EG, chapters 6, 7 and 9",7. riskBudgeting.html (R examples in webpage created with R markdown - best viewed in Chrome)
+,,,8. rollingPortfolios.r
+,,,9. bootstrapPortfolio.R
+,,,10. singleIndex.r
+,,,"11. singleIndexPrices.xls (added May 22, 2006)"
+,,,12. testCAPM.r
+10,1. The Single Index Model,"1. EZ, chapter 14 (single index model) and chapter 15 (CAPM)",
+,2. Estimating the Single Index Model using simple linear regression ,2. EZ class slides on the single index model.,
+,3. Capital Asset Pricing Model (CAPM),3. EZ class slides on estimating single index model using regression.,
+,,4. EZ class slides on the Capital Asset Pricing Model,

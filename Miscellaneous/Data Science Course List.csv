@@ -1,0 +1,12 @@
+GROUP,COURSE,COURSE OBJECTIVE 
+Prerequisite Concepts,Introduction to Data Science ,Understand the Data Science Landscape 
+,Introduction to R ,Learn to program In R 
+,Probability & Statistics ,Revisit the basic concept of Probability and Statistics 
+,Introduction to Linear Algebra ,Revisit concepts of Linear Algebra 
+Understand the data ,Probability Distribution ,Model the possible outcomes of events 
+,Data Visualization ,Visualize the data and derive insights 
+,Exploratory Data Analys ,Explore and prepare the data for analysis 
+Make inferences and predictions ,Statistical Inference ,Estimate population parameters and perform hypothesis testing 
+,Association Analysis ,Determine how variables in data are associated 
+,Regression Analysis ,Make predictions using Regression Techniques 
+,Time Series Analysis ,Forecast values for time series data 
