@@ -1,0 +1,19 @@
+version: '2'
+services:
+  elasticsearch:
+    image: elasticsearch:2.2.1
+  kibana:
+    image: kibana:4.4.2
+    ports:
+      - "5601:5601"
+    environment:
+      - ELASTICSEARCH_URL=http://elasticsearch:9200
+    depends_on:
+      - elasticsearch
+  logstash:
+    image: logstash:2.2.2
+    command: -e 'input { tcp { port => 5555 } } output { elasticsearch { hosts => ["elasticsearch:9200"] } }'
+    ports:
+      - "5555:5555"
+    depends_on:
+      - elasticsearch

@@ -1,0 +1,10 @@
+version: '2'
+services:
+  counter:
+    build: .
+    ports:
+      - "4567:4567"
+    depends_on:
+      - redis
+  redis:
+    image: redis:3.0.7
