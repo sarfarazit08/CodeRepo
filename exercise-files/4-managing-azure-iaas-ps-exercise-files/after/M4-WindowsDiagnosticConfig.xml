@@ -1,0 +1,25 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<PublicConfig xmlns="http://schemas.microsoft.com/ServiceHosting/2010/10/DiagnosticsConfiguration">
+  <WadCfg>
+    <DiagnosticMonitorConfiguration xmlns="http://schemas.microsoft.com/ServiceHosting/2010/10/DiagnosticsConfiguration" overallQuotaInMB="4096">
+      <DiagnosticInfrastructureLogs scheduledTransferPeriod="PT1M" scheduledTransferLogLevelFilter="Warning"/>
+      <PerformanceCounters scheduledTransferPeriod="PT0S">
+        <PerformanceCounterConfiguration counterSpecifier="\Memory\Committed Bytes" sampleRate="PT30S" unit="Bytes">
+          <annotation displayName="Memory committed" locale="en-us"/>
+        </PerformanceCounterConfiguration>
+        <PerformanceCounterConfiguration counterSpecifier="\Memory\Available Bytes" sampleRate="PT30S" unit="Bytes">
+          <annotation displayName="Memory available" locale="en-us"/>
+        </PerformanceCounterConfiguration>
+      </PerformanceCounters>
+      <WindowsEventLog scheduledTransferPeriod="PT1M">
+        <DataSource name="System!*[System[(Level = 1) or (Level = 2)]]"/>        
+        <DataSource name="Application!*[System[(Level = 1) or (Level = 2)]]"/>
+      </WindowsEventLog>
+      <Metrics resourceId="/subscriptions/3481cd2a-ed2d-4afd-8bbb-96ea65c835f2/resourceGroups/psod-iaas-m3/providers/Microsoft.Compute/virtualMachines/win-web-dsc-0">
+        <MetricAggregation scheduledTransferPeriod="PT1H"/>
+        <MetricAggregation scheduledTransferPeriod="PT1M"/>
+      </Metrics>
+    </DiagnosticMonitorConfiguration>
+  </WadCfg>
+  <StorageAccount>psodiaasm3</StorageAccount>
+</PublicConfig>
