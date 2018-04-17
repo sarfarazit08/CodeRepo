@@ -1,0 +1,496 @@
+<html>
+
+<head>
+<meta http-equiv="Content-Language" content="en-us">
+<meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1">
+<meta name="GENERATOR" content="Microsoft FrontPage 5.0">
+<meta name="ProgId" content="FrontPage.Editor.Document">
+<title>UNIX Commands</title>
+</head>
+
+<body bgcolor="#C8C0F2">
+
+<table border="1" cellpadding="5" cellspacing="0" width="100%" bgcolor="#FFFFFF">
+  <tr>
+    <td width="100%"><strong><font size="5" color="#FF0000">UNIX Commands</font></strong></td>
+  </tr>
+</table>
+<table border="0" cellpadding="0" cellspacing="0" width="100%">
+  <tr>
+    <td width="100%">&nbsp;</td>
+  </tr>
+</table>
+<p>The following table lists every UNIX and Bourne shell command mentioned in 
+this course.</p>
+<p>Click on a command's name for the GNU <i>man</i> page.&nbsp; All links are 
+from an online <i>man</i> page source at <a href="http://www.rt.com/man/">
+http://www.rt.com/man</a></p>
+<p><b>Bold type </b>indicates how a command got its name.</p>
+<p>Commands may be marked as follows:</p>
+<ul>
+  <li><font color="#FF0000"><i>Shell</i></font> - The command is an internal 
+  shell command (a shell built-in), meaning it does not exist as separate 
+  executable program file</li>
+  <li><font color="#FF0000"><i>Filter</i></font> - The program is a filter, 
+  meaning it is a text-processor - it takes standard input, processes it and 
+  produces standard output</li>
+  <li><font color="#FF0000"><i>Admin</i></font> - The program is typically only 
+  available to system administrators (root)</li>
+</ul>
+<table border="1" cellpadding="3" cellspacing="0" bgcolor="#FFFFB3">
+  <tr>
+    <td valign="top"><b>Command</b></td>
+    <td valign="top"><b>Description</b></td>
+    <td valign="top"><b>Example</b></td>
+    <td valign="top"><b>See Also</b></td>
+  </tr>
+  <tr>
+    <td valign="top"><a href="http://www.rt.com/man/at.1.html">at</a></td>
+    <td valign="top">Schedule a series of commands to run <b>at</b> a particular 
+    time</td>
+    <td valign="top"><font face="monospace">at 1430<br>
+    &gt; mount /dev/fd0 /mnt<br>
+    &gt; backup_script<br>
+    &gt; umount /dev/fd0<br>
+    &gt; <b>Ctrl-d</b></font></td>
+    <td valign="top"><a href="http://www.rt.com/man/nohup.1.html">nohup</a>,
+    <a href="http://www.rt.com/man/batch.1.html">batch</a>,
+    <a href="http://www.rt.com/man/crontab.5.html">crontab</a></td>
+  </tr>
+  <tr>
+    <td valign="top"><a href="http://www.rt.com/man/awk.1.html">awk</a></td>
+    <td valign="top"><font color="#FF0000"><i>Filter</i></font>&nbsp; (by <b>A</b>ho,
+    <b>W</b>einberger and <b>K</b>ernighan) Perform programmable text processing</td>
+    <td valign="top"><font face="monospace">awk -f script.awk filename</font></td>
+    <td valign="top"><a href="http://www.rt.com/man/sed.1.html">sed</a>,
+    <a href="http://www.rt.com/man/perl.1.html">perl</a></td>
+  </tr>
+  <tr>
+    <td valign="top"><a href="http://www.rt.com/man/bash.1.html">bash</a></td>
+    <td valign="top">(<b>B</b>ourne-<b>a</b>gain<b> sh</b>ell) Run an 
+    interactive shell or process a shell script</td>
+    <td valign="top"><font face="monospace">bash<br>
+    bash scriptname</font></td>
+    <td valign="top"><a href="http://www.rt.com/man/sh.1.html">sh</a>,
+    <a href="http://www.rt.com/man/ksh.1.html">ksh</a></td>
+  </tr>
+  <tr>
+    <td valign="top"><a href="http://www.rt.com/man/cal.1.html">cal</a></td>
+    <td valign="top">Display the <b>cal</b>endar of a particular month or year</td>
+    <td valign="top"><font face="monospace">cal 9 1752</font></td>
+    <td valign="top"><a href="http://www.rt.com/man/date.1.html">date</a></td>
+  </tr>
+  <tr>
+    <td valign="top"><a href="http://www.rt.com/man/cat.1.html">cat</a></td>
+    <td valign="top"><font color="#FF0000"><i>Filter</i></font>&nbsp; (con<b>cat</b>enate) 
+    Display the contents of a file or standard input</td>
+    <td valign="top"><font face="monospace">cat *.txt</font></td>
+    <td valign="top"><a href="http://www.rt.com/man/more.1.html">more</a>,
+    <a href="http://www.rt.com/man/head.1.html">head</a>,
+    <a href="http://www.rt.com/man/tail.1.html">tail</a></td>
+  </tr>
+  <tr>
+    <td valign="top"><a href="http://www.rt.com/man/cd.1.html">cd</a></td>
+    <td valign="top"><font color="#FF0000"><i>Shell</i></font>&nbsp; (<b>c</b>hange
+    <b>d</b>irectory) Change the shell's internal &quot;current&quot; directory to a new 
+    directory</td>
+    <td valign="top"><font face="monospace">cd /usr/lib</font></td>
+    <td valign="top"><a href="http://www.rt.com/man/pwd.1.html">pwd</a></td>
+  </tr>
+  <tr>
+    <td valign="top"><a href="http://www.rt.com/man/chgrp.1.html">chgrp</a></td>
+    <td valign="top"><b>Ch</b>ange the &quot;<b>gr</b>ou<b>p</b> ownership&quot; of files 
+    and directories</td>
+    <td valign="top"><font face="monospace">chgrp admin *</font></td>
+    <td valign="top"><a href="http://www.rt.com/man/chmod.1.html">chmod</a>,
+    <a href="http://www.rt.com/man/chown.1.html">chown</a></td>
+  </tr>
+  <tr>
+    <td valign="top"><a href="http://www.rt.com/man/chmod.1.html">chmod</a></td>
+    <td valign="top"><b>Ch</b>ange the access permission (<b>mod</b>e) of files 
+    and directories</td>
+    <td valign="top"><font face="monospace">chmod 664 filename</font></td>
+    <td valign="top"><a href="http://www.rt.com/man/chown.1.html">chown</a>,
+    <a href="http://www.rt.com/man/chgrp.1.html">chgrp</a></td>
+  </tr>
+  <tr>
+    <td valign="top"><a href="http://www.rt.com/man/chown.1.html">chown</a></td>
+    <td valign="top"><b>Ch</b>ange the <b>own</b>ership of files and directories</td>
+    <td valign="top"><font face="monospace">chown peter bin/*.c</font></td>
+    <td valign="top"><a href="http://www.rt.com/man/chmod.1.html">chmod</a>,
+    <a href="http://www.rt.com/man/chgrp.1.html">chgrp</a></td>
+  </tr>
+  <tr>
+    <td valign="top"><a href="http://www.rt.com/man/cmp.1.html">cmp</a></td>
+    <td valign="top"><b>C</b>o<b>mp</b>are two (usually binary) files</td>
+    <td valign="top"><font face="monospace">cmp file1 file2</font></td>
+    <td valign="top"><a href="http://www.rt.com/man/diff.1.html">diff</a></td>
+  </tr>
+  <tr>
+    <td valign="top"><a href="http://www.rt.com/man/compress.1.html">compress</a></td>
+    <td valign="top">Reduce the size of a file by <b>compress</b>ing it.&nbsp; 
+    The file must be uncompressed before it can be used again</td>
+    <td valign="top"><font face="monospace">compress files.tar</font></td>
+    <td valign="top"><a href="http://www.rt.com/man/uncompress.1.html">
+    uncompress</a>, <a href="http://www.rt.com/man/tar.1.html">tar</a>,
+    <a href="http://www.rt.com/man/gzip.1.html">gzip</a></td>
+  </tr>
+  <tr>
+    <td valign="top"><a href="http://www.rt.com/man/cp.1.html">cp</a></td>
+    <td valign="top"><b>C</b>o<b>p</b>y files and directories</td>
+    <td valign="top"><font face="monospace">cp *.txt newdir</font></td>
+    <td valign="top"><a href="http://www.rt.com/man/mv.1.html">mv</a>,
+    <a href="http://www.rt.com/man/ln.1.html">ln</a></td>
+  </tr>
+  <tr>
+    <td valign="top"><a href="http://www.rt.com/man/cpio.1.html">cpio</a></td>
+    <td valign="top">(<b>c</b>o<b>p</b>y <b>i</b>nput <b>o</b>utput) Copy files 
+    to and from media (technically a <font color="#FF0000"><i>Filter</i></font> 
+    when used in &quot;output&quot; mode)</td>
+    <td valign="top"><font face="monospace">cpio -i /dev/fd0</font></td>
+    <td valign="top"><a href="http://www.rt.com/man/tar.1.html">tar</a></td>
+  </tr>
+  <tr>
+    <td valign="top"><a href="http://www.rt.com/man/csh.1.html">csh</a></td>
+    <td valign="top">(<b>C</b>-<b>sh</b>ell) Run an interactive shell or process 
+    a shell script</td>
+    <td valign="top"><font face="monospace">csh<br>
+    csh scriptname</font></td>
+    <td valign="top"><a href="http://www.rt.com/man/sh.1.html">sh</a></td>
+  </tr>
+  <tr>
+    <td valign="top"><a href="http://www.rt.com/man/df.1.html">df</a></td>
+    <td valign="top">(<b>d</b>isk <b>f</b>ree) Display the amount of disk space 
+    used and free on various file systems</td>
+    <td valign="top"><font face="monospace">df</font></td>
+    <td valign="top"><a href="http://www.rt.com/man/mount.2.html">mount</a>,
+    <a href="http://www.rt.com/man/du.1.html">du</a></td>
+  </tr>
+  <tr>
+    <td valign="top"><a href="http://www.rt.com/man/diff.1.html">diff</a></td>
+    <td valign="top">Compare two text files and display lines that contain any
+    <b>diff</b>erences.&nbsp; Can be used as a <font color="#FF0000"><i>Filter</i></font> 
+    if either argument is replaced by a &quot;-&quot;</td>
+    <td valign="top"><font face="monospace">diff file1 file2</font></td>
+    <td valign="top"><a href="http://www.rt.com/man/cmp.1.html">cmp</a></td>
+  </tr>
+  <tr>
+    <td valign="top"><a href="http://www.rt.com/man/du.1.html">du</a></td>
+    <td valign="top">(<b>d</b>isk <b>u</b>sage) Display the amount of disk space 
+    used by all files and subdirectories within a directory</td>
+    <td valign="top"><font face="monospace">du dirname</font></td>
+    <td valign="top"><a href="http://www.rt.com/man/df.1.html">df</a></td>
+  </tr>
+  <tr>
+    <td valign="top">exec</td>
+    <td valign="top"><font color="#FF0000"><i>Shell</i></font>&nbsp; (<b>exec</b>ute) 
+    Replace the current shell process with the named program</td>
+    <td valign="top"><font face="monospace">exec accounts</font></td>
+    <td valign="top">.</td>
+  </tr>
+  <tr>
+    <td valign="top">exit</td>
+    <td valign="top"><font color="#FF0000"><i>Shell</i></font>&nbsp; Terminate 
+    the current shell</td>
+    <td valign="top"><font face="monospace">exit</font></td>
+    <td valign="top"><b>Ctrl-d</b></td>
+  </tr>
+  <tr>
+    <td valign="top">export</td>
+    <td valign="top"><font color="#FF0000"><i>Shell</i></font>&nbsp; Cause an 
+    environment variable to be available to all child processes</td>
+    <td valign="top"><font face="monospace">export HOME</font></td>
+    <td valign="top">set</td>
+  </tr>
+  <tr>
+    <td valign="top"><a href="http://www.rt.com/man/file.1.html">file</a></td>
+    <td valign="top">Display a guess as to the description of a file's contents</td>
+    <td valign="top"><font face="monospace">file *</font></td>
+    <td valign="top">&nbsp;</td>
+  </tr>
+  <tr>
+    <td valign="top"><a href="http://www.rt.com/man/find.1.html">find</a></td>
+    <td valign="top">Perform operations on files and directories whose 
+    attributes match certain descriptions</td>
+    <td valign="top"><font face="monospace">find dirname -name '*.txt' -print</font></td>
+    <td valign="top"><a href="http://www.rt.com/man/grep.1.html">grep</a></td>
+  </tr>
+  <tr>
+    <td valign="top"><a href="http://www.rt.com/man/grep.1.html">grep</a></td>
+    <td valign="top">(<b>g</b>lobal <b>r</b>egular <b>e</b>xpression <b>p</b>arser) 
+    Search for text within files</td>
+    <td valign="top"><font face="monospace">grep text *.txt</font></td>
+    <td valign="top"><a href="http://www.rt.com/man/find.1.html">find</a></td>
+  </tr>
+  <tr>
+    <td valign="top"><a href="http://www.rt.com/man/gzip.1.html">gzip</a></td>
+    <td valign="top">(<b>G</b>NU <b>Zip</b>) Reduce the size of a file by 
+    compressing it.&nbsp; The file must be uncompressed before it can be used 
+    again</td>
+    <td valign="top"><font face="monospace">gzip file1</font></td>
+    <td valign="top"><a href="http://www.rt.com/man/compress.1.html">compress</a>,
+    <a href="http://www.rt.com/man/uncompress.1.html">uncompress</a></td>
+  </tr>
+  <tr>
+    <td valign="top"><a href="http://www.rt.com/man/head.1.html">head</a></td>
+    <td valign="top">Display the <b>head</b>er (the first few lines) of a file</td>
+    <td valign="top"><font face="monospace">head filename</font></td>
+    <td valign="top"><a href="http://www.rt.com/man/tail.1.html">tail</a>,
+    <a href="http://www.rt.com/man/cat.1.html">cat</a>,
+    <a href="http://www.rt.com/man/more.1.html">more</a></td>
+  </tr>
+  <tr>
+    <td valign="top"><a href="http://www.rt.com/man/id.1.html">id</a></td>
+    <td valign="top">Display relevant <b>id</b>entification (account) 
+    information for the logged-in user</td>
+    <td valign="top"><font face="monospace">id</font></td>
+    <td valign="top"><a href="http://www.rt.com/man/who.1.html">who</a></td>
+  </tr>
+  <tr>
+    <td valign="top"><a href="http://www.rt.com/man/kill.1.html">kill</a></td>
+    <td valign="top">Terminate (<b>kill</b>) a running process</td>
+    <td valign="top"><font face="monospace">kill 12345</font></td>
+    <td valign="top"><a href="http://www.rt.com/man/ps.1.html">ps</a></td>
+  </tr>
+  <tr>
+    <td valign="top"><a href="http://www.rt.com/man/ksh.1.html">ksh</a></td>
+    <td valign="top">(<b>K</b>orn<b> sh</b>ell) Run an interactive shell or 
+    process a shell script</td>
+    <td valign="top"><font face="monospace">ksh<br>
+    ksh scriptname</font></td>
+    <td valign="top"><a href="http://www.rt.com/man/sh.1.html">sh</a>,
+    <a href="http://www.rt.com/man/bash.1.html">bash</a></td>
+  </tr>
+  <tr>
+    <td valign="top"><a href="http://www.rt.com/man/ln.1.html">ln</a></td>
+    <td valign="top">Create a <b>l</b>i<b>n</b>k to an existing file (use -s for 
+    creating a <i>symbolic </i>link)</td>
+    <td valign="top"><font face="monospace">ln file1 file2<br>
+    ln -s file1 file3</font></td>
+    <td valign="top"><a href="http://www.rt.com/man/cp.1.html">cp</a>,
+    <a href="http://www.rt.com/man/mv.1.html">mv</a></td>
+  </tr>
+  <tr>
+    <td valign="top"><a href="http://www.rt.com/man/ls.1.html">ls</a></td>
+    <td valign="top">(<b>l</b>i<b>s</b>t) Display file details and directory 
+    contents</td>
+    <td valign="top"><font face="monospace">ls -l *.c</font></td>
+    <td valign="top">&nbsp;</td>
+  </tr>
+  <tr>
+    <td valign="top"><a href="http://www.rt.com/man/mail.1.html">mail</a></td>
+    <td valign="top">Read or send electronic <b>mail</b></td>
+    <td valign="top"><font face="monospace">mail<br>
+    mail fred</font></td>
+    <td valign="top">&nbsp;</td>
+  </tr>
+  <tr>
+    <td valign="top"><a href="http://www.rt.com/man/man.1.html">man</a></td>
+    <td valign="top">Display the <b>man</b>ual page entry for a given command</td>
+    <td valign="top"><font face="monospace">man grep</font></td>
+    <td valign="top"><a href="http://www.rt.com/man/whatis.1.html">whatis</a></td>
+  </tr>
+  <tr>
+    <td valign="top"><a href="http://www.rt.com/man/mkdir.1.html">mkdir</a></td>
+    <td valign="top">(<b>m</b>a<b>k</b>e <b>dir</b>ectory) Create a new, empty 
+    directory</td>
+    <td valign="top"><font face="monospace">mkdir newdirname</font></td>
+    <td valign="top"><a href="http://www.rt.com/man/rmdir.1.html">rmdir</a></td>
+  </tr>
+  <tr>
+    <td valign="top"><a href="http://www.rt.com/man/more.1.html">more</a></td>
+    <td valign="top">Display the contents of a file one (<b>more</b>) page at a 
+    time</td>
+    <td valign="top"><font face="monospace">more file*.*</font></td>
+    <td valign="top"><a href="http://www.rt.com/man/cat.1.html">cat</a></td>
+  </tr>
+  <tr>
+    <td valign="top"><a href="http://www.rt.com/man/mount.2.html">mount</a></td>
+    <td valign="top"><font color="#FF0000"><i>Admin</i></font>&nbsp; Attach (<b>mount</b>) 
+    a filesystem to an empty directory in order that the files therein may be 
+    accessed</td>
+    <td valign="top"><font face="monospace">mount /dev/fd0 /mnt</font></td>
+    <td valign="top"><a href="http://www.rt.com/man/df.1.html">df</a></td>
+  </tr>
+  <tr>
+    <td valign="top"><a href="http://www.rt.com/man/mv.1.html">mv</a></td>
+    <td valign="top"><b>M</b>o<b>v</b>e a file or directory to another 
+    directory, or rename a file or directory</td>
+    <td valign="top"><font face="monospace">mv file1 other_dir</font></td>
+    <td valign="top"><a href="http://www.rt.com/man/cp.1.html">cp</a>,
+    <a href="http://www.rt.com/man/ln.1.html">ln</a></td>
+  </tr>
+  <tr>
+    <td valign="top"><a href="http://www.rt.com/man/nice.1.html">nice</a></td>
+    <td valign="top">Run a program with modified scheduling priority (if you run 
+    a program at a lower priority, you are being <b>nice</b> to the other users)</td>
+    <td valign="top"><font face="monospace">nice -10 backup_script</font></td>
+    <td valign="top">&nbsp;</td>
+  </tr>
+  <tr>
+    <td valign="top"><a href="http://www.rt.com/man/nohup.1.html">nohup</a></td>
+    <td valign="top">(<b>no</b> <b>h</b>ang-<b>up</b>) Run a program such that 
+    it will not terminate when the current shell terminates</td>
+    <td valign="top"><font face="monospace">nohup process_accounts</font></td>
+    <td valign="top">exit</td>
+  </tr>
+  <tr>
+    <td valign="top"><a href="http://www.rt.com/man/passwd.1.html">passwd</a></td>
+    <td valign="top">Change the current user's <b>passw</b>or<b>d</b></td>
+    <td valign="top"><font face="monospace">passwd</font></td>
+    <td valign="top">&nbsp;</td>
+  </tr>
+  <tr>
+    <td valign="top"><a href="http://www.rt.com/man/ps.1.html">ps</a></td>
+    <td valign="top">(<b>p</b>rocess <b>s</b>tatus) Examine details about 
+    running processes</td>
+    <td valign="top"><font face="monospace">ps -f</font></td>
+    <td valign="top"><a href="http://www.rt.com/man/kill.1.html">kill</a></td>
+  </tr>
+  <tr>
+    <td valign="top"><a href="http://www.rt.com/man/pwd.1.html">pwd</a></td>
+    <td valign="top"><font color="#FF0000"><i>Shell</i></font>&nbsp; (<b>p</b>rint
+    <b>w</b>orking <b>d</b>irectory) Display the name of the &quot;current&quot; directory 
+    for this shell</td>
+    <td valign="top"><font face="monospace">pwd</font></td>
+    <td valign="top"><a href="http://www.rt.com/man/cd.1.html">cd</a></td>
+  </tr>
+  <tr>
+    <td valign="top"><a href="http://www.rt.com/man/rm.1.html">rm</a></td>
+    <td valign="top">(<b>r</b>e<b>m</b>ove) Remove (unlink) files and 
+    directories</td>
+    <td valign="top"><font face="monospace">rm -i *.txt<br>
+    rm -r dirname</font></td>
+    <td valign="top"><a href="http://www.rt.com/man/rmdir.1.html">rmdir</a></td>
+  </tr>
+  <tr>
+    <td valign="top"><a href="http://www.rt.com/man/rmdir.1.html">rmdir</a></td>
+    <td valign="top"><b>R</b>e<b>m</b>ove empty <b>dir</b>ectories</td>
+    <td valign="top"><font face="monospace">rmdir dirname</font></td>
+    <td valign="top"><a href="http://www.rt.com/man/mkdir.1.html">mkdir</a>,
+    <a href="http://www.rt.com/man/rm.1.html">rm</a></td>
+  </tr>
+  <tr>
+    <td valign="top"><a href="http://www.rt.com/man/sed.1.html">sed</a></td>
+    <td valign="top"><font color="#FF0000"><i>Filter</i></font>&nbsp; (<b>s</b>tream
+    <b>ed</b>itor) Perform &quot;ed&quot; like editing commands on a file or standard 
+    input</td>
+    <td valign="top"><font face="monospace">sed s/hi/hello/ filename</font></td>
+    <td valign="top"><a href="http://www.rt.com/man/awk.1.html">awk</a>,
+    <a href="http://www.rt.com/man/ed.1.html">ed</a></td>
+  </tr>
+  <tr>
+    <td valign="top">set</td>
+    <td valign="top"><font color="#FF0000"><i>Shell</i></font>&nbsp; Show all 
+    shell environment variables that have been <b>set</b></td>
+    <td valign="top"><font face="monospace">set</font></td>
+    <td valign="top">export</td>
+  </tr>
+  <tr>
+    <td valign="top"><a href="http://www.rt.com/man/sh.1.html">sh</a></td>
+    <td valign="top">(Bourne<b> sh</b>ell) Run an interactive shell or process a 
+    shell script</td>
+    <td valign="top"><font face="monospace">sh<br>
+    sh scriptname</font></td>
+    <td valign="top"><a href="http://www.rt.com/man/bash.1.html">bash</a>,
+    <a href="http://www.rt.com/man/ksh.1.html">ksh</a>,
+    <a href="http://www.rt.com/man/csh.1.html">csh</a></td>
+  </tr>
+  <tr>
+    <td valign="top"><a href="http://www.rt.com/man/sleep.1.html">sleep</a></td>
+    <td valign="top">Do nothing (go to <b>sleep</b>) for a specified interval 
+    (measured in seconds)</td>
+    <td valign="top"><font face="monospace">sleep 100</font></td>
+    <td valign="top">&nbsp;</td>
+  </tr>
+  <tr>
+    <td valign="top"><a href="http://www.rt.com/man/sort.1.html">sort</a></td>
+    <td valign="top"><font color="#FF0000"><i>Filter</i></font>&nbsp; Display 
+    the contents of a file or standard input in a <b>sort</b>ed manner</td>
+    <td valign="top"><font face="monospace">who | sort</font></td>
+    <td valign="top">&nbsp;</td>
+  </tr>
+  <tr>
+    <td valign="top"><a href="http://www.rt.com/man/su.1.html">su</a></td>
+    <td valign="top">Obtain a shell as another user</td>
+    <td valign="top"><font face="monospace">su fred</font></td>
+    <td valign="top">&nbsp;</td>
+  </tr>
+  <tr>
+    <td valign="top"><a href="http://www.rt.com/man/tail.1.html">tail</a></td>
+    <td valign="top">Display the last few lines (the <b>tail</b>) of a file</td>
+    <td valign="top"><font face="monospace">tail -f file1</font></td>
+    <td valign="top"><a href="http://www.rt.com/man/head.1.html">head</a>,
+    <a href="http://www.rt.com/man/cat.1.html">cat</a></td>
+  </tr>
+  <tr>
+    <td valign="top"><a href="http://www.rt.com/man/tar.1.html">tar</a></td>
+    <td valign="top">(<b>t</b>ape <b>ar</b>chive) Create a single file or 
+    magnetic media image containing the contents of several separate files</td>
+    <td valign="top"><font face="monospace">tar cvf /dev/tape0 *.c</font></td>
+    <td valign="top">&nbsp;</td>
+  </tr>
+  <tr>
+    <td valign="top"><a href="http://www.rt.com/man/tee.1.html">tee</a></td>
+    <td valign="top"><font color="#FF0000"><i>Filter&nbsp; </i></font>Send 
+    standard input to two places - files and standard output (like a <b>T</b>-junction)</td>
+    <td valign="top"><font face="monospace">who | tee file1 | lp</font></td>
+    <td valign="top">&nbsp;</td>
+  </tr>
+  <tr>
+    <td valign="top"><a href="http://www.rt.com/man/telnet.1.html">telnet</a></td>
+    <td valign="top">Log onto a remote machine over the network</td>
+    <td valign="top"><font face="monospace">telnet machine.company.com</font></td>
+    <td valign="top"><a href="http://www.rt.com/man/rlogin.1.html">rlogin</a></td>
+  </tr>
+  <tr>
+    <td valign="top">umask</td>
+    <td valign="top"><font color="#FF0000"><i>Shell&nbsp; </i></font>Specify the 
+    permissions for any future files created by this shell</td>
+    <td valign="top"><font face="monospace">umask 022</font></td>
+    <td valign="top"><a href="http://www.rt.com/man/chmod.1.html">chmod</a></td>
+  </tr>
+  <tr>
+    <td valign="top"><a href="http://www.rt.com/man/uname.1.html">uname</a></td>
+    <td valign="top">(<b>U</b>NIX system <b>name</b>) Display details about the 
+    current machine, including the version of UNIX</td>
+    <td valign="top"><font face="monospace">uname</font></td>
+    <td valign="top">&nbsp;</td>
+  </tr>
+  <tr>
+    <td valign="top"><a href="http://www.rt.com/man/vi.1.html">vi</a></td>
+    <td valign="top">(<b>vi</b>sual editor)</td>
+    <td valign="top"><font face="monospace">vi souce.c</font></td>
+    <td valign="top"><a href="http://www.rt.com/man/ed.1.html">ed</a>,
+    <a href="http://www.rt.com/man/ex.1.html">ex</a>,
+    <a href="http://www.rt.com/man/vim.1.html">vim</a>,
+    <a href="http://www.rt.com/man/view.1.html">view</a></td>
+  </tr>
+  <tr>
+    <td valign="top"><a href="http://www.rt.com/man/wc.1.html">wc</a></td>
+    <td valign="top"><font color="#FF0000"><i>Filter</i></font>&nbsp; (<b>w</b>ord
+    <b>c</b>ount) Count the number of lines, words and characters in files or 
+    standard input</td>
+    <td valign="top"><font face="monospace">wc -l *.c</font></td>
+    <td valign="top">&nbsp;</td>
+  </tr>
+  <tr>
+    <td valign="top"><a href="http://www.rt.com/man/whatis.1.html">whatis</a></td>
+    <td valign="top">Search&nbsp; the manual page index for manual pages that 
+    match a particular word</td>
+    <td valign="top"><font face="monospace">whatis remove</font></td>
+    <td valign="top"><a href="http://www.rt.com/man/man.1.html">man</a></td>
+  </tr>
+  <tr>
+    <td valign="top"><a href="http://www.rt.com/man/who.1.html">who</a></td>
+    <td valign="top">Display a list of all the users <b>who</b> are currently 
+    logged into the system</td>
+    <td valign="top"><font face="monospace">who<br>
+    who am i</font></td>
+    <td valign="top"><a href="http://www.rt.com/man/id.1.html">id</a></td>
+  </tr>
+</table>
+
+</body>
+
+</html>

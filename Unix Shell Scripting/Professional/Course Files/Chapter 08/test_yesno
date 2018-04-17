@@ -1,0 +1,12 @@
+. func_library
+
+#
+#   Test the yesno function
+#
+while true
+do
+    if yesno Do you really wish to quit now
+    then
+        exit
+    fi
+done

@@ -1,0 +1,99 @@
+
+
+Unix Shell Scripting Advanced
+
+Author - Mark Virtue 
+Total Time - 8 Hours 
+
+Introduction
+ About this Course
+ Course Structure
+ What is the UNIX Shell?
+ Which Shell?
+ What is a Shell Script?
+
+Your First Shell Script
+ A Basic Script
+ The echo Command
+ The read Command
+ Shell Basics Revisited
+ Special Characters
+ Comments
+ Chapter Exercises
+ Exercise Solutions
+
+Running a Shell Script
+ Running a Script on the Command-line
+ Running a Script from within vi
+ Your PATH and bin
+ Script Interpreters
+ CGI Scripts
+
+Shell Programming Features
+ Shell Variables
+ Environment Variables
+ The Trouble with Quotes
+ Grouping Commands
+ Line Control
+ Chapter Exercises
+ Exercise Solutions
+ Introducing the Course Project
+ Course Project Solution
+
+Conditional Code
+ True and False
+ Conditional Command Execution
+ The if Statement
+ The else Clause
+ The elif Clause
+ Using test
+ The case Statement
+ Chapter Exercises
+ Exercise Solutions
+
+Loops
+ The while Loop
+ break and continue
+ Numerical Calculations
+ The for Loop
+ Chapter Exercises
+ Exercise Solutions
+
+Text Processing
+ About Filters
+ grep
+ Regular Expressions
+ sort
+ sed
+ awk
+ Chapter Exercises
+ Exercise Solutions
+
+Functions
+ Program Structure
+ Defining and Calling a Function
+ Function Parameters
+ Function Return Values
+ Functions in Other Files
+ Case Study: The yesno Function
+ Chapter Exercises
+ Exercise Solutions
+
+Command-line Parameters
+ Using Command-line Parameters
+ Using shift
+ Using set --
+ Using IFS
+ Usage Messages
+ Chapter Exercises
+ Exercise Solutions
+
+Advanced Scripting
+ Debugging
+ Default Values for Variables
+ Temporary Files
+ Preventing Abnormal Termination
+ Chapter Exercises
+ Exercise Solutions
+ The End
+

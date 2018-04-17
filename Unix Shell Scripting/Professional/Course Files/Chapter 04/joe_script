@@ -1,0 +1,3 @@
+myname=Joe
+echo "Hello $myname, today's date
+is `date +%d/%m/%y`"

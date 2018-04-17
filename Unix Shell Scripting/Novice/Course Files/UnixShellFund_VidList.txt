@@ -1,0 +1,97 @@
+
+
+Unix Shell Fundamentals
+
+Author - Mark Virtue 
+Total Time - 10 Hours 
+
+Introduction
+ About this Course
+ Audience and Prerequisites
+
+Understanding UNIX
+ What is UNIX?
+ UNIX History
+ Which UNIX?
+ UNIX Architecture
+
+Understanding the UNIX Shell
+ What is the UNIX Shell?
+ Which Shell?
+ Logging In
+ Basic Commands
+ Command Syntax
+ Getting Help
+ Logging Out
+
+Files and Directories
+ Intro & Commands for Files and Directories
+ Filenames and File Types
+ Wildcards
+ Displaying File Contents
+ Comparing Files
+ Copying, Moving and Renaming Files
+ Deleting Files
+ Hidden Files
+ The "." and ".." Directories
+ Relative vs. Absolute Paths
+ Working with Directories
+ Finding Files
+ Archiving Files
+
+Security
+ Users and Groups
+ File Protection Overview
+ Changing File Permissions
+ Changing File Ownership
+ Changing File Group
+ A Dangerous Security Loophole
+
+Combining Programs - Pipes and Filters
+ Standard Output
+ Standard Input
+ Standard Input and Output
+ About Filters
+ Common Filters
+ Searching for Text in Files
+ Standard Error
+
+Process Control
+ About Processes
+ Running Commands Asynchronously
+ Killing Processes
+ Jobs
+ More Process Control
+ Scheduling Commands
+
+vi - A UNIX Text Editor
+ Understanding vi
+ Manipulating Files
+ Moving Around
+ Basic Editing
+ Advanced Editing
+ Configuring vi
+
+The UNIX File System
+ Introduction to the Unix File System
+ How Files are Stored
+ Understanding Links
+ Linking Files
+ Symbolic Links
+ UNIX File Types
+ Mounting
+
+Communication
+ Using telnet
+ Using mail
+
+Customizing Your Shell Environment
+ Changing your Login Shell
+ Your .profile
+ Environment Variables
+ Your PATH
+ Your Prompt
+ Korn Shell Command-line Editing
+ Other Shell Customization Options
+ The End
+

@@ -1,0 +1,8 @@
+#!/bin/sed -f
+#
+#	This script will be run using the sed program
+#
+
+s/mvirtue/THE AUTHOR OF THIS COURSE/
+
+/gumby/d

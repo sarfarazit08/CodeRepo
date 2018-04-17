@@ -1,0 +1,92 @@
+#!/bin/sh
+#   The above line causes this script to be run using the Bourne Shell (sh)
+#######################################################################
+#
+#   Script to maintain a contacts database.
+#
+#######################################################################
+
+#
+#   Define the name of the file
+#
+fname=names.dat
+
+#
+#   If the file does not exist, create it
+#
+[ ! -f $fname ] && > $fname
+
+#
+#   Display the menu
+#
+clear
+echo "\n\t\tSHELL PROGRAMMING DATABASE"
+echo "\t\t\tMAIN MENU"
+echo "\nWhat do you wish to do?\n"
+echo "\t1.  Create records"
+echo "\t2.  View records"
+echo "\t3.  Search for records"
+echo "\t4.  Delete records that match a pattern"
+echo
+
+#
+#   Prompt for an answer
+#
+echo "Answer? \c"
+read ans junk
+
+#
+#   Decide what to do
+#
+case "$ans" in
+    1)
+        #
+        #   Read in the contact details from the keyboard
+        #
+        echo "Please enter the following contact details:"
+        echo
+        echo "Given name: \c"
+        read name
+        echo "   Surname: \c"
+        read surname
+        echo "   Address: \c"
+        read address
+        echo "      City: \c"
+        read city
+        echo "     State: \c"
+        read state
+        echo "       Zip: \c"
+        read zip
+
+        #
+        #   Write the details to the text file
+        #
+        echo $name:$surname:$address:$city:$state:$zip >> $fname
+        ;;
+    2)
+        #
+        #   Show what's currently in the file
+        #
+        (
+            echo
+            echo Here are the current contacts in the database:
+            echo
+            cat $fname
+        ) | more
+
+        #
+        #  And display how many there are
+        #
+        echo
+        echo There are `cat $fname | wc -l` contacts in the database
+        ;;
+    3)
+        echo The Search case is not implemented yet
+        ;;
+    4)
+        echo The Delete case is not implemented yet
+        ;;
+    *)
+        echo "That was an invalid choice"
+        ;;
+esac

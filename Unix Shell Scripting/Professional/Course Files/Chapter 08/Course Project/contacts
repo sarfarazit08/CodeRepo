@@ -1,0 +1,260 @@
+#!/bin/sh
+#   The above line causes this script to be run using the Bourne Shell (sh)
+#######################################################################
+#
+#   Script to maintain a contacts database.
+#
+#######################################################################
+
+#
+#   Define the name of the file
+#
+fname=names.dat
+
+#
+#   pause()
+#
+#   Ask the user to press ENTER and wait for them to do so
+#
+pause()
+{
+    echo "Hit <ENTER> to continue: \c"
+    read junk
+}
+
+#
+#   yesno()
+#
+#   A function to display a string (passed in as $*), followed by a "(Y/N)?",
+#   and then ask the user for either a Yes or No answer.  Nothing else is
+#   acceptable.
+#   If Yes is answered, yesno() returns with an exit code of 0 (True).
+#   If No is answered, yesno() returns with an exit code of 1 (False).
+#
+yesno()
+{
+    #
+    #   Loop until a valid response is entered
+    #
+    while :
+    do
+        #
+        #   Display the string passed in in $1, followed by "(Y/N)?"
+        #   The \c causes suppression of echo's newline
+        #
+        echo "$* (Y/N)? \c"
+
+        #
+        #   Read the answer - only the first word of the answer will
+        #   be stored in "yn".  The rest will be discarded
+        #   (courtesy of "junk")
+        #
+        read yn junk
+
+        case $yn in
+            y|Y|yes|Yes|YES)
+                return 0;;        # return TRUE
+            n|N|no|No|NO)
+                return 1;;        # return FALSE
+            *)
+                echo Please answer Yes or No.;;
+                #
+                # and continue around the loop ....
+                #
+        esac
+    done
+}
+
+#
+#   do_create()
+#
+#   Create records for our database
+#
+do_create()
+{
+    #
+    #   Loop until the user is sick of entering records
+    #
+    while :
+    do
+        #
+        #   Inner loop:  loop until the user is satisfied with
+        #   this ONE record
+        #
+        while :
+        do
+            #
+            #   Read in the contact details from the keyboard
+            #
+            clear
+
+            echo "Please enter the following contact details:"
+            echo
+            echo "Given name: \c"
+            read name
+            echo "   Surname: \c"
+            read surname
+            echo "   Address: \c"
+            read address
+            echo "      City: \c"
+            read city
+            echo "     State: \c"
+            read state
+            echo "       Zip: \c"
+            read zip
+
+            #
+            #   Now confirm ...
+            #
+            clear
+
+            echo "You entered the following contact details:"
+            echo
+            echo "Given name: $name"
+            echo "   Surname: $surname"
+            echo "   Address: $address"
+            echo "      City: $city"
+            echo "     State: $state"
+            echo "       Zip: $zip"
+            echo
+
+            if yesno Are these details correct
+            then
+                #
+                #   Enter the details onto the end of file,
+                #   with the fields separated by colons, and
+                #   break out of the inner loop
+                #
+                echo $name:$surname:$address:$city:$state:$zip >> $fname
+                break
+            fi
+        done
+
+        #
+        #   Ask the user if they wish to create another record.
+        #   The "break" bit will only be executed if the user
+        #   answers "No"
+        #
+        yesno Create another record || break
+    done
+}
+
+#
+#   do_view()
+#
+#   Display all records in the file, complete with headings, sorted,
+#   one page at a time
+#
+do_view()
+{
+    clear
+
+    #
+    #   Show what's currently in the file
+    #
+    (
+        echo
+        echo Here are the current contacts in the database:
+        echo
+        echo "First Name    Surname         Address             City           State Zip"
+        echo "============================================================================"
+
+        #
+        #   Display the line correctly formatted.
+        #   Use awk for the formatting.
+        #   The "-F :" bit causes awk to perceive fields as being
+        #   separated by colons.
+        #   "%-14.14s" means display a string in a field width
+        #   of 14, left-justified.
+        #
+        sort -t : +1 $fname | awk -F : '{printf("%-14.14s%-16.16s%-20.20s%-15.15s%-6.6s%-5.5s\n", $1, $2, $3, $4, $5, $6)}'
+    ) | more
+
+    #
+    #  And display how many there are
+    #
+    echo
+    echo There are `cat $fname | wc -l` contacts in the database
+}
+
+#
+#   do_search()
+#
+do_search()
+{
+    echo The Search case is not implemented yet
+}
+
+#
+#   do_delete()
+#
+do_delete()
+{
+    echo The Delete case is not implemented yet
+}
+
+#
+#   START MAIN CODE HERE
+#
+
+#
+#   If the file does not exist, create it
+#
+[ ! -f $fname ] && > $fname
+
+#
+#   Loop forever - until they want to exit the program
+#
+while true
+do
+    #
+    #   Display the menu
+    #
+    clear
+    echo "\n\t\tSHELL PROGRAMMING DATABASE"
+    echo "\t\t\tMAIN MENU"
+    echo "\nWhat do you wish to do?\n"
+    echo "\t1.  Create records"
+    echo "\t2.  View records"
+    echo "\t3.  Search for records"
+    echo "\t4.  Delete records that match a pattern"
+    echo
+
+    #
+    #   Prompt for an answer
+    #
+    echo "Answer (or 'q' to quit)? \c"
+    read ans junk
+
+    #
+    #   Empty answers (pressing ENTER) cause the menu to redisplay,
+    #   so .... back around the loop
+    #   We only make it to the "continue" bit if the "test"
+    #   program ("[") returned 0 (True)
+    #
+    [ "$ans" = "" ] && continue
+
+    #
+    #   Decide what to do
+    #
+    case $ans in
+        1)     do_create;;
+        2)     do_view;;
+        3)     do_search;;
+        4)     do_delete;;
+
+        q*|Q*) if yesno "Do you really wish to exit"
+               then
+                   exit
+               fi
+               ;;
+
+        *)     echo "please enter a number between 1 and 4"
+               ;;
+    esac
+
+    #
+    #   Pause to give the user a chance to see what's on the screen
+    #
+    pause
+done

@@ -1,0 +1,115 @@
+#!/bin/sh
+#   The above line causes this script to be run using the Bourne Shell (sh)
+#######################################################################
+#
+#   Script to maintain a contacts database.
+#
+#######################################################################
+
+#
+#   Define the name of the file
+#
+fname=names.dat
+
+#
+#   If the file does not exist, create it
+#
+[ ! -f $fname ] && > $fname
+
+#
+#   Loop forever - until they want to exit the program
+#
+while true
+do
+    #
+    #   Display the menu
+    #
+    clear
+    echo "\n\t\tSHELL PROGRAMMING DATABASE"
+    echo "\t\t\tMAIN MENU"
+    echo "\nWhat do you wish to do?\n"
+    echo "\t1.  Create records"
+    echo "\t2.  View records"
+    echo "\t3.  Search for records"
+    echo "\t4.  Delete records that match a pattern"
+    echo
+
+    #
+    #   Prompt for an answer
+    #
+    echo "Answer (or 'q' to quit)? \c"
+    read ans junk
+
+    #
+    #   Empty answers (pressing ENTER) cause the menu to redisplay,
+    #   so .... back around the loop
+    #   We only make it to the "continue" bit if the "test"
+    #   program ("[") returned 0 (True)
+    #
+    [ "$ans" = "" ] && continue
+
+    #
+    #   Decide what to do
+    #
+    case $ans in
+        1)
+            #
+            #   Read in the contact details from the keyboard
+            #
+            echo "Please enter the following contact details:"
+            echo
+            echo "Given name: \c"
+            read name
+            echo "   Surname: \c"
+            read surname
+            echo "   Address: \c"
+            read address
+            echo "      City: \c"
+            read city
+            echo "     State: \c"
+            read state
+            echo "       Zip: \c"
+            read zip
+
+            #
+            #   Write the details to the text file
+            #
+            echo $name:$surname:$address:$city:$state:$zip >> $fname
+            ;;
+        2)
+            #
+            #   Show what's currently in the file
+            #
+            (
+                echo
+                echo Here are the current contacts in the database:
+                echo
+                cat $fname
+            ) | more
+    
+            #
+            #  And display how many there are
+            #
+            echo
+            echo There are `cat $fname | wc -l` contacts in the database
+            ;;
+        3)
+            echo The Search case is not implemented yet
+            ;;
+        4)
+            echo The Delete case is not implemented yet
+            ;;
+        q*|Q*)
+            exit 0
+            ;;
+        *)
+            echo "please enter a number between 1 and 4"
+            ;;
+    esac
+
+    #
+    #   Pause to give the user a chance to see what's on the screen
+    #
+    echo "Hit <ENTER> to continue: \c"
+    read junk
+done

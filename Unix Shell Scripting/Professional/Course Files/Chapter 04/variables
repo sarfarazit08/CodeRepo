@@ -1,0 +1,8 @@
+name1=Fred
+echo $name1
+
+name2='Fred Smith'
+echo $name2
+
+name3="That's Life"
+echo $name3

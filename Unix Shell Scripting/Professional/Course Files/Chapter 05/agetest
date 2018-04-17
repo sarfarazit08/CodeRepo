@@ -1,0 +1,14 @@
+retirement_age=65
+
+echo "Please enter your age: \c"
+read age
+
+if [ "$age" = "" ]
+then
+    echo You did not enter an age
+elif [ $age -gt $retirement_age ]
+then
+    echo You should be retired
+else
+    echo You are still quite young
+fi

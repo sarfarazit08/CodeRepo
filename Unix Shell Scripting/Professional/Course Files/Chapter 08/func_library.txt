@@ -1,0 +1,42 @@
+#
+#   yesno()
+#
+#   A function to display a string (passed in as $*), followed by a "(Y/N)?",
+#   and then ask the user for either a Yes or No answer.  Nothing else is
+#   acceptable.
+#   If Yes is answered, yesno() returns with an exit code of 0 (True).
+#   If No is answered, yesno() returns with an exit code of 1 (False).
+#
+yesno()
+{
+    #
+    #   Loop until a valid response is entered
+    #
+    while :
+    do
+        #
+        #   Display the strings/paramters passed in, followed by "(Y/N)?"
+        #   The \c causes suppression of echo's newline
+        #
+        echo "$* (Y/N)? \c"
+
+        #
+        #   Read the answer - only the first word of the answer will
+        #   be stored in "yn".  The rest will be discarded
+        #   (courtesy of "junk")
+        #
+        read yn junk
+
+        case $yn in
+            y|Y|yes|Yes|YES)
+                return 0;;        # return TRUE
+            n|N|no|No|NO)
+                return 1;;        # return FALSE
+            *)
+                echo Please answer Yes or No.;;
+                #
+                # and continue around the loop ....
+                #
+        esac
+    done
+}
