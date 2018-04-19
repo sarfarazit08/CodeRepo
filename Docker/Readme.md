@@ -1,0 +1,3 @@
+### Docker
+
+Written by Solomon Hykes in 2013, it is a computer program that performs operating-system-level virtualization, the containerization, which is developed by Docker, Inc. Primarily, Docker was developed for Linux to use as the resource isolation features of the Linux kernel. It is a tool that can package an application and its dependencies in a virtual container that can run on any Linux server. This helps enable the flexibility and portability on where the application can run, whether on premises, public cloud, private cloud, bare metal, etc.  Moreover, it accesses the Linux kernel’s virtualization features either directly using the libcontainer library.
