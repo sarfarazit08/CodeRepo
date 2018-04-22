@@ -1,0 +1,857 @@
+﻿{
+  "$schema": "http://schema.management.azure.com/schemas/2015-01-01/deploymentTemplate.json#",
+  "contentVersion": "1.0.0.0",
+  "parameters": {
+    "virtualMachines_ub_proxy_0_adminPassword": {
+      "type": "secureString",
+      "defaultValue": null
+    },
+    "virtualMachines_ub_proxy_1_adminPassword": {
+      "type": "secureString",
+      "defaultValue": null
+    },
+    "virtualMachines_win_web_0_adminPassword": {
+      "type": "secureString",
+      "defaultValue": null
+    },
+    "virtualMachines_win_web_1_adminPassword": {
+      "type": "secureString",
+      "defaultValue": null
+    },
+    "virtualMachines_win_web_2_adminPassword": {
+      "type": "secureString",
+      "defaultValue": null
+    },
+    "availabilitySets_iaas_aset_internal_name": {
+      "type": "string",
+      "defaultValue": "iaas-aset-internal"
+    },
+    "availabilitySets_iaas_aset_public_name": {
+      "type": "string",
+      "defaultValue": "iaas-aset-public"
+    },
+    "virtualMachines_ub_proxy_0_name": {
+      "type": "string",
+      "defaultValue": "ub-proxy-0"
+    },
+    "virtualMachines_ub_proxy_1_name": {
+      "type": "string",
+      "defaultValue": "ub-proxy-1"
+    },
+    "virtualMachines_win_web_0_name": {
+      "type": "string",
+      "defaultValue": "win-web-0"
+    },
+    "virtualMachines_win_web_1_name": {
+      "type": "string",
+      "defaultValue": "win-web-1"
+    },
+    "virtualMachines_win_web_2_name": {
+      "type": "string",
+      "defaultValue": "win-web-2"
+    },
+    "loadBalancers_iaas_lb_internal_name": {
+      "type": "string",
+      "defaultValue": "iaas-lb-internal"
+    },
+    "loadBalancers_iaas_lb_public_name": {
+      "type": "string",
+      "defaultValue": "iaas-lb-public"
+    },
+    "networkInterfaces_ub_proxy_0_nic_name": {
+      "type": "string",
+      "defaultValue": "ub-proxy-0-nic"
+    },
+    "networkInterfaces_ub_proxy_1_nic_name": {
+      "type": "string",
+      "defaultValue": "ub-proxy-1-nic"
+    },
+    "networkInterfaces_win_web_0_nic_name": {
+      "type": "string",
+      "defaultValue": "win-web-0-nic"
+    },
+    "networkInterfaces_win_web_1_nic_name": {
+      "type": "string",
+      "defaultValue": "win-web-1-nic"
+    },
+    "networkInterfaces_win_web_2_nic_name": {
+      "type": "string",
+      "defaultValue": "win-web-2-nic"
+    },
+    "publicIPAddresses_iaas_vnet_pip_name": {
+      "type": "string",
+      "defaultValue": "iaas-vnet-pip"
+    },
+    "publicIPAddresses_iaas_vnet_pip_domainNameLabel": {
+      "type": "string",
+      "defaultValue": "iaas-vnet-public"
+    },
+    "virtualNetworks_iaas_vnet_name": {
+      "type": "string",
+      "defaultValue": "iaas-vnet"
+    },
+    "storageAccounts_psodiaasm3_name": {
+      "type": "string",
+      "defaultValue": "psodiaasm3"
+    }
+  },
+  "variables": {
+    "win_web_dscConfigurationFunction": "win-web-server-dsc.ps1\\WebApp",
+    "win_web_dscModulesUrl": "https://psodiaasbak.blob.core.windows.net/setup-win-web-server/win-web-server-dsc.ps1.zip?st=2016-03-27T09%3A32%3A00Z&se=2017-03-28T09%3A32%3A00Z&sp=r&sv=2015-02-21&sr=b&sig=q4SG6WMzlIk2Fea2F5FJZKte1pWsbJWmmYqT71R7hXg%3D",
+    "ub_proxy_dscMofUrl": "https://psodiaasbak.blob.core.windows.net/setup-ub-proxy-server/localhost.mof?st=2016-03-27T09%3A32%3A00Z&se=2017-03-28T09%3A32%3A00Z&sp=r&sv=2015-02-21&sr=b&sig=jgdZGUFGcKNCIFaw1DpHiBOJtD5gLo8on6p7%2FntQlmc%3D"
+  },
+  "resources": [
+    {
+      "comments": "Generalized from resource: /subscriptions/3481cd2a-ed2d-4afd-8bbb-96ea65c835f2/resourceGroups/psod-iaas-m3/providers/Microsoft.Compute/availabilitySets/iaas-aset-internal",
+      "type": "Microsoft.Compute/availabilitySets",
+      "name": "[parameters('availabilitySets_iaas_aset_internal_name')]",
+      "apiVersion": "2015-06-15",
+      "location": "northeurope",
+      "properties": {
+        "platformUpdateDomainCount": 5,
+        "platformFaultDomainCount": 3
+      }
+    },
+    {
+      "comments": "Generalized from resource: /subscriptions/3481cd2a-ed2d-4afd-8bbb-96ea65c835f2/resourceGroups/psod-iaas-m3/providers/Microsoft.Compute/availabilitySets/iaas-aset-public",
+      "type": "Microsoft.Compute/availabilitySets",
+      "name": "[parameters('availabilitySets_iaas_aset_public_name')]",
+      "apiVersion": "2015-06-15",
+      "location": "northeurope",
+      "properties": {
+        "platformUpdateDomainCount": 5,
+        "platformFaultDomainCount": 3
+      }
+    },
+    {
+      "comments": "Generalized from resource: /subscriptions/3481cd2a-ed2d-4afd-8bbb-96ea65c835f2/resourceGroups/psod-iaas-m3/providers/Microsoft.Compute/virtualMachines/ub-proxy-0",
+      "type": "Microsoft.Compute/virtualMachines",
+      "name": "[parameters('virtualMachines_ub_proxy_0_name')]",
+      "apiVersion": "2015-06-15",
+      "location": "northeurope",
+      "properties": {
+        "availabilitySet": {
+          "id": "[resourceId('Microsoft.Compute/availabilitySets', parameters('availabilitySets_iaas_aset_public_name'))]"
+        },
+        "hardwareProfile": {
+          "vmSize": "Standard_A1"
+        },
+        "storageProfile": {
+          "imageReference": {
+            "publisher": "Canonical",
+            "offer": "UbuntuServer",
+            "sku": "14.04.3-LTS",
+            "version": "latest"
+          },
+          "osDisk": {
+            "name": "[concat(parameters('virtualMachines_ub_proxy_0_name'),'-os-disk')]",
+            "createOption": "FromImage",
+            "vhd": {
+              "uri": "[concat('https', '://', parameters('storageAccounts_psodiaasm3_name'), '.blob.core.windows.net', concat('/vhds/', parameters('virtualMachines_ub_proxy_0_name'),'-os-disk.vhd'))]"
+            },
+            "caching": "ReadWrite"
+          },
+          "dataDisks": [ ]
+        },
+        "osProfile": {
+          "computerName": "[parameters('virtualMachines_ub_proxy_0_name')]",
+          "adminUsername": "elton",
+          "linuxConfiguration": {
+            "disablePasswordAuthentication": false
+          },
+          "secrets": [ ],
+          "adminPassword": "[parameters('virtualMachines_ub_proxy_0_adminPassword')]"
+        },
+        "networkProfile": {
+          "networkInterfaces": [
+            {
+              "id": "[resourceId('Microsoft.Network/networkInterfaces', parameters('networkInterfaces_ub_proxy_0_nic_name'))]"
+            }
+          ]
+        }
+      },
+      "dependsOn": [
+        "[resourceId('Microsoft.Compute/availabilitySets', parameters('availabilitySets_iaas_aset_public_name'))]",
+        "[resourceId('Microsoft.Storage/storageAccounts', parameters('storageAccounts_psodiaasm3_name'))]",
+        "[resourceId('Microsoft.Network/networkInterfaces', parameters('networkInterfaces_ub_proxy_0_nic_name'))]"
+      ],
+      "resources": [
+        {
+          "apiVersion": "2015-06-15",
+          "type": "extensions",
+          "name": "ub_proxy_0_dsc",
+          "location": "North Europe",
+          "dependsOn": [
+            "[concat('Microsoft.Compute/virtualMachines/', parameters('virtualMachines_ub_proxy_0_name'))]"
+          ],
+          "properties": {
+            "publisher": "Microsoft.OSTCExtensions",
+            "type": "DSCForLinux",
+            "typeHandlerVersion": "2.0",
+            "settings": {
+              "Mode": "Push",
+              "FileUri": "[variables('ub_proxy_dscMofUrl')]"
+            }
+          }
+        }
+      ]
+    },
+    {
+      "comments": "Generalized from resource: /subscriptions/3481cd2a-ed2d-4afd-8bbb-96ea65c835f2/resourceGroups/psod-iaas-m3/providers/Microsoft.Compute/virtualMachines/ub-proxy-1",
+      "type": "Microsoft.Compute/virtualMachines",
+      "name": "[parameters('virtualMachines_ub_proxy_1_name')]",
+      "apiVersion": "2015-06-15",
+      "location": "northeurope",
+      "properties": {
+        "availabilitySet": {
+          "id": "[resourceId('Microsoft.Compute/availabilitySets', parameters('availabilitySets_iaas_aset_public_name'))]"
+        },
+        "hardwareProfile": {
+          "vmSize": "Standard_A1"
+        },
+        "storageProfile": {
+          "imageReference": {
+            "publisher": "Canonical",
+            "offer": "UbuntuServer",
+            "sku": "14.04.3-LTS",
+            "version": "latest"
+          },
+          "osDisk": {
+            "name": "[concat(parameters('virtualMachines_ub_proxy_1_name'),'-os-disk')]",
+            "createOption": "FromImage",
+            "vhd": {
+              "uri": "[concat('https', '://', parameters('storageAccounts_psodiaasm3_name'), '.blob.core.windows.net', concat('/vhds/', parameters('virtualMachines_ub_proxy_1_name'),'-os-disk.vhd'))]"
+            },
+            "caching": "ReadWrite"
+          },
+          "dataDisks": [ ]
+        },
+        "osProfile": {
+          "computerName": "[parameters('virtualMachines_ub_proxy_1_name')]",
+          "adminUsername": "elton",
+          "linuxConfiguration": {
+            "disablePasswordAuthentication": false
+          },
+          "secrets": [ ],
+          "adminPassword": "[parameters('virtualMachines_ub_proxy_1_adminPassword')]"
+        },
+        "networkProfile": {
+          "networkInterfaces": [
+            {
+              "id": "[resourceId('Microsoft.Network/networkInterfaces', parameters('networkInterfaces_ub_proxy_1_nic_name'))]"
+            }
+          ]
+        }
+      },
+      "dependsOn": [
+        "[resourceId('Microsoft.Compute/availabilitySets', parameters('availabilitySets_iaas_aset_public_name'))]",
+        "[resourceId('Microsoft.Storage/storageAccounts', parameters('storageAccounts_psodiaasm3_name'))]",
+        "[resourceId('Microsoft.Network/networkInterfaces', parameters('networkInterfaces_ub_proxy_1_nic_name'))]"
+      ],
+     "resources" : [
+      {
+        "apiVersion": "2015-06-15",
+        "type": "extensions",
+        "name": "ub_proxy_1_dsc",
+        "location": "North Europe",
+        "dependsOn": [
+          "[concat('Microsoft.Compute/virtualMachines/', parameters('virtualMachines_ub_proxy_1_name'))]"
+        ],
+        "properties": {
+          "publisher": "Microsoft.OSTCExtensions",
+          "type": "DSCForLinux",
+          "typeHandlerVersion": "2.0",
+          "settings": {
+            "Mode": "Push",
+            "FileUri": "[variables('ub_proxy_dscMofUrl')]"
+          }
+        }
+      }
+    ]
+    },
+    {
+      "comments": "Generalized from resource: /subscriptions/3481cd2a-ed2d-4afd-8bbb-96ea65c835f2/resourceGroups/psod-iaas-m3/providers/Microsoft.Compute/virtualMachines/win-web-0",
+      "type": "Microsoft.Compute/virtualMachines",
+      "name": "[parameters('virtualMachines_win_web_0_name')]",
+      "apiVersion": "2015-06-15",
+      "location": "northeurope",
+      "properties": {
+        "availabilitySet": {
+          "id": "[resourceId('Microsoft.Compute/availabilitySets', parameters('availabilitySets_iaas_aset_internal_name'))]"
+        },
+        "hardwareProfile": {
+          "vmSize": "Standard_A1"
+        },
+        "storageProfile": {
+          "imageReference": {
+            "publisher": "MicrosoftWindowsServer",
+            "offer": "WindowsServer",
+            "sku": "2012-R2-Datacenter",
+            "version": "latest"
+          },
+          "osDisk": {
+            "name": "[concat(parameters('virtualMachines_win_web_0_name'),'-os-disk')]",
+            "createOption": "FromImage",
+            "vhd": {
+              "uri": "[concat('https', '://', parameters('storageAccounts_psodiaasm3_name'), '.blob.core.windows.net', concat('/vhds/', parameters('virtualMachines_win_web_0_name'),'-os-disk.vhd'))]"
+            },
+            "caching": "ReadWrite"
+          },
+          "dataDisks": [ ]
+        },
+        "osProfile": {
+          "computerName": "[parameters('virtualMachines_win_web_0_name')]",
+          "adminUsername": "elton",
+          "windowsConfiguration": {
+            "provisionVMAgent": true,
+            "enableAutomaticUpdates": true
+          },
+          "secrets": [ ],
+          "adminPassword": "[parameters('virtualMachines_win_web_0_adminPassword')]"
+        },
+        "networkProfile": {
+          "networkInterfaces": [
+            {
+              "id": "[resourceId('Microsoft.Network/networkInterfaces', parameters('networkInterfaces_win_web_0_nic_name'))]"
+            }
+          ]
+        }
+      },
+      "dependsOn": [
+        "[resourceId('Microsoft.Compute/availabilitySets', parameters('availabilitySets_iaas_aset_internal_name'))]",
+        "[resourceId('Microsoft.Storage/storageAccounts', parameters('storageAccounts_psodiaasm3_name'))]",
+        "[resourceId('Microsoft.Network/networkInterfaces', parameters('networkInterfaces_win_web_0_nic_name'))]"
+      ],
+      "resources": [
+        {
+          "name": "win_web_0_dsc",
+          "type": "extensions",
+          "location": "northeurope",
+          "apiVersion": "2015-06-15",
+          "dependsOn": [
+            "[concat('Microsoft.Compute/virtualMachines/', parameters('virtualMachines_win_web_0_name'))]"
+          ],
+          "tags": {
+            "displayName": "win_web_0_dsc"
+          },
+          "properties": {
+            "publisher": "Microsoft.Powershell",
+            "type": "DSC",
+            "typeHandlerVersion": "2.15",
+            "autoUpgradeMinorVersion": true,
+            "settings": {
+              "modulesUrl": "[variables('win_web_dscModulesUrl')]",
+              "configurationFunction": "[variables('win_web_dscConfigurationFunction')]"
+            }
+          }
+        }
+      ]
+    },
+    {
+      "comments": "Generalized from resource: /subscriptions/3481cd2a-ed2d-4afd-8bbb-96ea65c835f2/resourceGroups/psod-iaas-m3/providers/Microsoft.Compute/virtualMachines/win-web-1",
+      "type": "Microsoft.Compute/virtualMachines",
+      "name": "[parameters('virtualMachines_win_web_1_name')]",
+      "apiVersion": "2015-06-15",
+      "location": "northeurope",
+      "properties": {
+        "availabilitySet": {
+          "id": "[resourceId('Microsoft.Compute/availabilitySets', parameters('availabilitySets_iaas_aset_internal_name'))]"
+        },
+        "hardwareProfile": {
+          "vmSize": "Standard_A1"
+        },
+        "storageProfile": {
+          "imageReference": {
+            "publisher": "MicrosoftWindowsServer",
+            "offer": "WindowsServer",
+            "sku": "2012-R2-Datacenter",
+            "version": "latest"
+          },
+          "osDisk": {
+            "name": "[concat(parameters('virtualMachines_win_web_1_name'),'-os-disk')]",
+            "createOption": "FromImage",
+            "vhd": {
+              "uri": "[concat('https', '://', parameters('storageAccounts_psodiaasm3_name'), '.blob.core.windows.net', concat('/vhds/', parameters('virtualMachines_win_web_1_name'),'-os-disk.vhd'))]"
+            },
+            "caching": "ReadWrite"
+          },
+          "dataDisks": [ ]
+        },
+        "osProfile": {
+          "computerName": "[parameters('virtualMachines_win_web_1_name')]",
+          "adminUsername": "elton",
+          "windowsConfiguration": {
+            "provisionVMAgent": true,
+            "enableAutomaticUpdates": true
+          },
+          "secrets": [ ],
+          "adminPassword": "[parameters('virtualMachines_win_web_1_adminPassword')]"
+        },
+        "networkProfile": {
+          "networkInterfaces": [
+            {
+              "id": "[resourceId('Microsoft.Network/networkInterfaces', parameters('networkInterfaces_win_web_1_nic_name'))]"
+            }
+          ]
+        }
+      },
+      "dependsOn": [
+        "[resourceId('Microsoft.Compute/availabilitySets', parameters('availabilitySets_iaas_aset_internal_name'))]",
+        "[resourceId('Microsoft.Storage/storageAccounts', parameters('storageAccounts_psodiaasm3_name'))]",
+        "[resourceId('Microsoft.Network/networkInterfaces', parameters('networkInterfaces_win_web_1_nic_name'))]"
+      ],
+      "resources": [
+        {
+          "name": "win_web_1_dsc",
+          "type": "extensions",
+          "location": "northeurope",
+          "apiVersion": "2015-06-15",
+          "dependsOn": [
+            "[concat('Microsoft.Compute/virtualMachines/', parameters('virtualMachines_win_web_1_name'))]"
+          ],
+          "tags": {
+            "displayName": "win_web_1_dsc"
+          },
+          "properties": {
+            "publisher": "Microsoft.Powershell",
+            "type": "DSC",
+            "typeHandlerVersion": "2.15",
+            "autoUpgradeMinorVersion": true,
+            "settings": {
+              "modulesUrl": "[variables('win_web_dscModulesUrl')]",
+              "configurationFunction": "[variables('win_web_dscConfigurationFunction')]"
+            }
+          }
+        }
+      ]
+    },
+    {
+      "comments": "Generalized from resource: /subscriptions/3481cd2a-ed2d-4afd-8bbb-96ea65c835f2/resourceGroups/psod-iaas-m3/providers/Microsoft.Compute/virtualMachines/win-web-2",
+      "type": "Microsoft.Compute/virtualMachines",
+      "name": "[parameters('virtualMachines_win_web_2_name')]",
+      "apiVersion": "2015-06-15",
+      "location": "northeurope",
+      "properties": {
+        "availabilitySet": {
+          "id": "[resourceId('Microsoft.Compute/availabilitySets', parameters('availabilitySets_iaas_aset_internal_name'))]"
+        },
+        "hardwareProfile": {
+          "vmSize": "Standard_A1"
+        },
+        "storageProfile": {
+          "imageReference": {
+            "publisher": "MicrosoftWindowsServer",
+            "offer": "WindowsServer",
+            "sku": "2012-R2-Datacenter",
+            "version": "latest"
+          },
+          "osDisk": {
+            "name": "[concat(parameters('virtualMachines_win_web_2_name'),'-os-disk')]",
+            "createOption": "FromImage",
+            "vhd": {
+              "uri": "[concat('https', '://', parameters('storageAccounts_psodiaasm3_name'), '.blob.core.windows.net', concat('/vhds/', parameters('virtualMachines_win_web_2_name'),'-os-disk.vhd'))]"
+            },
+            "caching": "ReadWrite"
+          },
+          "dataDisks": [ ]
+        },
+        "osProfile": {
+          "computerName": "[parameters('virtualMachines_win_web_2_name')]",
+          "adminUsername": "elton",
+          "windowsConfiguration": {
+            "provisionVMAgent": true,
+            "enableAutomaticUpdates": true
+          },
+          "secrets": [ ],
+          "adminPassword": "[parameters('virtualMachines_win_web_2_adminPassword')]"
+        },
+        "networkProfile": {
+          "networkInterfaces": [
+            {
+              "id": "[resourceId('Microsoft.Network/networkInterfaces', parameters('networkInterfaces_win_web_2_nic_name'))]"
+            }
+          ]
+        }
+      },
+      "dependsOn": [
+        "[resourceId('Microsoft.Compute/availabilitySets', parameters('availabilitySets_iaas_aset_internal_name'))]",
+        "[resourceId('Microsoft.Storage/storageAccounts', parameters('storageAccounts_psodiaasm3_name'))]",
+        "[resourceId('Microsoft.Network/networkInterfaces', parameters('networkInterfaces_win_web_2_nic_name'))]"
+      ],
+      "resources": [
+        {
+          "name": "win_web_2_dsc",
+          "type": "extensions",
+          "location": "northeurope",
+          "apiVersion": "2015-06-15",
+          "dependsOn": [
+            "[concat('Microsoft.Compute/virtualMachines/', parameters('virtualMachines_win_web_2_name'))]"
+          ],
+          "tags": {
+            "displayName": "win_web_2_dsc"
+          },
+          "properties": {
+            "publisher": "Microsoft.Powershell",
+            "type": "DSC",
+            "typeHandlerVersion": "2.15",
+            "autoUpgradeMinorVersion": true,
+            "settings": {
+              "modulesUrl": "[variables('win_web_dscModulesUrl')]",
+              "configurationFunction": "[variables('win_web_dscConfigurationFunction')]"
+            }
+          }
+        }
+      ]
+    },
+    {
+      "comments": "Generalized from resource: /subscriptions/3481cd2a-ed2d-4afd-8bbb-96ea65c835f2/resourceGroups/psod-iaas-m3/providers/Microsoft.Network/loadBalancers/iaas-lb-internal",
+      "type": "Microsoft.Network/loadBalancers",
+      "name": "[parameters('loadBalancers_iaas_lb_internal_name')]",
+      "apiVersion": "2015-06-15",
+      "location": "northeurope",
+      "properties": {
+        "frontendIPConfigurations": [
+          {
+            "name": "[concat(parameters('loadBalancers_iaas_lb_internal_name'),'-frontend')]",
+            "properties": {
+              "privateIPAddress": "10.0.1.50",
+              "privateIPAllocationMethod": "Static",
+              "subnet": {
+                "id": "[concat(resourceId('Microsoft.Network/virtualNetworks', parameters('virtualNetworks_iaas_vnet_name')), concat('/subnets/', parameters('loadBalancers_iaas_lb_internal_name'),'-backend'))]"
+              }
+            }
+          }
+        ],
+        "backendAddressPools": [
+          {
+            "name": "[concat(parameters('loadBalancers_iaas_lb_internal_name'),'-backend')]"
+          }
+        ],
+        "loadBalancingRules": [
+          {
+            "name": "HTTP",
+            "properties": {
+              "frontendIPConfiguration": {
+                "id": "[concat(resourceId('Microsoft.Network/loadBalancers', parameters('loadBalancers_iaas_lb_internal_name')), concat('/frontendIPConfigurations/', parameters('loadBalancers_iaas_lb_internal_name'),'-frontend'))]"
+              },
+              "frontendPort": 8080,
+              "backendPort": 8080,
+              "enableFloatingIP": false,
+              "idleTimeoutInMinutes": 4,
+              "protocol": "Tcp",
+              "loadDistribution": "Default",
+              "backendAddressPool": {
+                "id": "[concat(resourceId('Microsoft.Network/loadBalancers', parameters('loadBalancers_iaas_lb_internal_name')), concat('/backendAddressPools/', parameters('loadBalancers_iaas_lb_internal_name'),'-backend'))]"
+              },
+              "probe": {
+                "id": "[concat(resourceId('Microsoft.Network/loadBalancers', parameters('loadBalancers_iaas_lb_internal_name')), concat('/probes/', parameters('loadBalancers_iaas_lb_internal_name'),'-probe'))]"
+              }
+            }
+          }
+        ],
+        "probes": [
+          {
+            "name": "[concat(parameters('loadBalancers_iaas_lb_internal_name'),'-probe')]",
+            "properties": {
+              "protocol": "Tcp",
+              "port": 8080,
+              "intervalInSeconds": 10,
+              "numberOfProbes": 3
+            }
+          }
+        ],
+        "inboundNatRules": [ ],
+        "outboundNatRules": [ ],
+        "inboundNatPools": [ ]
+      },
+      "dependsOn": [
+        "[resourceId('Microsoft.Network/virtualNetworks', parameters('virtualNetworks_iaas_vnet_name'))]"
+      ]
+    },
+    {
+      "comments": "Generalized from resource: /subscriptions/3481cd2a-ed2d-4afd-8bbb-96ea65c835f2/resourceGroups/psod-iaas-m3/providers/Microsoft.Network/loadBalancers/iaas-lb-public",
+      "type": "Microsoft.Network/loadBalancers",
+      "name": "[parameters('loadBalancers_iaas_lb_public_name')]",
+      "apiVersion": "2015-06-15",
+      "location": "northeurope",
+      "properties": {
+        "frontendIPConfigurations": [
+          {
+            "name": "[concat(parameters('loadBalancers_iaas_lb_public_name'),'-frontend')]",
+            "properties": {
+              "privateIPAllocationMethod": "Dynamic",
+              "publicIPAddress": {
+                "id": "[resourceId('Microsoft.Network/publicIPAddresses', parameters('publicIPAddresses_iaas_vnet_pip_name'))]"
+              }
+            }
+          }
+        ],
+        "backendAddressPools": [
+          {
+            "name": "[concat(parameters('loadBalancers_iaas_lb_public_name'),'-backend')]"
+          }
+        ],
+        "loadBalancingRules": [
+          {
+            "name": "HTTP",
+            "properties": {
+              "frontendIPConfiguration": {
+                "id": "[concat(resourceId('Microsoft.Network/loadBalancers', parameters('loadBalancers_iaas_lb_public_name')), concat('/frontendIPConfigurations/', parameters('loadBalancers_iaas_lb_public_name'),'-frontend'))]"
+              },
+              "frontendPort": 80,
+              "backendPort": 80,
+              "enableFloatingIP": false,
+              "idleTimeoutInMinutes": 4,
+              "protocol": "Tcp",
+              "loadDistribution": "Default",
+              "backendAddressPool": {
+                "id": "[concat(resourceId('Microsoft.Network/loadBalancers', parameters('loadBalancers_iaas_lb_public_name')), concat('/backendAddressPools/', parameters('loadBalancers_iaas_lb_public_name'),'-backend'))]"
+              },
+              "probe": {
+                "id": "[concat(resourceId('Microsoft.Network/loadBalancers', parameters('loadBalancers_iaas_lb_public_name')), concat('/probes/', parameters('loadBalancers_iaas_lb_public_name'),'-probe'))]"
+              }
+            }
+          }
+        ],
+        "probes": [
+          {
+            "name": "[concat(parameters('loadBalancers_iaas_lb_public_name'),'-probe')]",
+            "properties": {
+              "protocol": "Http",
+              "port": 80,
+              "requestPath": "/",
+              "intervalInSeconds": 10,
+              "numberOfProbes": 3
+            }
+          }
+        ],
+        "inboundNatRules": [ ],
+        "outboundNatRules": [ ],
+        "inboundNatPools": [ ]
+      },
+      "dependsOn": [
+        "[resourceId('Microsoft.Network/publicIPAddresses', parameters('publicIPAddresses_iaas_vnet_pip_name'))]"
+      ]
+    },
+    {
+      "comments": "Generalized from resource: /subscriptions/3481cd2a-ed2d-4afd-8bbb-96ea65c835f2/resourceGroups/psod-iaas-m3/providers/Microsoft.Network/networkInterfaces/ub-proxy-0-nic",
+      "type": "Microsoft.Network/networkInterfaces",
+      "name": "[parameters('networkInterfaces_ub_proxy_0_nic_name')]",
+      "apiVersion": "2015-06-15",
+      "location": "northeurope",
+      "properties": {
+        "ipConfigurations": [
+          {
+            "name": "ipconfig1",
+            "properties": {
+              "privateIPAddress": "10.0.2.4",
+              "privateIPAllocationMethod": "Dynamic",
+              "subnet": {
+                "id": "[concat(resourceId('Microsoft.Network/virtualNetworks', parameters('virtualNetworks_iaas_vnet_name')), '/subnets/iaas-lb-public-backend')]"
+              },
+              "loadBalancerBackendAddressPools": [
+                {
+                  "id": "[concat(resourceId('Microsoft.Network/loadBalancers', parameters('loadBalancers_iaas_lb_public_name')), '/backendAddressPools/iaas-lb-public-backend')]"
+                }
+              ]
+            }
+          }
+        ],
+        "dnsSettings": {
+          "dnsServers": [ ]
+        }
+      },
+      "dependsOn": [
+        "[resourceId('Microsoft.Network/virtualNetworks', parameters('virtualNetworks_iaas_vnet_name'))]",
+        "[resourceId('Microsoft.Network/loadBalancers', parameters('loadBalancers_iaas_lb_public_name'))]"
+      ]
+    },
+    {
+      "comments": "Generalized from resource: /subscriptions/3481cd2a-ed2d-4afd-8bbb-96ea65c835f2/resourceGroups/psod-iaas-m3/providers/Microsoft.Network/networkInterfaces/ub-proxy-1-nic",
+      "type": "Microsoft.Network/networkInterfaces",
+      "name": "[parameters('networkInterfaces_ub_proxy_1_nic_name')]",
+      "apiVersion": "2015-06-15",
+      "location": "northeurope",
+      "properties": {
+        "ipConfigurations": [
+          {
+            "name": "ipconfig1",
+            "properties": {
+              "privateIPAddress": "10.0.2.5",
+              "privateIPAllocationMethod": "Dynamic",
+              "subnet": {
+                "id": "[concat(resourceId('Microsoft.Network/virtualNetworks', parameters('virtualNetworks_iaas_vnet_name')), '/subnets/iaas-lb-public-backend')]"
+              },
+              "loadBalancerBackendAddressPools": [
+                {
+                  "id": "[concat(resourceId('Microsoft.Network/loadBalancers', parameters('loadBalancers_iaas_lb_public_name')), '/backendAddressPools/iaas-lb-public-backend')]"
+                }
+              ]
+            }
+          }
+        ],
+        "dnsSettings": {
+          "dnsServers": [ ]
+        }
+      },
+      "dependsOn": [
+        "[resourceId('Microsoft.Network/virtualNetworks', parameters('virtualNetworks_iaas_vnet_name'))]",
+        "[resourceId('Microsoft.Network/loadBalancers', parameters('loadBalancers_iaas_lb_public_name'))]"
+      ]
+    },
+    {
+      "comments": "Generalized from resource: /subscriptions/3481cd2a-ed2d-4afd-8bbb-96ea65c835f2/resourceGroups/psod-iaas-m3/providers/Microsoft.Network/networkInterfaces/win-web-0-nic",
+      "type": "Microsoft.Network/networkInterfaces",
+      "name": "[parameters('networkInterfaces_win_web_0_nic_name')]",
+      "apiVersion": "2015-06-15",
+      "location": "northeurope",
+      "properties": {
+        "ipConfigurations": [
+          {
+            "name": "ipconfig1",
+            "properties": {
+              "privateIPAddress": "10.0.1.4",
+              "privateIPAllocationMethod": "Dynamic",
+              "subnet": {
+                "id": "[concat(resourceId('Microsoft.Network/virtualNetworks', parameters('virtualNetworks_iaas_vnet_name')), '/subnets/iaas-lb-internal-backend')]"
+              },
+              "loadBalancerBackendAddressPools": [
+                {
+                  "id": "[concat(resourceId('Microsoft.Network/loadBalancers', parameters('loadBalancers_iaas_lb_internal_name')), '/backendAddressPools/iaas-lb-internal-backend')]"
+                }
+              ]
+            }
+          }
+        ],
+        "dnsSettings": {
+          "dnsServers": [ ]
+        }
+      },
+      "dependsOn": [
+        "[resourceId('Microsoft.Network/virtualNetworks', parameters('virtualNetworks_iaas_vnet_name'))]",
+        "[resourceId('Microsoft.Network/loadBalancers', parameters('loadBalancers_iaas_lb_internal_name'))]"
+      ]
+    },
+    {
+      "comments": "Generalized from resource: /subscriptions/3481cd2a-ed2d-4afd-8bbb-96ea65c835f2/resourceGroups/psod-iaas-m3/providers/Microsoft.Network/networkInterfaces/win-web-1-nic",
+      "type": "Microsoft.Network/networkInterfaces",
+      "name": "[parameters('networkInterfaces_win_web_1_nic_name')]",
+      "apiVersion": "2015-06-15",
+      "location": "northeurope",
+      "properties": {
+        "ipConfigurations": [
+          {
+            "name": "ipconfig1",
+            "properties": {
+              "privateIPAddress": "10.0.1.5",
+              "privateIPAllocationMethod": "Dynamic",
+              "subnet": {
+                "id": "[concat(resourceId('Microsoft.Network/virtualNetworks', parameters('virtualNetworks_iaas_vnet_name')), '/subnets/iaas-lb-internal-backend')]"
+              },
+              "loadBalancerBackendAddressPools": [
+                {
+                  "id": "[concat(resourceId('Microsoft.Network/loadBalancers', parameters('loadBalancers_iaas_lb_internal_name')), '/backendAddressPools/iaas-lb-internal-backend')]"
+                }
+              ]
+            }
+          }
+        ],
+        "dnsSettings": {
+          "dnsServers": [ ]
+        }
+      },
+      "dependsOn": [
+        "[resourceId('Microsoft.Network/virtualNetworks', parameters('virtualNetworks_iaas_vnet_name'))]",
+        "[resourceId('Microsoft.Network/loadBalancers', parameters('loadBalancers_iaas_lb_internal_name'))]"
+      ]
+    },
+    {
+      "comments": "Generalized from resource: /subscriptions/3481cd2a-ed2d-4afd-8bbb-96ea65c835f2/resourceGroups/psod-iaas-m3/providers/Microsoft.Network/networkInterfaces/win-web-2-nic",
+      "type": "Microsoft.Network/networkInterfaces",
+      "name": "[parameters('networkInterfaces_win_web_2_nic_name')]",
+      "apiVersion": "2015-06-15",
+      "location": "northeurope",
+      "properties": {
+        "ipConfigurations": [
+          {
+            "name": "ipconfig1",
+            "properties": {
+              "privateIPAddress": "10.0.1.6",
+              "privateIPAllocationMethod": "Dynamic",
+              "subnet": {
+                "id": "[concat(resourceId('Microsoft.Network/virtualNetworks', parameters('virtualNetworks_iaas_vnet_name')), '/subnets/iaas-lb-internal-backend')]"
+              },
+              "loadBalancerBackendAddressPools": [
+                {
+                  "id": "[concat(resourceId('Microsoft.Network/loadBalancers', parameters('loadBalancers_iaas_lb_internal_name')), '/backendAddressPools/iaas-lb-internal-backend')]"
+                }
+              ]
+            }
+          }
+        ],
+        "dnsSettings": {
+          "dnsServers": [ ]
+        }
+      },
+      "dependsOn": [
+        "[resourceId('Microsoft.Network/virtualNetworks', parameters('virtualNetworks_iaas_vnet_name'))]",
+        "[resourceId('Microsoft.Network/loadBalancers', parameters('loadBalancers_iaas_lb_internal_name'))]"
+      ]
+    },
+    {
+      "comments": "Generalized from resource: /subscriptions/3481cd2a-ed2d-4afd-8bbb-96ea65c835f2/resourceGroups/psod-iaas-m3/providers/Microsoft.Network/publicIPAddresses/iaas-vnet-pip",
+      "type": "Microsoft.Network/publicIPAddresses",
+      "name": "[parameters('publicIPAddresses_iaas_vnet_pip_name')]",
+      "apiVersion": "2015-06-15",
+      "location": "northeurope",
+      "properties": {
+        "publicIPAllocationMethod": "Static",
+        "idleTimeoutInMinutes": 4,
+        "dnsSettings": {
+          "domainNameLabel": "[parameters('publicIPAddresses_iaas_vnet_pip_domainNameLabel')]"
+        }
+      }
+    },
+    {
+      "comments": "Generalized from resource: /subscriptions/3481cd2a-ed2d-4afd-8bbb-96ea65c835f2/resourceGroups/psod-iaas-m3/providers/Microsoft.Network/virtualNetworks/iaas-vnet",
+      "type": "Microsoft.Network/virtualNetworks",
+      "name": "[parameters('virtualNetworks_iaas_vnet_name')]",
+      "apiVersion": "2015-06-15",
+      "location": "northeurope",
+      "properties": {
+        "addressSpace": {
+          "addressPrefixes": [
+            "10.0.0.0/16"
+          ]
+        },
+        "dhcpOptions": {
+          "dnsServers": [ ]
+        },
+        "subnets": [
+          {
+            "name": "iaas-lb-internal-backend",
+            "properties": {
+              "addressPrefix": "10.0.1.0/24"
+            }
+          },
+          {
+            "name": "iaas-lb-public-backend",
+            "properties": {
+              "addressPrefix": "10.0.2.0/24"
+            }
+          }
+        ]
+      }
+    },
+    {
+      "comments": "Generalized from resource: /subscriptions/3481cd2a-ed2d-4afd-8bbb-96ea65c835f2/resourceGroups/psod-iaas-m3/providers/Microsoft.Storage/storageAccounts/psodiaasm3",
+      "type": "Microsoft.Storage/storageAccounts",
+      "name": "[parameters('storageAccounts_psodiaasm3_name')]",
+      "apiVersion": "2015-06-15",
+      "location": "northeurope",
+      "properties": {
+        "accountType": "Standard_LRS"
+      }
+    }
+  ]
+}
