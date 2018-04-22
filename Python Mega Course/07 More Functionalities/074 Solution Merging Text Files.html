@@ -1,0 +1,25 @@
+<html>
+                        <head>
+                        <link href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
+                        <title>074 Solution Merging Text Files</title>
+                        </head>
+                        <body>
+                        <div class="container">
+                        <div class="row">
+                        <div class="col-md-10 col-md-offset-1">
+                            <p class="lead"><div class="asset-container">
+    <div class="asset-container__padding article-view">
+        <div class="w3c-default">
+            <p><code>import glob2<br>import datetime</code></p><p><code>filenames=glob2.glob("*.txt")</code></p>
+
+<p><code>with open(datetime.datetime.now().strftime("%Y-%m-%d-%H-%M-%S-%f")+".txt", 'w') as file:<br>  for filename in filenames:<br>    with open(filename,"r") as f:<br>      file.write(f.read()+"\n")</code></p>
+        </div>
+    </div>
+</div>
+</p>
+                        </div>
+                        </div>
+                        </div>
+                        <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous"></script>
+                        </body>
+                        </html>

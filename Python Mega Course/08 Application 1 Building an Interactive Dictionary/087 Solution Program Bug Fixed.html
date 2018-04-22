@@ -1,0 +1,84 @@
+<html>
+                        <head>
+                        <link href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
+                        <title>087 Solution Program Bug Fixed</title>
+                        </head>
+                        <body>
+                        <div class="container">
+                        <div class="row">
+                        <div class="col-md-10 col-md-offset-1">
+                            <p class="lead"><div class="asset-container">
+    <div class="asset-container__padding article-view">
+        <div class="w3c-default">
+            <h4>Solution</h4>
+
+<p>To make sure the program return the definition of words that start with a capital letter (e.g. Delhi, Texas) line 8 and 9 were added:</p>
+
+
+
+
+
+
+
+<pre class="prettyprint linenums">import json
+from difflib import get_close_matches
+data = json.load(open("data.json"))
+def translate(w):
+    w = w.lower()
+    if w in data:
+        return data[w]
+    elif w.title() in data: #if user entered "texas" this will check for "Texas" as well.
+        return data[w.title()]
+    elif len(get_close_matches(w, data.keys())) &gt; 0:
+        yn = input("Did you mean %s instead? Enter Y if yes, or N if no: " % get_close_matches(w, data.keys())[0])
+        if yn == "Y":
+            return data[get_close_matches(w, data.keys())[0]]
+        elif yn == "N":
+            return "The word doesn't exist. Please double check it."
+        else:
+            return "We didn't understand your entry."
+    else:
+        return "The word doesn't exist. Please double check it."
+
+word = input("Enter word: ")
+output = translate(word)
+if type(output) == list:
+    for item in output:
+        print(item)
+else:
+    print(output)
+</pre>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<p>As you can see from the comments Iincluded in the code, I haveadded another conditional in line8 and 9. The <code>w.title()</code> will convert the first letter to uppercase and the restto lowercase. So, if the program didn't find anything for "texas" in the first conditional in lines 6-7then this conditional will try to search for "Texas". Even if the user entered "TEXAS", this conditional will convert it to "Texas".</p>
+        </div>
+    </div>
+</div>
+</p>
+                        </div>
+                        </div>
+                        </div>
+                        <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous"></script>
+                        </body>
+                        </html>

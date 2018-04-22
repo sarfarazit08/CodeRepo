@@ -1,0 +1,55 @@
+<html>
+                        <head>
+                        <link href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
+                        <title>067 Solution File Handling Loops Functions and Conditionals</title>
+                        </head>
+                        <body>
+                        <div class="container">
+                        <div class="row">
+                        <div class="col-md-10 col-md-offset-1">
+                            <p class="lead"><div class="asset-container">
+    <div class="asset-container__padding article-view">
+        <div class="w3c-default">
+            <p>One solution could be to open a file once and then iterate inside the functionwhile the file is open:</p>
+
+<pre class="prettyprint linenums">temperatures=[10,-20,-289,100]
+ 
+def writer(temperatures):
+    with open("temps.txt", 'w') as file:
+        for c in temperatures:
+            if c&gt;-273.15:
+                f=c*9/5+32
+                file.write(str(f)+"\n")
+
+writer(temperatures)#Here we're calling the function, otherwise no output will be generated</pre>
+
+
+
+
+
+
+
+
+
+
+
+<p>Or even better, you could treat both the temperature input and the file path as function arguments:</p><pre class="prettyprint linenums">temperatures=[10,-20,-289,100]
+ 
+def writer(temperatures, filepath):
+    with open(filepath, 'w') as file:
+        for c in temperatures:
+            if c&gt;-273.15:
+                f=c*9/5+32
+                file.write(str(f)+"\n")
+
+writer(temperatures, "temps.txt")#Here we're calling the function, otherwise no output will be generated</pre><p>In real life you may want to build a website with Python so you connectthe function callwriter()with a button on the website. The user enters some values in a text box, and types in a file name and thenpresses the button. The button executes the writer()function by using the input that user entered in the text box as input values for the function. Once the button is pressed,the generatedfile downloads on the user's browser.</p><p>Sure, that's a bit of a demanding project to do but Iwill take you step by step in later sections on how to do such web applications.</p>
+        </div>
+    </div>
+</div>
+</p>
+                        </div>
+                        </div>
+                        </div>
+                        <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous"></script>
+                        </body>
+                        </html>
