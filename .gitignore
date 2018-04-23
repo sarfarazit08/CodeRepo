@@ -211,7 +211,7 @@ $RECYCLE.BIN/
 
 
 # Custom
-*.csv
+#*.csv
 *.pyc
 *.sqlite
 

@@ -1,0 +1,732 @@
+Date,Day,Status,In Time,Out Time,Total Hours,Total Attendance Hours,Total Time Sheet Hours,Attendance status implying leave debit
+1-Apr-14,Tuesday,Earned Leave,,,,0,8:48,NA
+2-Apr-14,Wednesday,Earned Leave,,,,0,8:48,NA
+3-Apr-14,Thursday,Earned Leave,,,,0,8:48,NA
+4-Apr-14,Friday,Earned Leave,,,,0,8:48,NA
+5-Apr-14,Saturday,Weekly Off,,,,0,NA,NA
+6-Apr-14,Sunday,Weekly Off,,,,0,NA,NA
+7-Apr-14,Monday,Earned Leave,,,,0,8:48,NA
+8-Apr-14,Tuesday,Present,12:36,19:48,7.2,7.2,NA,No leave debit
+9-Apr-14,Wednesday,Present,9:10,19:58,10.8,10.8,NA,No leave debit
+10-Apr-14,Thursday,Present,8:32,19:50,11.3,11.3,NA,No leave debit
+11-Apr-14,Friday,Present,10:18,18:18,8,8,NA,No leave debit
+12-Apr-14,Saturday,Weekly Off,9:44,10:47,1.05,1.05,NA,NA
+13-Apr-14,Sunday,Weekly Off,,,,0,NA,NA
+14-Apr-14,Monday,Present,8:24,19:57,11.55,11.55,NA,No leave debit
+15-Apr-14,Tuesday,Present,9:20,19:27,10.12,10.12,NA,No leave debit
+16-Apr-14,Wednesday,Present,9:07,19:55,10.8,10.8,NA,No leave debit
+17-Apr-14,Thursday,Present,9:08,18:20,9.2,9.2,NA,No leave debit
+18-Apr-14,Friday,Present,8:51,20:54,12.05,12.05,NA,No leave debit
+19-Apr-14,Saturday,Weekly Off,,,,0,NA,NA
+20-Apr-14,Sunday,Weekly Off,,,,0,NA,NA
+21-Apr-14,Monday,Present,9:09,20:55,11.77,11.77,NA,No leave debit
+22-Apr-14,Tuesday,Present,10:01,19:54,9.88,9.88,NA,No leave debit
+23-Apr-14,Wednesday,Present,10:00,19:53,9.88,9.88,NA,No leave debit
+24-Apr-14,Thursday,Present,8:56,20:40,11.73,11.73,NA,No leave debit
+25-Apr-14,Friday,Present,9:27,20:51,11.4,11.4,NA,No leave debit
+26-Apr-14,Saturday,Weekly Off,9:19,19:59,10.67,10.67,NA,NA
+27-Apr-14,Sunday,Weekly Off,,,,0,NA,NA
+28-Apr-14,Monday,Present,8:55,18:42,9.78,9.78,NA,No leave debit
+29-Apr-14,Tuesday,Present,9:05,19:58,10.88,10.88,NA,No leave debit
+30-Apr-14,Wednesday,Holiday,,,,0,8:48,NA
+1-May-14,Thursday,Holiday,,,,0,8:48,NA
+2-May-14,Friday,Present,9:24,19:59,10.58,10.58,NA,No leave debit
+3-May-14,Saturday,Weekly Off,,,,0,NA,NA
+4-May-14,Sunday,Weekly Off,,,,0,NA,NA
+5-May-14,Monday,Present,9:31,19:58,10.45,10.45,NA,No leave debit
+6-May-14,Tuesday,Present,9:28,21:11,11.72,11.72,NA,No leave debit
+7-May-14,Wednesday,Present,9:50,20:00,10.17,10.17,NA,No leave debit
+8-May-14,Thursday,Present,9:14,19:31,10.28,10.28,NA,No leave debit
+9-May-14,Friday,Present,10:06,19:41,9.58,9.58,NA,No leave debit
+10-May-14,Saturday,Weekly Off,,,,0,NA,NA
+11-May-14,Sunday,Weekly Off,,,,0,NA,NA
+12-May-14,Monday,Present,9:08,19:35,10.45,10.45,NA,No leave debit
+13-May-14,Tuesday,Present,9:32,20:44,11.2,11.2,NA,No leave debit
+14-May-14,Wednesday,Present,10:08,20:00,9.87,9.87,NA,No leave debit
+15-May-14,Thursday,Present,9:10,19:58,10.8,10.8,NA,No leave debit
+16-May-14,Friday,Present,8:59,19:19,10.33,10.33,NA,No leave debit
+17-May-14,Saturday,Weekly Off,,,,0,NA,NA
+18-May-14,Sunday,Weekly Off,,,,0,NA,NA
+19-May-14,Monday,Present,9:27,18:41,9.23,9.23,NA,No leave debit
+20-May-14,Tuesday,Present,9:10,19:31,10.35,10.35,NA,No leave debit
+21-May-14,Wednesday,Present,9:28,19:12,9.73,9.73,NA,No leave debit
+22-May-14,Thursday,Present,9:58,19:25,9.45,9.45,NA,No leave debit
+23-May-14,Friday,Present,9:29,18:11,8.7,8.7,NA,No leave debit
+24-May-14,Saturday,Weekly Off,,,,0,NA,NA
+25-May-14,Sunday,Weekly Off,,,,0,NA,NA
+26-May-14,Monday,Present,9:28,18:34,9.1,9.1,NA,No leave debit
+27-May-14,Tuesday,Present,10:04,18:25,8.35,8.35,NA,No leave debit
+28-May-14,Wednesday,Present,8:52,18:20,9.47,9.47,NA,No leave debit
+29-May-14,Thursday,Present,8:21,18:27,10.1,10.1,NA,No leave debit
+30-May-14,Friday,Present,9:31,19:53,10.37,10.37,NA,No leave debit
+31-May-14,Saturday,Weekly Off,,,,0,NA,NA
+1-Jun-14,Sunday,Weekly Off,,,,0,NA,NA
+2-Jun-14,Monday,Present,9:23,19:17,9.9,9.9,NA,No leave debit
+3-Jun-14,Tuesday,Present,9:28,19:28,10,10,NA,No leave debit
+4-Jun-14,Wednesday,Present,9:49,18:36,8.78,8.78,NA,No leave debit
+5-Jun-14,Thursday,Present,9:25,19:37,10.2,10.2,NA,No leave debit
+6-Jun-14,Friday,Present,9:18,20:08,10.83,10.83,NA,No leave debit
+7-Jun-14,Saturday,Weekly Off,8:03,9:05,1.03,1.03,NA,NA
+8-Jun-14,Sunday,Weekly Off,7:42,12:03,4.35,4.35,NA,NA
+9-Jun-14,Monday,Present,9:21,19:59,10.63,10.63,NA,No leave debit
+10-Jun-14,Tuesday,Present,9:15,19:25,10.17,10.17,NA,No leave debit
+11-Jun-14,Wednesday,Present,9:17,20:27,11.17,11.17,NA,No leave debit
+12-Jun-14,Thursday,Present,8:41,20:49,12.13,12.13,NA,No leave debit
+13-Jun-14,Friday,Present,8:43,18:27,9.73,9.73,NA,No leave debit
+14-Jun-14,Saturday,Weekly Off,8:31,12:22,3.85,3.85,NA,NA
+15-Jun-14,Sunday,Weekly Off,8:55,10:35,1.67,1.67,NA,NA
+16-Jun-14,Monday,Present,9:43,18:12,8.48,8.48,NA,No leave debit
+17-Jun-14,Tuesday,Present,8:39,21:27,12.8,12.8,NA,No leave debit
+18-Jun-14,Wednesday,Present,9:14,19:02,9.8,9.8,NA,No leave debit
+19-Jun-14,Thursday,Present,9:15,19:50,10.58,10.58,NA,No leave debit
+20-Jun-14,Friday,Present,9:16,18:38,9.37,9.37,NA,No leave debit
+21-Jun-14,Saturday,Weekly Off,8:36,11:08,2.53,2.53,NA,NA
+22-Jun-14,Sunday,Weekly Off,9:21,11:17,1.93,1.93,NA,NA
+23-Jun-14,Monday,Present,9:13,19:19,10.1,10.1,NA,No leave debit
+24-Jun-14,Tuesday,Present,8:42,18:31,9.82,9.82,NA,No leave debit
+25-Jun-14,Wednesday,Present,7:01,18:45,11.73,11.73,NA,No leave debit
+26-Jun-14,Thursday,Present,8:04,18:21,10.28,10.28,NA,No leave debit
+27-Jun-14,Friday,Present,8:38,18:42,10.07,10.07,NA,No leave debit
+28-Jun-14,Saturday,Weekly Off,9:36,14:27,4.85,4.85,NA,NA
+29-Jun-14,Sunday,Weekly Off,8:48,9:56,1.13,1.13,NA,NA
+30-Jun-14,Monday,Present,9:31,18:11,8.67,8.67,NA,No leave debit
+1-Jul-14,Tuesday,Present,9:02,19:26,10.4,10.4,NA,No leave debit
+2-Jul-14,Wednesday,Present,9:00,19:18,10.3,10.3,NA,No leave debit
+3-Jul-14,Thursday,Present,9:39,18:40,9.02,9.02,NA,No leave debit
+4-Jul-14,Friday,Present,9:23,17:33,8.17,8.17,NA,No leave debit
+5-Jul-14,Saturday,Weekly Off,,,,0,NA,NA
+6-Jul-14,Sunday,Weekly Off,,,,0,NA,NA
+7-Jul-14,Monday,Present,9:37,18:43,9.1,9.1,NA,No leave debit
+8-Jul-14,Tuesday,Present,9:28,18:42,9.23,9.23,NA,No leave debit
+9-Jul-14,Wednesday,Present,9:36,21:03,11.45,11.45,NA,No leave debit
+10-Jul-14,Thursday,Present,8:41,18:29,9.8,9.8,NA,No leave debit
+11-Jul-14,Friday,Present,8:47,19:34,10.78,10.78,NA,No leave debit
+12-Jul-14,Saturday,Weekly Off,8:02,12:54,4.87,4.87,NA,NA
+13-Jul-14,Sunday,Weekly Off,,,,0,NA,NA
+14-Jul-14,Monday,Present,9:39,18:39,9,9,NA,No leave debit
+15-Jul-14,Tuesday,Present,10:08,18:33,8.42,8.42,NA,No leave debit
+16-Jul-14,Wednesday,Present,9:42,18:35,8.88,8.88,NA,No leave debit
+17-Jul-14,Thursday,Present,9:36,18:41,9.08,9.08,NA,No leave debit
+18-Jul-14,Friday,Present,10:10,20:09,9.98,9.98,NA,No leave debit
+19-Jul-14,Saturday,Weekly Off,,,,0,NA,NA
+20-Jul-14,Sunday,Weekly Off,,,,0,NA,NA
+21-Jul-14,Monday,Present,9:42,19:03,9.35,9.35,NA,No leave debit
+22-Jul-14,Tuesday,Present,9:36,18:38,9.03,9.03,NA,No leave debit
+23-Jul-14,Wednesday,Present,9:55,19:31,9.6,9.6,NA,No leave debit
+24-Jul-14,Thursday,Present,9:34,20:01,10.45,10.45,NA,No leave debit
+25-Jul-14,Friday,Present,8:51,13:43,4.87,4.87,NA,No leave debit
+26-Jul-14,Saturday,Weekly Off,,,,0,NA,NA
+27-Jul-14,Sunday,Weekly Off,,,,0,NA,NA
+28-Jul-14,Monday,Earned Leave,,,,0,8:48,NA
+29-Jul-14,Tuesday,Holiday,,,,0,8:48,NA
+30-Jul-14,Wednesday,Earned Leave,,,,0,8:48,NA
+31-Jul-14,Thursday,Earned Leave,,,,0,8:48,NA
+1-Aug-14,Friday,Earned Leave,,,,0,8:48,NA
+2-Aug-14,Saturday,Weekly Off,,,,0,NA,NA
+3-Aug-14,Sunday,Weekly Off,,,,0,NA,NA
+4-Aug-14,Monday,Present,13:02,20:16,7.23,7.23,NA,No leave debit
+5-Aug-14,Tuesday,Present,9:20,19:23,10.05,10.05,NA,No leave debit
+6-Aug-14,Wednesday,Present,9:49,19:02,9.22,9.22,NA,No leave debit
+7-Aug-14,Thursday,Present,9:22,19:18,9.93,9.93,NA,No leave debit
+8-Aug-14,Friday,Present,9:52,19:10,9.3,9.3,NA,No leave debit
+9-Aug-14,Saturday,Weekly Off,,,,0,NA,NA
+10-Aug-14,Sunday,Weekly Off,,,,0,NA,NA
+11-Aug-14,Monday,Present,9:19,19:10,9.85,9.85,NA,No leave debit
+12-Aug-14,Tuesday,Present,9:38,19:11,9.55,9.55,NA,No leave debit
+13-Aug-14,Wednesday,Present,9:36,18:27,8.85,8.85,NA,No leave debit
+14-Aug-14,Thursday,Present,9:41,19:04,9.38,9.38,NA,No leave debit
+15-Aug-14,Friday,Holiday,,,,0,8:48,NA
+16-Aug-14,Saturday,Weekly Off,,,,0,NA,NA
+17-Aug-14,Sunday,Weekly Off,,,,0,NA,NA
+18-Aug-14,Monday,Present,9:28,19:59,10.52,10.52,NA,No leave debit
+19-Aug-14,Tuesday,Holiday,,,,0,8:48,NA
+20-Aug-14,Wednesday,Present,9:45,19:34,9.82,9.82,NA,No leave debit
+21-Aug-14,Thursday,Present,9:47,18:59,9.2,9.2,NA,No leave debit
+22-Aug-14,Friday,Present,9:16,19:27,10.18,10.18,NA,No leave debit
+23-Aug-14,Saturday,Present,10:01,15:31,5.5,5.5,NA,No leave debit
+24-Aug-14,Sunday,Weekly Off,,,,0,NA,NA
+25-Aug-14,Monday,Present,9:32,19:41,10.15,10.15,NA,No leave debit
+26-Aug-14,Tuesday,Present,9:46,19:29,9.72,9.72,NA,No leave debit
+27-Aug-14,Wednesday,Present,10:14,20:06,9.87,9.87,NA,No leave debit
+28-Aug-14,Thursday,Present,10:24,18:40,8.27,8.27,NA,No leave debit
+29-Aug-14,Friday,Holiday,,,,0,NA,NA
+30-Aug-14,Saturday,Weekly Off,,,,0,NA,NA
+31-Aug-14,Sunday,Weekly Off,,,,0,NA,NA
+1-Sep-14,Monday,Present,9:56,21:07,11.18,11.18,NA,No leave debit
+2-Sep-14,Tuesday,Earned Leave,,,,0,8:48,NA
+3-Sep-14,Wednesday,Present,9:20,19:52,10.53,10.53,NA,No leave debit
+4-Sep-14,Thursday,Present,9:46,19:47,10.02,10.02,NA,No leave debit
+5-Sep-14,Friday,Present,9:25,20:16,10.85,10.85,NA,No leave debit
+6-Sep-14,Saturday,Weekly Off,,,,0,NA,NA
+7-Sep-14,Sunday,Weekly Off,,,,0,NA,NA
+8-Sep-14,Monday,Present,9:43,19:45,10.03,10.03,NA,No leave debit
+9-Sep-14,Tuesday,Present,9:48,18:12,8.4,8.4,NA,No leave debit
+10-Sep-14,Wednesday,Present,8:53,18:58,10.08,10.08,NA,No leave debit
+11-Sep-14,Thursday,Present,8:52,17:48,8.93,8.93,NA,No leave debit
+12-Sep-14,Friday,Present,8:57,20:00,11.05,11.05,NA,No leave debit
+13-Sep-14,Saturday,Weekly Off,,,,0,NA,NA
+14-Sep-14,Sunday,Weekly Off,,,,0,NA,NA
+15-Sep-14,Monday,Present,9:03,19:06,10.05,10.05,NA,No leave debit
+16-Sep-14,Tuesday,Present,9:20,19:58,10.63,10.63,NA,No leave debit
+17-Sep-14,Wednesday,Present,8:51,19:27,10.6,10.6,NA,No leave debit
+18-Sep-14,Thursday,Present,8:46,19:19,10.55,10.55,NA,No leave debit
+19-Sep-14,Friday,Present,9:12,20:41,11.48,11.48,NA,No leave debit
+20-Sep-14,Saturday,Weekly Off,,,,0,NA,NA
+21-Sep-14,Sunday,Weekly Off,,,,0,NA,NA
+22-Sep-14,Monday,Present,8:42,19:01,10.32,10.32,NA,No leave debit
+23-Sep-14,Tuesday,Present,9:50,21:17,11.45,11.45,NA,No leave debit
+24-Sep-14,Wednesday,Present,8:46,20:53,12.12,12.12,NA,No leave debit
+25-Sep-14,Thursday,Present,9:03,21:08,12.08,12.08,NA,No leave debit
+26-Sep-14,Friday,Present,9:44,21:48,12.07,12.07,NA,No leave debit
+27-Sep-14,Saturday,Weekly Off,,,,0,NA,NA
+28-Sep-14,Sunday,Weekly Off,,,,0,NA,NA
+29-Sep-14,Monday,Present,9:16,19:37,10.35,10.35,NA,No leave debit
+30-Sep-14,Tuesday,Present,9:14,18:49,9.58,9.58,NA,No leave debit
+1-Oct-14,Wednesday,Present,9:03,18:33,9.5,9.5,NA,No leave debit
+2-Oct-14,Thursday,Holiday,,,,0,8:48,NA
+3-Oct-14,Friday,Holiday,,,,0,8:48,NA
+4-Oct-14,Saturday,Weekly Off,,,,0,NA,NA
+5-Oct-14,Sunday,Weekly Off,,,,0,NA,NA
+6-Oct-14,Monday,Present,10:10,17:38,7.47,7.47,NA,No leave debit
+7-Oct-14,Tuesday,Present,9:29,18:16,8.78,8.78,NA,No leave debit
+8-Oct-14,Wednesday,Present,9:52,18:21,8.48,8.48,NA,No leave debit
+9-Oct-14,Thursday,Present,9:35,19:10,9.58,9.58,NA,No leave debit
+10-Oct-14,Friday,Present,9:42,19:07,9.42,9.42,NA,No leave debit
+11-Oct-14,Saturday,Weekly Off,,,,0,NA,NA
+12-Oct-14,Sunday,Weekly Off,,,,0,NA,NA
+13-Oct-14,Monday,Present,9:22,18:30,9.13,9.13,NA,No leave debit
+14-Oct-14,Tuesday,Present,9:57,19:00,9.05,9.05,NA,No leave debit
+15-Oct-14,Wednesday,Present,9:39,18:24,8.75,8.75,NA,No leave debit
+16-Oct-14,Thursday,Present,9:50,22:27,12.62,12.62,NA,No leave debit
+17-Oct-14,Friday,Present,9:25,23:17,13.87,13.87,NA,No leave debit
+18-Oct-14,Saturday,Weekly Off,,,,0,NA,NA
+19-Oct-14,Sunday,Weekly Off,,,,0,NA,NA
+20-Oct-14,Monday,Present,8:46,18:02,9.27,9.27,NA,No leave debit
+21-Oct-14,Tuesday,Present,8:33,18:30,9.95,9.95,NA,No leave debit
+22-Oct-14,Wednesday,Present,9:31,17:45,8.23,8.23,NA,No leave debit
+23-Oct-14,Thursday,Holiday,,,,0,8:48,NA
+24-Oct-14,Friday,Earned Leave,,,,0,8:48,NA
+25-Oct-14,Saturday,Weekly Off,,,,0,NA,NA
+26-Oct-14,Sunday,Weekly Off,,,,0,NA,NA
+27-Oct-14,Monday,Present,9:15,19:36,10.35,10.35,NA,No leave debit
+28-Oct-14,Tuesday,Present,10:16,18:59,8.72,8.72,NA,No leave debit
+29-Oct-14,Wednesday,Present,9:43,18:34,8.85,8.85,NA,No leave debit
+30-Oct-14,Thursday,Present,9:30,18:39,9.15,9.15,NA,No leave debit
+31-Oct-14,Friday,Present,9:36,19:05,9.48,9.48,NA,No leave debit
+1-Nov-14,Saturday,Weekly Off,,,,0,NA,NA
+2-Nov-14,Sunday,Weekly Off,,,,0,NA,NA
+3-Nov-14,Monday,Present,8:46,18:26,9.67,9.67,NA,No leave debit
+4-Nov-14,Tuesday,Present,9:17,18:42,9.42,9.42,NA,No leave debit
+5-Nov-14,Wednesday,Present,10:00,19:15,9.25,9.25,NA,No leave debit
+6-Nov-14,Thursday,Present,9:49,18:20,8.52,8.52,NA,No leave debit
+7-Nov-14,Friday,Present,9:47,18:27,8.67,8.67,NA,No leave debit
+8-Nov-14,Saturday,Weekly Off,,,,0,NA,NA
+9-Nov-14,Sunday,Weekly Off,,,,0,NA,NA
+10-Nov-14,Monday,Present,9:14,18:29,9.25,9.25,NA,No leave debit
+11-Nov-14,Tuesday,Present,9:35,18:59,9.4,9.4,NA,No leave debit
+12-Nov-14,Wednesday,Present,9:40,18:16,8.6,8.6,NA,No leave debit
+13-Nov-14,Thursday,Present,9:26,17:55,8.48,8.48,NA,No leave debit
+14-Nov-14,Friday,Present,9:31,19:21,9.83,9.83,NA,No leave debit
+15-Nov-14,Saturday,Weekly Off,,,,0,NA,NA
+16-Nov-14,Sunday,Weekly Off,,,,0,NA,NA
+17-Nov-14,Monday,Present,9:36,18:25,8.82,8.82,NA,No leave debit
+18-Nov-14,Tuesday,Present,8:51,19:04,10.22,10.22,NA,No leave debit
+19-Nov-14,Wednesday,Present,9:53,18:24,8.52,8.52,NA,No leave debit
+20-Nov-14,Thursday,Present,10:01,19:09,9.13,9.13,NA,No leave debit
+21-Nov-14,Friday,Present,10:04,18:58,8.9,8.9,NA,No leave debit
+22-Nov-14,Saturday,Weekly Off,,,,0,NA,NA
+23-Nov-14,Sunday,Weekly Off,,,,0,NA,NA
+24-Nov-14,Monday,Present,9:33,19:53,10.33,10.33,NA,No leave debit
+25-Nov-14,Tuesday,Earned Leave,,,,0,8:48,NA
+26-Nov-14,Wednesday,Earned Leave,,,,0,8:48,NA
+27-Nov-14,Thursday,Present,8:24,18:24,10,10,NA,No leave debit
+28-Nov-14,Friday,Present,8:29,18:40,10.18,10.18,NA,No leave debit
+29-Nov-14,Saturday,Weekly Off,,,,0,NA,NA
+30-Nov-14,Sunday,Weekly Off,,,,0,NA,NA
+1-Dec-14,Monday,Present,8:39,18:34,9.92,9.92,NA,No leave debit
+2-Dec-14,Tuesday,Present,8:55,18:28,9.55,9.55,NA,No leave debit
+3-Dec-14,Wednesday,Present,10:08,19:19,9.18,9.18,NA,No leave debit
+4-Dec-14,Thursday,Present,9:54,19:05,9.18,9.18,NA,No leave debit
+5-Dec-14,Friday,Present,10:19,18:50,8.52,8.52,NA,No leave debit
+6-Dec-14,Saturday,Weekly Off,,,,0,NA,NA
+7-Dec-14,Sunday,Weekly Off,10:25,12:35,2.17,2.17,NA,NA
+8-Dec-14,Monday,Present,9:36,18:25,8.82,8.82,NA,No leave debit
+9-Dec-14,Tuesday,Present,10:27,19:31,9.07,9.07,NA,No leave debit
+10-Dec-14,Wednesday,Present,10:15,20:03,9.8,9.8,NA,No leave debit
+11-Dec-14,Thursday,Present,10:18,21:04,10.77,10.77,NA,No leave debit
+12-Dec-14,Friday,Present,10:07,18:28,8.35,8.35,NA,No leave debit
+13-Dec-14,Saturday,Weekly Off,,,,0,NA,NA
+14-Dec-14,Sunday,Weekly Off,11:17,12:19,1.03,1.03,NA,NA
+15-Dec-14,Monday,Present,10:35,19:29,8.9,8.9,NA,No leave debit
+16-Dec-14,Tuesday,Present,10:18,18:46,8.47,8.47,NA,No leave debit
+17-Dec-14,Wednesday,Present,10:00,18:12,8.2,8.2,NA,No leave debit
+18-Dec-14,Thursday,Present,10:20,18:30,8.17,8.17,NA,No leave debit
+19-Dec-14,Friday,Present,10:14,18:49,8.58,8.58,NA,No leave debit
+20-Dec-14,Saturday,Weekly Off,,,,0,NA,NA
+21-Dec-14,Sunday,Weekly Off,,,,0,NA,NA
+22-Dec-14,Monday,Present,9:28,18:30,9.03,9.03,NA,No leave debit
+23-Dec-14,Tuesday,Present,10:03,19:33,9.5,9.5,NA,No leave debit
+24-Dec-14,Wednesday,Present,10:19,19:09,8.83,8.83,NA,No leave debit
+25-Dec-14,Thursday,Holiday,,,,0,8:48,NA
+26-Dec-14,Friday,Present,8:41,12:27,3.77,3.77,8:48,No leave debit
+27-Dec-14,Saturday,Weekly Off,,,,0,NA,NA
+28-Dec-14,Sunday,Weekly Off,,,,0,NA,NA
+29-Dec-14,Monday,Earned Leave,,,,0,NA,NA
+30-Dec-14,Tuesday,Earned Leave,,,,0,NA,NA
+31-Dec-14,Wednesday,Earned Leave,,,,0,8:48,NA
+1-Jan-15,Thursday,Earned Leave,,,,0,NA,NA
+2-Jan-15,Friday,Earned Leave,,,,0,NA,NA
+3-Jan-15,Saturday,Weekly Off,,,,0,NA,NA
+4-Jan-15,Sunday,Weekly Off,,,,0,NA,NA
+5-Jan-15,Monday,Present,13:45,18:28,4.72,4.72,4:04,No leave debit
+6-Jan-15,Tuesday,Present,9:14,20:47,11.55,11.55,8:48,No leave debit
+7-Jan-15,Wednesday,Present,10:13,19:18,9.08,9.08,8:48,No leave debit
+8-Jan-15,Thursday,Present,9:26,19:23,9.95,9.95,NA,No leave debit
+9-Jan-15,Friday,Present,10:47,19:28,8.68,8.68,8:48,No leave debit
+10-Jan-15,Saturday,Weekly Off,11:33,12:28,0.92,0.92,NA,NA
+11-Jan-15,Sunday,Weekly Off,,,,0,NA,NA
+12-Jan-15,Monday,Present,9:40,19:17,9.62,9.62,8:48,No leave debit
+13-Jan-15,Tuesday,Present,9:48,18:39,8.85,8.85,8:48,No leave debit
+14-Jan-15,Wednesday,Holiday,,,,0,8:48,NA
+15-Jan-15,Thursday,Present,9:02,19:19,10.28,10.28,8:48,No leave debit
+16-Jan-15,Friday,Present,9:11,19:29,10.3,10.3,8:48,No leave debit
+17-Jan-15,Saturday,Weekly Off,,,,0,NA,NA
+18-Jan-15,Sunday,Weekly Off,8:55,9:51,0.93,0.93,NA,NA
+19-Jan-15,Monday,Present,9:18,18:45,9.45,9.45,8:48,No leave debit
+20-Jan-15,Tuesday,Present,9:43,19:17,9.57,9.57,8:48,No leave debit
+21-Jan-15,Wednesday,Present,9:25,18:32,9.12,9.12,8:48,No leave debit
+22-Jan-15,Thursday,Present,9:04,18:48,9.73,9.73,8:48,No leave debit
+23-Jan-15,Friday,Present,9:41,18:02,8.35,8.35,8:48,No leave debit
+24-Jan-15,Saturday,Weekly Off,,,,0,NA,NA
+25-Jan-15,Sunday,Weekly Off,,,,0,NA,NA
+26-Jan-15,Monday,Holiday,,,,0,17:36,NA
+27-Jan-15,Tuesday,Present,9:28,18:31,9.05,9.05,8:48,No leave debit
+28-Jan-15,Wednesday,Present,8:52,18:42,9.83,9.83,8:48,No leave debit
+29-Jan-15,Thursday,Present,9:48,18:42,8.9,8.9,8:48,No leave debit
+30-Jan-15,Friday,Present,9:36,18:48,9.2,9.2,8:48,No leave debit
+31-Jan-15,Saturday,Weekly Off,9:09,10:03,0.9,0.9,NA,NA
+1-Feb-15,Sunday,Weekly Off,,,,0,NA,NA
+2-Feb-15,Monday,Present,9:38,18:57,9.32,9.32,8:48,No leave debit
+3-Feb-15,Tuesday,Present,9:30,18:04,8.57,8.57,8:48,No leave debit
+4-Feb-15,Wednesday,Earned Leave,,,,0,8:48,NA
+5-Feb-15,Thursday,Earned Leave,,,,0,8:48,NA
+6-Feb-15,Friday,Present,9:05,19:15,10.17,10.17,8:48,No leave debit
+7-Feb-15,Saturday,Weekly Off,,,,0,NA,NA
+8-Feb-15,Sunday,Weekly Off,,,,0,NA,NA
+9-Feb-15,Monday,Present,9:50,19:28,9.63,9.63,8:48,No leave debit
+10-Feb-15,Tuesday,Present,9:50,18:38,8.8,8.8,8:48,No leave debit
+11-Feb-15,Wednesday,Present,9:55,18:54,8.98,8.98,8:48,No leave debit
+12-Feb-15,Thursday,Present,10:01,19:07,9.1,9.1,8:48,No leave debit
+13-Feb-15,Friday,Present,9:48,19:46,9.97,9.97,8:48,No leave debit
+14-Feb-15,Saturday,Weekly Off,10:11,11:22,1.18,1.18,NA,NA
+15-Feb-15,Sunday,Weekly Off,9:02,9:58,0.93,0.93,NA,NA
+16-Feb-15,Monday,Present,9:28,19:07,9.65,9.65,8:48,No leave debit
+17-Feb-15,Tuesday,Present,9:50,19:11,9.35,9.35,8:48,No leave debit
+18-Feb-15,Wednesday,Present,9:15,19:24,10.15,10.15,8:48,No leave debit
+19-Feb-15,Thursday,Present,10:05,18:50,8.75,8.75,8:48,No leave debit
+20-Feb-15,Friday,Present,8:57,19:02,10.08,10.08,8:48,No leave debit
+21-Feb-15,Saturday,Weekly Off,,,,0,NA,NA
+22-Feb-15,Sunday,Weekly Off,,,,0,NA,NA
+23-Feb-15,Monday,Present,9:52,18:26,8.57,8.57,8:48,No leave debit
+24-Feb-15,Tuesday,Present,10:01,19:41,9.67,9.67,8:48,No leave debit
+25-Feb-15,Wednesday,Present,9:29,20:00,10.52,10.52,8:48,No leave debit
+26-Feb-15,Thursday,Present,9:56,18:26,8.5,8.5,8:48,No leave debit
+27-Feb-15,Friday,Present,10:12,18:27,8.25,8.25,8:48,No leave debit
+28-Feb-15,Saturday,Weekly Off,,,,0,NA,NA
+1-Mar-15,Sunday,Weekly Off,10:17,12:29,2.2,2.2,NA,NA
+2-Mar-15,Monday,Present,9:16,19:55,10.65,10.65,8:48,No leave debit
+3-Mar-15,Tuesday,Present,9:42,19:51,10.15,10.15,8:48,No leave debit
+4-Mar-15,Wednesday,Present,8:56,20:04,11.13,11.13,8:48,No leave debit
+5-Mar-15,Thursday,Present,9:00,18:28,9.47,9.47,8:48,No leave debit
+6-Mar-15,Friday,Present,9:40,19:03,9.38,9.38,8:48,No leave debit
+7-Mar-15,Saturday,Weekly Off,9:12,13:30,4.3,4.3,NA,NA
+8-Mar-15,Sunday,Weekly Off,,,,0,NA,NA
+9-Mar-15,Monday,Present,9:46,19:38,9.87,9.87,8:48,No leave debit
+10-Mar-15,Tuesday,Present,8:46,18:19,9.55,9.55,8:48,No leave debit
+11-Mar-15,Wednesday,Present,9:03,19:21,10.3,10.3,8:48,No leave debit
+12-Mar-15,Thursday,Present,9:42,19:47,10.08,10.08,8:48,No leave debit
+13-Mar-15,Friday,Present,9:27,17:54,8.45,8.45,8:48,No leave debit
+14-Mar-15,Saturday,Weekly Off,,,,0,NA,NA
+15-Mar-15,Sunday,Weekly Off,,,,0,NA,NA
+16-Mar-15,Monday,Present,9:34,19:12,9.63,9.63,8:48,No leave debit
+17-Mar-15,Tuesday,Present,9:37,19:21,9.73,9.73,8:48,No leave debit
+18-Mar-15,Wednesday,Present,10:08,18:40,8.53,8.53,8:48,No leave debit
+19-Mar-15,Thursday,Present,9:18,18:29,9.18,9.18,8:48,No leave debit
+20-Mar-15,Friday,Present,9:34,19:24,9.83,9.83,8:48,No leave debit
+21-Mar-15,Saturday,Weekly Off,,,,0,NA,NA
+22-Mar-15,Sunday,Weekly Off,,,,0,NA,NA
+23-Mar-15,Monday,Present,9:52,19:40,9.8,9.8,8:48,No leave debit
+24-Mar-15,Tuesday,Earned Leave,,,,0,8:48,NA
+25-Mar-15,Wednesday,Present,9:20,18:32,9.2,9.2,8:48,No leave debit
+26-Mar-15,Thursday,Present,9:41,19:21,9.67,9.67,8:48,No leave debit
+27-Mar-15,Friday,Present,10:03,18:22,8.32,8.32,8:48,No leave debit
+28-Mar-15,Saturday,Weekly Off,8:32,11:14,2.7,2.7,NA,NA
+29-Mar-15,Sunday,Weekly Off,,,,0,NA,NA
+30-Mar-15,Monday,Present,9:20,17:54,8.57,8.57,8:48,No leave debit
+31-Mar-15,Tuesday,Present,10:00,18:40,8.67,8.67,8:48,No leave debit
+1-Apr-15,Wednesday,Earned Leave,,,,0,8:48,NA
+2-Apr-15,Thursday,Present,9:11,17:11,8,8,8:00,No leave debit
+3-Apr-15,Friday,Present,9:58,18:26,8.47,8.47,8:48,No leave debit
+4-Apr-15,Saturday,Weekly Off,,,,0,NA,NA
+5-Apr-15,Sunday,Weekly Off,,,,0,NA,NA
+6-Apr-15,Monday,Earned Leave,,,,0,8:48,NA
+7-Apr-15,Tuesday,Present,9:13,19:04,9.85,9.85,8:48,No leave debit
+8-Apr-15,Wednesday,Present,9:30,18:42,9.2,9.2,8:48,No leave debit
+9-Apr-15,Thursday,Present,9:41,19:56,10.25,10.25,8:48,No leave debit
+10-Apr-15,Friday,Present,10:09,19:13,9.07,9.07,8:48,No leave debit
+11-Apr-15,Saturday,Weekly Off,7:47,8:53,1.1,1.1,NA,NA
+12-Apr-15,Sunday,Weekly Off,,,,0,NA,NA
+13-Apr-15,Monday,Present,9:58,20:00,10.03,10.03,8:48,No leave debit
+14-Apr-15,Tuesday,Present,10:22,18:29,8.12,8.12,8:48,No leave debit
+15-Apr-15,Wednesday,Present,9:32,19:51,10.32,10.32,8:48,No leave debit
+16-Apr-15,Thursday,Present,9:11,19:46,10.58,10.58,8:48,No leave debit
+17-Apr-15,Friday,Present,9:02,19:41,10.65,10.65,8:48,No leave debit
+18-Apr-15,Saturday,Weekly Off,,,,0,NA,NA
+19-Apr-15,Sunday,Weekly Off,,,,0,NA,NA
+20-Apr-15,Monday,Present,9:02,19:25,10.38,10.38,8:48,No leave debit
+21-Apr-15,Tuesday,Present,8:53,17:55,9.03,9.03,8:48,No leave debit
+22-Apr-15,Wednesday,Present,9:15,19:41,10.43,10.43,8:48,No leave debit
+23-Apr-15,Thursday,Present,8:39,19:12,10.55,10.55,8:48,No leave debit
+24-Apr-15,Friday,Present,9:03,20:58,11.92,11.92,8:48,No leave debit
+25-Apr-15,Saturday,Weekly Off,,,,0,NA,NA
+26-Apr-15,Sunday,Weekly Off,,,,0,NA,NA
+27-Apr-15,Monday,Earned Leave,,,,0,8:48,NA
+28-Apr-15,Tuesday,Earned Leave,,,,0,8:48,NA
+29-Apr-15,Wednesday,Present,9:04,20:35,11.52,11.52,8:48,No leave debit
+30-Apr-15,Thursday,Present,9:46,19:30,9.73,9.73,8:48,No leave debit
+1-May-15,Friday,Holiday,,,,0,8:48,NA
+2-May-15,Saturday,Weekly Off,,,,0,NA,NA
+3-May-15,Sunday,Weekly Off,,,,0,NA,NA
+4-May-15,Monday,Present,9:34,18:44,9.17,9.17,8:48,No leave debit
+5-May-15,Tuesday,Present,9:06,19:03,9.95,9.95,8:48,No leave debit
+6-May-15,Wednesday,Present,8:57,18:37,9.67,9.67,8:48,No leave debit
+7-May-15,Thursday,Present,9:16,18:34,9.3,9.3,8:48,No leave debit
+8-May-15,Friday,Present,8:48,18:18,9.5,9.5,8:48,No leave debit
+9-May-15,Saturday,Weekly Off,,,,0,NA,NA
+10-May-15,Sunday,Weekly Off,,,,0,NA,NA
+11-May-15,Monday,Present,9:20,18:57,9.62,9.62,8:48,No leave debit
+12-May-15,Tuesday,Present,9:11,19:57,10.77,10.77,8:48,No leave debit
+13-May-15,Wednesday,Present,9:26,18:35,9.15,9.15,8:48,No leave debit
+14-May-15,Thursday,Present,9:45,18:06,8.35,8.35,8:48,No leave debit
+15-May-15,Friday,Present,9:16,19:14,9.97,9.97,8:48,No leave debit
+16-May-15,Saturday,Weekly Off,,,,0,NA,NA
+17-May-15,Sunday,Weekly Off,,,,0,NA,NA
+18-May-15,Monday,Present,9:45,19:06,9.35,9.35,8:48,No leave debit
+19-May-15,Tuesday,Present,9:09,18:51,9.7,9.7,8:48,No leave debit
+20-May-15,Wednesday,Present,9:14,19:15,10.02,10.02,8:48,No leave debit
+21-May-15,Thursday,Present,9:15,18:41,9.43,9.43,8:48,No leave debit
+22-May-15,Friday,Present,8:42,18:28,9.77,9.77,8:48,No leave debit
+23-May-15,Saturday,Weekly Off,8:28,13:51,5.38,5.38,NA,NA
+24-May-15,Sunday,Weekly Off,,,,0,NA,NA
+25-May-15,Monday,Present,8:53,18:34,9.68,9.68,8:48,No leave debit
+26-May-15,Tuesday,Present,9:04,17:25,8.35,8.35,8:48,No leave debit
+27-May-15,Wednesday,Present,9:34,18:03,8.48,8.48,8:48,No leave debit
+28-May-15,Thursday,Present,9:47,18:23,8.6,8.6,8:48,No leave debit
+29-May-15,Friday,Present,9:23,17:56,8.55,8.55,8:48,No leave debit
+30-May-15,Saturday,Weekly Off,,,,0,NA,NA
+31-May-15,Sunday,Weekly Off,,,,0,NA,NA
+1-Jun-15,Monday,Present,9:12,18:32,9.33,9.33,8:48,No leave debit
+2-Jun-15,Tuesday,Holiday,,,,0,8:48,NA
+3-Jun-15,Wednesday,Present,9:33,18:19,8.77,8.77,8:48,No leave debit
+4-Jun-15,Thursday,Present,9:52,18:11,8.32,8.32,8:48,No leave debit
+5-Jun-15,Friday,Present,10:00,19:09,9.15,9.15,8:48,No leave debit
+6-Jun-15,Saturday,Weekly Off,11:36,13:09,1.55,1.55,NA,NA
+7-Jun-15,Sunday,Weekly Off,,,,0,NA,NA
+8-Jun-15,Monday,Earned Leave,,,,0,8:48,NA
+9-Jun-15,Tuesday,Present,9:12,18:47,9.58,9.58,8:48,No leave debit
+10-Jun-15,Wednesday,Present,9:29,20:45,11.27,11.27,8:48,No leave debit
+11-Jun-15,Thursday,Present,9:21,17:42,8.35,8.35,8:48,No leave debit
+12-Jun-15,Friday,Present,9:34,19:45,10.18,10.18,8:48,No leave debit
+13-Jun-15,Saturday,Weekly Off,,,,0,NA,NA
+14-Jun-15,Sunday,Weekly Off,,,,0,NA,NA
+15-Jun-15,Monday,Present,9:16,19:06,9.83,9.83,8:48,No leave debit
+16-Jun-15,Tuesday,Present,9:45,18:47,9.03,9.03,8:48,No leave debit
+17-Jun-15,Wednesday,Present,9:25,15:36,6.18,6.18,6:10,No leave debit
+18-Jun-15,Thursday,Present,9:23,18:55,9.53,9.53,8:48,No leave debit
+19-Jun-15,Friday,Present,9:22,19:01,9.65,9.65,8:48,No leave debit
+20-Jun-15,Saturday,Weekly Off,,,,0,NA,NA
+21-Jun-15,Sunday,Weekly Off,,,,0,NA,NA
+22-Jun-15,Monday,Earned Leave,,,,0,8:48,NA
+23-Jun-15,Tuesday,Present,9:37,18:07,8.5,8.5,8:48,No leave debit
+24-Jun-15,Wednesday,Present,9:37,18:18,8.68,8.68,8:48,No leave debit
+25-Jun-15,Thursday,Present,9:40,18:44,9.07,9.07,8:48,No leave debit
+26-Jun-15,Friday,Present,9:20,19:15,9.92,9.92,8:48,No leave debit
+27-Jun-15,Saturday,Weekly Off,,,,0,NA,NA
+28-Jun-15,Sunday,Weekly Off,,,,0,NA,NA
+29-Jun-15,Monday,Present,10:40,18:28,7.8,7.8,7:47,No leave debit
+30-Jun-15,Tuesday,Present,9:16,18:40,9.4,9.4,8:48,No leave debit
+1-Jul-15,Wednesday,Present,9:25,18:46,9.35,9.35,8:48,No leave debit
+2-Jul-15,Thursday,Present,9:40,17:51,8.18,8.18,8:48,No leave debit
+3-Jul-15,Friday,Present,9:25,18:22,8.95,8.95,8:48,No leave debit
+4-Jul-15,Saturday,Weekly Off,,,,0,NA,NA
+5-Jul-15,Sunday,Weekly Off,,,,0,NA,NA
+6-Jul-15,Monday,Present,9:07,19:13,10.1,10.1,8:48,No leave debit
+7-Jul-15,Tuesday,Present,10:08,19:22,9.23,9.23,8:48,No leave debit
+8-Jul-15,Wednesday,Present,9:31,17:16,7.75,7.75,7:45,No leave debit
+9-Jul-15,Thursday,Present,9:39,18:55,9.27,9.27,8:48,No leave debit
+10-Jul-15,Friday,Present,8:58,19:18,10.33,10.33,8:48,No leave debit
+11-Jul-15,Saturday,Weekly Off,,,,0,NA,NA
+12-Jul-15,Sunday,Weekly Off,10:25,14:19,3.9,3.9,NA,NA
+13-Jul-15,Monday,Present,9:25,19:01,9.6,9.6,8:48,No leave debit
+14-Jul-15,Tuesday,Present,9:26,19:27,10.02,10.02,8:48,No leave debit
+15-Jul-15,Wednesday,Present,9:28,19:38,10.17,10.17,8:48,No leave debit
+16-Jul-15,Thursday,Present,9:01,17:54,8.88,8.88,8:48,No leave debit
+17-Jul-15,Friday,Present,8:25,16:35,8.17,8.17,8:09,No leave debit
+18-Jul-15,Saturday,Weekly Off,,,,0,NA,NA
+19-Jul-15,Sunday,Weekly Off,,,,0,NA,NA
+20-Jul-15,Monday,Earned Leave,,,,0,8:48,NA
+21-Jul-15,Tuesday,Earned Leave,,,,0,8:48,NA
+22-Jul-15,Wednesday,Earned Leave,,,,0,8:48,NA
+23-Jul-15,Thursday,Earned Leave,,,,0,8:48,NA
+24-Jul-15,Friday,Earned Leave,,,,0,8:48,NA
+25-Jul-15,Saturday,Weekly Off,,,,0,NA,NA
+26-Jul-15,Sunday,Weekly Off,,,,0,NA,NA
+27-Jul-15,Monday,Present,15:10,19:05,3.92,3.92,3:54,No leave debit
+28-Jul-15,Tuesday,Present,9:21,18:16,8.92,8.92,8:48,No leave debit
+29-Jul-15,Wednesday,Present,9:25,20:17,10.87,10.87,8:48,No leave debit
+30-Jul-15,Thursday,Present,9:30,18:27,8.95,8.95,8:48,No leave debit
+31-Jul-15,Friday,Present,9:33,17:51,8.3,8.3,8:48,No leave debit
+1-Aug-15,Saturday,Weekly Off,,,,0,NA,NA
+2-Aug-15,Sunday,Weekly Off,9:57,11:45,1.8,1.8,NA,NA
+3-Aug-15,Monday,Present,10:25,18:29,8.07,8.07,8:48,No leave debit
+4-Aug-15,Tuesday,Present,9:37,18:41,9.07,9.07,8:48,No leave debit
+5-Aug-15,Wednesday,Present,10:02,18:50,8.8,8.8,8:48,No leave debit
+6-Aug-15,Thursday,Present,10:03,18:30,8.45,8.45,8:48,No leave debit
+7-Aug-15,Friday,Present,9:49,17:13,7.4,7.4,7:24,No leave debit
+8-Aug-15,Saturday,Weekly Off,,,,0,NA,NA
+9-Aug-15,Sunday,Weekly Off,,,,0,NA,NA
+10-Aug-15,Monday,Present,9:51,18:00,8.15,8.15,8:48,No leave debit
+11-Aug-15,Tuesday,Present,9:25,18:35,9.17,9.17,8:48,No leave debit
+12-Aug-15,Wednesday,Present,9:30,19:04,9.57,9.57,8:48,No leave debit
+13-Aug-15,Thursday,Present,10:26,18:20,7.9,7.9,7:54,No leave debit
+14-Aug-15,Friday,Present,9:41,19:05,9.4,9.4,8:48,No leave debit
+15-Aug-15,Saturday,Weekly Off,,,,0,NA,NA
+16-Aug-15,Sunday,Weekly Off,,,,0,NA,NA
+17-Aug-15,Monday,Present,8:56,19:15,10.32,10.32,8:48,No leave debit
+18-Aug-15,Tuesday,Present,9:13,20:29,11.27,11.27,8:48,No leave debit
+19-Aug-15,Wednesday,Present,8:57,17:58,9.02,9.02,8:48,No leave debit
+20-Aug-15,Thursday,Present,8:53,18:37,9.73,9.73,8:48,No leave debit
+21-Aug-15,Friday,Present,9:43,17:42,7.98,7.98,7:58,No leave debit
+22-Aug-15,Saturday,Weekly Off,,,,0,NA,NA
+23-Aug-15,Sunday,Weekly Off,,,,0,NA,NA
+24-Aug-15,Monday,Present,9:25,18:43,9.3,9.3,8:48,No leave debit
+25-Aug-15,Tuesday,Present,9:34,19:37,10.05,10.05,8:48,No leave debit
+26-Aug-15,Wednesday,Present,9:13,19:00,9.78,9.78,8:48,No leave debit
+27-Aug-15,Thursday,Present,9:29,18:03,8.57,8.57,8:48,No leave debit
+28-Aug-15,Friday,Present,9:13,18:34,9.35,9.35,8:48,No leave debit
+29-Aug-15,Saturday,Weekly Off,,,,0,NA,NA
+30-Aug-15,Sunday,Weekly Off,,,,0,NA,NA
+31-Aug-15,Monday,Present,9:45,18:27,8.7,8.7,8:48,No leave debit
+1-Sep-15,Tuesday,Present,9:28,18:30,9.03,9.03,8:48,No leave debit
+2-Sep-15,Wednesday,Present,9:25,19:57,10.53,10.53,8:48,No leave debit
+3-Sep-15,Thursday,Present,9:29,19:52,10.38,10.38,8:48,No leave debit
+4-Sep-15,Friday,Present,9:07,18:25,9.3,9.3,8:48,No leave debit
+5-Sep-15,Saturday,Weekly Off,,,,0,NA,NA
+6-Sep-15,Sunday,Weekly Off,,,,0,NA,NA
+7-Sep-15,Monday,Present,9:33,18:46,9.22,9.22,8:48,No leave debit
+8-Sep-15,Tuesday,Present,8:55,18:13,9.3,9.3,8:48,No leave debit
+9-Sep-15,Wednesday,Present,10:00,19:27,9.45,9.45,8:48,No leave debit
+10-Sep-15,Thursday,Present,9:23,18:08,8.75,8.75,8:48,No leave debit
+11-Sep-15,Friday,Present,9:09,18:25,9.27,9.27,8:48,No leave debit
+12-Sep-15,Saturday,Weekly Off,,,,0,NA,NA
+13-Sep-15,Sunday,Weekly Off,,,,0,NA,NA
+14-Sep-15,Monday,Present,9:08,18:54,9.77,9.77,8:48,No leave debit
+15-Sep-15,Tuesday,Present,9:04,18:34,9.5,9.5,8:48,No leave debit
+16-Sep-15,Wednesday,Present,9:33,18:34,9.02,9.02,8:48,No leave debit
+17-Sep-15,Thursday,Holiday,,,,0,8:48,NA
+18-Sep-15,Friday,Present,9:37,17:30,7.88,7.88,7:52,No leave debit
+19-Sep-15,Saturday,Weekly Off,,,,0,NA,NA
+20-Sep-15,Sunday,Weekly Off,,,,0,NA,NA
+21-Sep-15,Monday,Present,8:50,18:35,9.75,9.75,8:48,No leave debit
+22-Sep-15,Tuesday,Present,9:09,18:05,8.93,8.93,8:48,No leave debit
+23-Sep-15,Wednesday,Present,9:06,19:01,9.92,9.92,8:48,No leave debit
+24-Sep-15,Thursday,Earned Leave,9:21,19:35,10.23,10.23,8:48,NA
+25-Sep-15,Friday,Holiday,9:50,21:36,11.77,11.77,8:48,NA
+26-Sep-15,Saturday,Weekly Off,11:01,18:09,7.13,7.13,NA,NA
+27-Sep-15,Sunday,Weekly Off,11:57,13:36,1.65,1.65,NA,NA
+28-Sep-15,Monday,Present,7:48,17:54,10.1,10.1,8:48,No leave debit
+29-Sep-15,Tuesday,Present,9:17,17:40,8.38,8.38,8:48,No leave debit
+30-Sep-15,Wednesday,Present,9:45,20:02,10.28,10.28,8:48,No leave debit
+1-Oct-15,Thursday,Present,9:53,18:18,8.42,8.42,8:48,No leave debit
+2-Oct-15,Friday,Holiday,,,,0,8:48,NA
+3-Oct-15,Saturday,Weekly Off,,,,0,NA,NA
+4-Oct-15,Sunday,Weekly Off,,,,0,NA,NA
+5-Oct-15,Monday,Earned Leave,,,,0,NA,NA
+6-Oct-15,Tuesday,Present,6:43,17:50,11.12,11.12,NA,No leave debit
+7-Oct-15,Wednesday,Present,10:14,18:31,8.28,8.28,NA,No leave debit
+8-Oct-15,Thursday,Present,9:48,19:54,10.1,10.1,NA,No leave debit
+9-Oct-15,Friday,Present,7:39,18:29,10.83,10.83,NA,No leave debit
+10-Oct-15,Saturday,Weekly Off,,,,0,NA,NA
+11-Oct-15,Sunday,Weekly Off,,,,0,NA,NA
+12-Oct-15,Monday,Present,9:49,18:34,8.75,8.75,NA,No leave debit
+13-Oct-15,Tuesday,Present,9:59,17:10,7.18,7.18,NA,No leave debit
+14-Oct-15,Wednesday,Present,9:25,19:54,10.48,10.48,NA,No leave debit
+15-Oct-15,Thursday,Present,9:18,19:52,10.57,10.57,NA,No leave debit
+16-Oct-15,Friday,Present,9:39,16:54,7.25,7.25,NA,No leave debit
+17-Oct-15,Saturday,Weekly Off,,,,0,NA,NA
+18-Oct-15,Sunday,Weekly Off,9:29,20:49,11.33,11.33,NA,NA
+19-Oct-15,Monday,Present,9:10,18:17,9.12,9.12,NA,No leave debit
+20-Oct-15,Tuesday,Present,10:07,18:43,8.6,8.6,NA,No leave debit
+21-Oct-15,Wednesday,Present,9:27,17:23,7.93,7.93,NA,No leave debit
+22-Oct-15,Thursday,Holiday,,,,0,NA,NA
+23-Oct-15,Friday,Present,9:58,17:32,7.57,7.57,NA,No leave debit
+24-Oct-15,Saturday,Weekly Off,,,,0,NA,NA
+25-Oct-15,Sunday,Weekly Off,,,,0,NA,NA
+26-Oct-15,Monday,Present,9:29,19:18,9.82,9.82,NA,No leave debit
+27-Oct-15,Tuesday,Present,9:24,18:41,9.28,9.28,NA,No leave debit
+28-Oct-15,Wednesday,Present,9:22,17:55,8.55,8.55,NA,No leave debit
+29-Oct-15,Thursday,Present,10:36,19:59,9.38,9.38,NA,No leave debit
+30-Oct-15,Friday,Present,9:56,21:08,11.2,11.2,NA,No leave debit
+31-Oct-15,Saturday,Weekly Off,,,,0,NA,NA
+1-Nov-15,Sunday,Weekly Off,,,,0,NA,NA
+2-Nov-15,Monday,Present,9:50,18:08,8.3,8.3,NA,No leave debit
+3-Nov-15,Tuesday,Present,10:18,17:12,6.9,6.9,NA,No leave debit
+4-Nov-15,Wednesday,Present,9:38,17:12,7.57,7.57,NA,No leave debit
+5-Nov-15,Thursday,Present,8:42,19:54,11.2,11.2,NA,No leave debit
+6-Nov-15,Friday,Present,10:26,17:35,7.15,7.15,NA,No leave debit
+7-Nov-15,Saturday,Weekly Off,,,,0,NA,NA
+8-Nov-15,Sunday,Weekly Off,,,,0,NA,NA
+9-Nov-15,Monday,Present,9:09,18:56,9.78,9.78,NA,No leave debit
+10-Nov-15,Tuesday,Present,10:06,19:31,9.42,9.42,NA,No leave debit
+11-Nov-15,Wednesday,Holiday,9:10,17:35,8.42,8.42,NA,NA
+12-Nov-15,Thursday,Present,9:39,19:58,10.32,10.32,NA,No leave debit
+13-Nov-15,Friday,Present,10:15,19:12,8.95,8.95,NA,No leave debit
+14-Nov-15,Saturday,Weekly Off,,,,0,NA,NA
+15-Nov-15,Sunday,Weekly Off,,,,0,NA,NA
+16-Nov-15,Monday,Present,9:10,18:56,9.77,9.77,NA,No leave debit
+17-Nov-15,Tuesday,Present,9:35,18:38,9.05,9.05,NA,No leave debit
+18-Nov-15,Wednesday,Present,8:30,18:53,10.38,10.38,NA,No leave debit
+19-Nov-15,Thursday,Present,11:52,19:13,7.35,7.35,NA,No leave debit
+20-Nov-15,Friday,Present,10:14,18:53,8.65,8.65,NA,No leave debit
+21-Nov-15,Saturday,Weekly Off,,,,0,NA,NA
+22-Nov-15,Sunday,Weekly Off,11:06,15:29,4.38,4.38,NA,NA
+23-Nov-15,Monday,Present,8:52,18:59,10.12,10.12,NA,No leave debit
+24-Nov-15,Tuesday,Present,9:59,16:39,6.67,6.67,NA,No leave debit
+25-Nov-15,Wednesday,Present,7:35,20:12,12.62,12.62,NA,No leave debit
+26-Nov-15,Thursday,Present,9:53,18:34,8.68,8.68,NA,No leave debit
+27-Nov-15,Friday,Present,8:07,19:37,11.5,11.5,NA,No leave debit
+28-Nov-15,Saturday,Weekly Off,,,,0,NA,NA
+29-Nov-15,Sunday,Weekly Off,,,,0,NA,NA
+30-Nov-15,Monday,Present,7:50,18:06,10.27,10.27,NA,No leave debit
+1-Dec-15,Tuesday,Present,9:48,17:50,8.03,8.03,NA,No leave debit
+2-Dec-15,Wednesday,Present,9:22,20:13,10.85,10.85,NA,No leave debit
+3-Dec-15,Thursday,Present,9:22,22:17,12.92,12.92,NA,No leave debit
+4-Dec-15,Friday,Present,9:30,19:55,10.42,10.42,NA,No leave debit
+5-Dec-15,Saturday,Weekly Off,8:23,9:36,1.22,1.22,NA,NA
+6-Dec-15,Sunday,Weekly Off,,,,0,NA,NA
+7-Dec-15,Monday,Present,9:22,19:05,9.72,9.72,NA,No leave debit
+8-Dec-15,Tuesday,Present,9:54,19:10,9.27,9.27,NA,No leave debit
+9-Dec-15,Wednesday,Present,9:25,18:30,9.08,9.08,NA,No leave debit
+10-Dec-15,Thursday,Present,9:33,18:25,8.87,8.87,NA,No leave debit
+11-Dec-15,Friday,Present,9:28,21:15,11.78,11.78,NA,No leave debit
+12-Dec-15,Saturday,Weekly Off,,,,0,NA,NA
+13-Dec-15,Sunday,Weekly Off,,,,0,NA,NA
+14-Dec-15,Monday,Present,9:30,19:13,9.72,9.72,NA,No leave debit
+15-Dec-15,Tuesday,Present,10:00,16:42,6.7,6.7,NA,No leave debit
+16-Dec-15,Wednesday,Present,10:59,19:56,8.95,8.95,NA,No leave debit
+17-Dec-15,Thursday,Present,10:48,19:38,8.83,8.83,NA,No leave debit
+18-Dec-15,Friday,Present,9:21,13:39,4.3,4.3,NA,No leave debit
+19-Dec-15,Saturday,Weekly Off,,,,0,NA,NA
+20-Dec-15,Sunday,Weekly Off,,,,0,NA,NA
+21-Dec-15,Monday,Earned Leave,,,,0,NA,NA
+22-Dec-15,Tuesday,Earned Leave,,,,0,NA,NA
+23-Dec-15,Wednesday,Earned Leave,,,,0,NA,NA
+24-Dec-15,Thursday,Earned Leave,,,,0,NA,NA
+25-Dec-15,Friday,Holiday,,,,0,NA,NA
+26-Dec-15,Saturday,Weekly Off,,,,0,NA,NA
+27-Dec-15,Sunday,Weekly Off,,,,0,NA,NA
+28-Dec-15,Monday,Present,13:39,20:02,6.38,6.38,NA,No leave debit
+29-Dec-15,Tuesday,Present,10:13,15:04,4.85,4.85,NA,No leave debit
+30-Dec-15,Wednesday,Present,9:28,18:54,9.43,9.43,NA,No leave debit
+31-Dec-15,Thursday,Present,8:22,18:50,10.47,10.47,NA,No leave debit
+1-Jan-16,Friday,Present,7:15,19:02,11.78,11.78,NA,No leave debit
+2-Jan-16,Saturday,Weekly Off,,,,0,NA,NA
+3-Jan-16,Sunday,Weekly Off,10:29,16:11,5.7,5.7,NA,NA
+4-Jan-16,Monday,Present,9:00,15:15,6.25,6.25,NA,No leave debit
+5-Jan-16,Tuesday,Present,9:06,19:22,10.27,10.27,NA,No leave debit
+6-Jan-16,Wednesday,Present,9:55,19:08,9.22,9.22,NA,No leave debit
+7-Jan-16,Thursday,Present,9:27,19:23,9.93,9.93,NA,No leave debit
+8-Jan-16,Friday,Present,9:04,18:54,9.83,9.83,NA,No leave debit
+9-Jan-16,Saturday,Weekly Off,,20:13,,0,NA,NA
+10-Jan-16,Sunday,Weekly Off,,,,0,NA,NA
+11-Jan-16,Monday,Present,9:00,18:24,9.4,9.4,NA,No leave debit
+12-Jan-16,Tuesday,Present,7:58,17:59,10.02,10.02,NA,No leave debit
+13-Jan-16,Wednesday,Present,7:35,18:22,10.78,10.78,NA,No leave debit
+14-Jan-16,Thursday,Present,8:03,19:16,11.22,11.22,NA,No leave debit
+15-Jan-16,Friday,Present,7:36,19:41,12.08,12.08,NA,No leave debit
+16-Jan-16,Saturday,Weekly Off,13:01,18:19,5.3,5.3,NA,NA
+17-Jan-16,Sunday,Weekly Off,19:50,20:41,0.85,0.85,NA,NA
+18-Jan-16,Monday,Present,9:05,20:47,11.7,11.7,NA,No leave debit
+19-Jan-16,Tuesday,Present,7:32,21:45,14.22,14.22,NA,No leave debit
+20-Jan-16,Wednesday,Present,9:38,22:49,13.18,13.18,NA,No leave debit
+21-Jan-16,Thursday,Present,7:51,22:25,14.57,14.57,NA,No leave debit
+22-Jan-16,Friday,Present,10:21,20:13,9.87,9.87,NA,No leave debit
+23-Jan-16,Saturday,Weekly Off,16:50,19:42,2.87,2.87,NA,NA
+24-Jan-16,Sunday,Weekly Off,10:45,,,0,NA,NA
+25-Jan-16,Monday,Present,10:34,18:23,7.82,7.82,NA,No leave debit
+26-Jan-16,Tuesday,Holiday,,,,0,NA,NA
+27-Jan-16,Wednesday,Earned Leave,,,,0,NA,NA
+28-Jan-16,Thursday,Present,10:10,19:29,9.32,9.32,NA,No leave debit
+29-Jan-16,Friday,Present,9:08,19:54,10.77,10.77,NA,No leave debit
+30-Jan-16,Saturday,Weekly Off,,,,0,NA,NA
+31-Jan-16,Sunday,Weekly Off,,,,0,NA,NA
+1-Feb-16,Monday,Present,9:51,20:19,10.47,10.47,NA,No leave debit
+2-Feb-16,Tuesday,Present,10:11,19:41,9.5,9.5,NA,No leave debit
+3-Feb-16,Wednesday,Present,10:10,19:52,9.7,9.7,NA,No leave debit
+4-Feb-16,Thursday,Present,9:56,19:26,9.5,9.5,NA,No leave debit
+5-Feb-16,Friday,Present,9:37,19:50,10.22,10.22,NA,No leave debit
+6-Feb-16,Saturday,Weekly Off,,,,0,NA,NA
+7-Feb-16,Sunday,Weekly Off,,,,0,NA,NA
+8-Feb-16,Monday,Present,10:04,17:49,7.75,7.75,NA,No leave debit
+9-Feb-16,Tuesday,Present,8:18,15:47,7.48,7.48,NA,No leave debit
+10-Feb-16,Wednesday,Present,9:25,19:54,10.48,10.48,NA,No leave debit
+11-Feb-16,Thursday,Present,10:40,18:13,7.55,7.55,NA,No leave debit
+12-Feb-16,Friday,Present,10:54,19:27,8.55,8.55,NA,No leave debit
+13-Feb-16,Saturday,Weekly Off,,,,0,NA,NA
+14-Feb-16,Sunday,Weekly Off,,,,0,NA,NA
+15-Feb-16,Monday,Present,7:41,19:18,11.62,11.62,NA,No leave debit
+16-Feb-16,Tuesday,Present,8:49,18:41,9.87,9.87,NA,No leave debit
+17-Feb-16,Wednesday,Present,9:53,18:37,8.73,8.73,NA,No leave debit
+18-Feb-16,Thursday,Present,8:47,18:55,10.13,10.13,NA,No leave debit
+19-Feb-16,Friday,Present,8:27,19:54,11.45,11.45,NA,No leave debit
+20-Feb-16,Saturday,Weekly Off,,,,0,NA,NA
+21-Feb-16,Sunday,Weekly Off,,,,0,NA,NA
+22-Feb-16,Monday,Present,8:55,19:38,10.72,10.72,NA,No leave debit
+23-Feb-16,Tuesday,Present,7:21,18:55,11.57,11.57,NA,No leave debit
+24-Feb-16,Wednesday,Present,8:09,17:43,9.57,9.57,NA,No leave debit
+25-Feb-16,Thursday,Present,8:23,18:10,9.78,9.78,NA,No leave debit
+26-Feb-16,Friday,Present,8:45,17:47,9.03,9.03,NA,No leave debit
+27-Feb-16,Saturday,Weekly Off,8:25,15:33,7.13,7.13,NA,NA
+28-Feb-16,Sunday,Weekly Off,,,,0,NA,NA
+29-Feb-16,Monday,Present,8:13,18:50,10.62,10.62,NA,No leave debit
+1-Mar-16,Tuesday,Present,8:20,18:06,9.77,9.77,NA,No leave debit
+2-Mar-16,Wednesday,Present,9:40,19:55,10.25,10.25,NA,No leave debit
+3-Mar-16,Thursday,Present,9:29,19:52,10.38,10.38,NA,No leave debit
+4-Mar-16,Friday,Present,9:54,17:51,7.95,7.95,NA,No leave debit
+5-Mar-16,Saturday,Weekly Off,,,,0,NA,NA
+6-Mar-16,Sunday,Weekly Off,,,,0,NA,NA
+7-Mar-16,Monday,Present,8:44,17:27,8.72,8.72,NA,No leave debit
+8-Mar-16,Tuesday,Present,10:44,18:27,7.72,7.72,NA,No leave debit
+9-Mar-16,Wednesday,Present,10:32,18:40,8.13,8.13,NA,No leave debit
+10-Mar-16,Thursday,Present,10:01,19:14,9.22,9.22,NA,No leave debit
+11-Mar-16,Friday,Present,10:04,18:04,8,8,NA,No leave debit
+12-Mar-16,Saturday,Weekly Off,,,,0,NA,NA
+13-Mar-16,Sunday,Weekly Off,,,,0,NA,NA
+14-Mar-16,Monday,Present,7:42,19:50,12.13,12.13,NA,No leave debit
+15-Mar-16,Tuesday,Present,7:42,19:01,11.32,11.32,NA,No leave debit
+16-Mar-16,Wednesday,Present,7:30,18:07,10.62,10.62,NA,No leave debit
+17-Mar-16,Thursday,Present,7:50,19:38,11.8,11.8,NA,No leave debit
+18-Mar-16,Friday,Present,7:55,19:02,11.12,11.12,NA,No leave debit
+19-Mar-16,Saturday,Weekly Off,10:20,12:12,1.87,1.87,NA,NA
+20-Mar-16,Sunday,Weekly Off,10:38,15:22,4.73,4.73,NA,NA
+21-Mar-16,Monday,Present,8:28,17:52,9.4,9.4,NA,No leave debit
+22-Mar-16,Tuesday,Present,7:46,19:29,11.72,11.72,NA,No leave debit
+23-Mar-16,Wednesday,Present,8:13,18:12,9.98,9.98,NA,No leave debit
+24-Mar-16,Thursday,Present,9:57,21:28,11.52,11.52,NA,No leave debit
+25-Mar-16,Friday,Optional Holiday,,,,0,NA,NA
+26-Mar-16,Saturday,Weekly Off,,,,0,NA,NA
+27-Mar-16,Sunday,Weekly Off,,,,0,NA,NA
+28-Mar-16,Monday,Present,10:23,17:45,7.37,7.37,NA,No leave debit
+29-Mar-16,Tuesday,Present,8:06,19:58,11.87,11.87,NA,No leave debit
+30-Mar-16,Wednesday,Present,8:55,18:14,9.32,9.32,NA,No leave debit
+31-Mar-16,Thursday,Present,8:58,21:34,12.6,12.6,NA,No leave debit
