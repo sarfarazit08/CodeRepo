@@ -1,0 +1,57 @@
+<html>
+                        <head>
+                        <link href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
+                        <title>141 Solution Creating a Multi-widget GUI</title>
+                        </head>
+                        <body>
+                        <div class="container">
+                        <div class="row">
+                        <div class="col-md-10 col-md-offset-1">
+                            <p class="lead"><div class="asset-container">
+    <div class="asset-container__padding article-view">
+        <div class="w3c-default">
+            <pre class="prettyprint linenums">from tkinter import *
+
+window=Tk()
+
+def from_kg():
+    gram=float(e2_value.get())*1000
+    pound=float(e2_value.get())*2.20462
+    ounce=float(e2_value.get())*35.274
+    t1.delete("1.0", END)
+    t1.insert(END,gram)
+    t2.delete("1.0", END)
+    t2.insert(END,pound)
+    t3.delete("1.0", END)
+    t3.insert(END,ounce)
+
+e1=Label(window,text="Kg")
+e1.grid(row=0,column=0)
+
+e2_value=StringVar()
+e2=Entry(window,textvariable=e2_value)
+e2.grid(row=0,column=1)
+
+b1=Button(window,text="Convert",command=from_kg)
+b1.grid(row=0,column=2)
+
+t1=Text(window,height=1,width=20)
+t1.grid(row=1,column=0)
+
+t2=Text(window,height=1,width=20)
+t2.grid(row=1,column=1)
+
+t3=Text(window,height=1,width=20)
+t3.grid(row=1,column=2)
+
+window.mainloop()</pre>
+        </div>
+    </div>
+</div>
+</p>
+                        </div>
+                        </div>
+                        </div>
+                        <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous"></script>
+                        </body>
+                        </html>

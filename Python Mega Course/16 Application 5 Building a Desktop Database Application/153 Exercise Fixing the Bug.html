@@ -1,0 +1,108 @@
+<html>
+                        <head>
+                        <link href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
+                        <title>153 Exercise Fixing the Bug</title>
+                        </head>
+                        <body>
+                        <div class="container">
+                        <div class="row">
+                        <div class="col-md-10 col-md-offset-1">
+                            <p class="lead"><div class="asset-container">
+    <div class="asset-container__padding article-view">
+        <div class="w3c-default">
+            <h4>Exercise</h4>
+
+<p>If you haven't noticed it already, the program has a bug. When the list box is empty and the user clicks it, an IndexErroris generated in the terminal:</p>
+
+
+
+
+
+
+
+
+
+<figure><img src="https://udemy-images.s3.amazonaws.com:443/redactor/raw/2017-10-06_14-35-58-7cff140e7b388e39b1cec916bfe87b57.png"></figure>
+
+
+
+
+
+
+
+
+
+<h4>Why that happens?</h4>
+
+
+
+
+
+
+
+<p>That happens because when the user clicks the list box this code is executed:<br></p>
+
+
+
+
+
+
+
+
+
+<p><code>list1.bind('&lt;&lt;ListboxSelect&gt;&gt;',get_selected_row)</code><br></p>
+
+
+
+
+
+<p>That line calls the<code>get_selected_row</code> function:</p>
+
+
+
+
+
+
+
+
+
+<pre class="prettyprint linenums">def get_selected_row(event):
+    global selected_tuple
+    index=list1.curselection()[0]
+    selected_tuple=list1.get(index)
+    e1.delete(0,END)
+    e1.insert(END,selected_tuple[1])
+    e2.delete(0,END)
+    e2.insert(END,selected_tuple[2])
+    e3.delete(0,END)
+    e3.insert(END,selected_tuple[3])
+    e4.delete(0,END)
+    e4.insert(END,selected_tuple[4])</pre>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<p>Since the listbox is empty, then <code>list1.curselection()</code>will be an empty list with no items. Trying to access the first item of that list with<code> [0]</code> in line 3 will throw an error since there is no first item in the list.</p><p>Please try to fix that bug. The next lecture contains the solution.</p>
+        </div>
+    </div>
+</div>
+</p>
+                        </div>
+                        </div>
+                        </div>
+                        <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous"></script>
+                        </body>
+                        </html>

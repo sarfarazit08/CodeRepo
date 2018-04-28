@@ -1,0 +1,93 @@
+<html>
+                        <head>
+                        <link href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
+                        <title>154 Solution Fixing the Bug</title>
+                        </head>
+                        <body>
+                        <div class="container">
+                        <div class="row">
+                        <div class="col-md-10 col-md-offset-1">
+                            <p class="lead"><div class="asset-container">
+    <div class="asset-container__padding article-view">
+        <div class="w3c-default">
+            <h4>Solution</h4>
+
+<pre class="prettyprint linenums">def get_selected_row(event):
+    try:
+        global selected_tuple
+        index=list1.curselection()[0]
+        selected_tuple=list1.get(index)
+        e1.delete(0,END)
+        e1.insert(END,selected_tuple[1])
+        e2.delete(0,END)
+        e2.insert(END,selected_tuple[2])
+        e3.delete(0,END)
+        e3.insert(END,selected_tuple[3])
+        e4.delete(0,END)
+        e4.insert(END,selected_tuple[4])
+    except IndexError:
+        pass</pre>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<h4>Explanation</h4>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<p>As you can see the error was fixed by simply implementing a <code>try</code> and <code>except</code> block. When the <code>get_selected_row</code> function is called, Python will try to execute the indentedblock under <code>try</code>. If there is an IndexErrornone of the lines under <code>try</code> will be executed. Instead the line under <code>except</code> will be executed which is <code>pass</code>. The<code>pass</code> stetementmeans do nothing. So the function will do nothing when there's an empty listbox.</p>
+        </div>
+    </div>
+</div>
+</p>
+                        </div>
+                        </div>
+                        </div>
+                        <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous"></script>
+                        </body>
+                        </html>

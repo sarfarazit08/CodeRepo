@@ -1,0 +1,44 @@
+<html>
+                        <head>
+                        <link href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
+                        <title>182 Solution Plotting from Pandas Dataframes</title>
+                        </head>
+                        <body>
+                        <div class="container">
+                        <div class="row">
+                        <div class="col-md-10 col-md-offset-1">
+                            <p class="lead"><div class="asset-container">
+    <div class="asset-container__padding article-view">
+        <div class="w3c-default">
+            <pre class="prettyprint linenums">import pandas
+
+from bokeh.plotting import figure, output_file, show
+
+df=pandas.read_excel("http://pythonhow.com/verlegenhuken.xlsx",sheetname=0)
+df["Temperature"]=df["Temperature"]/10
+df["Pressure"]=df["Pressure"]/10
+
+p=figure(plot_width=500,plot_height=400,tools='pan',logo=None)
+
+p.title.text="Temperature and Air Pressure"
+p.title.text_color="Gray"
+p.title.text_font="arial"
+p.title.text_font_style="bold"
+p.xaxis.minor_tick_line_color=None
+p.yaxis.minor_tick_line_color=None
+p.xaxis.axis_label="Temperature (C)"
+p.yaxis.axis_label="Pressure (hPa)"    
+
+p.circle(df["Temperature"],df["Pressure"],size=0.5)
+output_file("Weather.html")
+show(p)</pre>
+        </div>
+    </div>
+</div>
+</p>
+                        </div>
+                        </div>
+                        </div>
+                        <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous"></script>
+                        </body>
+                        </html>
