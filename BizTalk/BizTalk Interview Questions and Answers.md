@@ -271,37 +271,54 @@ There is no limit, it depends on the requirement and complexity of the map.
 Multiple pages enable you to organize your links so that any one page does not become too cluttered and confusing.It is also very helpful to label the pages and the links.
 
 15. Is there a way to add custom logic required in a Map?
+
 Yes it's possible and it can be done with the help of Scripting functoids or creating the custom functoids.
 
 16. Can value from Orchestration variable be passed to the destination field in the Map?
-Yes it can be done, by creating a new schema which will contain fields for capturing values from Orchestration variable and with the help of LoadXml to load the values. This schema can be used along with an other source schema and mapping can be done. The variable also can be passed inside the Assign shop in an expression.
+
++ Yes it can be done, by creating a new schema which will contain fields for capturing values from Orchestration variable and with the help of LoadXml to load the values. 
++ This schema can be used along with an other source schema and mapping can be done. 
++ The variable also can be passed inside the Assign shop in an expression.
 
 17. Is it possible to have map with n incoming messages to n outgoing messages?
-Yes, but only inside Orchestrations! This type of maps must be created using the Transform shape within an Orchestration. Orchestration Editor creates an envelope schema which includes all nested message schemas.
+
++ Yes, but only inside Orchestrations! This type of maps must be created using the Transform shape within an Orchestration. + Orchestration Editor creates an envelope schema which includes all nested message schemas.
 
 18. Is it possible to have map with n incoming messages to 1 outgoing messages?
-Yes. And the only place that map can be created with multiple schemas is in a Transform shape within an Orchestration.
+
++ Yes. And the only place that map can be created with multiple schemas is in a Transform shape within an Orchestration.
 
 19. Is it possible to have map with 1 incoming message to n outgoing messages?
-Yes, but only inside Orchestrations! This type of maps must be created using the Transform shape within an Orchestration.
+
++ Yes, but only inside Orchestrations! This type of maps must be created using the Transform shape within an Orchestration.
 
 20. Can the graphic map representation and external XSLT be used in single map?
-No. As everything which we see in Map grid (links, functoids) are overwritten when external XSLT is used.
+
++ No. As everything which we see in Map grid (links, functoids) are overwritten when external XSLT is used.
 
 21. Can we debug Map just like .Net code?
-Yes. Right click the map to debug and select "Debug Map".
+
++ Yes. Right click the map to debug and select "Debug Map".
 
 22. What is a .btm File?
-.btm is a BizTalk Server map file.
+
++ .btm is a BizTalk Server map file.
 
 23. What is the BizTalk Mapper Designer and where I can find it?
-It is a tool that runs within the Microsoft Visual Studio .NET environment after you install BizTalk Server. We use the Mapper to create and edit maps.
+
++ It is a tool that runs within the Microsoft Visual Studio .NET environment after you install BizTalk Server.
++ We use the Mapper to create and edit maps.
 
 24. What kind of transformation can we accomplish using maps? [Controversial]
-Using maps he can accomplish Semantic Transformations. This type of transformation usually occurs only in BizTalk maps but also can be performed inside pipelines. Here the document maintains the same syntax that is represented (XML), but changes its semantics (data content). This type of transformation is typically one-way, since that's when we added and aggregate small parts of the information, that compose the document into another differently document, we may miss important details of its reconstruction.
+
++ Using maps we can accomplish Semantic Transformations. 
++ This type of transformation usually occurs only in BizTalk maps but also can be performed inside pipelines. 
++ Here the document maintains the same syntax that is represented (XML), but changes its semantics (data content).
++ This type of transformation is typically one-way, since that's when we added and aggregate small parts of the information, that compose the document into another differently document, we may miss important details of its reconstruction.
 
 25. What are grid pages and how many can we have?
-The mapper grid plays a critical role in the definition of maps, containing the links and functoids that control how data in a source instance message is transformed into an instance message that conforms to the destination schema.
+
++ The mapper grid plays a critical role in the definition of maps, containing the links and functoids that control how data in a source instance message is transformed into an instance message that conforms to the destination schema.
 The grid view can have multiple layers, called grid pages, allowing you to organize complex maps into logical subdivisions of mappings. BizTalk 2010 no longer has the limitation of 20 grid pages that exist in the previous versions of the product.
 
 26. Is it possible to link the output of a functoid placed on the right side of the map grid with a functoid placed on the left side of the map grid?
