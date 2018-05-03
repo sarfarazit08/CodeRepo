@@ -663,14 +663,13 @@ The most commonly data sources used with BAM are:
 
 16. What is BAM Portal?
 
-
 It is a Web-based feature that consists of a collection of ASP.NET pages, it portal provides real-time, end-to-end visibility into a business process.
+
 17. It is required to track custom code used in application, which can be used TPE/BAM API or both can be used?
 
-
 TPE can't be used here as it can only be used to capture data from BizTalk artifacts, thus BAM API have to be used.
-18. Is there any shape in Orchestration which can't be tracked?
 
+18. Is there any shape in Orchestration which can't be tracked?
 
 Yes. There are some shapes like:
 a. Terminate
@@ -680,6 +679,7 @@ d. Loop
 e. Message Assignment
 f. Suspend
 g. Transform
+
 19. What are various event streams used in BAM API?
 
 Orchestration Event Stream (OES)
@@ -692,7 +692,6 @@ Messaging Event Stream (MES) Asynchronous, participates in BizTalk Server pipeli
 
 20. Is it possible to apply BAM on the retry mechanism of Send Port?
 
-
 No, because the code execution for retry happens in adapter which is out of the BAM tracking scope.
 
 ## Pipeline
@@ -700,21 +699,27 @@ No, because the code execution for retry happens in adapter which is out of the 
 1. Why do we need a custom pipeline when we have default pipelines?
 
 BizTalk Server provides a few out of the box pipeline components. For instance the S/MIME components for encrypting or decrypting messages. In case you need to do some pre or post processing on a message and the functionality is not offered through the provided pipeline components you will need to build your own custom pipeline component. The pipeline component(s) can then be used within a custom pipeline. See also TechNet Wiki Article BizTalk: List of Custom Pipeline Components.
+
 2. What is the maximum message size supported by XML send an XML receive pipeline?
 
 This depends on infrastructure specifications (CPU, Memory, Disk) and on specific (possible) bottlenecks in your Microsoft BizTalk Server system (see MSDN How BizTalk Server Processes Large Messages ). While BizTalk Server imposes no restriction on message size, practical limits and dependencies might require you to minimize the size of your messages because large messages require more processing resources (see MSDN Message Considerations ).
+
 3. What is the minimum number of components allowed in pipeline stage?
 
 Minimum is zero components, example PassThru pipeline.
+
 4. What is the maximum number of components allowed in pipeline stage?
 
 All stages in the pipeline can take maximum of 255 components, except the assemble stage that has a maximum of one.
+
 5. Does Flat file assembler pipeline component validates the incoming XML message?
 
 No
+
 6. What is a .btp File?
 
 .btp file is a BizTalk Server pipeline file.
+
 7. How many states have the Receive Pipelines and the Send Pipelines?
 
 The receive pipeline consists of four stages
@@ -726,35 +731,44 @@ Regarding to the send pipelines, they consist of three stages:
 	 + Pre-assemble Stage: This stage is a placeholder for custom components that should perform some action on the message before the message is serialized.
 	 + Assemble Stage: Components in this stage are responsible for assembling or serializing the message and converting it to or from XML.
 	 + Encode Stage: This stage is used for components that encode or encrypt the message.
+
 8. Is there any Visual Studio Wizard to create custom pipeline components?
 
 Yes there is. The Pipeline Component Wizard is intended to ease development of pipeline components used within a BizTalk Server environment. Supports both C# and VB.NET. See more here .
+
 9. What's the difference between Default Pipelines and Custom Pipelines?
 
 When you create a new application, the default pipelines are created and deployed by default and appear in the Microsoft.BizTalk.DefaultPipelines assembly in the References folder for every BizTalk project. The default pipelines cannot be modified in Pipeline Designer. These pipelines can be selected when configuring a send port or receive location in BizTalk Explorer.
 
 Pipelines and pipeline components present out of the box can do most of the tasks for you. But sometime specific message processing or messaging requirements encourage developers to develop custom pipeline components. You can create three types of pipeline components: general, assembling, and disassembling. Each of the three types can additionally implement probing functionality. Each type of pipeline component has an associated interface that must be implemented for the component to be plugged into the BizTalk Messaging Engine; the pipeline interfaces that distinguish the types of components are IComponent, IAssemblerComponent, and IDisassemblerComponent. A custom pipeline component is just a plain .NET class that implements several BizTalk interfaces.
+
 10. Is there an error handling functionality to handle error on pipelines?
 
 Yes. Error-handling functionality called error reporting which enables handling pipeline errors. Error reporting isspecified on receive and send ports within the BizTalk Administration console.
+
 11. When is filter used to create a subscription?
 
 Filters are used to create subscription when orchestrations are not part of the scenario.
+
 12. Which property is required when using Flat file Disassembler component?
 
 Setting the Document Schema property is required, all other properties are optional.
+
 13. What if Document Schema property is not specified when using Flat file Disassembler component?
 
 A runtime schema discovery will be attempted, Biztalk Server attempts to determine the correct flat file schema to assemble the message with, based on the namespace and the root node of the message.
+
 14. Which API is used to implement Pipeline?
 
 To implement pipeline we have to use the API in the Microsoft. BizTalk. Component. Interop namespace.
+
 15. What are types of pipeline components?
 
-	 + General
-	 + Assembling
-	 + Disassembling
-	 + Probing
++ General
++ Assembling
++ Disassembling
++ Probing
+
 16. Why attributes are added to class while developing a custom component?
 
 To indicate that the component is a custom pipeline component and in which stage it can be used, couple of attributes are added to the class.
@@ -762,6 +776,7 @@ To indicate that the component is a custom pipeline component and in which stage
 [ComponentCategory(CategoryTypes.CATID_Any)] -- This attribute tells that the component can be used at any stage
 OR
 [ComponentCategory(CategoryTypes.CATID_DisassemblingParser)] -- This attribute tells that the component can be used only on Disassemble stage
+
 17. Custom Component is not visible in Toolbox, even after adding the assembly to GAC?
 
 Just adding assembly is not sufficient, it needs to be added to component dll at location : C:Program FilesMicrosoft BizTalk Server 2010PipelineComponents and then reset the toolbox, it will be visible and ready to use.
@@ -787,120 +802,157 @@ IProbeMessage
 1. What purpose does Visual Studio serve?
 
 Development for BizTalk Server is done through Visual Studio (depends on BizTalk version). Visual Studio has templates for BizTalk artifacts like orchestration, pipelines, schemas and maps, so a BizTalk solution can be created (design time) and deployed to the BizTalk runtime. Besides artifacts .NET development can be done in creating pipeline components, custom functoids, custom adapters, and .NET helper classes to aid in orchestrations. As a BizTalk professional Visual Studio is your friend and required to build BizTalk solutions.
+
 2. What is strong name key?
 
 A strong name ensures that each assembly name is unique. Each assembly in your BizTalk project requires a strong name in order to deploy successfully. See also MSDN How to Configure a Strong Name Assembly Key File .
+
 3. How is strong name key generated?
 
 At the command prompt, from the folder where you want to store the key file, type the following command, and then press ENTER: sn /k file_name .snk. In Visual Studio Solution Explorer, right-click the project and then clickProperties. Click the Signing tab and choose Browse in the Choose a strong name key file drop down box. See also MSDN How to Configure a Strong Name Assembly Key File.
+
 4. Difference between Build and Rebuild?
 
 Build means compile and link only the source files that have changed since the last build, while Rebuild means compile and link all source files regardless of whether they changed or not. See also MSDN Building and Cleaning Projects and Solutions in Visual Studio .
+
 5. What are the actions in order to deploy from Visual Studio?
 
-	 + Sign the project with strong name key
-	 + Give the name to the Application
++ Sign the project with strong name key
++ Give the name to the Application
+
 6. Can I create or configure Receive Ports or Send Ports through Visual Studio?
 
 That depends of the BizTalk Version/Visual Studio that you are using! In previous version you could create and configure port through the BizTalk Explorer view in Visual Studio, but since BizTalk Server 2010 the BizTalk Explorer view was removed from Visual Studio.
+
 7. What is a .btproj File?
 
 .btproj is a Visual Studio BizTalk project file.
+
 8. Are all the BizTalk development tools embedded in Visual Studio?
 
 No. Indeed BizTalk Mapper Editor, Schema Editor, Orchestration editor and Pipeline editor are embedded in Visual Studio. However BAM and BRE tool are not embedded.
+
 9. Why we get the error "Unexpected error writing metadata to file "?
 
 It is a known issue of Visual Studio. Visual Studio will not successfully compile a project if it would result in an assembly larger than 75 megabytes (Mb).
+
 10. Where can we see assembly information in Visual Studio?
 
 AssemblyInfo.cs contains information about assembly, like name, description, version, etc. It can be located under Project-->Properties-->AssemblyInfo.cs
+
 11. What is Build Order and can it be changed?
 
 Build Order is the sequence in which the projects will be build when the whole solution is build and yes it can be changed.
+
 12. What is option Clean used for?
 
 Clean Solution is used to delete any intermediate and output files (mostly assemblies). With only the project and component files left, new instances of the intermediate and output files (mostly assemblies) can then be built.
+
 13. What is a Business Rules Engine?
 
 A run-time inference engine that can link highly readable, declarative, semantically rich rules to any business objects (.NET components), XML documents, or database tables. It can evaluate rules against facts and initiate actions based on the results of that evaluation.
+
 14. What is the tool that I need to use to create Business Rules?
 
 You need to use the Business Rules Composer. This is a graphical tool used for authoring, versioning, and deploying policies and vocabularies.
+
 15. What is a Business Rule Language?
 
 It is a rule markup language in XML format for declarative rule definitions.
+
 16. How can I execute a Business Rule in my orchestration?
 
 Using the Call Rules Shape. See more here .
+
 17. What is used to create new vocabulary definition?
 
 The Vocabulary Definition Wizard is used to create vocabulary definitions.
+
 18. What is a Policy?
 
 A policy is a logical grouping of rules. You compose a version of a policy, save it, test it by applying it to the facts, and, when you are satisfied with the results, publish it and deploy it to a production environment. See more here .
+
 19. Is it possible to change Business Rule policy after it was published?
 
 No. After policies are published it can't be edited. But if there is a need to have a change in policy then new version of policy is to be created.
+
 20. Does rule composer have provision of adding ELSE logic?
 
 No, there is no provision of adding ELSE but else logic can implemented with extra IF.
+
 21. What is Long term fact and Short Term fact?
 
 The fact is the user data to which rule conditions are applied. At design time a fact is a reference to that data.
-Facts have two categories – Short Term Facts and Long Term Facts. Consider a loaning process of any Bank. We can think a “loan application” as short term fact. Short team facts are business information which changes per occurrence. On the contrary, “interest rates” do not change very regularly. This business information is steady and we can consider it a long term fact. See more here .
+Facts have two categories – Short Term Facts and Long Term Facts. Consider a loaning process of any Bank. We can think a “loan application” as short term fact. Short team facts are business information which changes per occurrence. On the contrary, “interest rates” do not change very regularly. This business information is steady and we can consider it a long term fact.
+
 22. What is the difference between Publishing and Deploying the Rule?
 
 Rule alone cannot be published or deployed, it has to be wrapped under Policy and then published and deployed. When a policy is deployed it is ready to use and can't be edited whereas when published, policy aren't ready for use.
+
 23. Can we call policies from .Net code?
 
 Yes. Firstly it needs to be declared (policy name which is to be called), passed in the fact instance and finally executed.
+
 24. Can we call a specific version of Policy using Call rule shape in Orchestration?
 
 No, as the call rules shape calls the latest version of the policy deployed.
+
 25. What is purpose of BizTalkRuleEngineDb?
 
 This database is a repository for:
 	 + Policies, which are sets of related rules
 	 + Vocabularies, which are collections of user-friendly, domain-specific names for data references in rules.
+
 26. Is there limit for versions of policies?
 
 No.
+
 27. What is Rete Algorithm, does it have any relation with BRE?
 
 Rete Algorithm is an efficient pattern matching algorithm for implementing production rule systems. BRE's inner working is based on the Rete algorithm.
+
 28. How does it differ, calling the policy in Call Rules Shape and in Expression?
 
 The Call Rules shape in the Orchestration calls only the latest version of the policy. To call an older (specific) version from within an orchestration, the Business Rules Framework APIs is used, which can be called from within an expression.
+
 29. How to test specific rules (not all) defined under one policy?
  To be answered
+
 30. What is XSLT?
 
 XSLT or Extensible Stylesheet Language Transformations is a style sheet language for XML documents (stands for XSL Transformations), it defines the transformation rules of the messages.
+
 31. Where does XSLT come into picture in BizTalk?
 
 When a developer faces a complex mapping (problem) and to solve it requires a substantial amount of logic he/she can use custom XSLT. See TechNet Wiki article BizTalk Virtual Mapper VS Custom-XSLT.
+
 32. What is Muenchian method?
 
 The Muenchian Method is an algorithm for grouping of data used in XSL Transformations that identifies keys in the results and then queries all nodes with that key. It can be applied with custom XSLT within a BizTalk Map. See MSDN Blog Muenchian Grouping and Sorting in BizTalk Maps .
+
 33. Which version of XSLT is supported by the BizTalk mapper?
 
 BizTalk Mapper supports XSLT 1.0. Using XSLT 2.0 in BizTalk Mapper is not supported (See MSDN Creating Maps Using BizTalk Mapper ).
+
 34. Can I use Custom XSLT inside a BizTalk mapper?
 
 Yes, by making use of the scripting functoid.
+
 35. Is it possible to exclude xml declaration in the ouptut file?
 
 Yes. To exclude xml declaration, the attribute "omit-xml-declaration" is to be set as "yes."
+
 36. Can the filter be applied to the output from the xml file?
 
 Yes. It can be done by adding a criterion to the select attribute in the element.Filter operators which can be used are:
 	 + =(equal)
 	 + != (not equal)
 	 + greater than
+
 37. How to traverse through the repeating node the input file?
 
 The XSL element can be used to select every XML element of a specified node-set.
+
 9. Is it possible to have custom functions?
 
 Yes, it can be done in script blocks which can be done using element.
@@ -908,27 +960,37 @@ Yes, it can be done in script blocks which can be done using element.
 10. Is it possible to use method from a assembly available in GAC?
 
 It can be done using element and it has to be child of element.
+
+## Helper Class
+
 1. What is a helper class?
 
 A .net helper class with the context of BizTalk is a class (library) that can support an orchestration with extra functionality. It can enhance an orchestration in tracing, error handling, caching, and serialization/deserialization. See TechNet Wiki article BizTalk Server 2010: .NET Helper Classes.
+
 2. Where can the helper class be used?
 
 .NET (helper) classes can be used inside an orchestration. See TechNet Wiki article BizTalk Server 2010: .NET Helper Classes.
+
 3. A helper class which is not marked serializable , can it be used in Orchestration?
 
 Yes, it can used in orchestration but in an atomic scope only.
+
 4. Why is it required that helper class/.net assembly to be marked serializable?
 
 When creating an assembly that will be used by BizTalk, it is appropriate to mark all classes as serializable. Since BizTalk is stateless and makes use of persistence points, which details are stored in BizTalk SQL Server databases by serializing all the data. Therefore non-serializable Classes or Types cannot be used directly in Orchestrations.
+
 5. What does property "copy local" indicates?
 
 "Copy Local" property indicates whether the assembly referenced should be copied into the local bin directory when a project is built.
+
 6. Is it possible to create a .Net class variable in BizTalk if property "Use default constructor" is set to false?
 
 Yes it is possible, in this case the variable will need to be instantiated in an Expression shape through the new keyword.
+
 7. What is Gacutil.exe?
 
 The Global Assembly Cache tool allows you to view and manipulate the contents of the global assembly cache and download cache. See MSDN GacUtil.exe .
+
 8. Is there a way to automate the process of adding assembly in GAC?
 
 Yes. Right click the project, go to properties and select Build Events
@@ -937,13 +999,16 @@ And add following in the Post-Build event command line: "C:Program filesMicrosof
 9. Is helper class deployed like BizTalk application?
 
 No, it is added to GAC on the machine where it is used.
+
 10. Why helper class/.Net assembly doesn't list in the Resources of Application, in spite of having reference to it and used in the application?
 
 Because resources are meant to hold only BizTalk resources.
+
 11. How helper class or .net assembly is added to GAC?
 
 With the use of gacutil.exe and following command:
 gacutil /i assemblypath
+
 12. There is a .net helper class which suits to a requirement (in Orchestration) of an application but it is Non-Serializable, how can it be used?
 
 Below are the steps :
@@ -954,58 +1019,78 @@ d. Add Expression shape
 e. Orchestration variable of class inside scope
 f. Instance of object inside the scope
 g. Call method
+
 13. What is an Adapter?
 
 An adapter is a software component (COM or .NET-based) that enables you to easily send messages out of or receive messages in BizTalk Server with a delivery mechanism that conforms to a commonly recognized standard, such as SMTP, POP3, FTP, or Microsoft Message Queuing (MSMQ). As Microsoft BizTalk Server has evolved, the need for adapters that quickly enable connectivity with commonly used applications and technologies has increased. BizTalk Includes over 25 multi-platform adapters that simplify the integration with Line of Business (LOB) Applications (such as Siebel, SAP, JD Edwards, Oracle, and Dynamics CRM), database (Microsoft SQL Server, Oracle, DB2) and other technologies (Tibco, Java EE). (See more here )
+
 14. What is required for a developer to create a custom adapter?
 
 A developer can receive requirements for building a custom adapter in case there are no out-of the box or commercial available to fulfill certain functionality. This can be done by using the Microsoft Windows Communication Foundation Line of Business Adapter SDK. See MSDN Microsoft Windows Communication Foundation Line of Business Adapter SDK .
+
 15. What is the purpose of Adapter?
 
 Adapters are the components that enable the BizTalk to interface with the external communications protocol.They mediate between the protocol and the messaging pipeline in use.
+
 16. Does an adapter write to content of the message?
 
 No. The adapter only writes data in the context of the message which is further interrogated by another component of BizTalk.
+
 17. What are the native adapters in BizTalk?
 
 "Native" or "integrated" adapters in BizTalk are: FILE, FTP, HTTP, MQSeries, MSMQ, POP3, SMTP, SOAP, Windows Sharepoint Services, and the seven WCF adapters (WCF-WSHttp, WCF-BasicHttp, WCF-NetTcp, WCF-NetMsmq, WCF-NetNamedPipe, WCF-Custom, and WCF-CustomIsolated)
 (MSDN Adapters in BizTalk Server , BizTalk 2010) or the ten WCF-based in BizTalk Server 2013 if you include WCF-BasicHttpRelay, WCF-NetTcpRelay, WCF-WebHttp and two other new ones SB-Messaging and SFTP adapter.
+
 18. Which port do you need configure in a firewall for in and outbound traffic when using the FTP Adapter?
 
 For the FTP adapter you will need to configure port 20 and/or 21. See MSDN Ports for the Receive and Send Servers .
+
 19. What happens to file when message is suspended in a MessageBox?
 
 The file adapter deletes the file from disk.
+
 20. What does "Public address" property defaults to?
 
 This property defaults to file://{Receive folder value}/{file mask value}. The literal prefix file:// is required so as to communicate the protocol in use. It is string from 0 to 255 characters.
+
 21. What is the default value of Retry count and Retry interval (min)?
 
 The default value is "5". This can be altered through the Advanced Options Tab of the Transport Properties of a Send Port. See MSDN How to Configure Transport Advanced Options for a Send Port .
+
 22. What is an Adapter Handler?
 
 An adapter handler is an instance of a BizTalk host in which the adapter code runs. When you specify a send or receive handler for an adapter you are specifying which host instance the adapter code will run in the context of. An adapter handler is responsible for executing the adapter and contains properties for a specific instance of an adapter. A default BizTalk Server configuration will create adapter handlers for all of the installed adapters, but you may want to create additional adapter handlers for purposes of load balancing or to provide process isolation for a particular adapter handler. (See more here )
+
 23. What Is the Adapter Framework?
 
 The BizTalk Adapter Framework offers a stable, open mechanism for all adapters to implement or access work from the BizTalk Server Messaging Engine. The interfaces described in the Microsoft.BizTalk.Adapter.Framework namespace enable adapters to provide a means to modify configuration property pages. It also is a means to import services and schemas into the BizTalk project. (See more here )
+
 24. What you mean with Native Adapters and Custom Adapters?
 
 Native adapters are those that are shipped with the product and there are more than 25 multi-platform adapters. But in some cases a BizTalk Server may need to transport messages to a specific custom application or use a protocol for which a native adapter does not exist. If you are unable to locate an adapter to support your communication requirements, BizTalk Server provides a framework for developers so that you can develop your own custom adapter.
+
 25. I've heard the term connector in BizTalk. So what's the difference between an adapter and a connector?
 
 Probably the same thing. In BizTalk, we can call a connector as a software component that enables you to easily exchange messages between BizTalk Server with different systems, i.e, it's an adapter- a communications service used to exchange documents with your trading partners or your internal systems.
+
 26. What can we expect when Propagate fault message is enabled?
 
 The fault message will be published to subscribing applications. If it is not enabled then any fault messages will end up being suspended and are available in the BizTalk Administration Console.
+
 27. What is an Isolated Receive Adapter?
 
 The receive adapter that is hosted in a process other than a BizTalk Server process. This adapter is created and controlled by an external process and it registers with BizTalk server at run time to submit messages.
+
 28. What is journal queue?
 
 The journal queue is a system queue that is automatically created when MSMQ is installed and is meant to contain copies of messages that are sent or received.
+
 29. What is dead queue?
 
 The dead letter queue is a system queue that is automatically created when MSMQ is installed and is meant to contain undelivered messages.
+
+## Functoids
+
 1. What is functoid?
 
 The term functoids refers to predefined functions within the BizTalk Mapper tool set. Functoids support a number of useful translations and transformations.
@@ -1025,17 +1110,21 @@ Below scenarios can tempt developer to create custom functoid:
 5. How can you build an if-then-else construction with functoids?
 
 To build if-then-else it will need any of the Logical functoid (depending upon the requirements, e.g., if value is to be matched then Equal Functoid) and a Value mapping functoid. The combination (Logical Functoid and Value Mapping Functoid) will repeat, firstly to implement IF condition and secondly to implement ELSE condition.
+
 6. Is it possible to reuse method of a Scripting Functoid in other Scripting Functoid?
 
 Yes, it is possible. To do so the method at first place should be declared as public and then it can be called from other scripting functoid.
+
 7. What is Microsoft.BizTalk.BaseFunctoids.dll?
 
 This DLL implements all the base classes which are needed to create a functoid.
+
 8. What are the ways to integrate custom functoid into solution?
 
 Custom functiods can be integrated into a solution using two ways (in both BizTalk.BaseFunctoid is derived):
 	 + Directly by using inline code
 	 + Indirectly by reference to a method in a class library deployed into the global assembly cache.
+
 9. What can be done using Scripting Functoid?
 
 Custom code or custom scripts can be added .
@@ -1052,6 +1141,7 @@ There are 9 categories available in Toolbox viz.,
 	 + Mathematical
 	 + Scientific
 	 + String
+
 11. Can we concatenate 200 input parameters using String Concatenate functoid?
 
 No. As the minimum input parameter accepted is 1 and maximum is 100.
@@ -1063,33 +1153,45 @@ Record Count Functoid can be used here, the input to this is the looping record/
 13. Is it possible to know the index of the current record in looping structure?
 
 Yes with the use of Iteration functoid. Iteration functoid gives the index of the current record in a looping structure.
-What is EDI?
+
+## EDI
+
+1. What is EDI?
 
 + Electronic data interchange (EDI) is a document standard which when implemented acts as common interface between two or more computer applications in terms of understanding the document transmitted. It is commonly used by big companies for e-commerce purposes, such as sending orders to warehouses or tracking their order.
+
 2. What are the things which make EDI solutions differ from standard XML solutions?
 
 + EDI solutions are on the same line as XML solutions but involved more complexities in schema, maps etc. Also few more things are to be done like setting up and configuring the trading partners (business profiles, parties, agreements etc.).
+
 3. How to create the EDI schema?
 
 + BizTalk already ships with the standard EDI schemas. To use it we need to extract the schemas using the MicrosoftEdiXSDTemplates.exe file, located in the root of the XSD_SchemaEDI folder.
+
 4. What is the default character set supported by EDI pipeline?
 
 + UTF-8 is the default Character set supported and it is used for run-time validation and applies only to EDI X12.
+
 5. How does BizTalk resolves Agreement?
 
 + BizTalk requires the qualifier and identifier fields for sender and receiver in order to perform agreement resolution. It will match the values of ISA5, ISA6, ISA7, and ISA8 in the interchange header with those in the properties of an agreement.
+
 6. When does fallback agreement properties come into the picture?
 
 + When BizTalk is not able to resolve the agreement, then it uses the fallback agreement properties.
+
 7. It is required to use EDI Pipeline in the EDI solution, but I can't see in the options?
 
 + EDI pipelines are not included in the Application as XML and Pass Thru pipelines are available. A reference to the BizTalk EDI Application is to be explicitly added so as to use EDI pipelines.
+
 8. What are the values which Segment Separtor Suffix and Segment Terminator Suffix can have?
 
 + Either of the following : None,CR,LF or CRLF
+
 9. Are there a relation between EDI sending pipeline and Parties?
 
 + The EDI sends pipeline performs a party lookup by performing a series of steps to determine whether there is a match between the outgoing interchange and the properties of a party.
+
 10. What are the options to release EDI Batch messages to destination?
 
 + There are four options which can be used as deciding factor and then release:
@@ -1097,25 +1199,34 @@ What is EDI?
 	 + Maximum Number of Transaction Sets :Fixed number of transactions within an Interchange
 	 + Maximum Number of Characters in an Interchange : Number of characters
 	 + External Release Trigger : Whenever a Trigger Message is given to BizTalk
+
 11. Is it possible to receive Multiple Interchanges in a Single Message and parse it?
 
 + Yes it's possible to receive multiple interchange in a single message and to parse it, the pipeline property calledDetectMID is to be set as True.
+
 12. Can we access EDI message context properties in orchestration?
 
 + Yes it's possible. To do so reference to Microsoft.BizTalk.Edi.BaseArtifacts.dll should be added.
-+ What effect does creating a new Host have on the Database?
+
+## BizTalk Database
+
+#### What effect does creating a new Host have on the Database?
 
 When the new host is created it results in a new entry in the Host table in the Management database and also a new Host queue in the MessageBox.
-+ The MessageBox database holds all the messages that are processed, what about messaging Objects?
+
+#### The MessageBox database holds all the messages that are processed, what about messaging Objects?
 
 Messaging objects viz. Receive Ports, Receive Locations, Send ports, etc. are stored in the Management Database.
-+ Is there any change in the database when the filter is added to Send port or when Activate property of Receive shape is set to true?
+
+#### Is there any change in the database when the filter is added to Send port or when Activate property of Receive shape is set to true?
 
 Yes. An entry is added in subscription table.
-+ What databases are part of every solution?
+
+#### What databases are part of every solution?
 
 BizTalk Server Management database, MessageBox databases, Tracking database, and SSO database are four database which are used by BizTalk server runtime operations. It is the component that encapsulates and abstracts the database component and is the interface used by BizTalk Server to interact with the MessageBox. The Message Agent is a Component Object Model (COM) component that provides interfaces for publishing messages, subscribing to messages, retrieving messages, and so on. This interface is the only mechanism used by other BizTalk Server components, including the adapter framework and orchestrations, to interact with the MessageBox.
-+ Which service looks after known issues in the database?
+
+#### Which service looks after known issues in the database?
 
 Monitor BizTalk Server, this job scans the BizTalkMgmtDb, BizTalkMsgBoxDb and BizTalkDTADb database for any known issues, including orphaned instances.
 + How would you define database role in context to BizTalk?
