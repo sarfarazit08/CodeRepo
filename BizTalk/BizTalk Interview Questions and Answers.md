@@ -2465,42 +2465,19 @@ Accenture,
 ________________________________________
 How many ways to restart the host instance in biztalk?
 
-Accenture,
-25555
-QuestionsAnswersViewsCompanyeMail
+There are 4 ways to restart host instance:
 
-Why messages are immutable inside Biztalk?
++ VS 2008-->Select biztalk project-->properties-->in deployment pane-->select host restart ti true
++ go to run cmd-->type services-->select our host instance's SSO and click on restart
++ go to Biztalk admin console and select host instance and right click -->restart
++ Go to cmd prompt and type the command for host instance > restart	
 
-Accenture,
-13974
-________________________________________
-You have two schemas that need to be represented with the same root node and same namespace or different namespace, is it possible?
+### Why messages are immutable inside Biztalk?
+### You have two schemas that need to be represented with the same root node and same namespace or different namespace, is it possible?
+### In How many ways Orchestrations provide Subscription information to Message Box?
+### how many Biztalk Components are there?
 
-54132
-________________________________________
-im completed my biztalk course , plz guide me how to get job ?
 
-999
-________________________________________
-for biztalk the best faculty in ameerpet
-23253
-________________________________________
-In How many ways Orchestrations provide Subscription information to Message Box?
-
-Accenture,
-14912
-________________________________________
-who is best faculty for sharePoint and Biztalk sandeepsoni from Deccansoft or premnath...........
-1006
-________________________________________
-can anyone suggest me the best training institute for biztalk in hyderabad?
-
-89205
-________________________________________
-how many Biztalk Components are there?
-
-47357
-________________________________________
 I have a receive port and send port whose message types are different.When I receive a message in my receive port,my process starts.I will construct my out message and give this to my send port.I am configuring a send port group to the logical send port.TO the send port group I have added many send ports with filters.The message in the send ports are not getting filtered based on my filters. Help will be highly appreciated. Thanks in advance
 23492
 ________________________________________
