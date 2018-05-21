@@ -2999,3 +2999,14 @@ Throttling is difficult to understand
 + BizTalk Server only provides raw performance counter data and no visual tools
 + Traditional performance monitoring tools (ex: perfmon) not suited for monitoring throttling
 + Companies don’t monitor the throttling conditions in real time.
+
+### BizTalk36O Features
+
+BizTalk360 tool makes the BizTalk environment simple, secure, effective and more manageable. 
+
+**Features**
++ Graphical message flow
++ Knowledge Base
++ Advanced Event viewer
++ Throttling Analyzer
++ Backup DR (Disaster Recovery DB)
