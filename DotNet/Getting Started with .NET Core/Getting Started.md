@@ -11,4 +11,4 @@
 + dotnet new console -o MyFirstConsoleApp (create a console project with directory name)
 + dotnet run       (compile and run application)
 
-** Launch Visual Studio Code from project folder location in CLI:** `code .`
+**Launch `Visual Studio Code` from project folder location in CLI:** `code .`
