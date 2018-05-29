@@ -50,3 +50,7 @@ We follow these 12 principles:
 + [Agile Principles](https://prod-edxapp.edx-cdn.org/assets/courseware/v1/d5d1e19b7963d085049e0fba4274e0ba/asset-v1:ETHx+ASD.1x+1T2018+type@asset+block/agile-edx_B_principles.pdf)
 
 + [Agile Roles](https://prod-edxapp.edx-cdn.org/assets/courseware/v1/394cc3b695dc4d8fb408dad4b772089c/asset-v1:ETHx+ASD.1x+1T2018+type@asset+block/agile-edx_C_roles.pdf)
+
++ [Agile Practices](https://prod-edxapp.edx-cdn.org/assets/courseware/v1/bb05fa284518f880ac08dbc043f221d4/asset-v1:ETHx+ASD.1x+1T2018+type@asset+block/agile-edx_D_practices.pdf)
+
++ []()
