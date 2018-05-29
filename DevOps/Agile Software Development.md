@@ -45,4 +45,8 @@ We follow these 12 principles:
 1. At regular intervals, the team reflects on how to become more effective, then tunes and adjusts its behavior accordingly.
 
 ### Resources:
-+ [Agile Software Development](https://prod-edxapp.edx-cdn.org/assets/courseware/v1/2ecc19208183cadd82cedb9dfd434bb9/asset-v1:ETHx+ASD.1x+1T2018+type@asset+block/agile-edx_A_context.pdf)
++ [Agile Software Development Context](https://prod-edxapp.edx-cdn.org/assets/courseware/v1/2ecc19208183cadd82cedb9dfd434bb9/asset-v1:ETHx+ASD.1x+1T2018+type@asset+block/agile-edx_A_context.pdf)
+
++ [Agile Principles](https://prod-edxapp.edx-cdn.org/assets/courseware/v1/d5d1e19b7963d085049e0fba4274e0ba/asset-v1:ETHx+ASD.1x+1T2018+type@asset+block/agile-edx_B_principles.pdf)
+
++ [Agile Roles](https://prod-edxapp.edx-cdn.org/assets/courseware/v1/394cc3b695dc4d8fb408dad4b772089c/asset-v1:ETHx+ASD.1x+1T2018+type@asset+block/agile-edx_C_roles.pdf)
