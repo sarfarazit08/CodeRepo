@@ -53,4 +53,4 @@ We follow these 12 principles:
 
 + [Agile Practices](https://prod-edxapp.edx-cdn.org/assets/courseware/v1/bb05fa284518f880ac08dbc043f221d4/asset-v1:ETHx+ASD.1x+1T2018+type@asset+block/agile-edx_D_practices.pdf)
 
-+ []()
++ [Agile Artifacts](https://prod-edxapp.edx-cdn.org/assets/courseware/v1/1c63936fbd5d5b864e7c3627e6ba461e/asset-v1:ETHx+ASD.1x+1T2018+type@asset+block/agile-edx_E_artifacts.pdf)
