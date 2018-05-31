@@ -457,11 +457,15 @@ A scope configured with the transaction type of None or Long running can have ex
 36. Is it possible to get an exception object from General Exception?
 
 No. General exception in BizTalk is similar to writing a Try-Catch block but without the exception object thus not possible to get the exception object.
+
 37. What's the main difference between Call and Start Orchestration?
 
 Calling an orchestration will use the same thread to run another orchestration while using Start Orchestration will create a new thread to run the started orchestration.
+
 A Call Orchestration returns the control back to the caller. A Start Orchestration shape starts the orchestration in a non-deterministic way.
+
 As a conclusion, Calling an Orchestration will be synchronous operation where the caller waits for a response, while Start Orchestration is asynchronous operation. See more here .
+
 38. What are the different types of transactions available for orchestration?
 
 Unlike traditional programming, BizTalk Server supports two distinct types of transactions: atomic and long-running. See more here .
@@ -699,6 +703,20 @@ No, because the code execution for retry happens in adapter which is out of the 
 1. Why do we need a custom pipeline when we have default pipelines?
 
 BizTalk Server provides a few out of the box pipeline components. For instance the S/MIME components for encrypting or decrypting messages. In case you need to do some pre or post processing on a message and the functionality is not offered through the provided pipeline components you will need to build your own custom pipeline component. The pipeline component(s) can then be used within a custom pipeline. See also TechNet Wiki Article BizTalk: List of Custom Pipeline Components.
+
+**Recieve pileline stages :**
+
++ Decode
++ Dissamble
++ Validate
++ Resolve
+
+**Send pileline stages :**
+
++ Pre-assemble
++ Assemble
++ Encode
+
 
 2. What is the maximum message size supported by XML send an XML receive pipeline?
 
