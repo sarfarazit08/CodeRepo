@@ -741,14 +741,17 @@ No
 7. How many states have the Receive Pipelines and the Send Pipelines?
 
 The receive pipeline consists of four stages
-	 + Decode Stage: This stage is used for components that decode or decrypt the message.
-	 + Disassemble Stage: This stage is used for components that parse or disassemble the message.
-	 + Validate Stage: This stage is used for components that validate the message format.
-	 + Resolve Party Stage: This stage is a placeholder for the Party Resolution Pipeline Component.
+
+ + Decode Stage: This stage is used for components that decode or decrypt the message.
+ + Disassemble Stage: This stage is used for components that parse or disassemble the message.
+ + Validate Stage: This stage is used for components that validate the message format.
+ + Resolve Party Stage: This stage is a placeholder for the Party Resolution Pipeline Component.
+ 
 Regarding to the send pipelines, they consist of three stages:
-	 + Pre-assemble Stage: This stage is a placeholder for custom components that should perform some action on the message before the message is serialized.
-	 + Assemble Stage: Components in this stage are responsible for assembling or serializing the message and converting it to or from XML.
-	 + Encode Stage: This stage is used for components that encode or encrypt the message.
+
++ Pre-assemble Stage: This stage is a placeholder for custom components that should perform some action on the message before the message is serialized.
++ Assemble Stage: Components in this stage are responsible for assembling or serializing the message and converting it to or from XML.
++ Encode Stage: This stage is used for components that encode or encrypt the message.
 
 8. Is there any Visual Studio Wizard to create custom pipeline components?
 
@@ -758,11 +761,25 @@ Yes there is. The Pipeline Component Wizard is intended to ease development of p
 
 When you create a new application, the default pipelines are created and deployed by default and appear in the Microsoft.BizTalk.DefaultPipelines assembly in the References folder for every BizTalk project. The default pipelines cannot be modified in Pipeline Designer. These pipelines can be selected when configuring a send port or receive location in BizTalk Explorer.
 
-Pipelines and pipeline components present out of the box can do most of the tasks for you. But sometime specific message processing or messaging requirements encourage developers to develop custom pipeline components. You can create three types of pipeline components: general, assembling, and disassembling. Each of the three types can additionally implement probing functionality. Each type of pipeline component has an associated interface that must be implemented for the component to be plugged into the BizTalk Messaging Engine; the pipeline interfaces that distinguish the types of components are IComponent, IAssemblerComponent, and IDisassemblerComponent. A custom pipeline component is just a plain .NET class that implements several BizTalk interfaces.
+Pipelines and pipeline components present out of the box can do most of the tasks for you. But sometime specific message processing or messaging requirements encourage developers to develop custom pipeline components. 
+
+You can create three types of pipeline components: 
+
++ General (IComponent)
++ Assembling (IAssemblerComponent)
++ Disassembling (IDisassemblerComponent)
+
+Each of the three types can additionally implement probing functionality. 
+
+Each type of pipeline component has an associated interface that must be implemented for the component to be plugged into the BizTalk Messaging Engine.
+
+A custom pipeline component is just a plain .NET class that implements several BizTalk interfaces.
 
 10. Is there an error handling functionality to handle error on pipelines?
 
-Yes. Error-handling functionality called error reporting which enables handling pipeline errors. Error reporting isspecified on receive and send ports within the BizTalk Administration console.
+Yes. Error-handling functionality called **error reporting** which enables handling pipeline errors.
+
+Error reporting is specified on receive and send ports within the BizTalk Administration console.
 
 11. When is filter used to create a subscription?
 
@@ -770,7 +787,7 @@ Filters are used to create subscription when orchestrations are not part of the 
 
 12. Which property is required when using Flat file Disassembler component?
 
-Setting the Document Schema property is required, all other properties are optional.
+Setting the **Document Schema property** is required, all other properties are optional.
 
 13. What if Document Schema property is not specified when using Flat file Disassembler component?
 
@@ -778,7 +795,7 @@ A runtime schema discovery will be attempted, Biztalk Server attempts to determi
 
 14. Which API is used to implement Pipeline?
 
-To implement pipeline we have to use the API in the Microsoft. BizTalk. Component. Interop namespace.
+To implement pipeline we have to use the API in the `Microsoft.BizTalk.Component.Interop` namespace.
 
 15. What are types of pipeline components?
 
@@ -795,23 +812,109 @@ To indicate that the component is a custom pipeline component and in which stage
 OR
 [ComponentCategory(CategoryTypes.CATID_DisassemblingParser)] -- This attribute tells that the component can be used only on Disassemble stage
 
+---
+Name
+
+Description
+
+![System_CAPS_pubfield](https://i-msdn.sec.s-msft.com/dynimg/IC157541.jpeg "System_CAPS_pubfield")![System_CAPS_static](https://i-msdn.sec.s-msft.com/dynimg/IC64394.jpeg "System_CAPS_static")
+
+[CATID_Any](https://msdn.microsoft.com/en-us/library/microsoft.biztalk.component.interop.categorytypes.catid_any.aspx)
+
+Specifies a component with no specific category.
+
+![System_CAPS_pubfield](https://i-msdn.sec.s-msft.com/dynimg/IC157541.jpeg "System_CAPS_pubfield")![System_CAPS_static](https://i-msdn.sec.s-msft.com/dynimg/IC64394.jpeg "System_CAPS_static")
+
+[CATID_AssemblingSerializer](https://msdn.microsoft.com/en-us/library/microsoft.biztalk.component.interop.categorytypes.catid_assemblingserializer.aspx)
+
+The component is an assembling serializer.
+
+![System_CAPS_pubfield](https://i-msdn.sec.s-msft.com/dynimg/IC157541.jpeg "System_CAPS_pubfield")![System_CAPS_static](https://i-msdn.sec.s-msft.com/dynimg/IC64394.jpeg "System_CAPS_static")
+
+[CATID_Decoder](https://msdn.microsoft.com/en-us/library/microsoft.biztalk.component.interop.categorytypes.catid_decoder.aspx)
+
+The component is a decoder.
+
+![System_CAPS_pubfield](https://i-msdn.sec.s-msft.com/dynimg/IC157541.jpeg "System_CAPS_pubfield")![System_CAPS_static](https://i-msdn.sec.s-msft.com/dynimg/IC64394.jpeg "System_CAPS_static")
+
+[CATID_DisassemblingParser](https://msdn.microsoft.com/en-us/library/microsoft.biztalk.component.interop.categorytypes.catid_disassemblingparser.aspx)
+
+The component is a disassembling parser.
+
+![System_CAPS_pubfield](https://i-msdn.sec.s-msft.com/dynimg/IC157541.jpeg "System_CAPS_pubfield")![System_CAPS_static](https://i-msdn.sec.s-msft.com/dynimg/IC64394.jpeg "System_CAPS_static")
+
+[CATID_Encoder](https://msdn.microsoft.com/en-us/library/microsoft.biztalk.component.interop.categorytypes.catid_encoder.aspx)
+
+The component is an encoder.
+
+![System_CAPS_pubfield](https://i-msdn.sec.s-msft.com/dynimg/IC157541.jpeg "System_CAPS_pubfield")![System_CAPS_static](https://i-msdn.sec.s-msft.com/dynimg/IC64394.jpeg "System_CAPS_static")
+
+[CATID_Parser](https://msdn.microsoft.com/en-us/library/microsoft.biztalk.component.interop.categorytypes.catid_parser.aspx)
+
+The component is a parser.
+
+![System_CAPS_pubfield](https://i-msdn.sec.s-msft.com/dynimg/IC157541.jpeg "System_CAPS_pubfield")![System_CAPS_static](https://i-msdn.sec.s-msft.com/dynimg/IC64394.jpeg "System_CAPS_static")
+
+[CATID_PartyResolver](https://msdn.microsoft.com/en-us/library/microsoft.biztalk.component.interop.categorytypes.catid_partyresolver.aspx)
+
+The component is a party resolver.
+
+![System_CAPS_pubfield](https://i-msdn.sec.s-msft.com/dynimg/IC157541.jpeg "System_CAPS_pubfield")![System_CAPS_static](https://i-msdn.sec.s-msft.com/dynimg/IC64394.jpeg "System_CAPS_static")
+
+[CATID_PipelineComponent](https://msdn.microsoft.com/en-us/library/microsoft.biztalk.component.interop.categorytypes.catid_pipelinecomponent.aspx)
+
+The component is a pipeline.
+
+![System_CAPS_pubfield](https://i-msdn.sec.s-msft.com/dynimg/IC157541.jpeg "System_CAPS_pubfield")![System_CAPS_static](https://i-msdn.sec.s-msft.com/dynimg/IC64394.jpeg "System_CAPS_static")
+
+[CATID_Receiver](https://msdn.microsoft.com/en-us/library/microsoft.biztalk.component.interop.categorytypes.catid_receiver.aspx)
+
+The component is a receiver.
+
+![System_CAPS_pubfield](https://i-msdn.sec.s-msft.com/dynimg/IC157541.jpeg "System_CAPS_pubfield")![System_CAPS_static](https://i-msdn.sec.s-msft.com/dynimg/IC64394.jpeg "System_CAPS_static")
+
+[CATID_Serializer](https://msdn.microsoft.com/en-us/library/microsoft.biztalk.component.interop.categorytypes.catid_serializer.aspx)
+
+The component is a serializer.
+
+![System_CAPS_pubfield](https://i-msdn.sec.s-msft.com/dynimg/IC157541.jpeg "System_CAPS_pubfield")![System_CAPS_static](https://i-msdn.sec.s-msft.com/dynimg/IC64394.jpeg "System_CAPS_static")
+
+[CATID_Streamer](https://msdn.microsoft.com/en-us/library/microsoft.biztalk.component.interop.categorytypes.catid_streamer.aspx)
+
+The component is a streamer.
+
+![System_CAPS_pubfield](https://i-msdn.sec.s-msft.com/dynimg/IC157541.jpeg "System_CAPS_pubfield")![System_CAPS_static](https://i-msdn.sec.s-msft.com/dynimg/IC64394.jpeg "System_CAPS_static")
+
+[CATID_Transmitter](https://msdn.microsoft.com/en-us/library/microsoft.biztalk.component.interop.categorytypes.catid_transmitter.aspx)
+
+The component is a transmitter.
+
+![System_CAPS_pubfield](https://i-msdn.sec.s-msft.com/dynimg/IC157541.jpeg "System_CAPS_pubfield")![System_CAPS_static](https://i-msdn.sec.s-msft.com/dynimg/IC64394.jpeg "System_CAPS_static")
+
+[CATID_Validate](https://msdn.microsoft.com/en-us/library/microsoft.biztalk.component.interop.categorytypes.catid_validate.aspx)
+
+The component is a validator.
+---
+
 17. Custom Component is not visible in Toolbox, even after adding the assembly to GAC?
 
-Just adding assembly is not sufficient, it needs to be added to component dll at location : C:Program FilesMicrosoft BizTalk Server 2010PipelineComponents and then reset the toolbox, it will be visible and ready to use.
++ Just adding assembly is not sufficient
++ It needs to be added to component dll at location `C:\ProgramFiles\Microsoft BizTalk Server 2010\PipelineComponents\` 
++ Then reset the toolbox, it will be visible and ready to use.
 
-18. What interfaces are used in developing a general custom pipeline component?
+18. What interfaces are used in developing a **general custom pipeline** component?
 
 IBaseComponent,IComponentUI,IComponent,IPersistPropertyBag
 
-19. What interfaces are used in developing a custom dis-assembler component?
+19. What interfaces are used in developing a **custom disassembler** component?
 
 IBaseComponent,IComponentUI,IDisassemblerComponent,IPersistPropertyBag
 
-20. What interfaces are used in developing a custom assembler component?
+20. What interfaces are used in developing a **custom assembler** component?
 
 IBaseComponent,IComponentUI,IAssemblerComponent,IPersistPropertyBag
 
-21. What interfaces are used in developing a custom Probing component?
+21. What interfaces are used in developing a **custom Probing** component?
 
 IProbeMessage
 
@@ -819,19 +922,28 @@ IProbeMessage
 
 1. What purpose does Visual Studio serve?
 
-Development for BizTalk Server is done through Visual Studio (depends on BizTalk version). Visual Studio has templates for BizTalk artifacts like orchestration, pipelines, schemas and maps, so a BizTalk solution can be created (design time) and deployed to the BizTalk runtime. Besides artifacts .NET development can be done in creating pipeline components, custom functoids, custom adapters, and .NET helper classes to aid in orchestrations. As a BizTalk professional Visual Studio is your friend and required to build BizTalk solutions.
++ Development for BizTalk Server is done through Visual Studio (depends on BizTalk version). 
++ It has templates for BizTalk artifacts like orchestration, pipelines, schemas and maps, so a BizTalk solution can be created (design time) and deployed to the BizTalk runtime. 
++ Besides artifacts .NET development can be done in creating pipeline components, custom functoids, custom adapters, and .NET helper classes to aid in orchestrations. 
+
+As a BizTalk professional Visual Studio is your friend and required to build BizTalk solutions.
 
 2. What is strong name key?
 
-A strong name ensures that each assembly name is unique. Each assembly in your BizTalk project requires a strong name in order to deploy successfully. See also MSDN How to Configure a Strong Name Assembly Key File .
++ A strong name ensures that each assembly name is unique. 
++ Each assembly in your BizTalk project requires a strong name in order to deploy successfully.
 
 3. How is strong name key generated?
 
-At the command prompt, from the folder where you want to store the key file, type the following command, and then press ENTER: sn /k file_name .snk. In Visual Studio Solution Explorer, right-click the project and then clickProperties. Click the Signing tab and choose Browse in the Choose a strong name key file drop down box. See also MSDN How to Configure a Strong Name Assembly Key File.
++ At the command prompt, from the folder where you want to store the key file, type the following command, and then press ENTER:`sn /k file_name.snk`.
++ In Visual Studio Solution Explorer, right-click the project and then clickProperties. Click the Signing tab and choose Browse in the Choose a strong name key file drop down box. 
 
 4. Difference between Build and Rebuild?
 
-Build means compile and link only the source files that have changed since the last build, while Rebuild means compile and link all source files regardless of whether they changed or not. See also MSDN Building and Cleaning Projects and Solutions in Visual Studio .
++ Build means compile and link only the source files that have changed since the last build
++ Rebuild means compile and link all source files regardless of whether they changed or not. 
+
+See also MSDN Building and Cleaning Projects and Solutions in Visual Studio .
 
 5. What are the actions in order to deploy from Visual Studio?
 
@@ -848,15 +960,26 @@ That depends of the BizTalk Version/Visual Studio that you are using! In previou
 
 8. Are all the BizTalk development tools embedded in Visual Studio?
 
-No. Indeed BizTalk Mapper Editor, Schema Editor, Orchestration editor and Pipeline editor are embedded in Visual Studio. However BAM and BRE tool are not embedded.
++ No. 
++ Indeed 
+	+ BizTalk Mapper Editor, 
+	+ Schema Editor, 
+	+ Orchestration editor and
+	+ Pipeline editor are embedded in Visual Studio. 
+	
++ However 
+	+ BAM and
+	+ BRE tool are not embedded.
 
 9. Why we get the error "Unexpected error writing metadata to file "?
 
-It is a known issue of Visual Studio. Visual Studio will not successfully compile a project if it would result in an assembly larger than 75 megabytes (Mb).
++ It is a known issue of Visual Studio. 
++ Visual Studio will not successfully compile a project if it would result in an assembly larger than 75 megabytes (Mb).
 
 10. Where can we see assembly information in Visual Studio?
 
-AssemblyInfo.cs contains information about assembly, like name, description, version, etc. It can be located under Project-->Properties-->AssemblyInfo.cs
++ AssemblyInfo.cs contains information about assembly, like name, description, version, etc.
++ It can be located under Project-->Properties-->AssemblyInfo.cs
 
 11. What is Build Order and can it be changed?
 
@@ -864,15 +987,18 @@ Build Order is the sequence in which the projects will be build when the whole s
 
 12. What is option Clean used for?
 
-Clean Solution is used to delete any intermediate and output files (mostly assemblies). With only the project and component files left, new instances of the intermediate and output files (mostly assemblies) can then be built.
++ Clean Solution is used to delete any intermediate and output files (mostly assemblies). With only the project and component files left
++ New instances of the intermediate and output files (mostly assemblies) can then be built.
 
-13. What is a Business Rules Engine?
+13. What is a Business Rules Engine (BRE)?
 
-A run-time inference engine that can link highly readable, declarative, semantically rich rules to any business objects (.NET components), XML documents, or database tables. It can evaluate rules against facts and initiate actions based on the results of that evaluation.
++ A run-time inference engine that can link highly readable, declarative, semantically rich rules to any business objects (.NET components), XML documents, or database tables.
++ It can evaluate rules against facts and initiate actions based on the results of that evaluation.
 
 14. What is the tool that I need to use to create Business Rules?
 
-You need to use the Business Rules Composer. This is a graphical tool used for authoring, versioning, and deploying policies and vocabularies.
++ You need to use the Business Rules Composer. 
++ This is a graphical tool used for authoring, versioning, and deploying policies and vocabularies.
 
 15. What is a Business Rule Language?
 
@@ -880,36 +1006,53 @@ It is a rule markup language in XML format for declarative rule definitions.
 
 16. How can I execute a Business Rule in my orchestration?
 
-Using the Call Rules Shape. See more here .
++ Using the Call Rules Shape.
 
 17. What is used to create new vocabulary definition?
 
-The Vocabulary Definition Wizard is used to create vocabulary definitions.
++ The Vocabulary Definition Wizard is used to create vocabulary definitions.
 
 18. What is a Policy?
 
-A policy is a logical grouping of rules. You compose a version of a policy, save it, test it by applying it to the facts, and, when you are satisfied with the results, publish it and deploy it to a production environment. See more here .
++ A policy is a logical grouping of rules.
++ You compose a version of a policy, save it, test it by applying it to the facts
++ when you are satisfied with the results, publish it and deploy it to a production environment.
 
 19. Is it possible to change Business Rule policy after it was published?
 
-No. After policies are published it can't be edited. But if there is a need to have a change in policy then new version of policy is to be created.
++ No.
++ After policies are published it can't be edited.
++ But if there is a need to have a change in policy then new version of policy is to be created.
 
 20. Does rule composer have provision of adding ELSE logic?
 
-No, there is no provision of adding ELSE but else logic can implemented with extra IF.
++ No
++ There is no provision of adding ELSE but else logic can implemented with extra IF.
 
 21. What is Long term fact and Short Term fact?
 
-The fact is the user data to which rule conditions are applied. At design time a fact is a reference to that data.
-Facts have two categories – Short Term Facts and Long Term Facts. Consider a loaning process of any Bank. We can think a “loan application” as short term fact. Short team facts are business information which changes per occurrence. On the contrary, “interest rates” do not change very regularly. This business information is steady and we can consider it a long term fact.
++ The fact is the user data to which rule conditions are applied.
++ At design time a fact is a reference to that data.
++ Facts have two categories 
+	+ Short Term Facts and
+	+ Long Term Facts. 
+
++ E.g.: Consider a loaning process of any Bank. We can think a “loan application” as short term fact. 
++ Short team facts are business information which changes per occurrence.
+
++ On the contrary, “interest rates” do not change very regularly. 
++ This business information is steady and we can consider it a long term fact.
 
 22. What is the difference between Publishing and Deploying the Rule?
 
-Rule alone cannot be published or deployed, it has to be wrapped under Policy and then published and deployed. When a policy is deployed it is ready to use and can't be edited whereas when published, policy aren't ready for use.
++ Rule alone cannot be published or deployed
++ it has to be wrapped under Policy and then published and deployed. 
++ When a policy is deployed it is ready to use and can't be edited 
++ whereas when published, policy aren't ready for use.
 
 23. Can we call policies from .Net code?
 
-Yes. Firstly it needs to be declared (policy name which is to be called), passed in the fact instance and finally executed.
++ Yes. Firstly it needs to be declared (policy name which is to be called), passed in the fact instance and finally executed.
 
 24. Can we call a specific version of Policy using Call rule shape in Orchestration?
 
@@ -925,15 +1068,18 @@ This database is a repository for:
 
 No.
 
-27. What is Rete Algorithm, does it have any relation with BRE?
+27. What is **Rete Algorithm**, does it have any relation with BRE?
 
-Rete Algorithm is an efficient pattern matching algorithm for implementing production rule systems. BRE's inner working is based on the Rete algorithm.
++ Rete Algorithm is an **efficient pattern matching algorithm** for implementing production rule systems.
++ BRE's inner working is based on the Rete algorithm.
 
 28. How does it differ, calling the policy in Call Rules Shape and in Expression?
 
-The Call Rules shape in the Orchestration calls only the latest version of the policy. To call an older (specific) version from within an orchestration, the Business Rules Framework APIs is used, which can be called from within an expression.
++ The Call Rules shape in the Orchestration calls only the latest version of the policy.
++ To call an older (specific) version from within an orchestration, the Business Rules Framework APIs is used, which can be called from within an expression.
 
 29. How to test specific rules (not all) defined under one policy?
+ 
  To be answered
 
 30. What is XSLT?
@@ -942,15 +1088,22 @@ XSLT or Extensible Stylesheet Language Transformations is a style sheet language
 
 31. Where does XSLT come into picture in BizTalk?
 
-When a developer faces a complex mapping (problem) and to solve it requires a substantial amount of logic he/she can use custom XSLT. See TechNet Wiki article BizTalk Virtual Mapper VS Custom-XSLT.
+When a developer faces a complex mapping (problem) and to solve it requires a substantial amount of logic he/she can use custom XSLT. 
 
-32. What is Muenchian method?
+See TechNet Wiki article BizTalk Virtual Mapper VS Custom-XSLT.
 
-The Muenchian Method is an algorithm for grouping of data used in XSL Transformations that identifies keys in the results and then queries all nodes with that key. It can be applied with custom XSLT within a BizTalk Map. See MSDN Blog Muenchian Grouping and Sorting in BizTalk Maps .
+32. What is **Muenchian method**?
+
+The Muenchian Method is an **algorithm for grouping of data used in XSL Transformations** that identifies **keys** in the **results** and then queries all nodes with that key. It can be applied with custom XSLT within a BizTalk Map.
+
+See MSDN Blog Muenchian Grouping and Sorting in BizTalk Maps .
 
 33. Which version of XSLT is supported by the BizTalk mapper?
 
-BizTalk Mapper supports XSLT 1.0. Using XSLT 2.0 in BizTalk Mapper is not supported (See MSDN Creating Maps Using BizTalk Mapper ).
++ BizTalk Mapper supports XSLT 1.0. 
++ Using XSLT 2.0 in BizTalk Mapper is not supported 
+
+See MSDN Creating Maps Using BizTalk Mapper
 
 34. Can I use Custom XSLT inside a BizTalk mapper?
 
@@ -962,7 +1115,8 @@ Yes. To exclude xml declaration, the attribute "omit-xml-declaration" is to be s
 
 36. Can the filter be applied to the output from the xml file?
 
-Yes. It can be done by adding a criterion to the select attribute in the element.Filter operators which can be used are:
+Yes. It can be done by adding a criterion to the select attribute in the element.
+Filter operators which can be used are:
 	 + =(equal)
 	 + != (not equal)
 	 + greater than
@@ -977,13 +1131,16 @@ Yes, it can be done in script blocks which can be done using element.
 
 10. Is it possible to use method from a assembly available in GAC?
 
-It can be done using element and it has to be child of element.
+It can be done using element and it has to be child element.
 
 ## Helper Class
 
 1. What is a helper class?
 
-A .net helper class with the context of BizTalk is a class (library) that can support an orchestration with extra functionality. It can enhance an orchestration in tracing, error handling, caching, and serialization/deserialization. See TechNet Wiki article BizTalk Server 2010: .NET Helper Classes.
++ A .net helper class with the context of BizTalk is a class (library) that can support an orchestration with extra functionality.
++ It can enhance an orchestration in tracing, error handling, caching, and serialization/deserialization.
+
+See TechNet Wiki article BizTalk Server 2010: .NET Helper Classes.
 
 2. Where can the helper class be used?
 
