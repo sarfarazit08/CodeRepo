@@ -2627,18 +2627,32 @@ If we are using single send port in two different host instances then either two
 Sonata,
 23540
 ________________________________________
-When we are promote the fields as quick promote then they are stored in property schema,
-when we promote as distinguished fields then where the fields stored?
+#### When we are promote the fields as quick promote then they are stored in property schema, when we promote as distinguished fields then where the fields stored?
 
-Mind Tree,
-34293
-________________________________________
-Is there possible to make atomic transaction as two way communication ?
+A distinguished field is put in the annotation under the record in the schema where you added the distinguished field.
 
-Accenture,
-14191
-________________________________________
-How many ways to restart the host instance in biztalk?
+`
+<xs:annotation>
+  <xs:appinfo>
+    <b:properties>
+      <b:property distinguished="true" xpath="/*[local-name()='ContactNo' and namespace-uri()='']/*[local-name()='Contact_1' and namespace-uri()='']/*[local-name()='Contact-No' and namespace-uri()='']" /> 
+    </b:properties>
+  </xs:appinfo>
+</xs:annotation>
+`
+XPath aliases are basically what a distinguished field is, it is a friendly name you can use instead of having to know the XPath, see the example above where the I have distinguished a field called Contact-No.
+
+The distinguished field can be found in the Schema Editor, right click on the field you want to distinguish, select Promote, Show Promotions.
+
+![](https://i.stack.imgur.com/NYVtE.png)
+
+Then make sure you are on the Distinguished Fields tab (rather than Property Fields) and Add those fields you want to distinguish
+
+![](https://i.stack.imgur.com/yA1cl.png)
+
+#### Is there possible to make atomic transaction as two way communication ?
+
+#### How many ways to restart the host instance in biztalk?
 
 There are 4 ways to restart host instance:
 
@@ -2646,6 +2660,315 @@ There are 4 ways to restart host instance:
 + go to run cmd-->type services-->select our host instance's SSO and click on restart
 + go to Biztalk admin console and select host instance and right click -->restart
 + Go to cmd prompt and type the command for host instance > restart	
+
+## Architecture and Design
+
+#### In an Orchestration design, Orchestration "A" calls another Orchestration "B", and vice versa. Is it possible to implement this design?
+
++ It is NOT possible, since it forms a cyclic dependency.
+
+#### List out the three important things to consider while designing a BizTalk orchestration.
+
++ The Incoming data format
++ The Business process and
++ The Outgoing data format.
+
+### Enumerate the steps required to deploy an BizTalk solution from one machine to another machine.
+
+#### What is BizTalk?
+
++ The BizTalk Framework is a set of guidelines for driving the consistent adoption of XML to enable e-Commerce and application integration.
++ Message Type (i.e. BTS.MessageType) in BizTalk are data, and each message must be of a selected message type (identified by namespace#rootname).
+
+#### Distinguished field (Written Property) and Promoted Property
+
++ The two ways to programmatically access an attribute or element in BizTalk are Distinguished Field and Promoted Property
+
+#### What is direct binding?
+
++ Direct binding in Biztalk Server 2004 can be used to send messages from one Orchestration to another and can also be used to send messages directly into the message box.
+
+#### What is BAM?
+
++ Microsoft documentation describes BAM as “Business Activity Monitoring (BAM)
+
+#### What is the Rules Engine?
+
++ BizTalk Rules Engine provides a framework to enable the implementation, deployment, and versioning of your business logic in a quick and extensible manner.
+
+#### What are Persistence Points?
+
++ The process of saving your running orchestration state at certain point is called persistence.
+
+#### What is convoy and correlation sets?
+
++ A correlation set is a set of properties with specific values.
++ The correlation set can have a maximum of three properties used for correlation on the receive shapes.
++ A correlation type is a list of properties that eventually populates with values for use in routing messages.
++ A convoy exists any time that multiple single messages must be related to achieve the required result.
++ An orchestration instance might receive a group of correlated messages simultaneously, under certain conditions. 
+
+BizTalk Server detects the potential for this race condition and treats these messages as a convoy so as to ensure that all of the correlated messages are received by the same orchestration instance.
++ The runtime creates a general subscription and identifies it as part of a convoy at enlistment.
++ After filling this subscription, the messaging engine creates a temporary subscription based on the values in the predefined correlation properties called a convoy set.
++ Thus, a convoy set is a group of correlation sets that are used in a convoy. All messages that match the general subscription are evaluated against the convoy set, and those that match are routed to an existing port.
++ There are two main types of convoys: sequential and parallel.
+
+
+#### Message routing and Content routing
+
++ Message routing: is a method of passing through BizTalk without being processed.
++ Content routing: is a method of passing of the message which is based on certain field value of the schema.
+
+#### Document Schema and Property Schema
+
++ A property schema enables you to define promoted properties in a common location and have them referenced by other schemas.
+
+#### What are Un-typed and Typed messages?
+
++ When a message created in BizTalk Orchestration is bound to a schema, this is a typed message.
++ In un-typed messages, the message is bound to `System.Xml.XmlDocument` instead of a schema. Thus, an un-typed message is one whose message type is set to `XmlDocument` in an orchestration.
+
+
+#### BizTalk Server and Web Services 
+
++ BizTalk is a product while Web Services are a standard.
+
+#### BizTalk Server Messaging Services
+
++ A Message is the heart of the BizTalk Server. 
++ The messaging service in BizTalk allows provides communication within the Server as well as the outside it.
+
+#### BizTalk Orchestration
+
++ Business analysts and developers can dramatically simplify the integration and automation of business interactions inside and between companies using BizTalk Orchestration.
+
+#### BizTalk Orchestration XLANG Scheduler Engine 
+
++ XLANG schedule running instances: Instantiation, execution, dehydration (occurs when the XLANG Scheduler Engine has to wait for greater than three minutes to receive a message) 
++ re-hydration (occurs when the message arrives to the XLANG Scheduler Engine)
+
+#### Components of Biztalk Server architecture
+
++ Receive Port: listens for messages. 
++ Adapters: information interchange with external systems
+
+#### Business Activity Services (BAS) - Trading Partner Management 
+
++ Information workers Manage trading partner relationships within organizations.
+
+#### Static, dynamic and direct binding
+
++ Static Binding: A static port is already configured at the time of deployment to use a transport so as to deliver messages to a specific external end point.
+
+#### Transfer files without using Orchestration
+
++ Use content Base routing, you can create a filter on the send port that checks the receive location specified in the envelope.
+
+#### What is Atomic/Long Running transaction?
+
+| Atomic Transaction | Long Running Transaction |
+|-|-|
+|Atomic supports ACID properties - Enables a transaction to automatically role back to a previous state in case the transaction does not successfully complete.|Long Running supports only Consistency and Durability – No automatically role back|
+|Atomic supports calling of Non serializable dot net classes|Long running does not support non serializable dot net classes|
+|Atomic transaction does not support nesting of transactions.|It can contain scope with Transaction - none|Long running transaction supports nesting of transaction, it can contain both long running or atomic transaction.|
+|Atomic transaction scope can have only Compensation blocks.|Long running transaction can have both exception handling blocks as well as compensation blocks.|
+|Atomic transaction scopes are always synchronized. (i.e. Synchronized property is true)|In Long Running transaction scopes we need to set the synchronized property to true or false.|
+| short execution time|short to long execution time|Acquires data locks on Resource Managers (ex: SQL Server)|Does not acquire any data locks|
+|Managed via Transaction Manager (ex:Microsoft Distributed Transaction Coordinator - MSDTC)|No Transaction Manager Required|
+|Operations succeed (commit) or fail (rollback) as a unit|Operations succeed (commit) or fail (rollback) independently|
+
+#### What Is a BizTalk Application?
+
+A BizTalk application is a logical grouping of the items, called "artifacts," used in a BizTalk Server business solution. Artifacts include the following:
++ BizTalk assemblies and the BizTalk-specific resources that they contain – orchestrations, pipelines, schemas, and maps
++ .NET assemblies that do not contain BizTalk-specific resources
++ Policies
++ Send ports, send port groups & send port locations
++ Receive locations & receive ports
++ Other items that are used by the solution, such as certificates, COM components, and scripts
+
+#### What is the lifecycle of a Message in BizTalk server?
+
++ A message is received through a receive location defined in a given receive port. 
++ This message is processed by the pipeline associated with the receive location, and if there are any inbound maps associated with the receive port they are executed.
++ The resulting message is then published to the MessageBox database.
++ The MessageBox evaluates active subscriptions and routes the message to those orchestrations, and send ports with matching subscriptions.
++ Orchestrations may process the message and publish messages through the MessageBox to a send port where it is pushed out to its final destination.
+
+#### BizTalk support synchronous communication?
+
+BizTalk Server architecture is asynchronous for scalability reasons. However, the architecture of the BizTalk Messaging Engine enables exposing a synchronous message exchange pattern on top of these asynchronous exchanges. To do this, the engine handles the complex task of correlating the request and response messages across a scaled-out architecture by linking together a number of asynchronous message exchanges to expose a synchronous interface.
+
+#### Can an envelope schema consist of more than one schema type?
+
+Yes. XML envelopes serve two purposes within XML instance messages sent and received by Microsoft BizTalk Server:
++ XML envelopes can contain data that supplements the data within the XMLdocuments. This data can be promoted into the message context by the XML disassembler to provide easier access from a variety of BizTalk Server components. For outbound XML instance messages, the XML assembler can demote values from the message context into an envelope for inclusion in the instance message transmission.
++ XML envelopes can be used to combine multiple XML documents into a single, valid XML instance message. Without an envelope to wrap multiple documents within a single root tag, an XML instance message containing multiple documentswould not qualify as well-formed XML.
+
+#### What are the execution modes in a pipeline Stage?
+
++ A stage in a pipeline has an execution mode of either “All” or “First Match”, which controls the components that get executed if more than one component is added to a stage.
+	+ For stages with a mode of “All”, each component is called to process the message in the order in which they are configured in the stage.
+	+ For stages with a mode of “First Match”, each component is polled to indicate that it is the right component until a match is found, at which point the component that matches is executed, while the remaining components do not get executed.
+
+#### Which Interfaces do you need to implement in a disassembling custom pipeline component?
+
++ A disassembling pipeline component receives one message on input and produces zero or more messages on output. 
++ Disassembling components are used to split interchanges of messages into individual documents. 
++ Disassembler components must implement the following interfaces:
+	+ IBaseComponent.
+	+ IDisassemblerComponent.
+	+ IComponentUI.
+	+ IPersistPropertyBag.
+
+#### What is a link in a Map?
+
++ A link specifies the basic function of copying data from an element or attribute in an input instance message to an element or attribute in an output instance.
++ You create links between records and fields in the source and destination schemas at design time. This drives the creation, at run time, of an output instance message conforming to the destination schema from an input instance message conforming to the source schema.
+
+#### How to route binary data?
+
++ To route binary data you can use pass-through pipelines on the receive location and send port. 
++ BizTalk will route (copy) the data from the source (receive location) to the destination (send port). 
++ If you want to route the binary data based on some information in the binary data then you write a custom Disassembler to promote the properties you need from the incoming message to route the binary data.
+
+#### Why did we build BizTalk36O — Throttling Analyzer?
+
+Throttling is difficult to understand
++ BizTalk Server only provides raw performance counter data and no visual tools
++ Traditional performance monitoring tools (ex: perfmon) not suited for monitoring throttling
++ Companies don’t monitor the throttling conditions in real time.
+
+### BizTalk36O Features
+
+BizTalk360 tool makes the BizTalk environment simple, secure, effective and more manageable. 
+
+**Features**
++ Graphical message flow
++ Knowledge Base
++ Advanced Event viewer
++ Throttling Analyzer
++ Backup DR (Disaster Recovery DB)
+
+#### The benefits of strong naming your assembly
+
+Strong naming your assembly allows you to include your assembly into the Global Assembly Cache (GAC). Thus it allows you to share it among multiple applications.
+
+Strong naming guarantees a unique name for that assembly. Thus no one else can use the same assembly name.
+
+Strong name protect the version lineage of an assembly. A strong name can ensure that no one is able to produce a subsequent version of your assembly. Application users are ensured that a version of the assembly they are loading come from the same publisher that created the version the application was built with.
+
+Strong named assemblies are signed with a digital signature. This protects the assembly from modification. Any tampering causes the verification process that occurs at assembly load time to fail. An exception is generated and the assembly is not loaded.
+
+#### What is Biztalk Server? Since when are you working on BizTalk?
+
+#### What versions of Biztalk Server have you worked on?
+
+#### What is the difference between 2004, 2006 and 2006R2?
+
+#### Did you get chance to work on BizTalk 2009 version? If yes what difference you saw in it from R2 and what enhancements Microsoft has made in it?
+
+#### Tell me about BizTalk Server architecture?
+
+#### Tell me about any engagement which you rate top most while working as BizTalk developer and why?
+
+#### Most Imp: Tell about a project which was most challenging to you and how you overcame it?
+
+#### What do you hate about BizTalk Solution development and which you would like to improve in upcoming versions?
+
+#### How you do testing with your BizTalk Solutions and what tools or methods you use?
+
+#### How do you debug any errors occurring in BizTalk Solution?
+
+#### How do you debug an assembly used in Orchestration?
+
+#### Which way you find most efficient debugging Biztalk Solutions and why?
+
+#### Were you involved in designing BizTalk Solutions? If yes than what kinds of architecture you have designed?
+
+#### What design patterns you follow for designing solutions with BizTalk in it?
+
+#### What do you know about Itinerary based routing architecture?
+
+#### Did you ever got chance to work on ESB's? If yes, tell me more about it?
+
+#### Tell about BizTalk Solution development lifecycle?
+
+#### What kinds of Integrations you have done with BizTalk Server?
+
+#### What challenges you faced while designing and developing a Biztalk solution which involved multiple non MS platform technologies? How did you overcome them?
+
+#### What different kinds of Adapters you have worked on?
+
+#### Have you worked on SAP Adapters? Why did you opt using SAP adpaters instead of communicating with Web Services?
+
+#### Have you worked on Salesforce.com integration in any of your engagements? If than tell me more about it.
+
+#### What challenges you faced while working with Salesforce.com?
+
+#### Have you worked on EDI documents? What kind of EDI documents have you worked on?
+
+#### What different types of industries you have worked on? Which one you found most challenging and why?
+
+#### Were you involved in developing Custom components for BizTalk Solutions? If yes than what were those?
+
+#### Have you developed and used any Custom Pipeline Components? how did you develop them and later used in BizTalk Solution? What challenges you faced using custom pipeline components?
+
+#### What kind of environments you have worked on?
+
+#### Have you worked on environments containing multiple BizTalk box installed? If yes than what different kinds of configurations were there?
+
+#### Were you involved in administrating Biztalk solutions?
+
+#### Tell me how you deploy your BizTalk solutions? Do you use any tools or API's for deployment?
+
+#### How do you deploy your solution on multiple BizTalk boxes easily and efficiently? What issues have you faced doing that?
+
+#### Have you worked with Business Rules Engine? Tell me about the BRE architecture?
+
+#### How does a rule gets actually fired or processed in an orchestration?
+
+#### Have you worked with Business Rules apart from using them in Orchestrations?
+
+#### What are the different ways you can call a Business Rule in Orchestration? Which way you find most efficient and why?
+
+#### Have you worked with BAM? What is BAM and why did you use in your particular project?
+
+#### How did you develop a Biztalk solution with BAM in it?
+
+#### What deployment steps you apply to deploy BAM?
+
+#### Which are different BAM Databases? Have you manually deleted any BAM data? If yes than how?
+
+#### What is the easiest way to develop a schema from an given XML message?
+
+#### Have you worked on a architecture having WCF Services? If yes than tell me more about that architecture?
+
+#### How would you rate using Web Services over WCF Services in BizTalk solution? Why?
+
+#### Have you ever exposed you BizTalk Solution as a Service - How?
+
+#### Have you ever felt that using BizTalk at a place was not a good option?
+
+#### What types of different capabilities of BizTalk Server you have worked on?
+
+#### What do you know about transactions in BizTalk Solutions?
+
+#### When do you use them and when not?
+
+#### How do you handle your exceptions occurring in BizTalk Solutions?
+
+#### Do you follow any particular standard to handle exceptions?
+
+#### What are the most important things to keep in mind while designing BizTalk Solution Architecture?
+
+#### What size of architectures you have worked on and how many multiple Enterprise Systems were involved in it?
+
+#### How much time it took for you to design and develop it?
+
+#### What was the team structure for that engagement?
+
 
 ### Why messages are immutable inside Biztalk?
 ### You have two schemas that need to be represented with the same root node and same namespace or different namespace, is it possible?
@@ -2883,315 +3206,3 @@ Refer to HOW To Compensate a Transaction in a BizTalk Orchestration
 15. What is the main difference between a Long-Running transaction and an Atomic Transaction in BizTalk context?
 
 Refer to HOW To Compensate a Transaction in a BizTalk Orchestration
-Architecture and Design
-1. In an Orchestration design, Orchestration "A" calls another Orchestration "B", and vice versa. Is it possible to implement this design?
-
-It is NOT possible, since it forms a cyclic dependency.
-2. List out the three important things to consider while designing a BizTalk orchestration!
-The Incoming data format, The Business process and The Outgoing data format.
-3. Enumerate the steps required to deploy an BizTalk solution from one machine to another machine.
-Refer to Using the MSI installer wizard for deploying applications created in BizTalk Server 2006
-What is BizTalk?
-
-+ Biztalk
-What is BizTalk?
-
-+ The BizTalk Framework is a set of guidelines for driving the consistent adoption of XML to enable e-Commerce and application integration.
-Message Type (i.e. BTS.MessageType)
-+ Biztalk
-Biztalk
-+ Message Type (i.e. BTS.MessageType)
-+ Messages in BizTalk are data, and each message must be of a selected message type.
-Distinguished field and Promoted Property
-+ Biztalk
-Distinguished field and Promoted Property
-+ The two ways to programmatically access an attribute or element in BizTalk are Distinguished Field and Promoted Property
-What is direct binding?
-
-+ Biztalk
-What is direct binding?
-
-+ Direct binding in Biztalk Server 2004 can be used to send messages from one Orchestration to another and can also be used to send messages directly into the message box.
-What is BAM?
-
-+ Biztalk
-What is BAM?
-
-+ Microsoft documentation describes BAM as “Business Activity Monitoring (BAM)
-What is the Rules Engine?
-
-+ Biztalk
-What is the Rules Engine?
-
-+ BizTalk Rules Engine provides a framework to enable the implementation, deployment, and versioning of your business logic in a quick and extensible manner.
-What are Persistence Points?
-
-+ Biztalk
-What are Persistence Points?
-
-+ The process of saving your running orchestration state at certain point is called persistence.
-What is convoy and correlation sets?
-
-+ Biztalk
-
-#### What is convoy and correlation sets?
-
-+ A correlation set is a set of properties with specific values.
-+ The correlation set can have a maximum of three properties used for correlation on the receive shapes.
-+ A correlation type is a list of properties that eventually populates with values for use in routing messages.
-+ A convoy exists any time that multiple single messages must be related to achieve the required result.
-+ An orchestration instance might receive a group of correlated messages simultaneously, under certain conditions. BizTalk Server detects the potential for this race condition and treats these messages as a convoy so as to ensure that all of the correlated messages are received by the same orchestration instance.
-+ The runtime creates a general subscription and identifies it as part of a convoy at enlistment.
-+ After filling this subscription, the messaging engine creates a temporary subscription based on the values in the predefined correlation properties called a convoy set.
-+ Thus, a convoy set is a group of correlation sets that are used in a convoy. All messages that match the general subscription are evaluated against the convoy set, and those that match are routed to an existing port.
-+ There are two main types of convoys: sequential and parallel.
-
-#### What is convoy and correlation sets?
-
-BizTalk server detects the potential for certain race conditions, which are ensured that all correlated messages are received by the same orchestration instance. The potentiality of these race conditions is detected by BizTalk server. These messages are treated as a ‘convoy’. A convoy set is a group of correlation sets. All such subsequent messages which match the general subscription are evaluated against the convoy set, and the matched convoys are routed to an existing port.
-
-+ A correlation set is a set of properties with specific values. 
-+ The correlation set can have a maximum of three properties used for correlation on the receive shapes.
-
-#### Message routing and Content routing
-
-+ Message routing: is a method of passing through BizTalk without being processed.
-+ Content routing: is a method of passing of the message which is based on certain field value of the schema.
-
-#### Document Schema and Property Schema
-
-+ A property schema enables you to define promoted properties in a common location and have them referenced by other schemas.
-
-#### What are Un-typed and Typed messages?
-
-+ When a message created in BizTalk Orchestration is bound to a schema, this is a typed message.
-+ In un-typed messages, the message is bound to `System.Xml.XmlDocument` instead of a schema. Thus, an un-typed message is one whose message type is set to `XmlDocument` in an orchestration.
-
-
-#### BizTalk Server and Web Services 
-
-+ BizTalk is a product while Web Services are a standard.
-
-#### BizTalk Server Messaging Services
-
-+ A Message is the heart of the BizTalk Server. 
-+ The messaging service in BizTalk allows provides communication within the Server as well as the outside it.
-
-#### BizTalk Orchestration
-
-+ Business analysts and developers can dramatically simplify the integration and automation of business interactions inside and between companies using BizTalk Orchestration.
-
-#### BizTalk Orchestration XLANG Scheduler Engine 
-
-+ XLANG schedule running instances: Instantiation, execution, dehydration (occurs when the XLANG Scheduler Engine has to wait for greater than three minutes to receive a message) 
-+ re-hydration (occurs when the message arrives to the XLANG Scheduler Engine)
-
-#### Components of Biztalk Server architecture
-
-+ Receive Port: listens for messages. 
-+ Adapters: information interchange with external systems
-
-#### Business Activity Services (BAS) - Trading Partner Management 
-
-+ Information workers Manage trading partner relationships within organizations.
-
-#### Static, dynamic and direct binding
-
-+ Static Binding: A static port is already configured at the time of deployment to use a transport so as to deliver messages to a specific external end point.
-
-#### Transfer files without using Orchestration
-
-+ Use content Base routing, you can create a filter on the send port that checks the receive location specified in the envelope.
-
-#### What is Biztalk Server? Since when are you working on BizTalk?
-
-#### What versions of Biztalk Server have you worked on?
-
-#### What is the difference between 2004, 2006 and 2006R2?
-
-#### Did you get chance to work on BizTalk 2009 version? If yes what difference you saw in it from R2 and what enhancements Microsoft has made in it?
-
-#### Tell me about BizTalk Server architecture?
-
-#### Tell me about any engagement which you rate top most while working as BizTalk developer and why?
-
-#### Most Imp: Tell about a project which was most challenging to you and how you overcame it?
-
-#### What do you hate about BizTalk Solution development and which you would like to improve in upcoming versions?
-
-#### How you do testing with your BizTalk Solutions and what tools or methods you use?
-
-#### How do you debug any errors occurring in BizTalk Solution?
-
-#### How do you debug an assembly used in Orchestration?
-
-#### Which way you find most efficient debugging Biztalk Solutions and why?
-
-#### Were you involved in designing BizTalk Solutions? If yes than what kinds of architecture you have designed?
-
-#### What design patterns you follow for designing solutions with BizTalk in it?
-
-#### What do you know about Itinerary based routing architecture?
-
-#### Did you ever got chance to work on ESB's? If yes, tell me more about it?
-
-#### Tell about BizTalk Solution development lifecycle?
-
-#### What kinds of Integrations you have done with BizTalk Server?
-
-#### What challenges you faced while designing and developing a Biztalk solution which involved multiple non MS platform technologies? How did you overcome them?
-
-#### What different kinds of Adapters you have worked on?
-
-#### Have you worked on SAP Adapters? Why did you opt using SAP adpaters instead of communicating with Web Services?
-
-#### Have you worked on Salesforce.com integration in any of your engagements? If than tell me more about it.
-
-#### What challenges you faced while working with Salesforce.com?
-
-#### Have you worked on EDI documents? What kind of EDI documents have you worked on?
-
-#### What different types of industries you have worked on? Which one you found most challenging and why?
-
-#### Were you involved in developing Custom components for BizTalk Solutions? If yes than what were those?
-
-#### Have you developed and used any Custom Pipeline Components? how did you develop them and later used in BizTalk Solution? What challenges you faced using custom pipeline components?
-
-#### What kind of environments you have worked on?
-
-#### Have you worked on environments containing multiple BizTalk box installed? If yes than what different kinds of configurations were there?
-
-#### Were you involved in administrating Biztalk solutions?
-
-#### Tell me how you deploy your BizTalk solutions? Do you use any tools or API's for deployment?
-
-#### How do you deploy your solution on multiple BizTalk boxes easily and efficiently? What issues have you faced doing that?
-
-#### Have you worked with Business Rules Engine? Tell me about the BRE architecture?
-
-#### How does a rule gets actually fired or processed in an orchestration?
-
-#### Have you worked with Business Rules apart from using them in Orchestrations?
-
-#### What are the different ways you can call a Business Rule in Orchestration? Which way you find most efficient and why?
-
-#### Have you worked with BAM? What is BAM and why did you use in your particular project?
-
-#### How did you develop a Biztalk solution with BAM in it?
-
-#### What deployment steps you apply to deploy BAM?
-
-#### Which are different BAM Databases? Have you manually deleted any BAM data? If yes than how?
-
-#### What is the easiest way to develop a schema from an given XML message?
-
-#### Have you worked on a architecture having WCF Services? If yes than tell me more about that architecture?
-
-#### How would you rate using Web Services over WCF Services in BizTalk solution? Why?
-
-#### Have you ever exposed you BizTalk Solution as a Service - How?
-
-#### Have you ever felt that using BizTalk at a place was not a good option?
-
-#### What types of different capabilities of BizTalk Server you have worked on?
-
-#### What do you know about transactions in BizTalk Solutions?
-
-#### What is Atomic/Long Running transaction?
-
-#### When do you use them and when not?
-
-#### How do you handle your exceptions occurring in BizTalk Solutions?
-
-#### Do you follow any particular standard to handle exceptions?
-
-#### What are the most important things to keep in mind while designing BizTalk Solution Architecture?
-
-#### What size of architectures you have worked on and how many multiple Enterprise Systems were involved in it?
-
-#### How much time it took for you to design and develop it?
-
-#### What was the team structure for that engagement?
-
-#### What Is a BizTalk Application?
-
-A BizTalk application is a logical grouping of the items, called "artifacts," used in a BizTalk Server business solution. Artifacts include the following:
-+ BizTalk assemblies and the BizTalk-specific resources that they contain – orchestrations, pipelines, schemas, and maps
-+ .NET assemblies that do not contain BizTalk-specific resources
-+ Policies
-+ Send ports, send port groups & send port locations
-+ Receive locations & receive ports
-+ Other items that are used by the solution, such as certificates, COM components, and scripts
-
-#### What is the lifecycle of a Message in BizTalk server?
-
-+ A message is received through a receive location defined in a given receive port. 
-+ This message is processed by the pipeline associated with the receive location, and if there are any inbound maps associated with the receive port they are executed.
-+ The resulting message is then published to the MessageBox database.
-+ The MessageBox evaluates active subscriptions and routes the message to those orchestrations, and send ports with matching subscriptions.
-+ Orchestrations may process the message and publish messages through the MessageBox to a send port where it is pushed out to its final destination.
-
-#### BizTalk support synchronous communication?
-
-BizTalk Server architecture is asynchronous for scalability reasons. However, the architecture of the BizTalk Messaging Engine enables exposing a synchronous message exchange pattern on top of these asynchronous exchanges. To do this, the engine handles the complex task of correlating the request and response messages across a scaled-out architecture by linking together a number of asynchronous message exchanges to expose a synchronous interface.
-
-#### Can an envelope schema consist of more than one schema type?
-
-Yes. XML envelopes serve two purposes within XML instance messages sent and received by Microsoft BizTalk Server:
-+ XML envelopes can contain data that supplements the data within the XMLdocuments. This data can be promoted into the message context by the XML disassembler to provide easier access from a variety of BizTalk Server components. For outbound XML instance messages, the XML assembler can demote values from the message context into an envelope for inclusion in the instance message transmission.
-+ XML envelopes can be used to combine multiple XML documents into a single, valid XML instance message. Without an envelope to wrap multiple documents within a single root tag, an XML instance message containing multiple documentswould not qualify as well-formed XML.
-
-#### What are the execution modes in a pipeline Stage?
-
-+ A stage in a pipeline has an execution mode of either “All” or “First Match”, which controls the components that get executed if more than one component is added to a stage.
-	+ For stages with a mode of “All”, each component is called to process the message in the order in which they are configured in the stage.
-	+ For stages with a mode of “First Match”, each component is polled to indicate that it is the right component until a match is found, at which point the component that matches is executed, while the remaining components do not get executed.
-
-#### Which Interfaces do you need to implement in a disassembling custom pipeline component?
-
-+ A disassembling pipeline component receives one message on input and produces zero or more messages on output. 
-+ Disassembling components are used to split interchanges of messages into individual documents. 
-+ Disassembler components must implement the following interfaces:
-	+ IBaseComponent.
-	+ IDisassemblerComponent.
-	+ IComponentUI.
-	+ IPersistPropertyBag.
-
-#### What is a link in a Map?
-
-+ A link specifies the basic function of copying data from an element or attribute in an input instance message to an element or attribute in an output instance.
-+ You create links between records and fields in the source and destination schemas at design time. This drives the creation, at run time, of an output instance message conforming to the destination schema from an input instance message conforming to the source schema.
-
-#### How to route binary data?
-
-+ To route binary data you can use pass-through pipelines on the receive location and send port. 
-+ BizTalk will route (copy) the data from the source (receive location) to the destination (send port). 
-+ If you want to route the binary data based on some information in the binary data then you write a custom Disassembler to promote the properties you need from the incoming message to route the binary data.
-
-#### Why did we build BizTalk36O — Throttling Analyzer?
-
-Throttling is difficult to understand
-+ BizTalk Server only provides raw performance counter data and no visual tools
-+ Traditional performance monitoring tools (ex: perfmon) not suited for monitoring throttling
-+ Companies don’t monitor the throttling conditions in real time.
-
-### BizTalk36O Features
-
-BizTalk360 tool makes the BizTalk environment simple, secure, effective and more manageable. 
-
-**Features**
-+ Graphical message flow
-+ Knowledge Base
-+ Advanced Event viewer
-+ Throttling Analyzer
-+ Backup DR (Disaster Recovery DB)
-
-#### The benefits of strong naming your assembly
-
-Strong naming your assembly allows you to include your assembly into the Global Assembly Cache (GAC). Thus it allows you to share it among multiple applications.
-
-Strong naming guarantees a unique name for that assembly. Thus no one else can use the same assembly name.
-
-Strong name protect the version lineage of an assembly. A strong name can ensure that no one is able to produce a subsequent version of your assembly. Application users are ensured that a version of the assembly they are loading come from the same publisher that created the version the application was built with.
-
-Strong named assemblies are signed with a digital signature. This protects the assembly from modification. Any tampering causes the verification process that occurs at assembly load time to fail. An exception is generated and the assembly is not loaded.
