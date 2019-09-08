@@ -1,0 +1,19 @@
+version: '2'
+
+services: 
+
+  mysql:
+    image: mysql:latest
+    environment: 
+      MYSQL_ROOT_PASSWORD : Y)@2fm!1
+      
+  wordpress:
+    image: wordpress
+    ports: 
+      - 8080:80
+    environment: 
+      WORDPRESS_DB_PASSWORD : Y)@2fm!1
+
+
+
+    
