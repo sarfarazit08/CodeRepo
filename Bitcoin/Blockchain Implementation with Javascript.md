@@ -28,21 +28,35 @@ Almost everybody now has heard about cryptocurrencies like Bitcoin and Ethereum,
 + Bitcoin NodeJS
 + Bitcoin Part 4- Create a Brain Wallet
 
-## What you’ll learn
+### What you’ll learn
 
 + Learn a deep insight to blockchain and how it works
 + Learn NodeJS and Solidity and Solidity Data Types
 + Create Blockchain with JS and Analyse Output of Blockchain in JS
 + Master Blockchain using JavaScript
 
-## Are there any course requirements or prerequisites?
+### Are there any course requirements or prerequisites?
 
 + No prior knowledge of Cryptocurrency required.
 + Basic knowledge of Javascript
 
-## Who this course is for:
+### Who this course is for:
 
 + Anyone who wants to learn about Blockchain
 + Blockchain Developers
 + Software Engineers
 + JS developers
+
+## Course Content:
+
++ Section 1: Introduction
++ Section 2: Understanding Blockchain
+  + Basics of Blockchain
+  + Fundamentals of Blockchain
+  + Emergence of Bitcoin
+  + Business Network Model
++ Section 3: Tracking Ownership without Blockchain
++ Section 4: Transaction with Blockchain
++ Section 5: Decentralized Applications
++ Section 6: Coding-HTML Page
++ Section 7: Impact of Blockchain
