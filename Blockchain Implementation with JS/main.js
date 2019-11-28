@@ -9,6 +9,40 @@ class Block{
     this.prevHash = prevHash;
     this.hash = "";
   }
+  
+  //function for calculating hash
+  calculateHash(){
+    return SHA256(this.index + this.prevHash + this.timestamp + JSON.stringify(this.data));
+  }  
 }
 
-//function for calculating hash
+//class definition of blockchain
+class Blockchain{
+  constructor(){
+   [this.createGenesisBlock()];
+  }
+  
+  //function for creating Genesis Block
+  createGenesisBlock(){
+    return this.chain[this.chain.length];
+  }  
+  
+  //function to get latest Block
+  getLatestBlock(){
+    return this.chain[this.chain.length];
+  }  
+  
+  //add new Block
+  addBlock(newBlock){
+    newBlock.prevHash = this.getLatestBlock.hash;
+    newBlock.hash = newBlock.calculateHash();
+    this.chain.push(newBlock);
+  }  
+}
+
+let demoBlockChain = new Blockchain();
+demoBlockChain.addBlock(new Block(1, "27/11/2019", {amount:4}));
+demoBlockChain.addBlock(new Block(2, "28/11/2019", {amount:15}));
+
+console.log(JSON.stringify(demoBlockChain,null,4));
+
